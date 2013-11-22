@@ -7,18 +7,22 @@
 			
 		<?php if (have_posts()) : ?>
 			
-			<section id="photos">
-				<div id="content" role="main">
-					<?php while (have_posts()) : the_post(); ?>
+			<div id="photos">
+				<!--<div id="content" role="main">
+					<?php //while (have_posts()) : the_post(); ?>
 					
-						<?php if (has_post_thumbnail()==1):  $i++; ?>
-							<?php get_template_part( 'includes/loop' , 'index'); ?>
-						<?php endif; ?>		
+						<?php //if (has_post_thumbnail()==1):  $i++; ?>-->
 						
-					<?php endwhile; ?>
-				</div>
-			</section>
+							<?php get_template_part( 'includes/loop' , 'index'); ?>
+						
+						<!--<?php //endif; ?>		
+						
+					<?php //endwhile; ?>
+				</div>-->
+			</div>
 			
+			<div id="piu">
+			</div>
 			<?php get_template_part( 'includes/pagination'); ?>
 					
 		<?php else : ?>
@@ -29,7 +33,7 @@
 	
 	</div>
 	<!-- /#content -->
-
+<!--
 <?php get_sidebar(); ?>
-
+-->
 <?php get_footer(); ?>
