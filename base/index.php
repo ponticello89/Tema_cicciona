@@ -8,15 +8,15 @@
 		<?php if (have_posts()) : ?>
 			
 			<section id="photos">
-			
-				<?php while (have_posts()) : the_post(); ?>
-				
-					<?php if (has_post_thumbnail()==1):  $i++; ?>
-						<?php get_template_part( 'includes/loop' , 'index'); ?>
-					<?php endif; ?>		
+				<div id="content" role="main">
+					<?php while (have_posts()) : the_post(); ?>
 					
-				<?php endwhile; ?>
-			
+						<?php if (has_post_thumbnail()==1):  $i++; ?>
+							<?php get_template_part( 'includes/loop' , 'index'); ?>
+						<?php endif; ?>		
+						
+					<?php endwhile; ?>
+				</div>
 			</section>
 			
 			<?php get_template_part( 'includes/pagination'); ?>

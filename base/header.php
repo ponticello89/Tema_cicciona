@@ -40,6 +40,51 @@
 	if ( is_singular() && get_option( 'thread_comments' ) )	wp_enqueue_script( 'comment-reply' ); 
 ?>
 
+<!-- start infinite scroll function  -->
+<?php if (!is_single() || !is_page()): ?>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        var count = 2;
+        var total = <?php echo $wp_query->max_num_pages; ?>;
+		//var total = 3;
+        $(window).scroll(function(){
+			
+                if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+					alert("count"+count+"total"+total); 
+                   if (count > total){
+                   	  	return false;
+                   }else{
+                   		loadArticle(count);
+                   }
+                   count++;
+                }
+        }); 
+
+        function loadArticle(pageNumber){    
+                $('a#inifiniteLoader').show('fast');
+				alert("loadArticle"); 
+                $.ajax({
+                    url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
+                    type:'POST',
+                    data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=loop', 
+                    success: function(html){
+						alert("success"); 
+                        $('a#inifiniteLoader').hide('1000');
+                        $("#content").append(html);    // This will be the div where our content will be loaded
+                    },
+					error: function(html) { 
+						alert("Error"); 
+					} 
+                });
+            return false;
+        }
+
+    });
+
+</script>
+<?php endif; ?>	
+<!-- end infinite scroll pagination -->
+
 </head>
 
 <body <?php body_class($class); ?>>
