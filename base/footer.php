@@ -25,5 +25,9 @@
 
 <a id="inifiniteLoader">Loading... <img src="<?php bloginfo('template_directory'); ?>/images/ajax-loader.gif"></a>
 
+<script type="text/javascript">
+//reSizeDivImage();
+</script>
+
 </body>
 </html>

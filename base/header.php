@@ -12,10 +12,10 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/media-queries.css">
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style_grid.css">
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/demo.css">
 
 <!--
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style_common.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/demo.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/reset.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style2.css">
 -->
@@ -46,6 +46,7 @@
     jQuery(document).ready(function($) {
         var count = 2;
         var total = <?php echo $wp_query->max_num_pages; ?>;
+		
         $(window).scroll(function(){
                 if  ($(window).scrollTop() == $(document).height() - $(window).height()){
                    if (count > total){
@@ -57,22 +58,70 @@
                 }
         }); 
 
-        function loadArticle(pageNumber){    
-                $('a#inifiniteLoader').show('fast');
-                $.ajax({
-                    url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
-                    type:'POST',
-                    data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop', 
-                    success: function(html){                        
-						$('a#inifiniteLoader').hide('1000');
-                        $("#photos").append(html);    // This will be the div where our content will be loaded						
-                    }
-                });
+        function loadArticle(pageNumber){
+			//Debug
+			//alert('loadArticle('+pageNumber+')');
+			
+			$('a#inifiniteLoader').show('fast');
+			$.ajax({
+				url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
+				type:'POST',
+				data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop', 
+				success: function(html){           						
+					$('a#inifiniteLoader').hide('1000');
+					$("#photosx").append(html);    // This will be the div where our content will be loaded						
+				}
+			});
             return false;
         }
-
+		
+		//Paginazione 1 chiamata durante il caricamento della pagina
+		$(document).ready(
+			function () {
+				loadArticle(1);				
+			}
+		);
     });
-
+	
+	var divNumber = 1;
+	var totaleImg = 0;
+	function loadPhotoOnDiv(html){
+		//Debug
+		//alert('loadPhotoOnDiv(html) totaleImg = '+totaleImg+' size = '+width+'x'+height);
+	
+		//Appende HTML immagine nelle colonne 
+		$("#colonna"+divNumber).append(html);
+						
+		totaleImg++;
+		
+		//Calcola collocamento nelle colonne
+		if(divNumber==4){
+			divNumber=0;
+		}
+		divNumber++;
+	}
+	
+	//Calcola la grandezza de div che contiene l'immagine e della maschera in base all'immagine
+	function reSizeDivImage(){
+		//Debug
+		//alert('reSizeDivImage totaleImg = '+totaleImg);
+			
+		for(i=0; i<totaleImg; i++){
+			//Calcolo dei div in base all'immagine			
+			var widthImage = document.getElementById('imgW'+i).value;			
+			var heightImage = document.getElementById('imgH'+i).value;			
+			var widthImageCella = $("#imageCella"+i).width();
+			
+			var parametro = widthImage/widthImageCella;
+			var heightImageCella = heightImage/parametro;
+			
+			$("#imageCella"+i).height(heightImageCella);
+			$("#mask"+i).height(heightImageCella*2);
+			$("#mask"+i).width(widthImageCella*2);
+			
+		}		
+	}
+	
 </script>
 <?php endif; ?>	
 <!-- end infinite scroll pagination -->

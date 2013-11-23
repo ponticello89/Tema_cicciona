@@ -8,49 +8,223 @@
 #pagewrap{
 	background-color:grey;
 }
-#photos {
-   /* Prevent vertical gaps */
-   line-height: 0;
-   width:97%;
-   margin-left:auto;
-   margin-right:auto;
-   -webkit-column-count: 4;
-   -webkit-column-gap:   4px;
-   -moz-column-count:    4;
-   -moz-column-gap:      4px;
-   column-count:         4;
-   column-gap:           0px;
-}
-#photos img {
-  /* Just in case there are inline attributes */
-  width: 100% !important;
-  height: auto !important;
+
+#photosx{
+	width: 97%;
+	margin-left:auto;
+	margin-right:auto;
 }
 
-.image{	
+.colonnaPhoto{
+	width: 25%;
+	height: auto;
+	float: left;
+}
+.imageCella{	
 	opacity: 1;
 	overflow: hidden;
 	position: relative;
-	padding-top: 2px;
-	padding-bottom: 2px;
+	margin: 2px;
 }
-.image .color{	
-	opacity: 0;
+.imageCella img {
+   -webkit-transition: all 0.2s ease-in;
+   -moz-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
+   -ms-transition: all 0.2s ease-in;
+   transition: all 0.2s ease-in;
+}
+.imageCella .mask {	
+   /*background-color: rgba(115,146,184, 0.7);*/
+   background-color: rgba(178,178,178, 0.4);   
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+   filter: alpha(opacity=0);
+   opacity: 0;
+   -webkit-transform: translate(30%, 75%) rotate(45deg);
+   -moz-transform: translate(30%, 75%) rotate(45deg);
+   -o-transform: translate(30%, 75%) rotate(45deg);
+   -ms-transform: translate(30%, 75%) rotate(45deg);
+   transform: translate(30%, 75%) rotate(45deg);
+   -webkit-transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   -ms-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+}
+.imageCella h2 {
+   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+   background: transparent;
+   margin: 20px 40px 0px 40px;
+   -webkit-transform: translate(200px, -200px);
+   -moz-transform: translate(200px, -200px);
+   -o-transform: translate(200px, -200px);
+   -ms-transform: translate(200px, -200px);
+   transform: translate(200px, -200px);
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+.imageCella p {
+   -webkit-transform: translate(-200px, 200px);
+   -moz-transform: translate(-200px, 200px);
+   -o-transform: translate(-200px, 200px);
+   -ms-transform: translate(-200px, 200px);
+   transform: translate(-200px, 200px);
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+.imageCella a.info {
+   -webkit-transform: translate(0px, 100px);
+   -moz-transform: translate(0px, 100px);
+   -o-transform: translate(0px, 100px);
+   -ms-transform: translate(0px, 100px);
+   transform: translate(0px, 100px);
+   -webkit-transition: all 0.2s 0.1s ease-in-out;
+   -moz-transition: all 0.2s 0.1s ease-in-out;
+   -o-transition: all 0.2s 0.1s ease-in-out;
+   -ms-transition: all 0.2s 0.1s ease-in-out;
+   transition: all 0.2s 0.1s ease-in-out;
+}
+.imageCella:hover .mask {
+	
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   -webkit-transform: translate(-25%, -25%) rotate(45deg);
+   -moz-transform: translate(-25%, -25%) rotate(45deg);
+   -o-transform: translate(-25%, -25%) rotate(45deg);
+   -ms-transform: translate(-25%, -25%) rotate(45deg);
+   transform: translate(-25%, -25%) rotate(45deg);
+}
+.imageCella:hover h2 {
+   -webkit-transform: translate(0px,0px);
+   -moz-transform: translate(0px,0px);
+   -o-transform: translate(0px,0px);
+   -ms-transform: translate(0px,0px);
+   transform: translate(0px,0px);
+   -webkit-transition-delay: 0.3s;
+   -moz-transition-delay: 0.3s;
+   -o-transition-delay: 0.3s;
+   -ms-transition-delay: 0.3s;
+   transition-delay: 0.3s;
+}
+.imageCella:hover p {
+   -webkit-transform: translate(0px,0px);
+   -moz-transform: translate(0px,0px);
+   -o-transform: translate(0px,0px);
+   -ms-transform: translate(0px,0px);
+   transform: translate(0px,0px);
+   -webkit-transition-delay: 0.4s;
+   -moz-transition-delay: 0.4s;
+   -o-transition-delay: 0.4s;
+   -ms-transition-delay: 0.4s;
+   transition-delay: 0.4s;
+}
+.imageCella:hover a.info {
+   -webkit-transform: translate(0px,0px);
+   -moz-transform: translate(0px,0px);
+   -o-transform: translate(0px,0px);
+   -ms-transform: translate(0px,0px);
+   transform: translate(0px,0px);
+   -webkit-transition-delay: 0.5s;
+   -moz-transition-delay: 0.5s;
+   -o-transition-delay: 0.5s;
+   -ms-transition-delay: 0.5s;
+   transition-delay: 0.5s;
+}
+
+.image{
 	width: 100%;
-	height: 100%;
+	height:100%;
 	position: absolute;
-	top: 0px;
+	overflow: hidden;
 }
-.image:hover {	
-	/*opacity: 0.7;*/
+#content1{
+   position: absolute;
+   overflow: hidden;
 }
-.image .color:hover {	
-	background-color: rgba(20,170,70, 0.7);
-	opacity: 1;
-	width: 100%;
-	height: 100%;
-	position: absolute;
+
+/************************************************************/
+/***********************DA RIVEDERE**************************/
+/************************************************************
+.image1 .mask,.image1 .content1 {
+   width: 300px;
+   height: 200px;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
 }
+.image1 {
+   width: 300px;
+   height: 200px;
+   margin: 10px;
+   float: left;
+   border: 10px solid #fff;
+   overflow: hidden;
+   position: relative;
+   text-align: center;
+   -webkit-box-shadow: 1px 1px 2px #e6e6e6;
+   -moz-box-shadow: 1px 1px 2px #e6e6e6;
+   box-shadow: 1px 1px 2px #e6e6e6;
+   cursor: default;
+   background: #fff url(../images/bgimg.jpg) no-repeat center center;
+}
+.image1 .mask,.image1 .content1 {
+   width: 300px;
+   height: 200px;
+   position: absolute;
+   overflow: hidden;
+   top: 0;
+   left: 0;
+}
+.image1 img {
+   display: block;
+   position: relative;
+}
+.image1 h2 {
+   text-transform: uppercase;
+   color: #fff;
+   text-align: center;
+   position: relative;
+   font-size: 17px;
+   padding: 10px;
+   background: rgba(0, 0, 0, 0.8);
+   margin: 20px 0 0 0;
+}
+.image1 p {
+   font-family: Georgia, serif;
+   font-style: italic;
+   font-size: 12px;
+   position: relative;
+   color: #fff;
+   padding: 10px 20px 20px;
+   text-align: center;
+}
+.image1 a.info {
+   display: inline-block;
+   text-decoration: none;
+   padding: 7px 14px;
+   background: #000;
+   color: #fff;
+   text-transform: uppercase;
+   -webkit-box-shadow: 0 0 1px #000;
+   -moz-box-shadow: 0 0 1px #000;
+   box-shadow: 0 0 1px #000;
+}
+.image1 a.info: hover {
+   -webkit-box-shadow: 0 0 5px #000;
+   -moz-box-shadow: 0 0 5px #000;
+   box-shadow: 0 0 5px #000;
+}
+
+************************************************************/
+/***********************DA RIVEDERE**************************/
+/************************************************************/
 
 @media (max-width: 1200px) {
   #photos {
