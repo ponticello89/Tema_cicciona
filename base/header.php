@@ -12,9 +12,10 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/media-queries.css">
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style_grid.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/demo.css">
+
 
 <!--
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/demo.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style_common.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/reset.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style2.css">
@@ -57,18 +58,31 @@
                    count++;
                 }
         }); 
+		
+		$(window).scroll(function(){
+            if ($(this).scrollTop() > 300) {
+                $('.tornaSu').fadeIn();
+            } else {
+                $('.tornaSu').fadeOut();
+            }
+        });
+		
+		$('.tornaSu').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 'slow');
+            return false;
+        });
 
         function loadArticle(pageNumber){
 			//Debug
 			//alert('loadArticle('+pageNumber+')');
 			
-			$('a#inifiniteLoader').show('fast');
+			$('a.inifiniteLoader').show('fast');
 			$.ajax({
 				url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
 				type:'POST',
 				data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop', 
 				success: function(html){           						
-					$('a#inifiniteLoader').hide('1000');
+					$('a.inifiniteLoader').hide('1000');
 					$("#photosx").append(html);    // This will be the div where our content will be loaded						
 				}
 			});
@@ -116,9 +130,10 @@
 			var heightImageCella = heightImage/parametro;
 			
 			$("#imageCella"+i).height(heightImageCella);
+			$("#img"+i).width(widthImageCella);
+			$("#img"+i).height(heightImageCella);
 			$("#mask"+i).height(heightImageCella*2);
-			$("#mask"+i).width(widthImageCella*2);
-			
+			$("#mask"+i).width(widthImageCella*2);			
 		}		
 	}
 	

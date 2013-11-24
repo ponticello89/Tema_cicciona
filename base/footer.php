@@ -1,9 +1,19 @@
 	</div>
 	<!-- /body -->
-		
+	
+	<div class="loading">
+		<a class="inifiniteLoader">
+			<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
+		</a>	
+	</div>
+	
 	<footer id="footer" class="pagewidth clearfix">
 			
-		<p class="back-top"><a href="#header">&uarr;</a></p>
+		<p class="tornaSu">
+			<a>
+				<img src="<?php bloginfo('template_directory'); ?>/images/up-arrow-icon.png" />
+			</a>
+		</p>
 	
 		<?php // footer navigation ?>
 		<?php wp_nav_menu(array('theme_location' => 'footer-nav' , 'fallback_cb' => '' , 'container'  => '' , 'menu_id' => 'footer-nav' , 'menu_class' => 'footer-nav')); ?>
@@ -22,12 +32,6 @@
 
 <!-- wp_footer -->
 <?php wp_footer(); ?>
-
-<a id="inifiniteLoader">Loading... <img src="<?php bloginfo('template_directory'); ?>/images/ajax-loader.gif"></a>
-
-<script type="text/javascript">
-//reSizeDivImage();
-</script>
 
 </body>
 </html>

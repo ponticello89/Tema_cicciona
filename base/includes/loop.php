@@ -16,14 +16,6 @@
 		echo 'var url = "' . $url . '";';		
 		echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';
 		echo '					<img src=\'"+url+"\' class=\'image image1\' id=\'img"+totaleImg+"\'/>';		
-		echo '            		<div id=\'content1\'>';
-		echo '                		<h2>Hover Style #2</h2>';
-		echo '                		<p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>';
-		echo '                		<a href=\'#\' class=\'info\'>Read More</a>';
-		echo '            		</div>';
-		echo '					<div class=\'mask\' id=\'mask"+totaleImg+"\'></div>';
-		echo '					<input type=\'hidden\' id=\'imgW"+totaleImg+"\' value=\'' . $width . '\'/>';
-		echo '					<input type=\'hidden\' id=\'imgH"+totaleImg+"\' value=\'' . $height . '\'/>';
 		echo '				</div>";';
 				
 		echo 'loadPhotoOnDiv(html);';
@@ -36,5 +28,5 @@
 <?php endwhile; ?>
 
 <script type="text/javascript">
-reSizeDivImage();
+//reSizeDivImage();
 </script>
