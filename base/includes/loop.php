@@ -9,16 +9,22 @@
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
 			$url = $thumb['0']; 
 			$width = $thumb['1'];
-			$height = $thumb['2'];
+			$height = $thumb['2'];		
 		?>
-		<?php
+			
+			
+		<?php // Ho scritto il javascript in php perche l'url dava problemi una volta spedita
 		echo '<script type="text/javascript">';		
-		echo 'var url = "' . $url . '";';		
+		echo 'var url = "' . $url . '";';						
 		echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';
-		echo '					<img src=\'"+url+"\' class=\'image image1\' id=\'img"+totaleImg+"\'/>';		
-		echo '				</div>";';
-				
-		echo 'loadPhotoOnDiv(html);';
+		echo '					<img src=\'"+url+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none;\'/>';
+		//echo '					<img src=\'"+url+"\' class=\'image image1\' id=\'img"+totaleImg+"\'/>';
+		//echo '					<img class=\'image image1\' id=\'img"+totaleImg+"\'/>';
+		echo '					<div id=\'img_holder\' class=\'loadit\' style=\'width:100%; height: auto;\'>';
+		echo '              	</div>';		
+		echo '				</div>";';				
+		echo 'loadArray(totaleImg, url);';
+		echo 'loadPhotoOnDiv(html);';				
 		echo '';
 		echo '</script>';
 		?>
