@@ -1,7 +1,13 @@
 <?php get_header(); ?>		
 
 	<div id="content_home" class="clearfix">
-					
+		
+		<?php if ( is_single() ) {
+			echo "single";
+		}else if(is_home()){
+			echo "home";
+		}?>
+		
 		<?php if (have_posts()) : ?>
 			
 			<div id="photosx">			

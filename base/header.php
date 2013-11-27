@@ -52,9 +52,10 @@
 		//Paginazione 1 chiamata durante il caricamento della pagina
 		$(document).ready(
 			function () {
-				loadArticle(1);				
-			}
+				loadArticle(1);								
+			}			
 		);
+		
 		
 		//Attivazione paginazione dopo scorrimento fino a fine pagina
         $(window).scroll(function(){
@@ -62,10 +63,10 @@
 			   if (count > total){
 					return false;
 			   }else{						
-					loadArticle(count);						
-			   }
-			   count++;
-			}
+					loadArticle(count);
+					count++;
+			   }			   
+			}			
         }); 
 		
 		//Funzione che restituisce la pagina degli articoli e la appende nel div
@@ -82,11 +83,24 @@
 					$('a.inifiniteLoader').hide('1000');
 					$("#photosx").append(html);    // This will be the div where our content will be loaded											
 					loadImage();
+					
+					loadArticleTotalPage();
 				}
-			});					            
+			});					            			
 			
 			return false;
         }
+		
+		function loadArticleTotalPage(){			
+			if(document.body.clientHeight < $(window).height()){					
+				if (count > total){
+					return false;
+				}else{						
+					loadArticle(count);
+					count++;
+				}			   			
+			}
+		}
 		
 		//Comparsa del pulsante torna su dopo un determinato scorrimento verso il basso
 		$(window).scroll(function(){
