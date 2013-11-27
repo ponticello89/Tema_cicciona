@@ -2,26 +2,10 @@
 
 	<div id="content_home" class="clearfix">
 		
-		<?php if ( is_single() ) {
-			echo "single";
-		}else if(is_home()){
-			echo "home";
-		}?>
-		
 		<?php if (have_posts()) : ?>
-			
-			<div id="photosx">			
-				<div id="colonna1" class="colonnaPhoto">
-				</div>
-				<div id="colonna2" class="colonnaPhoto">
-				</div>
-				<div id="colonna3" class="colonnaPhoto">
-				</div>
-				<div id="colonna4" class="colonnaPhoto">
-				</div>
-				<?php// get_template_part( 'includes/loop' , 'index'); ?>										
-			</div>
-														
+			<?php if(is_home()) : ?>					
+				<?php get_template_part( 'home_mod' , 'home'); ?>		
+			<?php endif; ?>					
 		<?php else : ?>
 	
 			<p><?php _e( 'Sorry, nothing found.', 'themify' ); ?></p>
