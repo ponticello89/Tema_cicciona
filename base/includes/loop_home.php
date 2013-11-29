@@ -21,7 +21,8 @@
 		echo 'var urlArticle = "' . $urlArticle . '";';
 		
 		echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';
-		echo '					<a href=\'"+urlArticle+"\' >';
+		//echo '					<a href=\'"+urlArticle+"\' >';
+		echo '					<a onclick=\'apriImg(\""+urlImage+"\")\' >';
 		echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none;\'/>';				
 		echo '					</a>';
 		echo '					<div id=\'img_holder\' class=\'loadit\' style=\'width:100%; height: auto;\'>';

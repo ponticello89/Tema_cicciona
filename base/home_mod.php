@@ -71,7 +71,11 @@
             $("html, body").animate({ scrollTop: 0 }, 'slow');
             return false;
         });
-
+		
+		$('.sfondoBigImage').click(function(){		
+			$('.sfondoBigImage').fadeOut('fast');			
+			$('.bigImage').fadeOut('fast');
+		});
     });
 	
 	//Funzione che si occupa di collocare l'articolo nel div giusto
@@ -130,37 +134,23 @@
 			i++;
 			var urlImage = imgArray[i];
 					
-			$('#img'+numImage).load(function(){
-				//alert('load .img'+numImage);
-				$(this).hide();
+			$('#img'+numImage).load(function(){				
 				//$('#img_holder'+numImage).removeClass('loadit');			
 				$(this).fadeIn('slow');			
-			});
-			/*
-			var _img = document.getElementById('img'+numImage);
-			alert(_img+"-"+numImage);
-			var newImg = new Image;
-			newImg.src = urlImage;
-			newImg.onload = function() {
-				alert('loadImage ');
-				_img.src = this.src;
-				//$(newImg).fadeIn('slow');
-			}
-			*/
+			});			
 		}
 		
-		imgArray=new Array();
-		//var img = new Image();		
-		//$(img).load(function(){
-		/*
-		$('#img'+numImage).load(function(){
-			alert('load .img'+numImage);
-			$(this).hide();
-			$('#img_holder'+numImage).removeClass('loadit');			
-			$(this).fadeIn('slow');			
-		});
-		*/
+		//pulisce array
+		imgArray=new Array();		
 	}
+	
+	function apriImg(urlImage){		
+		//alert(urlImage);
+		$('.sfondoBigImage').fadeIn('slow');
+		$('.bigImage').attr('src',urlImage);
+		$('.bigImage').fadeIn('slow');
+	}
+	
 </script>
 
 <div id="photosx">			
@@ -172,3 +162,27 @@
 	</div>
 	<div id="colonna4" class="colonnaPhoto">
 </div>				
+
+<div 	class="sfondoBigImage" 
+		style="	width: 100%; 
+				height: 100%; 
+				display: none;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				z-index: 9999;
+				background-color: black;				
+				opacity: 0.8;">							
+</div>
+
+<img 	class="bigImage" 
+		style="	position: absolute;
+				display: none;
+				z-index: 10000;
+				position: fixed;
+				width: auto;
+				top: 0;
+				left: 0;
+				height: 80%;" 
+		src="http://localhost/wordpress/wp-content/uploads/2013/11/12658605-graffiti.jpg">
+</img>		
