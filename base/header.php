@@ -20,22 +20,19 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style2.css">
 -->
 
-<!-- respond.js (add media query support for IE) -->
-<!--[if lt IE 9]>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/respond.js"></script>
-<![endif]-->
-
 <!-- html5.js (HTML5 Shiv for IE) -->
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
+
 <!-- wp_header -->
 <?php wp_head(); ?>
 
 <?php // include theme.script.js  ?>
-<script src="<?php echo get_template_directory_uri(); ?>/js/theme.script.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
+<!--<script src="<?php echo get_template_directory_uri(); ?>/js/theme.script.js"></script>-->
+
 
 <?php // enqueue comment-reply.js (require for threaded comments)
 	if ( is_singular() && get_option( 'thread_comments' ) )	wp_enqueue_script( 'comment-reply' ); 

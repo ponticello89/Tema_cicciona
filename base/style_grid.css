@@ -21,6 +21,12 @@
 	float: left;
 	margin:0.2%;
 }
+.colonnaPhotoFinal{
+	width: 48%;
+	height: auto;
+	float: left;
+	margin:0.2%;
+}
 .imageCella{	
 	opacity: 1;
 	/*overflow: hidden;*/
@@ -31,7 +37,7 @@
 	height: auto;
 }
 .imageCella img {
-	opacity: 0.3;
+	opacity: 0.7;
 	width: 100%;
 	height: auto;
    -webkit-transition: all 0.2s ease-in;

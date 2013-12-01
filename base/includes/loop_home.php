@@ -19,18 +19,20 @@
 		echo '<script type="text/javascript">';		
 		echo 'var urlImage = "' . $urlImage . '";';				
 		echo 'var urlArticle = "' . $urlArticle . '";';
+		echo 'var widthImage = "' . $width . '";';				
+		echo 'var heightImage = "' . $height . '";';
 		
 		echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';
 		//echo '					<a href=\'"+urlArticle+"\' >';
-		echo '					<a onclick=\'apriImg(\""+urlImage+"\")\' >';
-		echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none;\'/>';				
+		echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+widthImage+"\", \""+heightImage+"\")\' >';
+		echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none; visibility: hidden;\'/>';						
 		echo '					</a>';
 		echo '					<div id=\'img_holder\' class=\'loadit\' style=\'width:100%; height: auto;\'>';
 		echo '              	</div>';		
 		echo '				</div>";';			
 		
 		echo 'loadArray(totaleImg, urlImage);';
-		echo 'loadPhotoOnDiv(html);';				
+		echo 'loadPhotoOnDiv(html, widthImage, heightImage);';		
 		echo '';
 		echo '</script>';
 		?>
