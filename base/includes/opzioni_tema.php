@@ -14,6 +14,7 @@
 <?php
 	//Inizializzazioni opzioni
 	function registra_opzioni() {
+		register_setting('gruppo-opzioni', 'width-grid' );
 		register_setting('gruppo-opzioni', 'numero-colonne' );
 		register_setting('gruppo-opzioni', 'width-colonne' );
 	}
@@ -96,7 +97,7 @@
 						html += 	"<tr>"+
 									"	<th scope=\"row\">Larghezza colonne "+(i+1)+"</th>"+
 									"	<td>"+							
-									"		<input class=\"width-colonne-false\" value=\""+widthColsArray[i]+"\"/>%"+
+									"		<input type=\"text\" class=\"width-colonne-false text-option-percent\" value=\""+widthColsArray[i]+"\"/>%"+
 									"	</td>"+
 									"</tr>";
 					}
@@ -117,6 +118,22 @@
 				<?php do_settings_sections('gruppo-opzioni'); ?>				
 				
 				<!-- OPZIONE AGGIUNTI TESTO -->
+				
+				<table class="form-table">
+					<tr>
+						<th scope="row">Larghezza griglia</th>
+						<td>							
+							<?php								
+								if(get_option('width-grid')!= null){
+									$widthGridValue = get_option('width-grid');
+								} else{
+									$widthGridValue = 89;
+								}	
+							?>
+							<input type="text" value="<?php echo $widthGridValue?>" class="width-grid text-option-percent" name="width-grid"/>%
+						</td>
+					</tr>					
+				</table>
 				
 				<table class="form-table">
 					<tr>

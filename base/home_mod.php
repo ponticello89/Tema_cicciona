@@ -4,7 +4,8 @@
 
 <script type="text/javascript">
 	//Settaggio di variabili fondamentali
-	var total = <?php echo $wp_query->max_num_pages; ?>;
+	//var totalPage = <?php echo $wp_query->max_num_pages; ?>;
+	//alert(totalPage+"-1");
 	var urlSite = "<?php bloginfo('wpurl'); ?>";    	
 	
 	var numDiv = <?php echo get_option('numero-colonne'); ?>;
@@ -14,6 +15,10 @@
 	var widthCols = "<?php echo get_option('width-colonne'); ?>";
 	if(widthCols == null){
 		widthCols = "33,33,33";
+	}
+	var widthGridValue = "<?php echo get_option('width-grid'); ?>";
+	if(widthGridValue == null){
+		widthGridValue = 89;
 	}
 	
 </script>

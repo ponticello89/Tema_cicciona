@@ -3,7 +3,9 @@
 //Contatore delle immagini inserite
 var totaleImg = 0;
 //Contatore delle pagine contenenti immagini inserite
-var count = 1;
+var countPage = 1;
+
+var finishImage = "false";
 //Numero dei div-colonna desiderati
 //var numDiv = 3;
 //arrey che contiene id e url dell'immagine che serve per il preload e il caricamento
@@ -17,23 +19,25 @@ jQuery(document).ready(function($) {
 	//Funzioni che partono al caricamento della pagina
 	$(document).ready(					
 		function () {
+			//Settaggio larghezza griglia
+			setWidthGrid(widthGridValue)
 			//Creazione colonne
 			createDiv(numDiv, widthCols);
 			//Caricamento della prima pagina di immagini
-			loadArticle(count);	
-			count++;			
+			loadArticle(countPage);	
+			countPage++;			
 		}			
 	)
 	
 	//Attivazione paginazione dopo scorrimento fino a fine pagina
 	$(window).scroll(function(){
 		if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-		   if (count > total){
+			if (finishImage=="true"){
 				return false;
-		   }else{						
-				loadArticle(count);				
-				count++;
-		   }			   
+			}else{						
+				loadArticle(countPage);				
+				countPage++;
+		    }			   
 		}			
 	});
 });
@@ -48,14 +52,14 @@ jQuery(document).ready(function($) {
 // 4) viene chiamata una funzione che controlla se l'insieme delle immagini stampate arrivi a fine pagina per attivare lo scroll
 function loadArticle(pageNumber){
 	//Debug
-	//alert('loadArticle('+urlSite+')');	
+	//alert('loadArticle('+urlSite+')');		
 	$('a.inifiniteLoader').show('fast');
 	$.ajax({		
 		url: urlSite+"/wp-admin/admin-ajax.php",		
 		type:'POST',
 		data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop_home', 
 		success: function(html){           						
-			$('a.inifiniteLoader').hide('1000');
+			$('a.inifiniteLoader').hide('1000');			
 			$("#photosx").append(html);    // This will be the div where our content will be loaded														
 			loadImage();
 			
@@ -66,32 +70,39 @@ function loadArticle(pageNumber){
 	return false;
 }
 
+//Settaggio larghezza griglia
+function setWidthGrid(widthGrid){
+	$("#photosx").width(widthGrid+"%");
+}
+
 //Funzione che crea i div-colonna che conterranno verticalmente le immagini
 function createDiv(numDiv, widthCols){
 	
 	var widthColsArray = widthCols.split(",");
 					
-	for (i=1; i<=numDiv; i++) { 
-		var divHtml;
-		//if(i==numDiv){
-			//divHtml = "<div id=\"colonna"+i+"\" class=\"colonna colonnaPhotoFinal\">";
-		//}else {
-			divHtml = "<div id=\"colonna"+i+"\" style=\"width: "+((widthColsArray[(i-1)])-1)+"%;\" class=\"colonna colonnaPhoto\">";
-		//}			
-		$("#photosx").append(divHtml);	
+	for (i=1; i<=numDiv; i++) {
+		//Creo il div colonna
+		var divHtml = "<div id=\"colonna"+i+"\" style=\"width: "+((widthColsArray[(i-1)])-1)+"%;\" class=\"colonna colonnaPhoto\">";		
+		
+		//Lo appendo
+		$("#photosx").append(divHtml);
+		
+		//Ri calcolo il width togliendo le cifre dopo la virgola per evitare sfarfallii
 		$("#colonna"+i).width(parseInt($("#colonna"+i).width()));
+		
+		//Inizializzo l'array height con valore 0
 		heightColArray [i] = 0;		
 	}
 }
 
 //Funzione che controlla se l'insieme delle immagini stampate attivino lo scroll
 function loadArticleForScroll(){			
-	if(document.body.clientHeight < $(window).height()){					
-		if (count > total){
+	if(document.body.clientHeight < $(window).height()){							
+		if (finishImage=='true'){
 			return false;
 		}else{						
-			loadArticle(count);	
-			count++;			
+			loadArticle(countPage);	
+			countPage++;			
 		}			   			
 	}
 }
@@ -111,7 +122,6 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 	var divSelect = 0;
 	var heightMoreLittle = -1;
 	for (i=numDiv; i>0; i--) {		
-		//alert(heightColArray [i]+" - "+i);
 		if(heightMoreLittle == -1){
 			heightMoreLittle = heightColArray [i] ;
 			divSelect = i;
@@ -123,6 +133,7 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 		}
 	}
 	
+	//Se wordpress impazzisce e non setta il width dell'immagine non stampo
 	if(widthImage!=0){				
 		//Appende HTML immagine nelle colonne 
 		$("#colonna"+divSelect).append(html);
@@ -137,7 +148,7 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 	}
 }
 	
-//Funzione che si occupera del preload delle immagini	
+//Funzione che si occupera di settare preload delle immagini	
 function loadImage(){
 	//Debug
 	//alert('loadImage ');

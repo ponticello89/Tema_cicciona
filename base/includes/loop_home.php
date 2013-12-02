@@ -14,7 +14,7 @@
 			$height = $thumb['2'];							
 		?>
 			
-		<?php //if($width != null || $width!=0) :?>
+		<?php if($width != null || $width!=0) :?>
 		
 			<?php // Ho scritto il javascript in php perche l'url dava problemi una volta spedita
 			echo '<script type="text/javascript">';		
@@ -39,12 +39,8 @@
 			echo '</script>';
 			?>
 			
-		<?php //endif; ?>		
+		<?php endif; ?>		
 		
 	<?php endif; ?>		
 						
 <?php endwhile; ?>
-
-<script type="text/javascript">
-//reSizeDivImage();
-</script>
