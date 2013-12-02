@@ -26,6 +26,9 @@ function apriImg(urlImage, titleImage, widthImage, heightImage){
 	var heightSfondoImage = $(".sfondoBigImage").height();	
 			
 	var x = 0;	
+	if(heightSfondoImage<520){ heightSfondoImage = 520;}
+	if(widthSfondoImage<520){ widthSfondoImage = 520;}
+	
 	x = (heightImage/heightSfondoImage);		
 	if((widthImage/widthSfondoImage) > x){
 		x = (widthImage/widthSfondoImage);
@@ -52,6 +55,7 @@ function apriImg(urlImage, titleImage, widthImage, heightImage){
 	$('.bigImage').fadeIn('slow');
 	
 	var heightTitleBigImageDiv = parseInt((heightSfondoImage/10)*0.7);
+	if(heightTitleBigImageDiv>40){ heightTitleBigImageDiv = 40;}
 	var marginTopTitleBigImageDiv = parseInt(marginTop)+parseInt(heightImage)-parseInt(heightTitleBigImageDiv)+1;
 	
 	$('.titleBigImageDiv').css({	width:  widthImage,
@@ -65,7 +69,8 @@ function apriImg(urlImage, titleImage, widthImage, heightImage){
 	var fontTitleBigImage = parseInt((heightTitleBigImageDiv/10)*6);
 	var marginTitleBigImage = parseInt((heightTitleBigImageDiv/10)*2);
 	
-	$('.titleBigImage').css({	"font-size": fontTitleBigImage+"px",								
+	$('.titleBigImage').css({	"font-size": fontTitleBigImage+"px",
+								"color": "white",
 								"margin": marginTitleBigImage+"px",
 								"line-height": "normal"
 							});
