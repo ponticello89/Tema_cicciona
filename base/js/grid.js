@@ -74,11 +74,12 @@ function createDiv(numDiv, widthCols){
 	for (i=1; i<=numDiv; i++) { 
 		var divHtml;
 		//if(i==numDiv){
-			divHtml = "<div id=\"colonna"+i+"\" class=\"colonna colonnaPhotoFinal\">";
+			//divHtml = "<div id=\"colonna"+i+"\" class=\"colonna colonnaPhotoFinal\">";
 		//}else {
 			divHtml = "<div id=\"colonna"+i+"\" style=\"width: "+((widthColsArray[(i-1)])-1)+"%;\" class=\"colonna colonnaPhoto\">";
 		//}			
 		$("#photosx").append(divHtml);	
+		$("#colonna"+i).width(parseInt($("#colonna"+i).width()));
 		heightColArray [i] = 0;		
 	}
 }
@@ -115,23 +116,25 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 			heightMoreLittle = heightColArray [i] ;
 			divSelect = i;
 		} else {
-			if (heightMoreLittle >= heightColArray[i]){
+			if (heightMoreLittle > heightColArray[i]){
 				heightMoreLittle = heightColArray [i] ;
 				divSelect = i;
 			}
 		}
 	}
+	
+	if(widthImage!=0){				
+		//Appende HTML immagine nelle colonne 
+		$("#colonna"+divSelect).append(html);
 		
-	//Appende HTML immagine nelle colonne 
-	$("#colonna"+divSelect).append(html);
-	
-	//Setto nell'array le grandezze delle colonne per calcolare il collocamento
-	var widthColonna = $("#colonna"+divSelect).width();
-	var x = (widthImage/widthColonna);	
-	heightImage = heightImage/x;		
-	heightColArray [divSelect] = heightColArray [divSelect] + heightImage;
-	
-	totaleImg++;
+		//Setto nell'array le grandezze delle colonne per calcolare il collocamento
+		var widthColonna = $("#colonna"+divSelect).width();
+		var x = (widthImage/widthColonna);		
+		heightImage = heightImage/x;		
+		heightColArray [divSelect] = parseInt(heightColArray [divSelect]) + parseInt(heightImage);
+		
+		totaleImg++;
+	}
 }
 	
 //Funzione che si occupera del preload delle immagini	
@@ -144,9 +147,9 @@ function loadImage(){
 		i++;
 		var urlImage = imgArray[i];
 				
-		$('#img'+numImage).load(function(){							
-			$(this).fadeIn('slow');			
-			$(this).css({	visibility: "visible"});		
+		$('#img'+numImage).load(function(){											
+			//$(this).css({	visibility: "visible"});	
+			$(this).fadeIn('slow');									
 		});			
 	}
 	
