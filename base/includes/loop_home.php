@@ -7,7 +7,8 @@
 				
 		<?php 
 			//$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
-			$urlArticle = get_permalink($post->ID);		
+			$urlArticle = get_permalink($post->ID);
+			$titleArticle = get_the_title($post->ID);			
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
 			$urlImage = $thumb['0']; 
 			$width = $thumb['1'];
@@ -22,10 +23,11 @@
 			echo 'var urlArticle = "' . $urlArticle . '";';
 			echo 'var widthImage = "' . $width . '";';				
 			echo 'var heightImage = "' . $height . '";';
+			echo 'var titleArticle = "' . $titleArticle . '";';
 			
 			echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';
 			echo '					<!--<a href=\'"+urlArticle+"\' >-->';
-			echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+widthImage+"\", \""+heightImage+"\")\' >';
+			echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
 			//echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none; visibility: hidden;\'/>';						
 			echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none;\'/>';						
 			echo '					</a>';

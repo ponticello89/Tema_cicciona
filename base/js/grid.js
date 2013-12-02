@@ -20,12 +20,12 @@ jQuery(document).ready(function($) {
 	$(document).ready(					
 		function () {
 			//Settaggio larghezza griglia
-			setWidthGrid(widthGridValue)
+			setWidthGrid(widthGridValue);			
 			//Creazione colonne
-			createDiv(numDiv, widthCols);
+			createDiv(numDiv, widthCols);			
 			//Caricamento della prima pagina di immagini
 			loadArticle(countPage);	
-			countPage++;			
+			countPage++;						
 		}			
 	)
 	
@@ -60,10 +60,13 @@ function loadArticle(pageNumber){
 		data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop_home', 
 		success: function(html){           						
 			$('a.inifiniteLoader').hide('1000');			
-			$("#photosx").append(html);    // This will be the div where our content will be loaded														
-			loadImage();
-			
-			loadArticleForScroll();
+			$("#photosx").append(html);    // This will be the div where our content will be loaded																	
+		},
+		complete: function(){
+			loadArticleForScroll();			
+			//Settaggio dei margini delle immagini
+			setMarginImage(marginImageValue);
+			loadImage();						
 		}
 	});					            			
 	
@@ -73,6 +76,12 @@ function loadArticle(pageNumber){
 //Settaggio larghezza griglia
 function setWidthGrid(widthGrid){
 	$("#photosx").width(widthGrid+"%");
+}
+
+//Settaggio larghezza griglia
+function setMarginImage(marginImageValue){	
+	$(".colonna").css({		"margin-left":  	marginImageValue+"px"});
+	$(".imageCella").css({	"margin-bottom":  	marginImageValue+"px"});
 }
 
 //Funzione che crea i div-colonna che conterranno verticalmente le immagini
@@ -93,10 +102,13 @@ function createDiv(numDiv, widthCols){
 		//Inizializzo l'array height con valore 0
 		heightColArray [i] = 0;		
 	}
+	
+	//Settaggio dei margini delle immagini
+	//setMarginImage(marginImageValue);
 }
 
 //Funzione che controlla se l'insieme delle immagini stampate attivino lo scroll
-function loadArticleForScroll(){			
+function loadArticleForScroll(){		
 	if(document.body.clientHeight < $(window).height()){							
 		if (finishImage=='true'){
 			return false;
@@ -137,7 +149,7 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 	if(widthImage!=0){				
 		//Appende HTML immagine nelle colonne 
 		$("#colonna"+divSelect).append(html);
-		
+				
 		//Setto nell'array le grandezze delle colonne per calcolare il collocamento
 		var widthColonna = $("#colonna"+divSelect).width();
 		var x = (widthImage/widthColonna);		
@@ -159,7 +171,6 @@ function loadImage(){
 		var urlImage = imgArray[i];
 				
 		$('#img'+numImage).load(function(){											
-			//$(this).css({	visibility: "visible"});	
 			$(this).fadeIn('slow');									
 		});			
 	}

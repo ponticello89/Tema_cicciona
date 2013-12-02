@@ -20,6 +20,10 @@
 	if(widthGridValue == null){
 		widthGridValue = 89;
 	}
+	var marginImageValue = "<?php echo get_option('margin-image'); ?>";
+	if(marginImageValue == null){
+		marginImageValue = 5;
+	}
 	
 </script>
 
@@ -49,7 +53,7 @@
 				left: 0;
 				height: 80%;">
 </img>
-<div 	class="titleBigImage"
+<div 	class="titleBigImageDiv"
 		style="	position: absolute;
 				display: none;
 				z-index: 10000;
@@ -60,7 +64,6 @@
 				height: 80%;
 				background-color: black;				
 				opacity: 0.8;">
-	<h1>
-		titolo
-	</h1>
+				
+	<h1 class="titleBigImage"/>
 </div>

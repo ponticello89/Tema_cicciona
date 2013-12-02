@@ -180,8 +180,8 @@
 
 		//query_posts( array( 'category__and' => array(1,3), 'posts_per_page' => 2, 'orderby' => 'title', 'order' => 'DESC' ) );
 		//category_name=senza-categoria
-		//query_posts(array('paged' => $paged, 'category_name' => 'senza-categoria'));
-		query_posts(array('paged' => $paged, 'category_name' => 'chicco'));
+		query_posts(array('paged' => $paged, 'category_name' => 'senza-categoria'));
+		//query_posts(array('paged' => $paged, 'category_name' => 'chicco'));
 		//echo $wp_query->max_num_pages;		
 		
 		if(have_posts() == null){

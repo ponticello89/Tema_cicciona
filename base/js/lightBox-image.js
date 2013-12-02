@@ -5,31 +5,32 @@ jQuery(document).ready(function($) {
 	$('.sfondoBigImage').click(function(){		
 		$('.sfondoBigImage').fadeOut('fast');			
 		$('.bigImage').fadeOut('fast');
-		$('.titleBigImage').fadeOut('fast');
+		$('.titleBigImageDiv').fadeOut('fast');
 	});
 	
 	$('.bigImage').hover(function(){					
-		$('.titleBigImage').fadeIn('slow');
+		$('.titleBigImageDiv').fadeIn('slow');
 	});
 	
 	$('.sfondoBigImage').hover(function(){					
-		$('.titleBigImage').fadeOut('fast');
+		$('.titleBigImageDiv').fadeOut('fast');
 	});
 });
 
-function apriImg(urlImage, widthImage, heightImage){		
+function apriImg(urlImage, titleImage, widthImage, heightImage){
+
+	$('.titleBigImage').empty();
+
 	//alert(urlImage);
 	var widthSfondoImage = $(".sfondoBigImage").width();
 	var heightSfondoImage = $(".sfondoBigImage").height();	
 			
-	var x = 0;
-	if(heightImage > heightSfondoImage){
-		x = (heightImage/heightSfondoImage);
-	} if (widthImage > widthSfondoImage){
-		if((widthImage/widthSfondoImage) > x){
-			x = (widthImage/widthSfondoImage);
-		}			
-	}		
+	var x = 0;	
+	x = (heightImage/heightSfondoImage);		
+	if((widthImage/widthSfondoImage) > x){
+		x = (widthImage/widthSfondoImage);
+	}			
+	
 	if(x != 0){
 		widthImage = widthImage/x;
 		heightImage = heightImage/x;
@@ -38,8 +39,8 @@ function apriImg(urlImage, widthImage, heightImage){
 	widthImage 	= (widthImage/10)*8;
 	heightImage = (heightImage/10)*8;
 	
-	var marginTop =  (heightSfondoImage-heightImage)/2;
-	var marginLeft = (widthSfondoImage-widthImage)/2;
+	var marginTop =  parseInt((heightSfondoImage-heightImage)/2);
+	var marginLeft = parseInt((widthSfondoImage-widthImage)/2);
 	
 	$('.sfondoBigImage').fadeIn('slow');
 	$('.bigImage').attr('src',urlImage);
@@ -50,12 +51,22 @@ function apriImg(urlImage, widthImage, heightImage){
 							});				
 	$('.bigImage').fadeIn('slow');
 	
-	var heightTitleBigImage = (heightSfondoImage/10)*0.7;
-	var marginTopTitleBigImage = marginTop+heightImage-heightTitleBigImage+1;
+	var heightTitleBigImageDiv = parseInt((heightSfondoImage/10)*0.7);
+	var marginTopTitleBigImageDiv = parseInt(marginTop)+parseInt(heightImage)-parseInt(heightTitleBigImageDiv)+1;
 	
-	$('.titleBigImage').css({	width:  widthImage,
-								height: heightTitleBigImage,
-								top: marginTopTitleBigImage+"px",
+	$('.titleBigImageDiv').css({	width:  widthImage,
+								height: heightTitleBigImageDiv,
+								top: marginTopTitleBigImageDiv+"px",
 								left: marginLeft+"px",
 								});
+								
+	$('.titleBigImage').append(titleImage);
+	
+	var fontTitleBigImage = parseInt((heightTitleBigImageDiv/10)*6);
+	var marginTitleBigImage = parseInt((heightTitleBigImageDiv/10)*2);
+	
+	$('.titleBigImage').css({	"font-size": fontTitleBigImage+"px",								
+								"margin": marginTitleBigImage+"px",
+								"line-height": "normal"
+							});
 }

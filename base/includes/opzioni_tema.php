@@ -17,6 +17,7 @@
 		register_setting('gruppo-opzioni', 'width-grid' );
 		register_setting('gruppo-opzioni', 'numero-colonne' );
 		register_setting('gruppo-opzioni', 'width-colonne' );
+		register_setting('gruppo-opzioni', 'margin-image' );
 	}
 ?>
 
@@ -162,10 +163,24 @@
 				</table>
 				
 				<table class="widthColTable form-table">
-				</table>
-				
+				</table>				
 				<input type="hidden" class="width-colonne" name="width-colonne" value="">
 				
+				<table class="form-table">
+					<tr>
+						<th scope="row">Larghezza margini immagine</th>
+						<td>							
+							<?php								
+								if(get_option('margin-image')!= null){
+									$marginImageValue = get_option('margin-image');
+								} else{
+									$marginImageValue = 5;
+								}	
+							?>
+							<input type="text" value="<?php echo $marginImageValue?>" class="margin-image text-option-percent" name="margin-image"/>px
+						</td>
+					</tr>					
+				</table>
 				<p class="submit">
 					<input type="submit" value="<?php _e('Salva'); ?>">
 				</p>	
