@@ -1,8 +1,9 @@
 //Javascript che si occupa dell'aperture dell'immagine
-
+var homeUrl;
 jQuery(document).ready(function($) {
     	
-	$('.sfondoBigImage').click(function(){		
+	$('.sfondoBigImage').click(function(){			
+		window.history.pushState({path:homeUrl},'',homeUrl);
 		$('.sfondoBigImage').fadeOut('fast');			
 		$('.bigImage').fadeOut('fast');
 		$('.titleBigImageDiv').fadeOut('fast');
@@ -17,8 +18,11 @@ jQuery(document).ready(function($) {
 	});
 });
 
-function apriImg(urlImage, titleImage, widthImage, heightImage){
-
+function apriImg(urlImage, urlArticle, titleImage, widthImage, heightImage){
+	
+	homeUrl = window.location+"";		
+	window.history.pushState({path:urlArticle},'',urlArticle);
+	
 	$('.titleBigImage').empty();
 
 	//alert(urlImage);

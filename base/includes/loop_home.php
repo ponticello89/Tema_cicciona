@@ -27,7 +27,7 @@
 			
 			echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';
 			echo '					<!--<a href=\'"+urlArticle+"\' >-->';
-			echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
+			echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
 			//echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none; visibility: hidden;\'/>';						
 			echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none;\'/>';						
 			echo '					</a>';
