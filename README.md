@@ -1,11 +1,27 @@
 Tema_cicciona
 =============
-Tema wordpress creato per un sito puramente illustrativo work in progress 40%
+Tema wordpress creato per un sito puramente illustrativo work in progress 60%
 
-==========
-Home
-==========
-Home full-screen con stampa di tutti gli articoli con immagine in evidenza
-aggiunta di un effetto con CSS3 che da movimento alla pagina
-aggiunta di una paganiazione a scorrimento infinito
+=============
+Da Fare
+=============
+Switch delle categorie nella home
+Aggiustare l'header
+Implementare effetto header scroll
+Migliorare preload
+Resize e centramento dinamico
+Paginazione nel dettaglio dell'immagine
+Schare con i social networ
 
+=============
+Fatte
+=============
+Griglia immagini sfalsata
+Dettaglio immagini
+Paginazione a scorrimento
+Pulsante torna su
+Effetto schiarimento dell'immagini mouse-over
+Collocamento calcolato delle immagini nelle colonne
+Settaggio dimensioni griglia
+Settaggio numero e dimensioni colonne
+Settaggio margini immagini
