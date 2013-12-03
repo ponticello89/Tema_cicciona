@@ -10,8 +10,10 @@ Aggiustare l'header<br/>
 Implementare effetto header scroll<br/>
 Migliorare preload<br/>
 Resize e centramento dinamico<br/>
+Contatore visite<br/>
 Paginazione nel dettaglio dell'immagine<br/>
 Schare con i social networ<br/>
+Modifica elenco articoli backend<br/>
 
 =============
 Fatte
