@@ -5,23 +5,23 @@ Tema wordpress creato per un sito puramente illustrativo work in progress 60%
 =============
 Da Fare
 =============
-Switch delle categorie nella home
-Aggiustare l'header
-Implementare effetto header scroll
-Migliorare preload
-Resize e centramento dinamico
-Paginazione nel dettaglio dell'immagine
-Schare con i social networ
+Switch delle categorie nella home<br/>
+Aggiustare l'header<br/>
+Implementare effetto header scroll<br/>
+Migliorare preload<br/>
+Resize e centramento dinamico<br/>
+Paginazione nel dettaglio dell'immagine<br/>
+Schare con i social networ<br/>
 
 =============
 Fatte
 =============
-Griglia immagini sfalsata
-Dettaglio immagini
-Paginazione a scorrimento
-Pulsante torna su
-Effetto schiarimento dell'immagini mouse-over
-Collocamento calcolato delle immagini nelle colonne
-Settaggio dimensioni griglia
-Settaggio numero e dimensioni colonne
-Settaggio margini immagini
+Griglia immagini sfalsata<br/>
+Dettaglio immagini<br/>
+Paginazione a scorrimento<br/>
+Pulsante torna su<br/>
+Effetto schiarimento dell'immagini mouse-over<br/>
+Collocamento calcolato delle immagini nelle colonne<br/>
+Settaggio dimensioni griglia<br/>
+Settaggio numero e dimensioni colonne<br/>
+Settaggio margini immagini<br/>
