@@ -54,7 +54,7 @@ function apriImg(urlImage, urlArticle, titleImage, widthImage, heightImage){
 	$('.bigImage').css({	width:  widthImage,
 							height: heightImage,
 							top: marginTop+"px",
-							left: marginLeft+"px",
+							left: marginLeft+"px"
 							});				
 	$('.bigImage').fadeIn('slow');
 	
