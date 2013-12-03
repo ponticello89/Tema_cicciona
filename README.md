@@ -12,6 +12,10 @@ Migliorare preload<br/>
 Resize e centramento dinamico<br/>
 Contatore visite<br/>
 Paginazione nel dettaglio dell'immagine<br/>
+PROBLEMONE:<br/>
+condividere immagini in questo caso sarebbe impossibile
+bisognerebbe cambiare l'url senza ricaricare la pagina<br/>
+sviluppare un dettaglio immagini che porti all'articolo<br/>
 Schare con i social networ<br/>
 Modifica elenco articoli backend<br/>
 
@@ -19,7 +23,7 @@ Modifica elenco articoli backend<br/>
 Fatte
 =============
 Griglia immagini sfalsata<br/>
-Dettaglio immagini<br/>
+Lightbox immagini<br/>
 Paginazione a scorrimento<br/>
 Pulsante torna su<br/>
 Effetto schiarimento dell'immagini mouse-over<br/>
