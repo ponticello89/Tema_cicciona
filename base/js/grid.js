@@ -66,7 +66,7 @@ function loadArticle(pageNumber){
 			loadArticleForScroll();			
 			//Settaggio dei margini delle immagini
 			setMarginImage(marginImageValue);
-			loadImage();						
+			loadImage("#photosx", ".preload");						
 		}
 	});					            			
 	
@@ -119,12 +119,6 @@ function loadArticleForScroll(){
 	}
 }
 
-//Funzione che carica un array serve in fase di preload e settaggio dell'immagine nel contenitore
-function loadArray(numImage, urlImage, widthImage, heightImage){
-	//alert("loadArray"+urlArticle);		
-	imgArray = imgArray.concat(totaleImg, urlImage, widthImage, heightImage);
-}	
-
 //Funzione che si occupa di collocare l'articolo nel div giusto
 function loadPhotoOnDiv(html, widthImage, heightImage){
 	//Debug
@@ -160,21 +154,37 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 	}
 }
 	
-//Funzione che si occupera di settare preload delle immagini	
+//Funzione che si occupera di settare preload delle immagini
+//prende tutte le immagini con un determinato class in un determinato preload
+//settandogli una animazione nel momento del complete ed eliminando la suddetta classe 
 function loadImage(){
 	//Debug
 	//alert('loadImage ');
 		
-	for (i=0; i<imgArray.length; i++) { 
-		var numImage = imgArray[i];
-		i++;
-		var urlImage = imgArray[i];
-				
-		$('#img'+numImage).load(function(){											
-			$(this).fadeIn('slow');									
-		});			
-	}
-	
-	//pulisce array
-	imgArray=new Array();		
+	var imagesToLoad = $("#photosx").find(".preload");
+    var imagesToLoadCount = imagesToLoad.size();
+						
+	var checkIfLoadedTimer = 
+		setInterval(
+			function () {
+				//alert('a');
+				if (!imagesToLoadCount) {
+					clearInterval(checkIfLoadedTimer);
+				} else {
+					imagesToLoad.filter(".preload").each(function () {
+						if (this.complete) {
+							fadeImageIn(this);
+							imagesToLoadCount--;
+						}
+					});
+				}
+			}, 
+			300);
+
+	var fadeImageIn = 
+		function (imageToLoad) {
+            $(imageToLoad).css({visibility: "visible"}).animate({opacity: 1}, 400, function () {
+                $(imageToLoad).removeClass("preload");
+            });
+        };
 }

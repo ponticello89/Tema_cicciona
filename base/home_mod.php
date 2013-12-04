@@ -1,4 +1,5 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/grid.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
 

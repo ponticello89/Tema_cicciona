@@ -1,4 +1,5 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.krioImageLoader.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
 
 <?php if(!is_single()) : global $more; $more = 0; endif; //enable more link ?>
 	
@@ -43,23 +44,17 @@
 										height: heightImage,
 										//top: marginTop+"px",
 										left: marginLeft+"px"});
-		});
+		});				
 	</script>
 	
-	<div id="test">
-		<img src='<?php echo $urlImage ?>' class='imageArticle' id='img' style="width: 0px; position: relative;"/>						
+	<div class="test">
+		<?php get_template_part( 'includes/nav_previous'); ?>
+			<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; position: relative; visibility: hidden; opacity: 0;"/>						
+		<?php get_template_part( 'includes/nav_next'); ?>
 	</div>
 	
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			//$(".test").krioImageLoader();
-			$('.imageArticle').load(function(){
-				alert("chicco");
-			});
-		});		
-		$(document).ready(function() {
-			$("#test").krioImageLoader();
-		});
+		loadImage(".test", ".preload");				
 	</script>
 	<?php the_content(); ?>
 	
