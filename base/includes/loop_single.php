@@ -12,6 +12,7 @@
 		$urlImage = $thumb['0']; 
 		$width = $thumb['1'];
 		$height = $thumb['2'];	
+				
 	?>
 	
 	<script type="text/javascript">
@@ -43,14 +44,39 @@
 			$('.imageArticle').css({	width:  widthImage,
 										height: heightImage,
 										//top: marginTop+"px",
-										left: marginLeft+"px"});
+										//left: marginLeft+"px"
+										});
+			
+			$('.contenitoreImg').css({	width:  widthImage,
+										height: heightImage,
+										//top: marginTop+"px",
+										left: marginLeft+"px",
+										"position": "relative"});
+										
+			$('.leftImg').css({			width:  (widthImage/2),
+										height: heightImage,
+										//top: marginTop+"px",
+										//left: marginLeft+"px",
+										"position": "absolute"});
+										
+			$('.rightImg').css({		width:  (widthImage/2),
+										height: heightImage,
+										//top: marginTop+"px",
+										left: (widthImage/2)+"px",
+										"position": "absolute"});
 		});				
 	</script>
 	
 	<div class="test">
-		<?php get_template_part( 'includes/nav_previous'); ?>
-			<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; position: relative; visibility: hidden; opacity: 0;"/>						
-		<?php get_template_part( 'includes/nav_next'); ?>
+		<div class="contenitoreImg">
+			<div class="leftImg">				
+				<?php get_template_part( 'includes/nav_next'); ?>
+			</div>
+			<div class="rightImg"/>
+				<?php get_template_part( 'includes/nav_previous'); ?>
+			</div>			
+			<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; visibility: hidden; opacity: 0;"/>									
+		<div>
 	</div>
 	
 	<script type="text/javascript">

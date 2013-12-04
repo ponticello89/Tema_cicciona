@@ -1,2 +1,6 @@
-<?php next_post_link('<span class="next">%link</span>', '<span class="arrow">&raquo;</span> %title') ?>
-
+<?php 
+	$nextPost=get_next_post(); 
+	$nextPostId=$nextPost->ID;
+	$nextPostUrl = get_permalink($nextPostId); 
+	echo $nextPostUrl;
+?>

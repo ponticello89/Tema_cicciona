@@ -1,2 +1,6 @@
-<?php previous_post_link('<span class="prev">%link</span>', '<span class="arrow">&laquo;</span> %title') ?>
-
+<?php 
+	$prevPost=get_previous_post(); 
+	$prevPostId=$prevPost->ID;
+	$prevPostUrl = get_permalink($prevPostId); 
+	echo $prevPostUrl;
+?>
