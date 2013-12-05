@@ -15,7 +15,7 @@ function loadImageTime(contenitore, classeImage){
 		, 300);
 }
 
-function loadImage(contenitore, classeImage, opacity){
+function loadImage(contenitore, classeImage, loading, opacity){
 	//Debug
 	//alert('loadImage ');
 	
@@ -34,12 +34,17 @@ function loadImage(contenitore, classeImage, opacity){
 							if (this.complete) {
 								//fadeImageIn(this);								
 								if (!$(this).is(':animated')) {									
-									$(this).removeClass(classeImage);
+									//$(this).removeClass(classeImage);
+									$(this).removeClass("preload");
+									//$(".loadit").remove();
+									
 									$(this)	.css({visibility: "visible"})
 											.animate({	opacity: opacity}, 
 														300, 
 														function () {
-															$(this).removeAttr('style');
+															
+															//$(this).removeAttr('style');
+															$(this).css("opacity", "");
 														});
 									
 									//setTimeout(function(){$(this).removeAttr('style');}, 450);

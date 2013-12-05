@@ -1,20 +1,15 @@
 	</div>
 	<!-- /body -->
-	
-	<div class="loading">
-		<a class="inifiniteLoader">
-			<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
-		</a>	
-	</div>
+	<?php if(is_home()) : ?>					
+		<div class="loading">
+			<a class="inifiniteLoader">
+				<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
+			</a>	
+		</div>
+	<?php endif; ?>					
 	
 	<footer id="footer" class="pagewidth clearfix">
-			
-		<p class="tornaSu">
-			<a>
-				<img src="<?php bloginfo('template_directory'); ?>/images/up-arrow-icon.png" />
-			</a>
-		</p>
-	
+						
 		<?php // footer navigation ?>
 		<?php wp_nav_menu(array('theme_location' => 'footer-nav' , 'fallback_cb' => '' , 'container'  => '' , 'menu_id' => 'footer-nav' , 'menu_class' => 'footer-nav')); ?>
 

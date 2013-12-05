@@ -4,11 +4,6 @@
 	 http://css-tricks.com
 */
 
-* { margin: 0; padding: 0; }
-#pagewrap{
-	background-color:grey;
-}
-
 #photosx{
 	width: 89%;
 	margin-left:2%;
@@ -28,6 +23,7 @@
 	margin:0.2%;
 }
 .imageCella{	
+	/*background:		url("../images/ajaxload.gif") no-repeat scroll center center transparent;*/
 	opacity: 1;
 	/*overflow: hidden;*/
 	/*position: relative;*/
@@ -37,26 +33,26 @@
 	height: auto;
 }
 .imageCella img {
-	opacity: 0.7;
-	width: 100%;
-	height: auto;
-   -webkit-transition: all 0.2s ease-in;
-   -moz-transition: all 0.2s ease-in;
-   -o-transition: all 0.2s ease-in;
-   -ms-transition: all 0.2s ease-in;
-   transition: all 0.2s ease-in;
+	opacity: 			0.7;
+	width: 				100%;
+	height: 			auto;
+   -webkit-transition: 	all 0.1s ease-in;
+   -moz-transition: 	all 0.1s ease-in;
+   -o-transition: 		all 0.1s ease-in;
+   -ms-transition: 		all 0.1s ease-in;
+   transition: 			all 0.1s ease-in;
    
    /*obbligatorio se no crhome sbrocca*/
    border:1px solid transparent;
 }
 
 .imageCella:hover img {
-   opacity:1;
-   -webkit-transition-delay: 0.2s;
-   -moz-transition-delay: 0.2s;
-   -o-transition-delay: 0.2s;
-   -ms-transition-delay: 0.2s;
-   transition-delay: 0.2s;
+   opacity:						1;
+   -webkit-transition-delay: 	0.1s;
+   -moz-transition-delay: 		0.1s;
+   -o-transition-delay: 		0.1s;
+   -ms-transition-delay: 		0.1s;
+   transition-delay: 			0.1s;
    
    /*obbligatorio se no crhome sbrocca*/
    border:1px solid transparent;
@@ -73,7 +69,9 @@
 	/*overflow: hidden;*/
 }
 .loadit{
-	background:url("images/ajaxload.gif") no-repeat scroll center center transparent;
+	background:		url("../images/ajaxload.gif") no-repeat scroll center center transparent;
+	margin-left: 	auto;
+	margin-right: 	auto;
 }
 
 .tornaSu {

@@ -1,23 +1,23 @@
-.contenitoreImg .leftDiv:hover .leftArrowP{
+.imgDiv .leftDiv:hover .leftArrowP{
 	opacity: 0.8;
 }
-.contenitoreImg .rightDiv:hover .rightArrowP{
+.imgDiv .rightDiv:hover .rightArrowP{
 	opacity: 0.8;
 }
-.contenitoreImg:hover .rightArrowP{
+.imgDiv:hover .rightArrowP{
 	opacity: 0.3;
 }
-.contenitoreImg:hover .leftArrowP{
+.imgDiv:hover .leftArrowP{
 	opacity: 0.3;
 }
 .leftArrowP{
 	float: left;
-	margin-top: 50%;
+	/*margin-top: 50%;*/
 	opacity: 0;
 }
 .rightArrowP{
 	float: right;
-	margin-top: 50%;
+	/*margin-top: 50%;*/
 	opacity: 0;
 }
 .leftArrowImg{

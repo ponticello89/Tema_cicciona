@@ -30,9 +30,10 @@
 			echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
 			//echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none; visibility: hidden;\'/>';						
 			//echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'display: none;\'/>';						
-			echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'/>';						
+			echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
+			echo '						</img>';						
 			echo '					</a>';
-			echo '					<div id=\'img_holder\' class=\'loadit\' style=\'width:100%; height: auto;\'>';
+			//echo '					<div id=\'img_holder\' class=\'loadit\' style=\'width:100px; height: 100px;\'>';
 			echo '              	</div>';		
 			echo '				</div>";';			
 			
