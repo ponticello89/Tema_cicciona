@@ -1,5 +1,6 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.krioImageLoader.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article.css">
 
 <?php if(!is_single()) : global $more; $more = 0; endif; //enable more link ?>
 	
@@ -53,13 +54,13 @@
 										left: marginLeft+"px",
 										"position": "relative"});
 										
-			$('.leftImg').css({			width:  (widthImage/2),
+			$('.leftDiv').css({			width:  (widthImage/2),
 										height: heightImage,
 										//top: marginTop+"px",
 										//left: marginLeft+"px",
 										"position": "absolute"});
 										
-			$('.rightImg').css({		width:  (widthImage/2),
+			$('.rightDiv').css({		width:  (widthImage/2),
 										height: heightImage,
 										//top: marginTop+"px",
 										left: (widthImage/2)+"px",
@@ -69,18 +70,26 @@
 	
 	<div class="test">
 		<div class="contenitoreImg">
-			<div class="leftImg">				
-				<?php get_template_part( 'includes/nav_next'); ?>
+			<div class="leftDiv" onclick="location.href='<?php get_template_part( 'includes/nav_next'); ?>'">								
+				<p class="leftArrowP">
+					<a>
+						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg" />
+					</a>
+				</p>
 			</div>
-			<div class="rightImg"/>
-				<?php get_template_part( 'includes/nav_previous'); ?>
+			<div class="rightDiv" onclick="location.href='<?php get_template_part( 'includes/nav_previous'); ?>'"/>				
+				<p class="rightArrowP">
+					<a>
+						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg"/>
+					</a>
+				</p>
 			</div>			
 			<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; visibility: hidden; opacity: 0;"/>									
 		<div>
 	</div>
 	
 	<script type="text/javascript">
-		loadImage(".test", ".preload");				
+		loadImage(".test", ".preload", "1");				
 	</script>
 	<?php the_content(); ?>
 	

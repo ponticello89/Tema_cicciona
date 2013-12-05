@@ -24,8 +24,10 @@ jQuery(document).ready(function($) {
 			//Creazione colonne
 			createDiv(numDiv, widthCols);			
 			//Caricamento della prima pagina di immagini
-			loadArticle(countPage);	
-			countPage++;						
+			var bool = loadArticle(countPage);	
+			if(bool){
+				countPage++;						
+			}
 		}			
 	)
 	
@@ -35,11 +37,13 @@ jQuery(document).ready(function($) {
 			if (finishImage=="true"){
 				return false;
 			}else{						
-				loadArticle(countPage);				
-				countPage++;
+				var bool = loadArticle(countPage);				
+				if(bool){
+					countPage++;
+				}
 		    }			   
 		}			
-	});
+	});		
 });
 
 //Funzione che restituisce la pagina contenente le immagini indicata come parametro e la appende nel div
@@ -50,26 +54,32 @@ jQuery(document).ready(function($) {
 //    - chiamando la funzione che colloca nel div un codice html che conterrà l'immagine(loadPhotoOnDiv)
 // 3) alla fine del processo ajax viene chiamato il preload che scrive l'immagine nel contenitore e setta l'azione a fine caricamento
 // 4) viene chiamata una funzione che controlla se l'insieme delle immagini stampate arrivi a fine pagina per attivare lo scroll
+var load = "false";
 function loadArticle(pageNumber){
 	//Debug
-	//alert('loadArticle('+urlSite+')');		
-	$('a.inifiniteLoader').show('fast');
-	$.ajax({		
-		url: urlSite+"/wp-admin/admin-ajax.php",		
-		type:'POST',
-		data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop_home', 
-		success: function(html){           						
-			$('a.inifiniteLoader').hide('1000');			
-			$("#photosx").append(html);    // This will be the div where our content will be loaded																	
-		},
-		complete: function(){
-			loadArticleForScroll();			
-			//Settaggio dei margini delle immagini
-			setMarginImage(marginImageValue);
-			loadImage("#photosx", ".preload");						
-		}
-	});					            			
-	
+	//alert('loadArticle('+urlSite+')');
+	if(load == "false"){
+		load = "true";	
+		$('a.inifiniteLoader').show('fast');
+		$.ajax({		
+			url: urlSite+"/wp-admin/admin-ajax.php",		
+			type:'POST',
+			data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop_home', 
+			success: function(html){           						
+				$('a.inifiniteLoader').hide('1000');			
+				$("#photosx").append(html);    // This will be the div where our content will be loaded																	
+			},
+			complete: function(){
+				load = "false";	
+				loadArticleForScroll();			
+				//Settaggio dei margini delle immagini
+				setMarginImage(marginImageValue);
+				loadImage("#photosx", ".preload", "0.7");		
+							
+			}
+		});		
+		return true;	
+	}
 	return false;
 }
 
@@ -112,9 +122,11 @@ function loadArticleForScroll(){
 	if(document.body.clientHeight < $(window).height()){							
 		if (finishImage=='true'){
 			return false;
-		}else{						
-			loadArticle(countPage);	
-			countPage++;			
+		}else{	
+			var bool = loadArticle(countPage);	
+			if(bool){				
+				countPage++;			
+			}
 		}			   			
 	}
 }
@@ -157,6 +169,7 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 //Funzione che si occupera di settare preload delle immagini
 //prende tutte le immagini con un determinato class in un determinato preload
 //settandogli una animazione nel momento del complete ed eliminando la suddetta classe 
+/*
 function loadImage(){
 	//Debug
 	//alert('loadImage ');
@@ -188,3 +201,4 @@ function loadImage(){
             });
         };
 }
+*/

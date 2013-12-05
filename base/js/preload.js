@@ -15,7 +15,7 @@ function loadImageTime(contenitore, classeImage){
 		, 300);
 }
 
-function loadImage(contenitore, classeImage){
+function loadImage(contenitore, classeImage, opacity){
 	//Debug
 	//alert('loadImage ');
 	
@@ -28,14 +28,23 @@ function loadImage(contenitore, classeImage){
 					//alert('a');
 					if (!imagesToLoadCount) {
 						clearInterval(checkIfLoadedTimer);
-						run="false";
+						
 					} else {
 						imagesToLoad.filter(classeImage).each(function () {
 							if (this.complete) {
 								//fadeImageIn(this);								
-								if (!$(this).is(':animated')) {
+								if (!$(this).is(':animated')) {									
 									$(this).removeClass(classeImage);
-									$(this).css({visibility: "visible"}).animate({opacity: 1}, 300);
+									$(this)	.css({visibility: "visible"})
+											.animate({	opacity: opacity}, 
+														300, 
+														function () {
+															$(this).removeAttr('style');
+														});
+									
+									//setTimeout(function(){$(this).removeAttr('style');}, 450);
+									
+									//$(this).fadeIn(300);
 									imagesToLoadCount--;
 								}								
 							}

@@ -1,0 +1,30 @@
+.contenitoreImg .leftDiv:hover .leftArrowP{
+	opacity: 0.8;
+}
+.contenitoreImg .rightDiv:hover .rightArrowP{
+	opacity: 0.8;
+}
+.contenitoreImg:hover .rightArrowP{
+	opacity: 0.3;
+}
+.contenitoreImg:hover .leftArrowP{
+	opacity: 0.3;
+}
+.leftArrowP{
+	float: left;
+	margin-top: 50%;
+	opacity: 0;
+}
+.rightArrowP{
+	float: right;
+	margin-top: 50%;
+	opacity: 0;
+}
+.leftArrowImg{
+	float: left;
+	width: 50%;
+}
+.rightArrowImg{
+	float: right;
+	width: 50%;
+}
