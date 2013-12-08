@@ -1,0 +1,69 @@
+/*Contenitori Master*/
+.headerDivTop{
+	width: 		95%;
+	height: 	100%;
+	position: 	relative;
+	left:		2%;
+	/*background-color: yellow;*/
+}
+/*Contenitori Master*/
+
+/*Contenitori Header*/
+.headerLevel1{
+	width: 100%;
+	height: 50%;
+}
+.headerLevel2{
+	width: 100%;
+	height: 50%;
+}
+/*Contenitori Header*/
+
+/*Sotto Contenitori Header*/
+.headerTitleDiv{
+	width:	100%;
+	height: 100%;
+	float:	left;
+	/*background-color: white;*/
+}
+.headerPagesDiv{
+	width:	50%;
+	height: 100%;
+	float: 	right;
+	/*background-color: blue;*/
+}
+.headerCategoriesDiv{
+	width:	50%;
+	height: 100%;
+	float: 	left;
+	/*background-color: black;*/
+}
+/*Sotto Contenitori Header*/
+
+/*Header effetto scroll*/
+.headerScroll{
+	background-color: 	black;
+	position: 			fixed !important;
+	opacity: 			0.7;
+	z-index: 			10;
+	width:				100%;
+	display:			none;
+	top:				0;
+}
+/*Header effetto scroll*/
+
+/*Reali*/
+.headerPages{	
+	float: 	right;
+}
+.headerLevel2 a{
+	padding: 15px !important;
+	border-radius: 50px !important;
+}
+.headerLevel2 a:hover{
+	background: none repeat scroll 0% 0% rgb(238, 238, 238);
+}
+.headerCategoriesDiv li{
+	list-style: none;
+	float: left;
+}

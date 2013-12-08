@@ -111,10 +111,7 @@ function createDiv(numDiv, widthCols){
 		
 		//Inizializzo l'array height con valore 0
 		heightColArray [i] = 0;		
-	}
-	
-	//Settaggio dei margini delle immagini
-	//setMarginImage(marginImageValue);
+	}		
 }
 
 //Funzione che controlla se l'insieme delle immagini stampate attivino lo scroll

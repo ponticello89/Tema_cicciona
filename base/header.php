@@ -11,22 +11,11 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/media-queries.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_total.css">
-
-<!--
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/demo.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style_common.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/reset.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style2.css">
--->
-
-<!-- html5.js (HTML5 Shiv for IE) -->
-<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-
+<script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>
 
 <!-- wp_header -->
 <?php wp_head(); ?>
@@ -52,28 +41,63 @@
 <div id="pagewrap">
 
 	<header id="header" class="pagewidth">
+		<div class="headerDivTop">
+			<div class="headerLevel1">
+				<div class="headerTitleDiv">
+					<hgroup>
+						<h1 id="site-logo"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+						<h2 id="site-description"><?php bloginfo('description'); ?></h2>
+					</hgroup>
+				</div>
+			</div>
+			
+			<div class="headerLevel2">
+				<!--Inizio Page-->
+				<div class="headerPagesDiv">
+					<nav id="main-nav-wrap" class="headerPages">
+						<?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => '' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
+					</nav>
+				</div>
+				<!--Fine Page-->
+				
+				<!--Inizio Categorie-->
+				<div class="headerCategoriesDiv">
+					<ul style="	list-style: none;
+								float: left;">
+						<?php				
+							$args=array(
+							  'orderby' => 'name',
+							  'order' => 'ASC'
+							  );								
+							 
+							$categories=get_categories($args);
+							foreach($categories as $category) { 			 
+									echo '<li>';
+									echo '	<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "tutti i post nella categoria %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>';
+									echo '<li>';
+							} 
+						?>		
+					</ul>				
+				</div>
+				<!--Fine Categorie-->
+			</div>
+			
+			<!--
+			<?php // get searchform.php ?>
+			<div id="searchform-wrap">
+				<?php get_search_form(); ?>
+			</div>
 
-		<hgroup>
-			<h1 id="site-logo"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
-			<h2 id="site-description"><?php bloginfo('description'); ?></h2>
-		</hgroup>
-
-		<?php // main navigation ?>
-		<nav id="main-nav-wrap">
-			<?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => '' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
-		</nav>
-
-		<?php // get searchform.php ?>
-		<div id="searchform-wrap">
-			<?php get_search_form(); ?>
+			<div class="social-widget">
+				<div class="rss"><a href="<?php echo bloginfo('rss2_url'); ?>">RSS</a></div>
+			</div>
+			-->
+			<!-- /.social-widget -->
 		</div>
-
-		<div class="social-widget">
-			<div class="rss"><a href="<?php echo bloginfo('rss2_url'); ?>">RSS</a></div>
-		</div>
-		<!-- /.social-widget -->
-
 	</header>
 	<!-- /#header -->
-
+	
+	<div class="headerFake headerScroll">
+	</div>
+	
 	<div id="body" class="pagewidth clearfix">
