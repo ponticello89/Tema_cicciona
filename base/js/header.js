@@ -14,5 +14,5 @@ jQuery(document).ready(function($) {
 			$('.headerFake').fadeOut('slow');
 			
 		}			
-	});	
+	});		
 });

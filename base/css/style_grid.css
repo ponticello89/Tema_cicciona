@@ -53,10 +53,7 @@
 	-o-transition-delay: 		0.1s;
 	-ms-transition-delay: 		0.1s;
 	transition-delay: 			0.1s;
-   
-	/*
-	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6) inset, 0px 0px 0px 2px rgb(0, 0, 0) inset, 0px 0px 2px rgba(0, 0, 0, 0.3);
-	*/
+	
    /*obbligatorio se no crhome sbrocca*/
    border:1px solid transparent;
 }
