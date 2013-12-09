@@ -57,14 +57,14 @@ jQuery(document).ready(function($) {
 var load = "false";
 function loadArticle(pageNumber){
 	//Debug
-	//alert('loadArticle('+urlSite+')');
+	//alert('loadArticle('+category+')');	
 	if(load == "false"){
 		load = "true";	
 		$('a.inifiniteLoader').show('fast');
 		$.ajax({		
 			url: urlSite+"/wp-admin/admin-ajax.php",		
 			type:'POST',
-			data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=includes/loop_home', 
+			data: "action=infinite_scroll&page_no="+ pageNumber + '&category='+category+'&loop_file=includes/loop_home', 
 			success: function(html){           						
 				$('a.inifiniteLoader').hide('1000');			
 				$("#photosx").append(html);    // This will be the div where our content will be loaded																	

@@ -176,11 +176,17 @@
 	function wp_infinitepaginate(){
 		$loopFile        = $_POST['loop_file'];
 		$paged           = $_POST['page_no'];
+		$category		 = $_POST['category'];
 		$posts_per_page  = get_option('posts_per_page');
 
 		//query_posts( array( 'category__and' => array(1,3), 'posts_per_page' => 2, 'orderby' => 'title', 'order' => 'DESC' ) );
 		//category_name=senza-categoria
-		query_posts(array('paged' => $paged, 'category_name' => 'senza-categoria'));
+		if($category != null && $category != ""){
+			query_posts(array('paged' => $paged, 'category_name' => $category));
+		}else{
+			query_posts(array('paged' => $paged));
+		}
+		
 		//query_posts(array('paged' => $paged, 'category_name' => 'chicco'));
 		//echo $wp_query->max_num_pages;		
 		

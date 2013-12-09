@@ -5,6 +5,16 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
 
+
+<?php 			
+	$categoryName = "";
+	$catId = htmlspecialchars($_GET["cat"]);		
+	
+	if($catId != null && $catId != ""){		
+		$categoryName = get_the_category_by_ID( $catId );
+	}
+?>
+
 <script type="text/javascript">
 	//Settaggio di variabili fondamentali
 	//var totalPage = <?php echo $wp_query->max_num_pages; ?>;
@@ -26,9 +36,13 @@
 	var marginImageValue = "<?php echo get_option('margin-image'); ?>";
 	if(marginImageValue == null){
 		marginImageValue = 5;
-	}
+	}		
 	
+	var category = "<?php echo $categoryName?>";
 </script>
+
+
+
 
 <!--Contenitore Grid-->
 <div id="photosx"/>			
@@ -76,3 +90,4 @@
 		<img src="<?php bloginfo('template_directory'); ?>/images/up-arrow-icon.png" />
 	</a>
 </p>
+

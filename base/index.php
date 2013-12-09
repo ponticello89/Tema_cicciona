@@ -3,7 +3,7 @@
 	<div id="content_home" class="clearfix">
 		
 		<?php if (have_posts()) : ?>
-			<?php if(is_home()) : ?>					
+			<?php if(is_home() || is_category()) : ?>					
 				<?php get_template_part( 'home_mod' , 'home'); ?>		
 			<?php endif; ?>					
 		<?php else : ?>
