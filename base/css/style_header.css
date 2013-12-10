@@ -41,10 +41,11 @@
 /*Sotto Contenitori Header*/
 
 /*Header effetto scroll*/
-.headerScroll{
-	background-color: 	black;
+.headerScroll{	
 	position: 			fixed !important;
-	opacity: 			0.7;
+	/*background-color: 	black;*/
+	/*opacity: 			0.7;*/
+	background: 		rgba(0, 0, 0, 0.7);
 	z-index: 			10;
 	width:				100%;
 	display:			none;
@@ -59,12 +60,23 @@
 .headerPages{	
 	float: 	right;
 }
+.select a{
+	background: none repeat scroll 0% 0% rgb(51, 51, 51);
+	color: rgb(255, 255, 255);
+}
 .headerLevel2 a{
-	padding: 15px !important;
-	border-radius: 50px !important;
+	padding: 		15px !important;
+	border-radius: 	50px !important;
+	font-size: 		30px;
+	text-transform: uppercase;	
+	font-family: 	Impact, Charcoal, sans-serif;
+	font-weight: 	normal;
+	color:			#9397A3;
 }
 .headerLevel2 a:hover{
-	background: none repeat scroll 0% 0% rgb(238, 238, 238);
+	background: none !important;
+	text-decoration: none;
+	color:			#7B88CC;
 }
 .headerCategoriesDiv li{
 	list-style: none;

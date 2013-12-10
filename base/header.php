@@ -60,21 +60,40 @@
 				</div>
 				<!--Fine Page-->
 				
-				<!--Inizio Categorie-->
+				<!--Inizio Categorie-->				
 				<div class="headerCategoriesDiv">
 					<ul style="	list-style: none;
 								float: left;">
-						<?php				
+												
+						<li <?php 	if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home')))){
+										echo 'class="select"';
+									} ?>
+							>
+							<a href="<?php echo get_option('home');?>">
+								ALL
+							</a>
+						</li>
+						<?php			
+							$catId = htmlspecialchars($_GET["cat"]);	
+						
 							$args=array(
 							  'orderby' => 'name',
 							  'order' => 'ASC'
-							  );								
+							);								
 							 
 							$categories=get_categories($args);
-							foreach($categories as $category) { 			 
-									echo '<li>';
-									echo '	<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "tutti i post nella categoria %s" ), $category->name ) . '" ' . '>' . $category->name.'</a>';
-									echo '<li>';
+							foreach($categories as $category) { 		
+									if($category->term_id != 1){
+										if($catId == $category->term_id){
+											echo '<li class="select">';
+										}else{
+											echo '<li>';
+										}										
+										echo '	<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "tutti i post nella categoria %s" ), $category->name ) . '" >';
+										echo '		'. $category->name.'';
+										echo '	</a>';
+										echo '</li>';
+									}
 							} 
 						?>		
 					</ul>				
