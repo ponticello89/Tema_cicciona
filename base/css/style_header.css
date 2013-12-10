@@ -61,10 +61,6 @@
 .headerPages{	
 	float: 	right;
 }
-.select a{
-	background: none repeat scroll 0% 0% rgb(51, 51, 51);
-	color: rgb(255, 255, 255);
-}
 .headerLevel2 a{
 	padding: 		15px !important;
 	border-radius: 	50px !important;
@@ -78,6 +74,16 @@
 	background: none !important;
 	text-decoration: none;
 	color:			#7B88CC;
+	/*color:			#AE94CE;*/	
+	/*tempo*/
+	-webkit-transition: all 0.4s ease-in-out;
+    -moz-transition:	all 0.4s ease-in-out;
+    -o-transition: 		all 0.4s ease-in-out;
+    transition: 		all 0.4s ease-in-out;
+}
+.current_page_item a{
+	/*background: none repeat scroll 0% 0% rgb(51, 51, 51);*/
+	color: white;
 }
 .headerCategoriesDiv li{
 	list-style: none;

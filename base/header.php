@@ -66,7 +66,7 @@
 								float: left;">
 												
 						<li <?php 	if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home')))){
-										echo 'class="select"';
+										echo 'class="current_page_item"';
 									} ?>
 							>
 							<a href="<?php echo get_option('home');?>">
@@ -85,11 +85,11 @@
 							foreach($categories as $category) { 		
 									if($category->term_id != 1){
 										if($catId == $category->term_id){
-											echo '<li class="select">';
+											echo '<li class="current_page_item">';
 										}else{
 											echo '<li>';
 										}										
-										echo '	<a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "tutti i post nella categoria %s" ), $category->name ) . '" >';
+										echo '	<a href="' . get_category_link( $category->term_id ) . '">';
 										echo '		'. $category->name.'';
 										echo '	</a>';
 										echo '</li>';
