@@ -5,23 +5,25 @@ Tema wordpress creato per un sito puramente illustrativo work in progress 60%
 =============
 Da Fare
 =============
-Switch delle categorie nella home<br/>
-Aggiustare l'header<br/>
-Implementare effetto header scroll<br/>
-Migliorare preload<br/>
+Migliorare effetto scroll header riducendolo sotto un certo scroll<br/>
+Migliorare footer giocando con il content<br/>
+Aggiustare l'header 50%<br/>
 Resize e centramento dinamico<br/>
 Contatore visite<br/>
 Paginazione nel dettaglio dell'immagine<br/>
-PROBLEMONE:<br/>
-  condividere immagini in questo caso sarebbe impossibile
-    bisognerebbe cambiare l'url senza ricaricare la pagina<br/>
-    sviluppare un dettaglio immagini che porti all'articolo<br/>
-Schare con i social networ<br/>
+Share con i social networ 50%<br/>
 Modifica elenco articoli backend<br/>
 
 =============
 Fatte
 =============
+Migliorare preload<br/>
+PROBLEMONE:<br/>
+  condividere immagini in questo caso sarebbe impossibile
+    bisognerebbe cambiare l'url senza ricaricare la pagina<br/>
+    sviluppare un dettaglio immagini che porti all'articolo<br/>
+Implementare effetto header scroll<br/>
+Switch delle categorie nella home<br/>
 Griglia immagini sfalsata<br/>
 Lightbox immagini<br/>
 Paginazione a scorrimento<br/>
