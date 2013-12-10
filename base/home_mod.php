@@ -4,7 +4,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
-
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
 
 <?php 			
 	$categoryName = "";
@@ -45,7 +45,7 @@
 
 
 <!--Contenitore Grid-->
-<div id="photosx"/>			
+<div id="photosx"></div>			
 	
 <div 	class="sfondoBigImage" 
 		style="	width: 100%; 
@@ -62,7 +62,7 @@
 
 <img 	class="bigImage" 
 		style="	position: absolute;
-				display: block;
+				display: none;
 				z-index: 10000;
 				position: fixed;
 				width: auto;

@@ -15,14 +15,15 @@ jQuery(document).ready(function($) {
 	
 	$('.sfondoBigImage').hover(function(){					
 		$('.titleBigImageDiv').fadeOut('fast');
-	});
+	});		
 });
 
 function apriImg(urlImage, urlArticle, titleImage, widthImage, heightImage){
+	//return false;
 	
 	homeUrl = window.location+"";		
 	window.history.pushState({path:urlArticle},'',urlArticle);
-	
+		
 	$('.titleBigImage').empty();
 
 	//alert(urlImage);
