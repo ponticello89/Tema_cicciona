@@ -1,15 +1,12 @@
 Tema_cicciona
 =============
-Tema wordpress creato per un sito puramente illustrativo work in progress 60%
+Tema wordpress creato per un sito puramente illustrativo work in progress 80%
 
 =============
 Da Fare
 =============
-Migliorare effetto scroll header riducendolo sotto un certo scroll<br/>
-Migliorare footer giocando con il content<br/>
-Aggiustare l'header 50%<br/>
-Resize e centramento dinamico<br/>
-Contatore visite<br/>
+Layout Pagine<br/>
+Resize e centramento dinamico 50%<br/>
 Paginazione nel dettaglio dell'immagine<br/>
 Share con i social networ 50%<br/>
 Modifica elenco articoli backend<br/>
@@ -17,6 +14,10 @@ Modifica elenco articoli backend<br/>
 =============
 Fatte
 =============
+Contatore visite<br/>
+Aggiustare l'header 50%<br/>
+Migliorare footer giocando con il content<br/>
+Migliorare effetto scroll header riducendolo sotto un certo scroll<br/>
 Migliorare preload<br/>
 PROBLEMONE:<br/>
   condividere immagini in questo caso sarebbe impossibile
