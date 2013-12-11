@@ -22,7 +22,8 @@ jQuery(document).ready(function($) {
 			//Settaggio larghezza griglia
 			setWidthGrid(widthGridValue);			
 			//Creazione colonne
-			createDiv(numDiv, widthCols);			
+			createDiv(numDiv);		
+			reSize(numDiv, widthCols);		
 			//Caricamento della prima pagina di immagini
 			var bool = loadArticle(countPage);	
 			if(bool){
@@ -44,6 +45,10 @@ jQuery(document).ready(function($) {
 		    }			   
 		}			
 	});		
+	
+	$(window).resize(function () {		
+		reSize(numDiv, widthCols);		
+	});
 });
 
 //Funzione che restituisce la pagina contenente le immagini indicata come parametro e la appende nel div
@@ -95,7 +100,32 @@ function setMarginImage(marginImageValue){
 }
 
 //Funzione che crea i div-colonna che conterranno verticalmente le immagini
-function createDiv(numDiv, widthCols){
+function createDiv(numDiv){
+
+	for (i=1; i<=numDiv; i++) {
+		//Creo il div colonna
+		var divHtml = "<div id=\"colonna"+i+"\" class=\"colonna colonnaPhoto\">";		
+		
+		//Lo appendo
+		$("#photosx").append(divHtml);
+				
+		//Inizializzo l'array height con valore 0
+		heightColArray [i] = 0;		
+	}		
+}
+function reSize(numDiv, widthCols){
+	var widthColsArray = widthCols.split(",");
+					
+	for (i=1; i<=numDiv; i++) {
+		//Creo il div colonna		
+		$("#colonna"+[i]).css({width : ((widthColsArray[(i-1)])-1)+"%"});
+		$("#colonna"+i).width(parseInt($("#colonna"+i).width()));
+							
+		//Inizializzo l'array height con valore 0
+		heightColArray [i] = 0;		
+	}		
+}
+function createDiv_(numDiv, widthCols){
 	
 	var widthColsArray = widthCols.split(",");
 					
