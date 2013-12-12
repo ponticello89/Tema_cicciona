@@ -1,4 +1,5 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/single.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article.css">
 
 <?php if(!is_single()) : global $more; $more = 0; endif; //enable more link ?>
@@ -16,64 +17,7 @@
 	?>
 	
 	<script type="text/javascript">
-		var widthWindow = $(window).width();
-		var heightWindow = $(window).height();
-		var widthImage = "<?php echo $width?>";
-		var heightImage = "<?php echo $height?>";
-		var x;
-				
-		//alert("ciccio");
-		
-		x = (heightImage/heightWindow);		
-		if((widthImage/widthWindow) > x){
-			x = (widthImage/widthWindow);
-		}			
-		
-		if(x != 0){
-			widthImage = widthImage/x;
-			heightImage = heightImage/x;
-		}
-		
-		widthImage 	= parseInt((widthImage/10)*8);
-		heightImage = parseInt((heightImage/10)*8);
-		
-		var marginTop =  parseInt((heightWindow-heightImage)/2);
-		var marginLeft = parseInt((widthWindow-widthImage)/2);
-		
-		$(function() {
-			$('.imgDiv').css({			width:  widthImage,
-										height: heightImage,
-										//top: marginTop+"px",
-										left: marginLeft+"px",
-										"position": "relative"
-										});
-												
-			$('.imageArticle').css({	width:  widthImage,
-										height: heightImage,
-										//top: marginTop+"px",
-										//left: marginLeft+"px"
-										});
-			
-			$('.leftArrowP').css({		"margin-top": (heightImage/2)-(($('.leftArrowP').height())/2)+"px"
-										});
-										
-			$('.rightArrowP').css({		"margin-top": (heightImage/2)-(($('.rightArrowP').height())/2)+"px"
-										});
-										
-			$('.leftDiv').css({			width:  (widthImage/2),
-										height: heightImage,
-										//top: marginTop+"px",
-										//left: marginLeft+"px",
-										"position": "absolute"
-										});
-										
-			$('.rightDiv').css({		width:  (widthImage/2),
-										height: heightImage,
-										//top: marginTop+"px",
-										left: (widthImage/2)+"px",
-										"position": "absolute"
-										});
-		});				
+		initializeDimension("<?php echo $width?>","<?php echo $height?>");		
 	</script>
 	
 	<div class="test">
@@ -131,7 +75,8 @@
 	</script>
 	
 	<script type="text/javascript">
-		loadImage(".test", ".preload", "1");				
+		loadImage(".test", ".preload", "1");		
+		reSizeImageArticle();		
 	</script>
 	
 	<?php the_content(); ?>
