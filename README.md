@@ -6,7 +6,6 @@ Tema wordpress creato per un sito puramente illustrativo work in progress 80%
 Da Fare
 =============
 Layout Pagine<br/>
-Resize e centramento dinamico 50%<br/>
 Paginazione nel dettaglio dell'immagine<br/>
 Share con i social networ 50%<br/>
 Modifica elenco articoli backend<br/>
@@ -14,6 +13,7 @@ Modifica elenco articoli backend<br/>
 =============
 Fatte
 =============
+Resize e centramento dinamico 50%<br/>
 Contatore visite<br/>
 Aggiustare l'header 50%<br/>
 Migliorare footer giocando con il content<br/>
