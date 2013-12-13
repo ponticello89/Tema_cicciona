@@ -1,6 +1,8 @@
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_page.css">
+
 <?php get_header(); ?>
 
-	<div id="content" class="clearfix">
+	<div class="pageContent">
 	
 		<?php while ( have_posts() ) : the_post(); ?>
 						
@@ -8,18 +10,18 @@
 
 			<?php the_content(); ?>
 			
-			<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
+			<?php //wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 			
-			<?php edit_post_link(__('Edit','themify'), '[', ']'); ?>
+			<?php //edit_post_link(__('Edit','themify'), '[', ']'); ?>
 			
 			<?php // get comment template (comments.php) ?>
-			<?php comments_template(); ?>
+			<?php //comments_template(); ?>
 		
 		<?php endwhile; ?>
 		
 	</div>
 	<!-- /#content -->
 		
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 	
 <?php get_footer(); ?>

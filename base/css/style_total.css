@@ -2,19 +2,33 @@
 html, body {
   height: 100%;
   min-width: 1020px;
+  background-color:	#B5B5B5;
 }
 #pagewrap{
-	background-color:	#B5B5B5;
+	/*background-color:	#B5B5B5;*/
 	/*background-image: url(../images/sfondo_4.jpg);*/
 	/*background-image: url(../images/sfondo_3.png);*/
 	background-repeat:no-repeat;
 	background-size: 100%;
 	background-attachment:fixed;
-	min-height: 92%;	
+	min-height: 90%;
+}
+#header {
+	position: relative;
+	height: 130px;
+	width: 100%;
+	border-bottom: solid 1px #ccc;
+}
+#body{
+	/*height: 70%;*/
+	/*display: table;*/
 }
 footer {
 	background-color:	#B5B5B5;	
-	padding: 8px 0;	
+	padding-top: 4px;	
 	clear: both;
-	border-top: solid 1px #ccc;
+	border-top: solid 1px #ccc;	
+	bottom: 0;
+	height: 47px;
+	width: 100%;
 }

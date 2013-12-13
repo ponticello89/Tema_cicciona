@@ -439,17 +439,18 @@ MAIN NAVIGATION
 	background: #eee;
 }
 
-/* current link */
+/* current link 
 #main-nav .current_page_item a, #main-nav .current-menu-item a {
 	background: #333;
 	color: #fff;
 }
-/* current link :hover */
+*/
+/* current link :hover 
 #main-nav .current_page_item a:hover, #main-nav .current-menu-item a:hover {
 	color: #fff;
 }
-
-/* sub-levels link */
+*/
+/* sub-levels link 
 #main-nav ul a, #main-nav .current_page_item ul a, #main-nav ul .current_page_item a, #main-nav .current-menu-item ul a, #main-nav ul .current-menu-item a, #main-nav li:hover > ul a  {
 	color: #666;
 	font-size: 100%;
@@ -470,12 +471,14 @@ MAIN NAVIGATION
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
-/* sub-levels link :hover */
+*/
+/* sub-levels link :hover 
 #main-nav ul a:hover, #main-nav .current_page_item ul a:hover, #main-nav ul .current_page_item a:hover, #main-nav .current-menu-item ul a:hover, #main-nav ul .current-menu-item a:hover, #main-nav li:hover > ul a:hover {
 	background: #F3F3F3;
 	color: #000;
 	color: black;
 }
+*/
 /* dropdown ul */
 #main-nav ul {
 	margin: 0;

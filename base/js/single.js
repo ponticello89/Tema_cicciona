@@ -15,15 +15,16 @@ jQuery(document).ready(function($) {
 
 function reSizeImageArticle(){
 	var widthWindow	 = $("#pagewrap").width();
-	var heightWindow = $("#pagewrap").height();	
-
+	//var heightWindow = $("#pagewrap").height();	
+	var heightWindow = $(window).height();	
+	
 	var x;
 			
-	
+	//alert(heightWindow+"-"+widthWindow);
 	x = (heightImageArticle/heightWindow);		
 	if((widthImageArticle/widthWindow) > x){
-		x = (widthImageArticle/widthWindow);
-	}			
+		x = (widthImageArticle/widthWindow);		
+	}
 
 	if(x != 0){
 		widthImageArticle = widthImageArticle/x;
