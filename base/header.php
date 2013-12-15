@@ -10,7 +10,6 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_total.css"/>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
@@ -18,22 +17,27 @@
 <?php 
 	//Include funzioni di utilità
 	require_once (TEMPLATEPATH . '/includes/utility.php'); 	
-	if(isPhone() == 1){
+	if(isPhone() == 1) {
 ?>	
-		<script language="Javascript">
-			
-			jQuery(document).ready(function($) {								
-				//$("body").css("width", screen.width+"px");
-				//$("body").css("min-width", screen.width+"px");
-				//$("html").css("width", screen.width+"px");				
-				//$("html").css("min-width", screen.width+"px");
-				
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header_mobile.css">
+		<script language="Javascript">			
+			jQuery(document).ready(function($) {																
 				$("body").css("width", $(window).width()+"px");
 				$("body").css("min-width", $(window).width()+"px");
 				$("html").css("width", $(window).width()+"px");				
-				$("html").css("min-width", $(window).width()+"px");
+				$("html").css("min-width", $(window).width()+"px");								
+				//Debug
+				//$("body").css("width", "400px");
+				//$("body").css("min-width", "400px");
+				//$("html").css("width", "400px");				
+				//$("html").css("min-width", "400px");			
 			});
 		</script>
+
+<?php	
+	} else {
+?>		
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">						
 
 <?php
 	}
@@ -73,20 +77,38 @@
 				</div>
 			</div>
 			
-			<div class="headerLevel2">
+			<div class="headerLevel2">								
 				<!--Inizio Page-->
 				<div class="headerPagesDiv">
-					<nav id="main-nav-wrap" class="headerPages">
-						<?php wp_nav_menu(array('theme_location' => 'main-nav' , 'fallback_cb' => 'default_main_nav' , 'container'  => '' , 'menu_id' => 'main-nav' , 'menu_class' => 'main-nav')); ?>
-					</nav>
+					<ul class="headerPagesUl">															
+						<?php			
+							$pageId = htmlspecialchars($_GET["page_id"]);	
+						
+							$args=array(
+							  'orderby' => 'name',
+							  'order' => 'ASC'
+							);								
+							 
+							$pages=get_pages($args);
+							foreach($pages as $page) { 										
+									if($pageId == $page->ID){
+										echo '<li class="current_page_item">';
+									}else{
+										echo '<li>';
+									}										
+									echo '	<a href="' . get_page_link( $page->ID ) . '">';
+									echo '		'. $page->post_title.'';
+									echo '	</a>';
+									echo '</li>';								
+							} 
+						?>		
+					</ul>										
 				</div>
 				<!--Fine Page-->
 				
 				<!--Inizio Categorie-->				
 				<div class="headerCategoriesDiv">
-					<ul style="	list-style: none;
-								float: left;">
-												
+					<ul class="headerCategoriesUl">											
 						<li <?php 	if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home')))){
 										echo 'class="current_page_item"';
 									} ?>

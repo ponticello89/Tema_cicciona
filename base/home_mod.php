@@ -2,7 +2,6 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/header_fake.js"></script>
 
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
@@ -44,6 +43,7 @@
 
 <?php 
 	if(isPhone() == 0){ ?>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/header_fake.js"></script>
 			
 		<div 	class="sfondoBigImage" 
 				style="	width: 100%; 

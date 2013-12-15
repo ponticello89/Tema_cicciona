@@ -13,7 +13,9 @@
 			//$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
 			$urlArticle = get_permalink($post->ID);
 			$titleArticle = get_the_title($post->ID);			
-			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
+			//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
+			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
+			//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID, 'medium'), 'thumbnail_size' );
 			$urlImage = $thumb['0']; 
 			$width = $thumb['1'];
 			$height = $thumb['2'];										
