@@ -1,6 +1,6 @@
 <?php 
 	//Include funzioni di utilità
-	require_once (TEMPLATEPATH . '/includes/utility.php'); 			
+	require_once (TEMPLATEPATH . '/includes/utility.php'); 
 ?>
 
 <?php get_header(); ?>		

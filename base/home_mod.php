@@ -39,53 +39,54 @@
 	var category = "<?php echo $categoryName?>";
 </script>
 
-
-
-
 <!--Contenitore Grid-->
 <div id="photosx"></div>			
-	
-<div 	class="sfondoBigImage" 
-		style="	width: 100%; 
-				height: 100%; 
-				display: none;
-				position: fixed;
-				top: 0px;
-				left: 0px;
-				z-index: 9999;
-				background-color: black;				
-				opacity: 0.8;">							
-</div>
+
+<?php 
+	if(isPhone() == 0){ ?>
+			
+		<div 	class="sfondoBigImage" 
+				style="	width: 100%; 
+						height: 100%; 
+						display: none;
+						position: fixed;
+						top: 0px;
+						left: 0px;
+						z-index: 9999;
+						background-color: black;				
+						opacity: 0.8;">							
+		</div>
 
 
-<img 	class="bigImage" 
-		style="	position: absolute;
-				display: none;
-				z-index: 10000;
-				position: fixed;
-				width: auto;
-				top: 0;
-				left: 0;
-				height: 80%;">
-</img>
-<div 	class="titleBigImageDiv"
-		style="	position: absolute;
-				display: none;
-				z-index: 10000;
-				position: fixed;
-				width: auto;
-				top: 0;
-				left: 0;
-				height: 80%;
-				background-color: black;				
-				opacity: 0.8;">
-				
-	<h1 class="titleBigImage"/>
-</div>
+		<img 	class="bigImage" 
+				style="	position: absolute;
+						display: none;
+						z-index: 10000;
+						position: fixed;
+						width: auto;
+						top: 0;
+						left: 0;
+						height: 80%;">
+		</img>
+		<div 	class="titleBigImageDiv"
+				style="	position: absolute;
+						display: none;
+						z-index: 10000;
+						position: fixed;
+						width: auto;
+						top: 0;
+						left: 0;
+						height: 80%;
+						background-color: black;				
+						opacity: 0.8;">
+						
+			<h1 class="titleBigImage"/>
+		</div>
 
-<p class="tornaSu">
-	<a>
-		<img src="<?php bloginfo('template_directory'); ?>/images/up-arrow-icon.png" />
-	</a>
-</p>
-
+		<p class="tornaSu">
+			<a>
+				<img src="<?php bloginfo('template_directory'); ?>/images/up-arrow-icon.png" />
+			</a>
+		</p>
+<?php 
+	}?>

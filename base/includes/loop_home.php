@@ -1,3 +1,7 @@
+<?php 
+	//Include funzioni di utilità
+	require_once (TEMPLATEPATH . '/includes/utility.php'); 			
+?>
 
 <?php while (have_posts()) : the_post(); ?>
 	
@@ -12,8 +16,9 @@
 			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
 			$urlImage = $thumb['0']; 
 			$width = $thumb['1'];
-			$height = $thumb['2'];							
+			$height = $thumb['2'];										
 		?>
+			
 			
 		<?php if($width != null || $width!=0) :?>
 		
@@ -26,13 +31,19 @@
 			echo 'var titleArticle = "' . $titleArticle . '";';
 			
 			echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';			
-			//echo '					<a href=\'"+urlArticle+"\' onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
-			echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
-			//echo '						<img src=\'"+urlImage+"\' class=\'image image1\' id=\'img"+totaleImg+"\' style=\'display: none; visibility: hidden;\'/>';						
-			//echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'display: none;\'/>';						
-			echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
-			echo '						</img>';						
-			echo '					</a>';
+			
+			if(isPhone() == "0"){
+				echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
+				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
+				echo '						</img>';						
+				echo '					</a>';
+			}else{
+				echo '					<a href=\'"+urlArticle+"\'>';		
+				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
+				echo '						</img>';						
+				echo '					</a>';
+			}								
+			
 			//echo '					<div id=\'img_holder\' class=\'loadit\' style=\'width:100px; height: 100px;\'>';
 			echo '              	</div>';		
 			echo '				</div>";';			

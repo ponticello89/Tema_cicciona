@@ -79,7 +79,11 @@ function loadArticle(pageNumber){
 				loadArticleForScroll();			
 				//Settaggio dei margini delle immagini
 				setMarginImage(marginImageValue);
-				loadImage("#photosx", ".preload", "0.7");		
+				if(isPhone == "0"){
+					loadImage("#photosx", ".preload", "0.7");		
+				}else{
+					loadImage("#photosx", ".preload", "1");		
+				}
 							
 			}
 		});		
@@ -193,39 +197,3 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 	}
 }
 	
-//Funzione che si occupera di settare preload delle immagini
-//prende tutte le immagini con un determinato class in un determinato preload
-//settandogli una animazione nel momento del complete ed eliminando la suddetta classe 
-/*
-function loadImage(){
-	//Debug
-	//alert('loadImage ');
-		
-	var imagesToLoad = $("#photosx").find(".preload");
-    var imagesToLoadCount = imagesToLoad.size();
-						
-	var checkIfLoadedTimer = 
-		setInterval(
-			function () {
-				//alert('a');
-				if (!imagesToLoadCount) {
-					clearInterval(checkIfLoadedTimer);
-				} else {
-					imagesToLoad.filter(".preload").each(function () {
-						if (this.complete) {
-							fadeImageIn(this);
-							imagesToLoadCount--;
-						}
-					});
-				}
-			}, 
-			300);
-
-	var fadeImageIn = 
-		function (imageToLoad) {
-            $(imageToLoad).css({visibility: "visible"}).animate({opacity: 1}, 400, function () {
-                $(imageToLoad).removeClass("preload");
-            });
-        };
-}
-*/

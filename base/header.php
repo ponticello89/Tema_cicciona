@@ -15,11 +15,18 @@
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 
-<script language="Javascript">
+<?php 
+	if(isPhone() == 1){
+?>	
+		<script language="Javascript">
+			jQuery(document).ready(function($) {
+				$("body").css("min-width", screen.width);
+			});
+		</script>
 
-//document.write('<br>Vostra risoluzione è di'+screen.width+'x'+screen.height);
-
-</script>
+<?php
+	}
+?>
 
 <!-- wp_header -->
 <?php wp_head(); ?>
