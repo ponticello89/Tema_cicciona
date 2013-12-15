@@ -22,9 +22,8 @@
 ?>	
 		<script language="Javascript">
 			
-			jQuery(document).ready(function($) {
-				alert(screen.width);
-				$("body").css("min-width", screen.width);
+			jQuery(document).ready(function($) {				
+				$("body").css("width", screen.width);
 			});
 		</script>
 
