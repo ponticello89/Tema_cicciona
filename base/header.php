@@ -22,8 +22,16 @@
 ?>	
 		<script language="Javascript">
 			
-			jQuery(document).ready(function($) {				
-				$("body").css("width", screen.width);
+			jQuery(document).ready(function($) {								
+				//$("body").css("width", screen.width+"px");
+				//$("body").css("min-width", screen.width+"px");
+				//$("html").css("width", screen.width+"px");				
+				//$("html").css("min-width", screen.width+"px");
+				
+				$("body").css("width", $(window).width()+"px");
+				$("body").css("min-width", $(window).width()+"px");
+				$("html").css("width", $(window).width()+"px");				
+				$("html").css("min-width", $(window).width()+"px");
 			});
 		</script>
 
