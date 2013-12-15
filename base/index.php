@@ -1,8 +1,3 @@
-<?php 
-	//Include funzioni di utilità
-	require_once (TEMPLATEPATH . '/includes/utility.php'); 
-?>
-
 <?php get_header(); ?>		
 
 	<div id="content_home" class="clearfix">

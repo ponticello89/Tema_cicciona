@@ -16,10 +16,14 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 
 <?php 
+	//Include funzioni di utilità
+	require_once (TEMPLATEPATH . '/includes/utility.php'); 	
 	if(isPhone() == 1){
 ?>	
 		<script language="Javascript">
+			
 			jQuery(document).ready(function($) {
+				alert(screen.width);
 				$("body").css("min-width", screen.width);
 			});
 		</script>
