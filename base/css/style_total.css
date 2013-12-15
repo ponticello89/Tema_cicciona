@@ -11,7 +11,7 @@ html, body {
 	background-repeat:no-repeat;
 	background-size: 100%;
 	background-attachment:fixed;
-	min-height: 90%;
+	min-height: 95%;
 }
 #header {
 	position: relative;
@@ -29,6 +29,6 @@ footer {
 	clear: both;
 	border-top: solid 1px #ccc;	
 	bottom: 0;
-	height: 47px;
+	height: 4%;
 	width: 100%;
 }

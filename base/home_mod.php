@@ -22,22 +22,19 @@
 	//alert(totalPage+"-1");
 	var urlSite = "<?php bloginfo('wpurl'); ?>";    	
 	
-	var numDiv = <?php echo get_option('numero-colonne'); ?>;
-	if(numDiv == null){
-		numDiv = 3;
+	var isPhone = "<?php echo isPhone(); ?>";
+	
+	if(isPhone == "0"){
+		var numDiv = <?php echo get_option('numero-colonne'); ?>;
+		var widthCols = "<?php echo get_option('width-colonne'); ?>";
+		var widthGridValue = "<?php echo get_option('width-grid'); ?>";
+		var marginImageValue = "<?php echo get_option('margin-image'); ?>";
+	}else{
+		var numDiv = "1";		
+		var widthCols = "100";		
+		var widthGridValue = "95";
+		var marginImageValue = "5";		
 	}
-	var widthCols = "<?php echo get_option('width-colonne'); ?>";
-	if(widthCols == null){
-		widthCols = "33,33,33";
-	}
-	var widthGridValue = "<?php echo get_option('width-grid'); ?>";
-	if(widthGridValue == null){
-		widthGridValue = 89;
-	}
-	var marginImageValue = "<?php echo get_option('margin-image'); ?>";
-	if(marginImageValue == null){
-		marginImageValue = 5;
-	}		
 	
 	var category = "<?php echo $categoryName?>";
 </script>
