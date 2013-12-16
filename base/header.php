@@ -20,20 +20,7 @@
 	if(isPhone() == 1) {
 ?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header_mobile.css">
-		<script language="Javascript">			
-			jQuery(document).ready(function($) {																
-				$("body").css("width", $(window).width()+"px");
-				$("body").css("min-width", $(window).width()+"px");
-				$("html").css("width", $(window).width()+"px");				
-				$("html").css("min-width", $(window).width()+"px");								
-				//Debug
-				//$("body").css("width", "400px");
-				//$("body").css("min-width", "400px");
-				//$("html").css("width", "400px");				
-				//$("html").css("min-width", "400px");			
-			});
-		</script>
-
+		<script src="<?php echo get_template_directory_uri(); ?>/js/mobile.js"></script>	
 <?php	
 	} else {
 ?>		
@@ -56,7 +43,6 @@
 
 <!-- start infinite scroll function  -->
 <?php if (!is_single() || !is_page()): ?>
-
 <?php endif; ?>	
 <!-- end infinite scroll pagination -->
 

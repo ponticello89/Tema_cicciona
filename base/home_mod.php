@@ -3,9 +3,6 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
 
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
-
 <?php 			
 	$categoryName = "";
 	$catId = htmlspecialchars($_GET["cat"]);		
@@ -24,15 +21,15 @@
 	var isPhone = "<?php echo isPhone(); ?>";
 	
 	if(isPhone == "0"){
-		var numDiv = <?php echo get_option('numero-colonne'); ?>;
-		var widthCols = "<?php echo get_option('width-colonne'); ?>";
-		var widthGridValue = "<?php echo get_option('width-grid'); ?>";
-		var marginImageValue = "<?php echo get_option('margin-image'); ?>";
+		var numDiv 			 = 	"<?php echo get_option('numero-colonne'); ?>";
+		var widthCols 		 = 	"<?php echo get_option('width-colonne'); ?>";
+		var widthGridValue 	 =	"<?php echo get_option('width-grid'); ?>";
+		var marginImageValue = 	"<?php echo get_option('margin-image'); ?>";
 	}else{
-		var numDiv = "1";		
-		var widthCols = "100";		
-		var widthGridValue = "95";
-		var marginImageValue = "5";		
+		var numDiv 			 = 	"1";		
+		var widthCols 		 = 	"100";		
+		var widthGridValue 	 = 	"95";
+		var marginImageValue = 	"5";		
 	}
 	
 	var category = "<?php echo $categoryName?>";
@@ -41,8 +38,17 @@
 <!--Contenitore Grid-->
 <div id="photosx"></div>			
 
+
 <?php 
+	//Gestione della home in base al metodo di visualizzazione PC/PHONE
+	//Se PHONE tolgo:
+	//	headerFake
+	//	lightbox
+	//	effetti su immagini
+	
 	if(isPhone() == 0){ ?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
 		<script src="<?php echo get_template_directory_uri(); ?>/js/header_fake.js"></script>
 			
 		<div 	class="sfondoBigImage" 
@@ -89,4 +95,9 @@
 			</a>
 		</p>
 <?php 
-	}?>
+	}else{
+?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid_mobile.css">
+<?php 
+	}
+?>

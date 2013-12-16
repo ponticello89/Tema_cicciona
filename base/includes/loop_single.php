@@ -40,6 +40,12 @@
 		<div>
 	</div>
 	
+	<script type="text/javascript">
+		loadImage(".test", ".preload", "1");		
+		reSizeImageArticle();		
+	</script>
+	
+	<!--SOCIAL -->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 		var js, fjs = d.getElementsByTagName(s)[0];
@@ -73,12 +79,8 @@
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 	  })();
 	</script>
-	
-	<script type="text/javascript">
-		loadImage(".test", ".preload", "1");		
-		reSizeImageArticle();		
-	</script>
-	
+	<!--SOCIAL -->
+			
 	<?php the_content(); ?>
 	
 </div>						
