@@ -9,7 +9,8 @@
 							
 	<?php 
 		$titleArticle = get_the_title($post->ID); 
-		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
+		//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
+		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 		$urlImage = $thumb['0']; 
 		$width = $thumb['1'];
 		$height = $thumb['2'];	
@@ -44,14 +45,14 @@
 		loadImage(".test", ".preload", "1");				
 	</script>
 	
+	<!--<img src="img" width="16" height="16" border="0" alt="Share" />-->	
+	
 	<!-- AddThis Button BEGIN -->
-	<div class="addthis_toolbox addthis_default_style addthis_32x32_style socialDiv">
-		<a class="addthis_button_preferred_1"></a>
-		<a class="addthis_button_preferred_2"></a>
-		<a class="addthis_button_preferred_3"></a>
-		<a class="addthis_button_preferred_4"></a>
-		<!--<a class="addthis_button_compact"></a>
-		<a class="addthis_counter addthis_bubble_style"></a>-->
+	<div class="addthis_toolbox addthis_default_style addthis_32x32_style socialDiv">	                                 
+	<a class="addthis_button_facebook"></a>	
+	<a class="addthis_button_twitter"></a>		
+	<a class="addthis_button_google_plusone_share"></a>
+	<a class="addthis_button_tumblr"></a>
 	</div>
 	<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52af59c078a11b97"></script>
