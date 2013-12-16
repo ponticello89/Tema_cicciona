@@ -7,7 +7,8 @@ function initializeDimension (width, height){
 }
 
 jQuery(document).ready(function($) {
-			
+	reSizeImageArticle();
+	
 	$(window).resize(function () {		
 		reSizeImageArticle();		
 	});

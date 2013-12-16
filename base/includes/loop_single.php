@@ -41,8 +41,7 @@
 	</div>
 	
 	<script type="text/javascript">
-		loadImage(".test", ".preload", "1");		
-		reSizeImageArticle();		
+		loadImage(".test", ".preload", "1");				
 	</script>
 	
 	<!--SOCIAL -->
