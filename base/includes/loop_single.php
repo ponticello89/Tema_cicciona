@@ -56,9 +56,7 @@
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
 	
-	<div class="fb-share-button" data-href="<?php echo the_permalink() ?>" data-width="60x60" data-type="icon"></div>
-	<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/share-button/" data-width="60x60" data-type="icon"></div>
-	
+	<div class="fb-share-button" data-href="<?php echo the_permalink() ?>" data-width="60x60" data-type="icon"></div>		
 	
 	<a 	href="http://www.tumblr.com/share/photo?source=<?php echo urlencode($urlImage) ?>&clickthru=<?php echo urlencode(the_permalink()) ?>" 
 		title="Share on Tumblr" 

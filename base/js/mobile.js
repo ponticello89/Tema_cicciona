@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {																
+jQuery(document).load(function($) {																
 	$("body").css("width", $(window).width()+"px");
 	$("body").css("min-width", $(window).width()+"px");
 	$("html").css("width", $(window).width()+"px");				
