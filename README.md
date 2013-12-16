@@ -5,8 +5,11 @@ Tema wordpress creato per un sito puramente illustrativo work in progress 80%
 =============
 Da Fare
 =============
-Visualizzazione da mobile 60%<br/>
-resize da mobile<br/>
+Visualizzazione home da mobile 60%<br/>
+Visualizzazione article da mobile<br/>
+Visualizzazione page da mobile<br/>
+Resize da mobile<br/>
+Curare pagina 404<br/>
 Paginazione nel dettaglio dell'immagine<br/>
 Share con i social networ 50%<br/>
 Modifica elenco articoli backend<br/>
