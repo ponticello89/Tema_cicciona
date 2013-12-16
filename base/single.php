@@ -8,9 +8,10 @@
 		
 	</div>
 	
+	<!--
 	<div id="content" class="list-post">
 												
-		<?php wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
+		<?php //wp_link_pages(array('before' => '<p><strong>'.__('Pages:','themify').'</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 
 		<?php // get post-nav.php (next/prev post link) ?>
 
@@ -19,6 +20,7 @@
 		<?php //comments_template(); ?>
 			
 	</div>
+	-->
 	<!-- /#content -->
 
 <?php endwhile; ?>

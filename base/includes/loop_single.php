@@ -44,40 +44,19 @@
 		loadImage(".test", ".preload", "1");				
 	</script>
 	
-	<!--SOCIAL -->
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/it_IT/all.js#xfbml=1";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-	</script>
+	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style addthis_32x32_style socialDiv">
+		<a class="addthis_button_preferred_1"></a>
+		<a class="addthis_button_preferred_2"></a>
+		<a class="addthis_button_preferred_3"></a>
+		<a class="addthis_button_preferred_4"></a>
+		<!--<a class="addthis_button_compact"></a>
+		<a class="addthis_counter addthis_bubble_style"></a>-->
+	</div>
+	<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52af59c078a11b97"></script>
+	<!-- AddThis Button END -->
 	
-	<div class="fb-share-button" data-href="<?php echo the_permalink() ?>" data-width="60x60" data-type="icon"></div>		
-	
-	<a 	href="http://www.tumblr.com/share/photo?source=<?php echo urlencode($urlImage) ?>&clickthru=<?php echo urlencode(the_permalink()) ?>" 
-		title="Share on Tumblr" 
-		style="display:inline-block; text-indent:-9999px; overflow:hidden; width:20px; height:20px; background:url('http://platform.tumblr.com/v1/share_4.png') top left no-repeat transparent;">
-			Share on Tumblr
-	</a>
-	
-	<!-- Inserisci questo tag nel punto in cui vuoi che sia visualizzato l'elemento pulsante +1. -->
-	<div class="g-plusone" data-size="medium" data-annotation="none"></div>
-
-	<!-- Inserisci questo tag dopo l'ultimo tag di pulsante +1. -->
-	<script type="text/javascript">
-	  window.___gcfg = {lang: 'it'};
-
-	  (function() {
-		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		po.src = 'https://apis.google.com/js/platform.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-	</script>
-	<!--SOCIAL -->
-			
 	<?php the_content(); ?>
 	
 </div>						

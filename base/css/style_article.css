@@ -5,7 +5,8 @@
 	box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
 }
 .imgDiv{
-	margin-top: 15px;	
+	margin-top: 	15px;	
+	margin-bottom: 	15px;	
 }
 .imgDiv .leftDiv:hover .leftArrowP{
 	opacity: 0.8;	
@@ -90,4 +91,8 @@
 .rightArrowImg{
 	float: right;
 	width: 50%;
+}
+.socialDiv{
+	margin-top: 10px;
+	margin-bottom: 10px
 }
