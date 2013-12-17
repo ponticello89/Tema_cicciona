@@ -63,6 +63,7 @@ var load = "false";
 function loadArticle(pageNumber){
 	//Debug
 	//alert('loadArticle('+category+')');	
+	//per modifiche future .prepend
 	if(load == "false"){
 		load = "true";	
 		$('a.inifiniteLoader').show('fast');
@@ -150,7 +151,7 @@ function createDiv_(numDiv, widthCols){
 
 //Funzione che controlla se l'insieme delle immagini stampate attivino lo scroll
 function loadArticleForScroll(){		
-	if(document.body.clientHeight < $(window).height()){							
+	if(document.body.clientHeight <= $(window).height()){							
 		if (finishImage=='true'){
 			return false;
 		}else{	
