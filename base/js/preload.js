@@ -21,9 +21,9 @@ function loadImage(contenitore, classeImage, opacity, subClassPreload){
 		var subPreLoad;
 	
 		if(subClassPreload != null && subClassPreload != ""){
-			var subPreLoad = $(contenitore).find(subClassPreload);
+			var subPreLoad = $(contenitore).find(subClassPreload);			
 			subPreLoad.filter(subClassPreload).each(function () {
-				$(this).css("opacity", "0");
+				$(this).css({"opacity": "0"});
 			});
 		}
 		
@@ -54,7 +54,7 @@ function loadImage(contenitore, classeImage, opacity, subClassPreload){
 															if(subClassPreload != null && subClassPreload != ""){
 																subPreLoad = $(contenitore).find(subClassPreload);
 																subPreLoad.filter(subClassPreload).each(function () {
-																	$(this).css("opacity", "");
+																	$(this).css({"opacity": ""});
 																});
 															}
 														});
