@@ -16,7 +16,7 @@
 
 <?php 
 	//Include funzioni di utilità
-	require_once (TEMPLATEPATH . '/includes/utility.php'); 	
+	require_once (TEMPLATEPATH . '/includes/utility.php'); 		
 	if(isPhone() == 1) {
 ?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header_mobile.css">
@@ -49,6 +49,10 @@
 </head>
 
 <body <?php body_class($class); ?>>
+
+<script type="text/javascript">
+	var isPhone = "<?php echo isPhone(); ?>";	
+</script>
 
 <div id="pagewrap">
 

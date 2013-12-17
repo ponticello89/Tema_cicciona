@@ -18,8 +18,6 @@
 	//alert(totalPage+"-1");
 	var urlSite = "<?php bloginfo('wpurl'); ?>";    	
 	
-	var isPhone = "<?php echo isPhone(); ?>";
-	
 	if(isPhone == "0"){
 		var numDiv 			 = 	"<?php echo get_option('numero-colonne'); ?>";
 		var widthCols 		 = 	"<?php echo get_option('width-colonne'); ?>";

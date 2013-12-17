@@ -12,8 +12,8 @@ jQuery(document).ready(function($) {
 	});	
 	
 	//Debug
-	$("body").css("width", "400px");
-	$("body").css("min-width", "400px");
-	$("html").css("width", "400px");				
-	$("html").css("min-width", "400px");			
+	//$("body").css("width", "400px");
+	//$("body").css("min-width", "400px");
+	//$("html").css("width", "400px");				
+	//$("html").css("min-width", "400px");			
 });
