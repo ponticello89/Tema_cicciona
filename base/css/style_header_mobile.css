@@ -31,9 +31,10 @@
 	/*background-color: white;*/
 }
 .headerPagesDiv{
-	width:	50%;
-	height: 100%;
-	float: 	right;
+	width:		50%;
+	height: 	100%;
+	float: 		right;
+	text-align: right;
 	/*background-color: blue;*/
 }
 .headerCategoriesDiv{
@@ -65,18 +66,17 @@
 	float: 	right;
 }
 .headerLevel2 a{
-	padding-right: 		15px !important;
+	padding-right: 	15px !important;
 	border-radius: 	50px !important;
-	font-size: 		30px;
-	text-transform: uppercase;	
-	font-family: 	Impact, Charcoal, sans-serif;
+	font-size: 		20px;
+	text-transform: uppercase;		
 	font-weight: 	normal;
 	color:			#9397A3;
 }
 .headerLevel2 a:hover{
-	background: none !important;
+	background: 	 none !important;
 	text-decoration: none;
-	color:			#7B88CC;
+	color:			 #7B88CC;
 	/*color:			#AE94CE;*/	
 	/*tempo*/
 	-webkit-transition: all 0.4s ease-in-out;

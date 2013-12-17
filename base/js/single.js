@@ -19,18 +19,18 @@ jQuery(document).ready(function($) {
 		var scrollHeight = parseInt($('.imgDiv').offset().top);
 		$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
 		
-		var windowMobileHeight = $(window).height();
-		var windowMobileWidth = $(window).width();
+		var windowMobileHeight = screen.height;
+		var windowMobileWidth = screen.width;
 		
 		$(window).resize(function () {		
 			reSizeImageArticle_Mobile();			
-			//Se il telefono e capovolto
-			if(windowMobileHeight == $(window).width() &&
-			   windowMobileWidth == $(window).height()){
-			    windowMobileHeight = $(window).height();
-				windowMobileWidth == $(window).width();
-				scrollHeight = parseInt($('.imgDiv').offset().top);
-				$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
+			//Se il telefono e capovolto			
+			if(	windowMobileHeight == screen.width 
+				&& windowMobileWidth == screen.height){
+					windowMobileHeight = screen.height;
+					windowMobileWidth == screen.width;
+					scrollHeight = parseInt($('.imgDiv').offset().top);
+					$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
 			}
 		});
 	}
