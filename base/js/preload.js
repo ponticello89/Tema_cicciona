@@ -15,10 +15,18 @@ function loadImageTime(contenitore, classeImage){
 		, 300);
 }
 
-function loadImage(contenitore, classeImage, loading, opacity){
+function loadImage(contenitore, classeImage, opacity, subClassPreload){
 	//Debug
 	//alert('loadImage ');
+		var subPreLoad;
 	
+		if(subClassPreload != null && subClassPreload != ""){
+			var subPreLoad = $(contenitore).find(subClassPreload);
+			subPreLoad.filter(subClassPreload).each(function () {
+				$(this).css("opacity", "0");
+			});
+		}
+		
 		var imagesToLoad = $(contenitore).find(classeImage);
 		var imagesToLoadCount = imagesToLoad.size();
 		
@@ -39,12 +47,16 @@ function loadImage(contenitore, classeImage, loading, opacity){
 									//$(".loadit").remove();
 									
 									$(this)	.css({visibility: "visible"})
-											.animate({	opacity: opacity}, 
+											.animate({	"opacity": opacity}, 
 														300, 
-														function () {
-															
-															//$(this).removeAttr('style');
+														function () {																														
 															$(this).css("opacity", "");
+															if(subClassPreload != null && subClassPreload != ""){
+																subPreLoad = $(contenitore).find(subClassPreload);
+																subPreLoad.filter(subClassPreload).each(function () {
+																	$(this).css("opacity", "");
+																});
+															}
 														});
 									
 									//setTimeout(function(){$(this).removeAttr('style');}, 450);

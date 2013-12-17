@@ -36,14 +36,14 @@
 			<div class="leftDiv" onclick="location.href='<?php get_template_part( 'includes/nav_next'); ?>'">								
 				<p class="leftArrowP">
 					<a>
-						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg" />
+						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" />
 					</a	
 				</p>
 			</div>
 			<div class="rightDiv" onclick="location.href='<?php get_template_part( 'includes/nav_previous'); ?>'"/>				
 				<p class="rightArrowP">
 					<a>
-						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg"/>
+						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad"/>
 					</a>
 				</p>
 			</div>			
@@ -52,7 +52,7 @@
 	</div>
 	
 	<script type="text/javascript">
-		loadImage(".test", ".preload", "1");				
+		loadImage(".test", ".preload", "1", ".subPreLoad");				
 	</script>
 	
 	<!--<img src="img" width="16" height="16" border="0" alt="Share" />-->	

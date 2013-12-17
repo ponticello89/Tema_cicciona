@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
 		
 		$(window).resize(function () {		
 			reSizeImageArticle_Mobile();			
-			//Se il telefono e capovolto			
+			//Se il telefono viene capovolto			
 			if(	windowMobileHeight == screen.width 
 				&& windowMobileWidth == screen.height){
 					windowMobileHeight = screen.height;
