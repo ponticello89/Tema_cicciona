@@ -16,14 +16,22 @@ jQuery(document).ready(function($) {
 	}else{
 		reSizeImageArticle_Mobile();
 		
-		//$('html').scrollTop(parseInt($('.imgDiv').offset().top));
-		//$(window).animate({scrollTop: parseInt($('.imgDiv').offset().top)});
-		//$("html, body").animate({ scrollTop: parseInt($('.imgDiv').offset().top) }, 'slow');
-		var doveScroll = parseInt($('.imgDiv').offset().top);
-		$("html, body").animate({ scrollTop: doveScroll }, 'slow');		
+		var scrollHeight = parseInt($('.imgDiv').offset().top);
+		$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
+		
+		var windowMobileHeight = $(window).height();
+		var windowMobileWidth = $(window).width();
 		
 		$(window).resize(function () {		
-			reSizeImageArticle_Mobile();		
+			reSizeImageArticle_Mobile();			
+			//Se il telefono e capovolto
+			if(windowMobileHeight == $(window).width() &&
+			   windowMobileWidth == $(window).height()){
+			    windowMobileHeight = $(window).height();
+				windowMobileWidth == $(window).width();
+				scrollHeight = parseInt($('.imgDiv').offset().top);
+				$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
+			}
 		});
 	}
 });
