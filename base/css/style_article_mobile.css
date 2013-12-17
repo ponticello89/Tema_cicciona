@@ -1,0 +1,42 @@
+.imageArticle {
+	/*ombra nera*/
+	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
+	-moz-box-shadow: 	0px 0px 33px 1px rgba(0,0,0,1);
+	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
+}
+.imgDiv{
+	margin-top: 	15px;	
+	margin-bottom: 	15px;	
+}
+.leftArrowP{
+	float: 				left;
+	/*margin-top: 50%;*/
+	opacity: 			0.7;
+	/*tempo*/
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;
+}
+.rightArrowP{
+	float: 				right;
+	/*margin-top: 50%;*/
+	opacity: 			0.7;
+	/*tempo*/
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;
+}
+.leftArrowImg{
+	float: left;
+	width: 50%;
+}
+.rightArrowImg{
+	float: right;
+	width: 50%;
+}
+.socialDiv{
+	margin-top: 	10px;
+	margin-bottom: 	10px
+}

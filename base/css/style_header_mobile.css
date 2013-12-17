@@ -90,7 +90,6 @@
 }
 .headerPagesDiv li{
 	list-style: none;
-	float: left;
 }
 .headerPagesUl{
 	list-style: none;
@@ -98,8 +97,7 @@
 	margin: 1em 0 0 0;
 }
 .headerCategoriesDiv li{
-	list-style: none;
-	float: left;
+	list-style: none;	
 }
 .headerCategoriesUl{
 	list-style: none;

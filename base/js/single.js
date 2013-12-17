@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 			if(	windowMobileHeight == screen.width 
 				&& windowMobileWidth == screen.height){
 					windowMobileHeight = screen.height;
-					windowMobileWidth == screen.width;
+					windowMobileWidth  = screen.width;
 					scrollHeight = parseInt($('.imgDiv').offset().top);
 					$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
 			}

@@ -1,6 +1,16 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/single.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article.css">
+<?php 
+	if(!isPhone()){
+?>
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article.css">
+<?php 
+	}else{
+?>	
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article_mobile.css">
+<?php 
+	}
+?>	
 
 <?php if(!is_single()) : global $more; $more = 0; endif; //enable more link ?>
 	
@@ -49,10 +59,10 @@
 	
 	<!-- AddThis Button BEGIN -->
 	<div class="addthis_toolbox addthis_default_style addthis_32x32_style socialDiv">	                                 
-	<a class="addthis_button_facebook"></a>	
-	<a class="addthis_button_twitter"></a>		
-	<a class="addthis_button_google_plusone_share"></a>
-	<a class="addthis_button_tumblr"></a>
+		<a class="addthis_button_facebook"></a>	
+		<a class="addthis_button_twitter"></a>		
+		<a class="addthis_button_google_plusone_share"></a>
+		<a class="addthis_button_tumblr"></a>
 	</div>
 	<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52af59c078a11b97"></script>

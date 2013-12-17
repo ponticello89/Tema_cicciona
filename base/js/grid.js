@@ -33,8 +33,8 @@ jQuery(document).ready(function($) {
 	)
 	
 	//Attivazione paginazione dopo scorrimento fino a fine pagina
-	$(window).scroll(function(){
-		if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+	$(window).scroll(function(){		
+		if  ($(window).scrollTop() >= $(document).height() - ($(window).height()*2)){		
 			if (finishImage=="true"){
 				return false;
 			}else{						
