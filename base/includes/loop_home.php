@@ -32,10 +32,15 @@
 			echo 'var heightImage = "' . $height . '";';
 			echo 'var titleArticle = "' . $titleArticle . '";';
 			
-			echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';			
+			echo 'var idArticle = "' . $post->ID . '";';			
+			
+			
+			//echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';			
+			echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+idArticle+"\'>';			
 			
 			if(isPhone() == "0"){
-				echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
+				//echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
+				echo '					<a onclick=\'apriImg_v2(\""+urlArticle+"\", \""+(currentPage)+"\", \""+idArticle+"\")\' >';
 				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
 				echo '						</img>';						
 				echo '					</a>';
@@ -50,7 +55,7 @@
 			echo '              	</div>';		
 			echo '				</div>";';			
 			
-			echo 'loadPhotoOnDiv(html, widthImage, heightImage);';		
+			echo 'loadPhotoOnDiv(html, widthImage, heightImage, wherePage, idArticle);';		
 			echo '';
 			echo '</script>';
 			?>

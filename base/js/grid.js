@@ -3,7 +3,13 @@
 //Contatore delle immagini inserite
 var totaleImg = 0;
 //Contatore delle pagine contenenti immagini inserite
-var countPage = 1;
+//var countPage = 1;
+
+var currentPage;
+var pageUp;
+var pageDown;
+
+var wherePage = "down";
 
 var finishImage = "false";
 //Numero dei div-colonna desiderati
@@ -24,26 +30,41 @@ jQuery(document).ready(function($) {
 			//Creazione colonne
 			createDiv(numDiv);		
 			reSize(numDiv, widthCols);		
-			//Caricamento della prima pagina di immagini
-			var bool = loadArticle(countPage);	
-			if(bool){
-				countPage++;						
+			
+			//v2			
+			if(pageRequest==1){
+				pageDown = pageRequest;				
+				var caricato = loadArticle(pageDown);	
+				if(caricato){
+					pageDown++;						
+				}
+			}else if(pageRequest>1){	
+				pageUp = pageRequest-1;
+				pageDown = pageRequest;
+				var caricato = loadArticle(pageDown);	
+				if(caricato){
+					pageDown++;					
+				}				
 			}
-		}			
+			//Caricamento della prima pagina di immagini
+			
+			
+			
+		}							
 	)
 	
 	//Attivazione paginazione dopo scorrimento fino a fine pagina
-	$(window).scroll(function(){		
-		if  ($(window).scrollTop() >= $(document).height() - ($(window).height()*2)){		
+	$(window).scroll(function(){						
+		if  ($(window).scrollTop() > $(document).height() - ($(window).height()*2)){		
 			if (finishImage=="true"){
 				return false;
-			}else{						
-				var bool = loadArticle(countPage);				
-				if(bool){
-					countPage++;
+			}else{										
+				var caricato = loadArticle(pageDown);				
+				if(caricato){
+					pageDown++;
 				}
 		    }			   
-		}			
+		}
 	});		
 	
 	$(window).resize(function () {		
@@ -63,28 +84,30 @@ var load = "false";
 function loadArticle(pageNumber){
 	//Debug
 	//alert('loadArticle('+category+')');	
-	if(load == "false"){
+	//per modifiche future .prepend				
+		
+	if(load == "false"){		
 		load = "true";	
 		$('a.inifiniteLoader').show('fast');
 		$.ajax({		
 			url: urlSite+"/wp-admin/admin-ajax.php",		
-			type:'POST',
+			type:'POST',			
 			data: "action=infinite_scroll&page_no="+ pageNumber + '&category='+category+'&loop_file=includes/loop_home', 
 			success: function(html){           						
 				$('a.inifiniteLoader').hide('1000');			
 				$("#photosx").append(html);    // This will be the div where our content will be loaded																	
 			},
 			complete: function(){
-				load = "false";	
+				load = "false";														
 				loadArticleForScroll();			
+				
 				//Settaggio dei margini delle immagini
 				setMarginImage(marginImageValue);
 				if(isPhone == "0"){
 					loadImage("#photosx", ".preload", "0.7");		
 				}else{
 					loadImage("#photosx", ".preload", "1");		
-				}
-							
+				}				
 			}
 		});		
 		return true;	
@@ -149,21 +172,23 @@ function createDiv_(numDiv, widthCols){
 }
 
 //Funzione che controlla se l'insieme delle immagini stampate attivino lo scroll
-function loadArticleForScroll(){		
-	if(document.body.clientHeight < $(window).height()){							
+function loadArticleForScroll(){			
+	if($(body).height() <= $(window).height()){							
 		if (finishImage=='true'){
 			return false;
-		}else{	
-			var bool = loadArticle(countPage);	
-			if(bool){				
-				countPage++;			
+		}else{			
+			var caricato = loadArticle(pageDown);	
+			if(caricato){				
+				pageDown++;			
 			}
 		}			   			
 	}
+	
 }
 
+var firstLoad = true;
 //Funzione che si occupa di collocare l'articolo nel div giusto
-function loadPhotoOnDiv(html, widthImage, heightImage){
+function loadPhotoOnDiv(html, widthImage, heightImage, where, idArticle){
 	//Debug
 	//alert('loadPhotoOnDiv(html) totaleImg = '+totaleImg+' size = '+width+'x'+height);
 	
@@ -184,11 +209,18 @@ function loadPhotoOnDiv(html, widthImage, heightImage){
 	
 	//Se wordpress impazzisce e non setta il width dell'immagine non stampo
 	if(widthImage!=0){				
-		//Appende HTML immagine nelle colonne 
-		$("#colonna"+divSelect).append(html);
-				
+
+		if(where=="down"){
+			//Appende HTML immagine nelle colonne 
+			$("#colonna"+divSelect).append(html);
+		}else if(where=="up"){
+			//Appende HTML immagine nelle colonne 
+			$("#colonna"+divSelect).prepend(html);
+		}
+		
 		//Setto nell'array le grandezze delle colonne per calcolare il collocamento
 		var widthColonna = $("#colonna"+divSelect).width();
+		
 		var x = (widthImage/widthColonna);		
 		heightImage = heightImage/x;		
 		heightColArray [divSelect] = parseInt(heightColArray [divSelect]) + parseInt(heightImage);

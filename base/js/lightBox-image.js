@@ -96,65 +96,18 @@ function apriImg(urlImage, urlArticle, titleImage, widthImage, heightImage){
 	
 	reSizeBigImage();	
 }
-function apriImg_(urlImage, urlArticle, titleImage, widthImage, heightImage){
-	//return false;
-	
-	homeUrl = window.location+"";		
-	window.history.pushState({path:urlArticle},'',urlArticle);
-		
-	$('.titleBigImage').empty();
 
-	//alert(urlImage);
-	var widthSfondoImage = $(".sfondoBigImage").width();
-	var heightSfondoImage = $(".sfondoBigImage").height();	
-			
-	var x = 0;	
-	if(heightSfondoImage<520){ heightSfondoImage = 520;}
-	if(widthSfondoImage<520){ widthSfondoImage = 520;}
+function apriImg_v2(urlArticle, page, idArticle){	
+	homeUrl = window.location+"";
 	
-	x = (heightImage/heightSfondoImage);		
-	if((widthImage/widthSfondoImage) > x){
-		x = (widthImage/widthSfondoImage);
-	}			
-	
-	if(x != 0){
-		widthImage = widthImage/x;
-		heightImage = heightImage/x;
+	if(homeUrl.indexOf("page=")!=-1){
+		homeUrl = homeUrl.replace(homeUrl.substr((homeUrl.indexOf('page=')-1)), "");
 	}
 	
-	widthImage 	= (widthImage/10)*8;
-	heightImage = (heightImage/10)*8;
-	
-	var marginTop =  parseInt((heightSfondoImage-heightImage)/2);
-	var marginLeft = parseInt((widthSfondoImage-widthImage)/2);
-	
-	$('.sfondoBigImage').fadeIn('slow');
-	$('.bigImage').attr('src',urlImage);
-	$('.bigImage').css({	width:  widthImage,
-							height: heightImage,
-							top: marginTop+"px",
-							left: marginLeft+"px"
-							});				
-	$('.bigImage').fadeIn('slow');
-	
-	var heightTitleBigImageDiv = parseInt((heightSfondoImage/10)*0.7);
-	if(heightTitleBigImageDiv>40){ heightTitleBigImageDiv = 40;}
-	var marginTopTitleBigImageDiv = parseInt(marginTop)+parseInt(heightImage)-parseInt(heightTitleBigImageDiv)+1;
-	
-	$('.titleBigImageDiv').css({	width:  widthImage,
-								height: heightTitleBigImageDiv,
-								top: marginTopTitleBigImageDiv+"px",
-								left: marginLeft+"px",
-								});
-								
-	$('.titleBigImage').append(titleImage);
-	
-	var fontTitleBigImage = parseInt((heightTitleBigImageDiv/10)*6);
-	var marginTitleBigImage = parseInt((heightTitleBigImageDiv/10)*2);
-	
-	$('.titleBigImage').css({	"font-size": fontTitleBigImage+"px",
-								"color": "white",
-								"margin": marginTitleBigImage+"px",
-								"line-height": "normal"
-							});
+	if(homeUrl.indexOf("?")!=-1){
+		window.history.pushState(homeUrl,'',homeUrl+'&page='+page+'&image='+idArticle);		
+	}else{
+		window.history.pushState(homeUrl,'',homeUrl+'?page='+page+'&image='+idArticle);		
+	}
+	window.location.href = urlArticle;		
 }

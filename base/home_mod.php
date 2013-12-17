@@ -6,6 +6,8 @@
 <?php 			
 	$categoryName = "";
 	$catId = htmlspecialchars($_GET["cat"]);		
+	$pageUrl = htmlspecialchars($_GET["page"]);		
+	$imageUrl = htmlspecialchars($_GET["image"]);		
 	
 	if($catId != null && $catId != ""){		
 		$categoryName = get_the_category_by_ID( $catId );
@@ -31,6 +33,16 @@
 	}
 	
 	var category = "<?php echo $categoryName?>";
+	
+	//Contatore delle pagine contenenti immagini inserite
+	var pageRequest = "<?php echo $pageUrl?>";
+	if(pageRequest == null || pageRequest == "" ){
+		pageRequest = 1;
+	}else{
+		pageRequest = parseInt(pageRequest);
+	}
+	
+	var imageRequest = "<?php echo $imageUrl?>";	
 </script>
 
 <!--Contenitore Grid-->

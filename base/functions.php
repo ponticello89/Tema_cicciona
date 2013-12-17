@@ -194,14 +194,23 @@
 		//query_posts( array( 'category__and' => array(1,3), 'posts_per_page' => 2, 'orderby' => 'title', 'order' => 'DESC' ) );
 		//category_name=senza-categoria
 		if($category != null && $category != ""){
-			query_posts(array('paged' => $paged, 'category_name' => $category));
+			query_posts(array('paged' => $paged, 'category_name' => $category));			
 		}else{
 			query_posts(array('paged' => $paged));
+			//appunto futuro
+			//query_posts(array('post_in' => array(1,2,3)));
+			
 		}
 		
 		//query_posts(array('paged' => $paged, 'category_name' => 'chicco'));
 		//echo $wp_query->max_num_pages;		
-		
+	
+	?>
+			<script type="text/javascript">					
+				currentPage = <?php echo $paged;?>
+			</script>			
+	<?php					
+	
 		if(have_posts() == null){
 	?>
 			<script type="text/javascript">					
@@ -209,6 +218,7 @@
 			</script>
 	<?php					
 		}else{	
+	
 			get_template_part( $loopFile );	
 		}	 	
 			
