@@ -9,6 +9,8 @@ var currentPage;
 var pageUp;
 var pageDown;
 
+var numberMultiPage = 1;
+
 var wherePage = "down";
 
 var finishImage = "false";
@@ -32,24 +34,37 @@ jQuery(document).ready(function($) {
 			reSize(numDiv, widthCols);		
 			
 			//v2			
-			if(pageRequest==1){
+			if(pageRequest==1){				
 				pageDown = pageRequest;				
 				var caricato = loadArticle(pageDown);	
 				if(caricato){
 					pageDown++;						
 				}
-			}else if(pageRequest>1){	
-				pageUp = pageRequest-1;
+			}else if(pageRequest>1){
+								
+				pageUp = pageRequest-numberMultiPage;
 				pageDown = pageRequest;
-				var caricato = loadArticle(pageDown);	
-				if(caricato){
+				
+				if(pageUp<1){
+					pageUp = 1;
+				}
+												
+				var cont = pageUp;
+				var pagesRequest = "";
+				
+				while(cont <= pageRequest){					
+					pagesRequest = pagesRequest+cont+",";
+					cont++;
+				}
+								
+				pagesRequest = pagesRequest.substr(0, pagesRequest.length-1);												
+								
+				var caricato = loadArticle(pagesRequest);	
+				if(caricato){										
 					pageDown++;					
-				}				
+				}								
 			}
-			//Caricamento della prima pagina di immagini
-			
-			
-			
+			//Caricamento della prima pagina di immagini									
 		}							
 	)
 	
@@ -84,8 +99,15 @@ var load = "false";
 function loadArticle(pageNumber){
 	//Debug
 	//alert('loadArticle('+category+')');	
-	//per modifiche future .prepend				
-		
+	//per modifiche future .prepend	
+	pageNumber = pageNumber+"";
+	var pageMulti;
+	if(pageNumber.indexOf(",") != -1){		
+		pageMulti = pageNumber;		
+		pageNumber = pageNumber.substr(0, pageNumber.indexOf(',')); 		
+		pageMulti = pageMulti.substr(pageMulti.indexOf(',')+1); 		
+	}	
+	
 	if(load == "false"){		
 		load = "true";	
 		$('a.inifiniteLoader').show('fast');
@@ -98,8 +120,19 @@ function loadArticle(pageNumber){
 				$("#photosx").append(html);    // This will be the div where our content will be loaded																	
 			},
 			complete: function(){
-				load = "false";														
-				loadArticleForScroll();			
+				load = "false";		
+				
+				if(pageMulti!= null && pageMulti!= ""){
+					loadArticle(pageMulti);
+				}else{
+					loadArticleForScroll();			
+				}
+				
+				//rompe il js ma de logica ci siamo
+				if(pageNumber==pageRequest){					
+					var scrollHeight = parseInt($('#imageCella'+imageRequest).offset().top);
+					$("html, body").animate({ scrollTop: scrollHeight }, 'slow');
+				}
 				
 				//Settaggio dei margini delle immagini
 				setMarginImage(marginImageValue);

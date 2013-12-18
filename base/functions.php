@@ -182,34 +182,41 @@
 		
 	/*infinite scroll pagination */
 
-	add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');           // for logged in user
+	add_action('wp_ajax_infinite_scroll', 		 'wp_infinitepaginate');    // for logged in user
 	add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');    // if user not logged in
 
 	function wp_infinitepaginate(){
 		$loopFile        = $_POST['loop_file'];
 		$paged           = $_POST['page_no'];
+		$pagedStr		 = $paged."";
 		$category		 = $_POST['category'];
 		$posts_per_page  = get_option('posts_per_page');
 
+	?>
+		<script type="text/javascript">					
+			currentPage = <?php echo $paged;?>
+		</script>			
+	<?php					
+		
 		//query_posts( array( 'category__and' => array(1,3), 'posts_per_page' => 2, 'orderby' => 'title', 'order' => 'DESC' ) );
-		//category_name=senza-categoria
+		//category_name=senza-categoria		
+		$arrayQueryPost = array();						
+		$arrayQueryPost['paged'] = $paged;					
+		if($category != null && $category != ""){
+			$arrayQueryPost['category_name'] = $category;				
+		}		
+		query_posts($arrayQueryPost);			
+		
+		/*	
 		if($category != null && $category != ""){
 			query_posts(array('paged' => $paged, 'category_name' => $category));			
 		}else{
 			query_posts(array('paged' => $paged));
 			//appunto futuro
-			//query_posts(array('post_in' => array(1,2,3)));
-			
-		}
-		
-		//query_posts(array('paged' => $paged, 'category_name' => 'chicco'));
-		//echo $wp_query->max_num_pages;		
+			//query_posts(array('post_in' => array(1,2,3)));			
+		}		
+		*/
 	
-	?>
-			<script type="text/javascript">					
-				currentPage = <?php echo $paged;?>
-			</script>			
-	<?php					
 	
 		if(have_posts() == null){
 	?>
@@ -217,8 +224,7 @@
 				finishImage = "true";				
 			</script>
 	<?php					
-		}else{	
-	
+		}else{		
 			get_template_part( $loopFile );	
 		}	 	
 			
@@ -232,8 +238,7 @@
 		wp_deregister_script( 'jquery' );
 		//wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 		wp_enqueue_script( 'jquery' );
-	}    
-	 
+	}    	 
 	add_action('wp_enqueue_scripts', 'my_scripts_method');
 ?>
 
