@@ -65,9 +65,7 @@
 .headerPages{	
 	float: 	right;
 }
-.headerLevel2 a{
-	padding-right: 	15px !important;
-	border-radius: 	50px !important;
+.headerLevel2 a{	
 	font-size: 		20px;
 	text-transform: uppercase;		
 	font-weight: 	normal;
