@@ -18,7 +18,7 @@
 
 	<div class="footer-text clearfix">
 		<?php bloginfo(); ?> &copy; <?php echo date( 'Y' ); ?><br>
-		Powered by <a href="http://wordpress.org">WordPress</a>  &bull; <a href="http://themify.me">Themify WordPress Themes</a>
+		Powered by ponte.valerio@gmail.com 
 	</div>
 	<!-- /footer-text --> 
 
