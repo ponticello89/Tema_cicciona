@@ -18,7 +18,7 @@
 			//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID, 'medium'), 'thumbnail_size' );
 			$urlImage = $thumb['0']; 
 			$width = $thumb['1'];
-			$height = $thumb['2'];										
+			$height = $thumb['2'];													
 		?>
 			
 			
@@ -26,13 +26,12 @@
 		
 			<?php // Ho scritto il javascript in php perche l'url dava problemi una volta spedita
 			echo '<script type="text/javascript">';		
-			echo 'var urlImage = "' . $urlImage . '";';				
-			echo 'var urlArticle = "' . $urlArticle . '";';
-			echo 'var widthImage = "' . $width . '";';				
-			echo 'var heightImage = "' . $height . '";';
-			echo 'var titleArticle = "' . $titleArticle . '";';
-			
-			echo 'var idArticle = "' . $post->ID . '";';			
+			echo 'var urlImage 		= "' . $urlImage . '";';				
+			echo 'var urlArticle 	= "' . $urlArticle . '";';
+			echo 'var widthImage 	= "' . $width . '";';				
+			echo 'var heightImage 	= "' . $height . '";';
+			echo 'var titleArticle 	= "' . $titleArticle . '";';			
+			echo 'var idArticle 	= "' . $post->ID . '";';			
 			
 			
 			//echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';			

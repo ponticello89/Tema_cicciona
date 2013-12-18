@@ -78,7 +78,10 @@
 	width: 100%;
 	text-align: center;
 }
-.inifiniteLoader{
+.inifiniteLoaderUp{
+	display: none;
+}
+.inifiniteLoaderDown{
 	display: none;
 }
 

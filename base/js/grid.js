@@ -5,13 +5,13 @@ var totaleImg = 0;
 //Contatore delle pagine contenenti immagini inserite
 //var countPage = 1;
 
-var currentPage;
+//var currentPage;
 var pageUp;
 var pageDown;
 
 var numberMultiPage = 1;
 
-var wherePage = "down";
+//var wherePage = "down";
 
 var finishImage = "false";
 //Numero dei div-colonna desiderati
@@ -32,11 +32,10 @@ jQuery(document).ready(function($) {
 			//Creazione colonne
 			createDiv(numDiv);		
 			reSize(numDiv, widthCols);		
-			
-			//v2			
+							
 			if(pageRequest==1){				
 				pageDown = pageRequest;				
-				var caricato = loadArticle(pageDown);	
+				var caricato = loadArticle(pageDown, "down");	
 				if(caricato){
 					pageDown++;						
 				}
@@ -59,8 +58,9 @@ jQuery(document).ready(function($) {
 								
 				pagesRequest = pagesRequest.substr(0, pagesRequest.length-1);												
 								
-				var caricato = loadArticle(pagesRequest);	
-				if(caricato){										
+				var caricato = loadArticle(pagesRequest, "down");	
+				if(caricato){		
+					pageUp--;
 					pageDown++;					
 				}								
 			}
@@ -68,18 +68,37 @@ jQuery(document).ready(function($) {
 		}							
 	)
 	
+	var startCaricamentoUp;
 	//Attivazione paginazione dopo scorrimento fino a fine pagina
 	$(window).scroll(function(){						
 		if  ($(window).scrollTop() > $(document).height() - ($(window).height()*2)){		
 			if (finishImage=="true"){
 				return false;
 			}else{										
-				var caricato = loadArticle(pageDown);				
+				var caricato = loadArticle(pageDown, "down");				
 				if(caricato){
 					pageDown++;
 				}
 		    }			   
 		}
+		
+		if ($(window).scrollTop()==0){
+			if(pageUp >= 1){
+				startCaricamentoUp = 
+					setTimeout(
+						function(){
+							var caricato = loadArticle(pageUp, "up");				
+							if(caricato){
+								pageUp--;								
+								$("html, body").animate({ scrollTop: 1 }, 'slow');
+							}							
+						},1000); 
+			}
+		} 
+		if ($(window).scrollTop()>0){ 
+			clearTimeout(startCaricamentoUp); 
+		}
+		
 	});		
 	
 	$(window).resize(function () {		
@@ -96,34 +115,54 @@ jQuery(document).ready(function($) {
 // 3) alla fine del processo ajax viene chiamato il preload che scrive l'immagine nel contenitore e setta l'azione a fine caricamento
 // 4) viene chiamata una funzione che controlla se l'insieme delle immagini stampate arrivi a fine pagina per attivare lo scroll
 var load = "false";
-function loadArticle(pageNumber){
+function loadArticle(pageNumber, where){
 	//Debug
 	//alert('loadArticle('+category+')');	
-	//per modifiche future .prepend	
+	
+	//Gestione del Load Multi Page
 	pageNumber = pageNumber+"";
 	var pageMulti;
 	if(pageNumber.indexOf(",") != -1){		
 		pageMulti = pageNumber;		
 		pageNumber = pageNumber.substr(0, pageNumber.indexOf(',')); 		
-		pageMulti = pageMulti.substr(pageMulti.indexOf(',')+1); 		
-	}	
-	
+		pageMulti = pageMulti.substr(pageMulti.indexOf(',')+1); 				
+	}		
+		
 	if(load == "false"){		
 		load = "true";	
-		$('a.inifiniteLoader').show('fast');
+		
+		if(where=="down"){
+			$('a.inifiniteLoaderDown').show('fast');
+		}else if(where=="up"){
+			$('a.inifiniteLoaderUp').show('fast');
+		}
 		$.ajax({		
 			url: urlSite+"/wp-admin/admin-ajax.php",		
 			type:'POST',			
-			data: "action=infinite_scroll&page_no="+ pageNumber + '&category='+category+'&loop_file=includes/loop_home', 
-			success: function(html){           						
-				$('a.inifiniteLoader').hide('1000');			
-				$("#photosx").append(html);    // This will be the div where our content will be loaded																	
+			data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category='+category+'&loop_file=includes/loop_home', 
+			success: function(html){           				
+				if(where=="down"){
+					$('a.inifiniteLoaderDown').hide('1000');	
+				}else if(where=="up"){
+					$('a.inifiniteLoaderUp').hide('1000');	
+				}
+				
+				$("#photosx").append(html);    // This will be the div where our content will be loaded																					
 			},
-			complete: function(){
+			complete: function(){				
 				load = "false";		
 				
+				//Settaggio dei margini delle immagini
+				setMarginImage(marginImageValue);
+				if(isPhone == "0"){
+					loadImage("#photosx", ".preload", "0.7");		
+				}else{
+					loadImage("#photosx", ".preload", "1");		
+				}
+				
+				//Gestione del Load Multi Page
 				if(pageMulti!= null && pageMulti!= ""){
-					loadArticle(pageMulti);
+					loadArticle(pageMulti, "down");
 				}else{
 					loadArticleForScroll();			
 				}
@@ -133,18 +172,10 @@ function loadArticle(pageNumber){
 					var scrollHeight = parseInt($('#imageCella'+imageRequest).offset().top);
 					$("html, body").animate({ scrollTop: scrollHeight }, 'slow');
 				}
-				
-				//Settaggio dei margini delle immagini
-				setMarginImage(marginImageValue);
-				if(isPhone == "0"){
-					loadImage("#photosx", ".preload", "0.7");		
-				}else{
-					loadImage("#photosx", ".preload", "1");		
-				}				
 			}
-		});		
+		});				
 		return true;	
-	}
+	}	
 	return false;
 }
 
@@ -210,7 +241,7 @@ function loadArticleForScroll(){
 		if (finishImage=='true'){
 			return false;
 		}else{			
-			var caricato = loadArticle(pageDown);	
+			var caricato = loadArticle(pageDown, "down");	
 			if(caricato){				
 				pageDown++;			
 			}

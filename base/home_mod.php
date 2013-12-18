@@ -45,6 +45,11 @@
 	var imageRequest = "<?php echo $imageUrl?>";	
 </script>
 
+<div class="loading">
+	<a class="inifiniteLoaderUp">
+		<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
+	</a>	
+</div>
 <!--Contenitore Grid-->
 <div id="photosx"></div>			
 

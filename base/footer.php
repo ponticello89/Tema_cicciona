@@ -2,7 +2,7 @@
 	<!-- /body -->
 	<?php if(is_home() || is_category()) : ?>					
 		<div class="loading">
-			<a class="inifiniteLoader">
+			<a class="inifiniteLoaderDown">
 				<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
 			</a>	
 		</div>

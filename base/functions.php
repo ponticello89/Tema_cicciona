@@ -188,13 +188,14 @@
 	function wp_infinitepaginate(){
 		$loopFile        = $_POST['loop_file'];
 		$paged           = $_POST['page_no'];
-		$pagedStr		 = $paged."";
 		$category		 = $_POST['category'];
+		$where			 = $_POST['where'];
 		$posts_per_page  = get_option('posts_per_page');
 
 	?>
 		<script type="text/javascript">					
-			currentPage = <?php echo $paged;?>
+			var currentPage = <?php echo $paged;?>;
+			var wherePage = "<?php echo $where;?>";
 		</script>			
 	<?php					
 		
@@ -206,18 +207,7 @@
 			$arrayQueryPost['category_name'] = $category;				
 		}		
 		query_posts($arrayQueryPost);			
-		
-		/*	
-		if($category != null && $category != ""){
-			query_posts(array('paged' => $paged, 'category_name' => $category));			
-		}else{
-			query_posts(array('paged' => $paged));
-			//appunto futuro
-			//query_posts(array('post_in' => array(1,2,3)));			
-		}		
-		*/
-	
-	
+				
 		if(have_posts() == null){
 	?>
 			<script type="text/javascript">					
