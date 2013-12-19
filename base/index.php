@@ -8,7 +8,7 @@
 			<?php endif; ?>					
 		<?php else : ?>
 	
-			<p><?php _e( 'Sorry, nothing found.', 'themify' ); ?></p>
+			<p><?php _e( 'Sorry, nothing found.'); ?></p>
 	
 		<?php endif; ?>			
 	

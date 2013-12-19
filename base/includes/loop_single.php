@@ -33,20 +33,24 @@
 	
 	<div class="test">
 		<div class="imgDiv">
-			<div class="leftDiv" onclick="location.href='<?php get_template_part( 'includes/nav_next'); ?>'">								
-				<p class="leftArrowP">
-					<a>
-						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" style="opacity: 0;" />
-					</a	
-				</p>
-			</div>
-			<div class="rightDiv" onclick="location.href='<?php get_template_part( 'includes/nav_previous'); ?>'"/>				
-				<p class="rightArrowP">
-					<a>
-						<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0;"/>
-					</a>
-				</p>
-			</div>			
+			<?php if(get_next_post_url() != null){ ?>
+				<div class="leftDiv" onclick="location.href='<?php echo get_next_post_url(); ?>'">								
+					<p class="leftArrowP">
+						<a>
+							<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" style="opacity: 0;" />
+						</a	
+					</p>
+				</div>
+			<?php } ?>
+			<?php if(get_prev_post_url() != null){ ?>
+				<div class="rightDiv" onclick="location.href='<?php get_template_part( 'includes/nav_previous'); ?>'"/>				
+					<p class="rightArrowP">
+						<a>
+							<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0;"/>
+						</a>
+					</p>
+				</div>		
+			<?php } ?>
 			<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; visibility: hidden; opacity: 0;"/>									
 		<div>
 	</div>

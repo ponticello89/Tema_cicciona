@@ -7,7 +7,7 @@
 	///////////////////////////////////////
 	// Load theme languages
 	///////////////////////////////////////
-	load_theme_textdomain( 'themify', TEMPLATEPATH.'/languages' );
+	//load_theme_textdomain(TEMPLATEPATH.'/languages' );
 
 	///////////////////////////////////////
 	// Enable WordPress feature image
@@ -19,20 +19,22 @@
 	///////////////////////////////////////
 	if (function_exists('register_nav_menus')) {
 		register_nav_menus( array(
-			'main-nav' => __( 'Main Navigation', 'themify' ),
-			'footer-nav' => __( 'Footer Navigation', 'themify' ),
+			'main-nav' => __( 'Main Navigation'),
+			'footer-nav' => __( 'Footer Navigation'),
 		) );
 	}
 
 	///////////////////////////////////////
 	// Default Main Nav Function
 	///////////////////////////////////////
+	/*
 	function default_main_nav() {
 		echo '<ul id="main-nav" class="main-nav clearfix">';
 		wp_list_pages('title_li=');
 		echo '</ul>';
 	}
-
+	*/
+	
 	///////////////////////////////////////
 	// Register Widgets
 	///////////////////////////////////////
@@ -49,8 +51,9 @@
 
 	///////////////////////////////////////
 	// Page navigation
-	///////////////////////////////////////
-	function themify_pagenav($before = '', $after = '') {
+	//////////////////////////////////////
+	/*
+	function ponticello_pagenav($before = '', $after = '') {
 		global $wpdb, $wp_query;
 	
 		$request = $wp_query->request;
@@ -104,11 +107,13 @@
 			echo '</div>'.$after;
 		}
 	}
+	*/
 
 	///////////////////////////////////////
 	// Add wmode transparent and post-video container for responsive purpose
 	///////////////////////////////////////	
-	function themify_add_video_wmode_transparent($html, $url, $attr) {
+	/*
+	function ponticello_add_video_wmode_transparent($html, $url, $attr) {
 		
 		$html = '<div class="post-video">' . $html . '</div>';
 		if (strpos($html, "<embed src=" ) !== false) {
@@ -135,8 +140,9 @@
 			}
 		}
 	}
-	add_filter('embed_oembed_html', 'themify_add_video_wmode_transparent');
-
+	add_filter('embed_oembed_html', 'ponticello_add_video_wmode_transparent');
+	*/
+	
 	///////////////////////////////////////
 	// Custom Theme Comment List Markup
 	///////////////////////////////////////
@@ -151,23 +157,26 @@
 			<?php comment_date('M d, Y'); ?>
 			</strong> @
 			<?php comment_time('H:i:s'); ?>
-			<?php edit_comment_link( __('Edit', 'themify'),' [',']') ?>
+			<?php edit_comment_link( __('Edit'),' [',']') ?>
 			</small>
 		</p>
 		<div class="commententry">
 			<?php if ($comment->comment_approved == '0') : ?>
 			<p>
-				<em><?php _e('Your comment is awaiting moderation.', 'themify') ?></em>
+				<em><?php _e('Your comment is awaiting moderation.') ?></em>
 			</p>
 			<?php endif; ?>
 			<?php comment_text() ?>
 		</div>
 		<p class="reply">
-			<?php comment_reply_link(array_merge( $args, array('add_below' => 'comment', 'depth' => $depth, 'reply_text' => __( 'Reply', 'themify' ), 'max_depth' => $args['max_depth']))) ?>
+			<?php comment_reply_link(array_merge( $args, array('add_below' => 'comment', 'depth' => $depth, 'reply_text' => __( 'Reply' ), 'max_depth' => $args['max_depth']))) ?>
 		</p>
 	<?php
 	}
 		
+	///////////////////////////////////////
+	// Restituisce l'url attuale
+	///////////////////////////////////////		
 	function curPageURL() {
 		$pageURL = 'http';
 		if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
@@ -179,9 +188,10 @@
 		}
 		return $pageURL;
 	}
-		
-	/*infinite scroll pagination */
-
+			
+	///////////////////////////////////////
+	// Infinitive scroll pagination
+	///////////////////////////////////////	
 	add_action('wp_ajax_infinite_scroll', 		 'wp_infinitepaginate');    // for logged in user
 	add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');    // if user not logged in
 
@@ -223,15 +233,37 @@
 		exit;
 	}
 
-
 	function my_scripts_method() {
 		wp_deregister_script( 'jquery' );
 		//wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 		wp_enqueue_script( 'jquery' );
 	}    	 
 	add_action('wp_enqueue_scripts', 'my_scripts_method');
-?>
 
-<?php 	
+	///////////////////////////////////////
+	// Inclusione opzioni tema
+	///////////////////////////////////////
 	require_once (TEMPLATEPATH . '/includes/opzioni_tema.php');	
+	
+	///////////////////////////////////////
+	// Next e Previus Article
+	///////////////////////////////////////
+	function get_next_post_url() {
+		$nextPost=get_next_post(); 
+		$nextPostId=$nextPost->ID;
+		if($post->ID!=$nextPostId){
+			$nextPostUrl = get_permalink($nextPostId); 
+			return $nextPostUrl;
+		}
+		return null;
+	}    
+	function get_prev_post_url() {
+		$prevPost=get_previous_post(); 
+		$prevPostId=$prevPost->ID;
+		if($post->ID!=$prevPostId){
+			$prevPostUrl = get_permalink($prevPostId); 
+			return $prevPostUrl;
+		}
+		return null;
+	}	
 ?>
