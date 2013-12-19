@@ -5,19 +5,19 @@ Tema wordpress creato per un sito puramente illustrativo work in progress 80%
 =============
 Da Fare
 =============
-Visualizzazione home da mobile 60%<br/>
-Visualizzazione article da mobile<br/>
-  con ruotamento 90° in verticale<br/>
+
+Visualizzazione article da mobile 90%<br/>
+  con ruotamento 90° in verticale 70%<br/>
   e con header minimo<br/>
 Visualizzazione page da mobile<br/>
 Share con i social networ 60%<br/>
 Curare pagina 404<br/>
-Paginazione nel dettaglio dell'immagine<br/>
 Modifica elenco articoli backend<br/>
 
 =============
 Fatte
 =============
+Visualizzazione home da mobile 60%<br/>
 Resize da mobile<br/>
 Layout Pagine<br/>
 Resize e centramento dinamico 50%<br/>
