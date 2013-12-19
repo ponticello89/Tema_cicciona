@@ -43,7 +43,7 @@
 				</div>
 			<?php } ?>
 			<?php if(get_prev_post_url() != null){ ?>
-				<div class="rightDiv" onclick="location.href='<?php get_template_part( 'includes/nav_previous'); ?>'"/>				
+				<div class="rightDiv" onclick="location.href='<?php echo get_prev_post_url(); ?>'"/>				
 					<p class="rightArrowP">
 						<a>
 							<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0;"/>
