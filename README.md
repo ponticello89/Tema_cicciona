@@ -11,6 +11,7 @@ Visualizzazione article da mobile 90%<br/>
   e con header minimo<br/>
 Visualizzazione page da mobile<br/>
 Share con i social networ 60%<br/>
+Share in home<br/>
 Curare pagina 404<br/>
 Modifica elenco articoli backend<br/>
 
