@@ -21,6 +21,7 @@
 ?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header_mobile.css">
 		<script src="<?php echo get_template_directory_uri(); ?>/js/mobile.js"></script>	
+		
 <?php	
 	} else {
 ?>		

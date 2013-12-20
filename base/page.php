@@ -1,6 +1,6 @@
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_page.css">
-
 <?php get_header(); ?>
+
+	<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_page.css">
 
 	<div class="pageContent">
 	
@@ -12,7 +12,6 @@
 					
 		<?php endwhile; ?>
 		
-	</div>
-	<!-- /#content -->
+	</div>	
 			
 <?php get_footer(); ?>
