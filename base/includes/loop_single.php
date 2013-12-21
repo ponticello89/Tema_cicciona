@@ -1,5 +1,8 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/single.js"></script>
+
+<?php $catId = htmlspecialchars($_GET["cat"]); ?>
+
 <?php 
 	if(!isPhone()){
 ?>
@@ -18,13 +21,30 @@
 <div>
 							
 	<?php 
+		$idArticle = $post->ID;
 		$titleArticle = get_the_title($post->ID); 
 		//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
 		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 		$urlImage = $thumb['0']; 
 		$width = $thumb['1'];
 		$height = $thumb['2'];	
-				
+		
+		$nextArticleUrl = null;
+		$prevArticleUrl = null;
+		$next_post = getNextArticleOfCategory($idArticle, $catId);		
+		$prev_post = getPrevArticleOfCategory($idArticle, $catId);
+		if($next_post != null){
+			$nextArticleUrl = get_permalink($next_post);
+			if($catId != null && $catId != "" ){
+				$nextArticleUrl = $nextArticleUrl . "&cat=" . $catId;
+			}
+		}
+		if($prev_post != null){
+			$prevArticleUrl = get_permalink($prev_post);
+			if($catId != null && $catId != "" ){
+				$prevArticleUrl = $prevArticleUrl . "&cat=" . $catId;
+			}
+		}
 	?>
 	
 	<script type="text/javascript">
@@ -33,8 +53,8 @@
 	
 	<div class="test">
 		<div class="imgDiv">
-			<?php if(get_next_post_url() != null){ ?>
-				<div class="leftDiv" onclick="location.href='<?php echo get_next_post_url(); ?>'">								
+			<?php if($prevArticleUrl != null && $prevArticleUrl != ""){ ?>
+				<div class="leftDiv" onclick="location.href='<?php echo $prevArticleUrl; ?>'">								
 					<p class="leftArrowP">
 						<a>
 							<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" style="opacity: 0;" />
@@ -42,8 +62,8 @@
 					</p>
 				</div>
 			<?php } ?>
-			<?php if(get_prev_post_url() != null){ ?>
-				<div class="rightDiv" onclick="location.href='<?php echo get_prev_post_url(); ?>'"/>				
+			<?php if($nextArticleUrl != null && $nextArticleUrl != ""){ ?>
+				<div class="rightDiv" onclick="location.href='<?php echo $nextArticleUrl; ?>'"/>				
 					<p class="rightArrowP">
 						<a>
 							<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0;"/>
@@ -58,41 +78,34 @@
 	<script type="text/javascript">
 		loadImage(".test", ".preload", "1", ".subPreLoad");				
 	</script>
+			
+			
+	<?php 
+		if(!isPhone()){
+			require_once (TEMPLATEPATH . '/includes/social.php');
+		}else{
+			require_once (TEMPLATEPATH . '/includes/social_mobile.php');
+		}
+	?>
 	
-	<!--<img src="img" width="16" height="16" border="0" alt="Share" />-->	
+	<?php 
+		$homeUrl 	   = get_option('home');				
+		$pageArticle   = getPageOfArticle($idArticle, $catId);
+		$returnHomeUrl = $homeUrl . '?page=' . $pageArticle . '&image=' . $idArticle;
+		if($catId != null && $catId != "" ){
+			$returnHomeUrl = $returnHomeUrl . '&cat=' . $catId;
+		}
+	?>
 	
-	<!-- AddThis Button BEGIN -->
-	<div class="addthis_toolbox addthis_default_style addthis_32x32_style socialDiv">	   
+	<div class="returnMenuDiv">
 		<ul>
 			<li class="socialLi">
-				<a class="addthis_button_facebook">
-					<p class="socialP social_facebook">				
-					</p>
+				<a href="<?php echo $returnHomeUrl?>">
+					<p class="menuBtn"></p>					
 				</a>	
 			</li>
-			<li class="socialLi">
-				<a class="addthis_button_twitter">
-					<p class="socialP social_twitter">				
-					</p>
-				</a>
-			</li>
-			<li class="socialLi">		
-				<a class="addthis_button_google_plusone_share">
-					<p class="socialP social_google_plus">				
-					</p>
-				</a>
-			</li>
-			<li class="socialLi">
-				<a class="addthis_button_tumblr">
-					<p class="socialP social_tumblr">				
-					</p>
-				</a>
-			</li>
-		<ul>
+		</ul>
 	</div>
-	<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52af59c078a11b97"></script>
-	<!-- AddThis Button END -->
 	
 	<?php the_content(); ?>
 	

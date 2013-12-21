@@ -130,27 +130,19 @@ function loadArticle(pageNumber, where){
 		
 	if(load == "false"){		
 		load = "true";	
-		
-		if(where=="down"){
-			$('a.inifiniteLoaderDown').show('fast');
-		}else if(where=="up"){
-			$('a.inifiniteLoaderUp').show('fast');
-		}
+				
 		$.ajax({		
 			url: urlSite+"/wp-admin/admin-ajax.php",		
 			type:'POST',			
-			data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category='+category+'&loop_file=includes/loop_home', 
-			success: function(html){           				
-				if(where=="down"){
-					$('a.inifiniteLoaderDown').hide('1000');	
-				}else if(where=="up"){
-					$('a.inifiniteLoaderUp').hide('1000');	
-				}
-				
+			data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category_name='+category_name+'&category_id='+category_id+'&loop_file=includes/loop_home', 
+			success: function(html){           											
 				$("#photosx").append(html);    // This will be the div where our content will be loaded																					
 			},
 			complete: function(){				
 				load = "false";		
+				
+				$('a.inifiniteLoaderDown').hide('1000');	
+				$('a.inifiniteLoaderUp').hide('1000');	
 				
 				//Settaggio dei margini delle immagini
 				setMarginImage(marginImageValue);
@@ -286,10 +278,27 @@ function loadPhotoOnDiv(html, widthImage, heightImage, where, idArticle){
 		var widthColonna = $("#colonna"+divSelect).width();
 		
 		var x = (widthImage/widthColonna);		
-		heightImage = heightImage/x;		
+		heightImage = heightImage/x;
+		//$("#imageCella"+idArticle).height(parseInt(heightImage));				
 		heightColArray [divSelect] = parseInt(heightColArray [divSelect]) + parseInt(heightImage);
 		
 		totaleImg++;
 	}
+}
+
+
+function apriImg_v2(urlArticle, page, idArticle){	
+	homeUrl = window.location+"";
+	
+	if(homeUrl.indexOf("page=")!=-1){
+		homeUrl = homeUrl.replace(homeUrl.substr((homeUrl.indexOf('page=')-1)), "");
+	}
+	
+	if(homeUrl.indexOf("?")!=-1){
+		window.history.pushState(homeUrl,'',homeUrl+'&page='+page+'&image='+idArticle);		
+	}else{
+		window.history.pushState(homeUrl,'',homeUrl+'?page='+page+'&image='+idArticle);		
+	}
+	window.location.href = urlArticle;		
 }
 	

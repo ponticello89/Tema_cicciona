@@ -1,13 +1,8 @@
-<script src="<?php echo get_template_directory_uri(); ?>/js/grid.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
-
 <?php 			
 	$categoryName = "";
-	$catId = htmlspecialchars($_GET["cat"]);		
-	$pageUrl = htmlspecialchars($_GET["page"]);		
-	$imageUrl = htmlspecialchars($_GET["image"]);		
+	$catId 		  = htmlspecialchars($_GET["cat"]);		
+	$pageUrl 	  = htmlspecialchars($_GET["page"]);		
+	$imageUrl 	  = htmlspecialchars($_GET["image"]);		
 	
 	if($catId != null && $catId != ""){		
 		$categoryName = get_the_category_by_ID( $catId );
@@ -32,7 +27,8 @@
 		var marginImageValue = 	"5";		
 	}
 	
-	var category = "<?php echo $categoryName?>";
+	var category_id   = "<?php echo $catId?>";
+	var category_name = "<?php echo $categoryName?>";
 	
 	//Contatore delle pagine contenenti immagini inserite
 	var pageRequest = "<?php echo $pageUrl?>";
@@ -44,6 +40,11 @@
 	
 	var imageRequest = "<?php echo $imageUrl?>";	
 </script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/js/grid.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
 
 <div class="loading">
 	<a class="inifiniteLoaderUp">
@@ -61,7 +62,7 @@
 	//	lightbox
 	//	effetti su immagini
 	
-	if(isPhone() == 0){ ?>
+	if(!isPhone()){ ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
 		<script src="<?php echo get_template_directory_uri(); ?>/js/header_fake.js"></script>

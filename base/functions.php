@@ -198,14 +198,26 @@
 	function wp_infinitepaginate(){
 		$loopFile        = $_POST['loop_file'];
 		$paged           = $_POST['page_no'];
-		$category		 = $_POST['category'];
+		$category_name	 = $_POST['category_name'];
+		$category_id	 = $_POST['category_id'];
 		$where			 = $_POST['where'];
 		$posts_per_page  = get_option('posts_per_page');
 
 	?>
-		<script type="text/javascript">					
+		<script type="text/javascript">		
+			var categoryId 	= "<?php echo $category_id;?>";				
 			var currentPage = <?php echo $paged;?>;
-			var wherePage = "<?php echo $where;?>";
+			var wherePage 	= "<?php echo $where;?>";
+			
+			if(wherePage=="down"){
+				if(!$('a.inifiniteLoaderDown').is(":visible")){
+					$('a.inifiniteLoaderDown').show('fast');
+				}
+			}else if(wherePage=="up"){
+				if(!$('a.inifiniteLoaderUp').is(":visible")){
+					$('a.inifiniteLoaderUp').show('fast');
+				}
+			}
 		</script>			
 	<?php					
 		
@@ -213,8 +225,8 @@
 		//category_name=senza-categoria		
 		$arrayQueryPost = array();						
 		$arrayQueryPost['paged'] = $paged;					
-		if($category != null && $category != ""){
-			$arrayQueryPost['category_name'] = $category;				
+		if($category_name != null && $category_name != ""){
+			$arrayQueryPost['category_name'] = $category_name;				
 		}		
 		query_posts($arrayQueryPost);			
 				
@@ -225,7 +237,7 @@
 			</script>
 	<?php					
 		}else{		
-			get_template_part( $loopFile );	
+			get_template_part( $loopFile );				
 		}	 	
 			
 		//wp_reset_query();
@@ -266,4 +278,129 @@
 		}
 		return null;
 	}	
+	
+	///////////////////////////////////////
+	// Get page of article
+	///////////////////////////////////////
+	function getPageOfArticle($idArticle, $idCategory){
+							
+		$trovato = false;
+		$cont = 0;
+		$returnPage = 1;
+		while(! $trovato):
+			$cont++;
+		
+			$arrayQueryPost = array();						
+			$arrayQueryPost['paged'] = $cont;					
+			if($idCategory != null && $idCategory != ""){
+				$arrayQueryPost['category_id'] = $idCategory;				
+			}		
+			query_posts($arrayQueryPost);			
+			
+			$contArticle = 0;
+			while (have_posts()){
+				$contArticle++;				
+				the_post();
+								
+				if(get_the_ID() == $idArticle){
+					$returnPage = $cont;
+					$trovato = true;					
+				}												
+			}
+			
+			//si ferma quando la query restituisce 0 articoli
+			if($contArticle == 0){
+				$trovato = true;
+			}
+			
+			wp_reset_query();
+		endwhile;
+		
+		return $returnPage;
+	}
+	
+	///////////////////////////////////////
+	// Get page of article
+	///////////////////////////////////////
+	function getNextArticleOfCategory($idArticle, $idCategory){
+							
+		$trovatoCurrent = false;
+		$trovatoNext = false;		
+		$returnNext = null;
+		$cont = 0;
+		while(! $trovatoNext):
+			$cont++;
+		
+			$arrayQueryPost = array();						
+			$arrayQueryPost['paged'] = $cont;					
+			if($idCategory != null && $idCategory != ""){
+				$arrayQueryPost['cat'] = $idCategory;				
+			}		
+			query_posts($arrayQueryPost);			
+			
+			$contArticle = 0;
+			while (have_posts()){
+				$contArticle++;				
+				the_post();
+				
+				if($trovatoCurrent){
+					$returnNext = get_the_ID();					
+					$trovatoNext = true;
+					break;
+				}
+				if(get_the_ID() == $idArticle){						
+					$trovatoCurrent = true;					
+				}												
+			}
+			
+			//si ferma quando la query restituisce 0 articoli
+			if($contArticle == 0){
+				$trovatoNext = true;
+			}
+			
+			wp_reset_query();
+		endwhile;
+		
+		return $returnNext;
+	}
+	
+	function getPrevArticleOfCategory($idArticle, $idCategory){
+							
+		$trovatoCurrent = false;
+		$trovatoPrev = false;		
+		$returnPrev = null;
+		$cont = 0;
+		while(! $trovatoPrev):
+			$cont++;
+		
+			$arrayQueryPost = array();						
+			$arrayQueryPost['paged'] = $cont;					
+			if($idCategory != null && $idCategory != ""){
+				$arrayQueryPost['cat'] = $idCategory;				
+			}		
+			query_posts($arrayQueryPost);			
+			
+			$contArticle = 0;
+			while (have_posts()){
+				$contArticle++;				
+				the_post();
+								
+				if(get_the_ID() != $idArticle){					
+					$returnPrev = get_the_ID();					
+				}else{
+					$trovatoPrev = true;
+					break;
+				}													
+			}
+			
+			//si ferma quando la query restituisce 0 articoli
+			if($contArticle == 0){
+				$trovatoPrev = true;
+			}
+			
+			wp_reset_query();
+		endwhile;
+		
+		return $returnPrev;
+	}
 ?>

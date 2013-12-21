@@ -26,7 +26,6 @@
 	} else {
 ?>		
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">						
-
 <?php
 	}
 ?>
@@ -82,15 +81,15 @@
 							 
 							$pages=get_pages($args);
 							foreach($pages as $page) { 										
-									if($pageId == $page->ID){
-										echo '<li class="current_page_item">';
-									}else{
-										echo '<li>';
-									}										
-									echo '	<a href="' . get_page_link( $page->ID ) . '">';
-									echo '		'. $page->post_title.'';
-									echo '	</a>';
-									echo '</li>';								
+								if($pageId == $page->ID){
+									echo '<li class="current_page_item">';
+								}else{
+									echo '<li>';
+								}										
+								echo '	<a href="' . get_page_link( $page->ID ) . '">';
+								echo '		'. $page->post_title.'';
+								echo '	</a>';
+								echo '</li>';								
 							} 
 						?>		
 					</ul>										
@@ -118,17 +117,17 @@
 							 
 							$categories=get_categories($args);
 							foreach($categories as $category) { 		
-									if($category->term_id != 1){
-										if($catId == $category->term_id){
-											echo '<li class="current_page_item">';
-										}else{
-											echo '<li>';
-										}										
-										echo '	<a href="' . get_category_link( $category->term_id ) . '">';
-										echo '		'. $category->name.'';
-										echo '	</a>';
-										echo '</li>';
-									}
+								if($category->term_id != 1){
+									if($catId == $category->term_id){
+										echo '<li class="current_page_item">';
+									}else{
+										echo '<li>';
+									}										
+									echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+									echo '		'. $category->name.'';
+									echo '	</a>';
+									echo '</li>';
+								}
 							} 
 						?>		
 					</ul>				

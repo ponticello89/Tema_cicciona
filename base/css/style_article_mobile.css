@@ -36,7 +36,34 @@
 	float: right;
 	width: 50%;
 }
+
+/*Social*/
 .socialDiv{
-	margin-top: 	10px;
-	margin-bottom: 	10px
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 50%;
 }
+.socialLi{
+	float: left;
+	list-style: none;
+	margin-right: 10px;
+}
+.social_facebook{
+	background: url(../images/social/facebook-circle.png) no-repeat center center;
+	margin-right: 0px;
+	height: 40px;
+	width: 40px;
+}
+.social_google_plus{
+	background: url(../images/social/google-plus-circle.png) no-repeat center center;
+	margin-right: 0px;
+}
+.social_tumblr{
+	background: url(../images/social/tumblr-circle.png) no-repeat center center;
+	margin-right: 0px;
+}
+.social_twitter{
+	background: url(../images/social/twitter-circle.png) no-repeat center center;
+	margin-right: 0px;
+}
+
