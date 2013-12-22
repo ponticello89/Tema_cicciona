@@ -1,13 +1,9 @@
-#header{
-	height:inherit !important;
-}
 .logoSite{
 	max-width: 200px;
 }
 /*Contenitori Master*/
 .headerDivTop{
-	width: 		95%;
-	height: 	100%;
+	width: 		95%;	
 	position: 	relative;
 	left:		2%;
 	/*background-color: yellow;*/

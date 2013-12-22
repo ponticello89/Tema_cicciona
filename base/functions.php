@@ -295,19 +295,21 @@
 		
 			$arrayQueryPost = array();						
 			$arrayQueryPost['paged'] = $cont;					
-			if($idCategory != null && $idCategory != ""){
+			if($idCategory != null && $idCategory != "" && $idCategory != 1){
 				$arrayQueryPost['category_id'] = $idCategory;				
 			}		
 			query_posts($arrayQueryPost);			
 			
 			$contArticle = 0;
 			while (have_posts()){
-				$contArticle++;				
 				the_post();
-								
-				if(get_the_ID() == $idArticle){
-					$returnPage = $cont;
-					$trovato = true;					
+				if (has_post_thumbnail()){
+					$contArticle++;									
+									
+					if(get_the_ID() == $idArticle){
+						$returnPage = $cont;
+						$trovato = true;					
+					}												
 				}												
 			}
 			
@@ -343,17 +345,19 @@
 			
 			$contArticle = 0;
 			while (have_posts()){
-				$contArticle++;				
 				the_post();
-				
-				if($trovatoCurrent){
-					$returnNext = get_the_ID();					
-					$trovatoNext = true;
-					break;
+				if (has_post_thumbnail()){
+					$contArticle++;									
+					
+					if($trovatoCurrent){
+						$returnNext = get_the_ID();					
+						$trovatoNext = true;
+						break;
+					}
+					if(get_the_ID() == $idArticle){						
+						$trovatoCurrent = true;					
+					}												
 				}
-				if(get_the_ID() == $idArticle){						
-					$trovatoCurrent = true;					
-				}												
 			}
 			
 			//si ferma quando la query restituisce 0 articoli
@@ -385,15 +389,17 @@
 			
 			$contArticle = 0;
 			while (have_posts()){
-				$contArticle++;				
 				the_post();
-								
-				if(get_the_ID() != $idArticle){					
-					$returnPrev = get_the_ID();					
-				}else{
-					$trovatoPrev = true;
-					break;
-				}													
+				if (has_post_thumbnail()){
+					$contArticle++;									
+									
+					if(get_the_ID() != $idArticle){					
+						$returnPrev = get_the_ID();					
+					}else{
+						$trovatoPrev = true;
+						break;
+					}
+				}
 			}
 			
 			//si ferma quando la query restituisce 0 articoli

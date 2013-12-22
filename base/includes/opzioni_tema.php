@@ -21,9 +21,7 @@
 		register_setting('gruppo-opzioni', 'margin-image' );
 		//Header
 		register_setting('gruppo-opzioni', 'header-type-title' );
-		register_setting('gruppo-opzioni', 'header-height' );
-		register_setting('gruppo-opzioni', 'header-level1-height' );
-		register_setting('gruppo-opzioni', 'header-level2-height' );
+		register_setting('gruppo-opzioni', 'header-logo-max-width' );		
 	}
 ?>
 
@@ -227,44 +225,18 @@
 							
 							<table class="form-table headerTableHeight">
 								<tr>
-									<th scope="row">Larghezza header</th>
+									<th scope="row">Larghezza massima logo del sito</th>
 									<td>							
 										<?php								
-											if(get_option('header-height')!= null){
-												$headerHeight = get_option('header-height');
+											if(get_option('header-logo-max-width')!= null){
+												$headerLogoWidth = get_option('header-logo-max-width');
 											} else{
-												$headerHeight = 130;
+												$headerLogoWidth = 200;
 											}	
 										?>
-										<input type="text" value="<?php echo $headerHeight?>" class="header-height text-option-percent" name="header-height"/>px
+										<input type="text" value="<?php echo $headerLogoWidth?>" class="header-logo-max-width text-option-percent" name="header-logo-max-width"/>px
 									</td>
-								</tr>
-								<tr>
-									<th scope="row">Larghezza header livello 1</th>
-									<td>							
-										<?php								
-											if(get_option('header-level1-height')!= null){
-												$headerHeightLevel1 = get_option('header-level1-height');
-											} else{
-												$headerHeightLevel1 = 50;
-											}	
-										?>
-										<input type="text" value="<?php echo $headerHeightLevel1?>" class="header-level1-height text-option-percent" name="header-level1-height"/>%
-									</td>
-								</tr>	
-								<tr>
-									<th scope="row">Larghezza header livello 2</th>
-									<td>							
-										<?php								
-											if(get_option('header-level2-height')!= null){
-												$headerHeightLevel2 = get_option('header-level2-height');
-											} else{
-												$headerHeightLevel2 = 50;
-											}	
-										?>
-										<input type="text" value="<?php echo $headerHeightLevel2?>" class="header-level2-height text-option-percent" name="header-level2-height"/>%
-									</td>
-								</tr>	
+								</tr>								
 							</table>
 					</div>
 					

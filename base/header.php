@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
-
+<script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>	
 <?php 
 	//Include funzioni di utilità
 	require_once (TEMPLATEPATH . '/includes/utility.php'); 		
@@ -53,21 +53,9 @@
 
 <div id="pagewrap">
 	
-	<header id="header" class="pagewidth"
-		<?php 
-			if(get_option('header-height') != "" ){
-				echo "style=\"height: ".get_option('header-height')."px\"";
-			}
-		?>
-	>
+	<header id="header" class="pagewidth">
 		<div class="headerDivTop">
-			<div class="headerLevel1"
-				<?php 
-					if(get_option('header-level1-height') != "" ){
-						echo "style=\"height: ".get_option('header-level1-height')."%\"";
-					}
-				?>
-			>
+			<div class="headerLevel1">
 				<div class="headerTitleDiv">
 					
 						<?php 
@@ -77,7 +65,13 @@
 						<?php 
 							}else if(get_option('header-type-title') == image){
 						?>	
-							<img src="<?php echo get_template_directory_uri(); ?>/images/header.png" class="logoSite"/>
+							<img src="<?php echo get_template_directory_uri(); ?>/images/header.png" class="logoSite"
+								<?php 
+									if(get_option('header-logo-max-width') != ""){
+										echo "style=\"max-width : " . get_option('header-logo-max-width') . "px\"";
+									}
+								?>							
+							/>
 						<?php 
 							}
 						?>	
@@ -86,13 +80,7 @@
 				</div>
 			</div>
 			
-			<div class="headerLevel2"
-				<?php 
-					if(get_option('header-level2-height') != "" ){
-						echo "style=\"height: ".get_option('header-level2-height')."%\"";
-					}
-				?>
-			>								
+			<div class="headerLevel2">								
 				<!--Inizio Page-->
 				<div class="headerPagesDiv">
 					<ul class="headerPagesUl">															

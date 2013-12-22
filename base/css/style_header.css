@@ -4,8 +4,7 @@
 
 /*Contenitori Master*/
 .headerDivTop{
-	width: 		95%;
-	height: 	100%;
+	width: 		95%;	
 	position: 	relative;
 	left:		2%;
 	/*background-color: yellow;*/
@@ -16,10 +15,12 @@
 .headerLevel1{
 	width: 100%;
 	height: 50%;
+	margin-bottom: 10px;
 }
 .headerLevel2{
 	width: 100%;
 	height: 50%;
+	margin-bottom: 10px;
 }
 /*Contenitori Header*/
 
@@ -95,7 +96,7 @@
 .headerPagesUl{
 	list-style: none;
 	float: right;
-	margin-top: 25px;
+	/*margin-top: 25px;*/
 }
 .headerCategoriesDiv li{
 	list-style: none;
@@ -104,5 +105,5 @@
 .headerCategoriesUl{
 	list-style: none;
 	float: left;
-	margin-top: 25px;
+	/*margin-top: 25px;*/
 }
