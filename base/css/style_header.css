@@ -1,3 +1,7 @@
+.logoSite{
+	max-width: 200px;
+}
+
 /*Contenitori Master*/
 .headerDivTop{
 	width: 		95%;
@@ -91,6 +95,7 @@
 .headerPagesUl{
 	list-style: none;
 	float: right;
+	margin-top: 25px;
 }
 .headerCategoriesDiv li{
 	list-style: none;
@@ -99,4 +104,5 @@
 .headerCategoriesUl{
 	list-style: none;
 	float: left;
+	margin-top: 25px;
 }

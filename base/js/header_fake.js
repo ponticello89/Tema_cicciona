@@ -10,7 +10,8 @@ jQuery(document).ready(function($) {
 	$('.headerFake').height(parseInt($('#header').height()));
 	
 	var statusHeader;
-	var headerHeight = $('#header').height();
+	var headerHeight = 200;
+	var headerHeightLevel1 = parseInt($('.headerLevel1').height());
 	var headerSmall  = headerHeight*8;
 	$(window).scroll(function(){			
 		
@@ -21,14 +22,14 @@ jQuery(document).ready(function($) {
 				$('.headerFake').fadeIn('slow');				
 			}
 			//chiusura
-			if  ($(window).scrollTop() < $('#header').height()){
+			if  ($(window).scrollTop() < headerHeight){
 				$('.headerFake').fadeOut('fast');
 				
 			}			
 			//rimpiciolimento
 			if  ($(window).scrollTop() > headerSmall && statusHeader!="small"){
-				statusHeader = "small";
-				$('.headerFake').animate({'top':'-50px'}, 100);						
+				statusHeader = "small";				
+				$('.headerFake').animate({'top':'-'+headerHeightLevel1+'px'}, 100);						
 			}
 			//ingrandimento
 			if  ($(window).scrollTop() < headerSmall && statusHeader!="big"){

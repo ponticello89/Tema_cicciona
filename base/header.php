@@ -31,20 +31,17 @@
 ?>
 
 <!-- wp_header -->
-<?php wp_head(); ?>
-
+<?php //wp_head(); ?>
 <?php // include theme.script.js  ?>
 <!--<script src="<?php echo get_template_directory_uri(); ?>/js/theme.script.js"></script>-->
-
+<!-- start infinite scroll function  -->
+<?php //if (!is_single() || !is_page()): ?>
+<?php //endif; ?>	
+<!-- end infinite scroll pagination -->
 
 <?php // enqueue comment-reply.js (require for threaded comments)
 	if ( is_singular() && get_option( 'thread_comments' ) )	wp_enqueue_script( 'comment-reply' ); 
 ?>
-
-<!-- start infinite scroll function  -->
-<?php if (!is_single() || !is_page()): ?>
-<?php endif; ?>	
-<!-- end infinite scroll pagination -->
 
 </head>
 
@@ -55,19 +52,47 @@
 </script>
 
 <div id="pagewrap">
-
-	<header id="header" class="pagewidth">
+	
+	<header id="header" class="pagewidth"
+		<?php 
+			if(get_option('header-height') != "" ){
+				echo "style=\"height: ".get_option('header-height')."px\"";
+			}
+		?>
+	>
 		<div class="headerDivTop">
-			<div class="headerLevel1">
+			<div class="headerLevel1"
+				<?php 
+					if(get_option('header-level1-height') != "" ){
+						echo "style=\"height: ".get_option('header-level1-height')."%\"";
+					}
+				?>
+			>
 				<div class="headerTitleDiv">
-					<hgroup>
-						<h1 id="site-logo"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+					
+						<?php 
+							if(get_option('header-type-title') == text){
+						?>
+							<h1 id="site-logo"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
+						<?php 
+							}else if(get_option('header-type-title') == image){
+						?>	
+							<img src="<?php echo get_template_directory_uri(); ?>/images/header.png" class="logoSite"/>
+						<?php 
+							}
+						?>	
 						<h2 id="site-description"><?php bloginfo('description'); ?></h2>
-					</hgroup>
+					
 				</div>
 			</div>
 			
-			<div class="headerLevel2">								
+			<div class="headerLevel2"
+				<?php 
+					if(get_option('header-level2-height') != "" ){
+						echo "style=\"height: ".get_option('header-level2-height')."%\"";
+					}
+				?>
+			>								
 				<!--Inizio Page-->
 				<div class="headerPagesDiv">
 					<ul class="headerPagesUl">															
@@ -147,11 +172,15 @@
 			</div>
 			-->
 			<!-- /.social-widget -->
-		</div>
+		</div>				
+		
 	</header>
-	<!-- /#header -->
 	
+	
+	<!-- /#header -->
+		
 	<div class="headerFake headerScroll">
 	</div>
+	
 	
 	<div id="body" class="pagewidth clearfix">

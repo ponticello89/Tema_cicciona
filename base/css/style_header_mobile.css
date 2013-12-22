@@ -1,7 +1,9 @@
 #header{
-	height:150px;
+	height:inherit !important;
 }
-
+.logoSite{
+	max-width: 200px;
+}
 /*Contenitori Master*/
 .headerDivTop{
 	width: 		95%;
