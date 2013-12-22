@@ -118,6 +118,7 @@
 	float: right;
 	margin-top: 20px;
 	margin-bottom: 10px;	
+	z-index: 1;
 }
 .menuUl{
 	margin: 0px 0px 0px 0px !important;
@@ -136,6 +137,7 @@
 	margin-bottom: 10px;
 	width: 50%;
 	float: left;
+	z-index: 1;
 }
 .socialUl{
 	margin: 0px 0px 0px 0px !important;
