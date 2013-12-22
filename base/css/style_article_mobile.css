@@ -1,3 +1,28 @@
+.titleArticleDiv{
+	text-align: center;
+}
+.titleArticleP{
+	padding: 15px !important;
+	border-radius: 50px !important;
+	font-size: 30px;
+	text-transform: uppercase;
+	font-family: Impact, Charcoal, sans-serif;	
+	color: #000000;
+}
+.contentArticleDiv{
+	width: 90%;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	word-wrap: break-word;
+}
+
+.imageArticle {
+	/*ombra nera*/
+	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
+	box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
+}
 .imageArticle {
 	/*ombra nera*/
 	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
