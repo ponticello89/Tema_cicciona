@@ -98,10 +98,10 @@
 	?>
 	
 	<div class="returnMenuDiv">
-		<ul>
+		<ul class="menuUl">
 			<li class="socialLi">
 				<a href="<?php echo $returnHomeUrl?>">
-					<p class="menuBtn"></p>					
+					<p class="socialP menuBtn"></p>					
 				</a>	
 			</li>
 		</ul>

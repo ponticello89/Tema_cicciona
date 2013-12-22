@@ -1,6 +1,6 @@
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style socialDiv">	   
-	<ul>
+	<ul class="socialUl">
 		<li class="socialLi">
 			<a class="addthis_button_facebook">
 				<p class="socialP social_facebook"></p>					
