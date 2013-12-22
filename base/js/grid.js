@@ -134,7 +134,8 @@ function loadArticle(pageNumber, where){
 		$.ajax({		
 			url: urlSite+"/wp-admin/admin-ajax.php",		
 			type:'POST',			
-			data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category_name='+category_name+'&category_id='+category_id+'&loop_file=includes/loop_home', 
+			//data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category_name='+category_name+'&category_id='+category_id+'&loop_file=includes/loop_home', 
+			data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category_id='+category_id+'&loop_file=includes/loop_home', 
 			success: function(html){           											
 				$("#photosx").append(html);    // This will be the div where our content will be loaded																					
 			},
@@ -199,6 +200,8 @@ function createDiv(numDiv){
 function reSize(numDiv, widthCols){
 	var widthColsArray = widthCols.split(",");
 					
+	$(".imageCella").css({height : ""});					
+	
 	for (i=1; i<=numDiv; i++) {
 		//Creo il div colonna		
 		$("#colonna"+[i]).css({width : ((widthColsArray[(i-1)])-1)+"%"});
@@ -279,7 +282,7 @@ function loadPhotoOnDiv(html, widthImage, heightImage, where, idArticle){
 		
 		var x = (widthImage/widthColonna);		
 		heightImage = heightImage/x;
-		//$("#imageCella"+idArticle).height(parseInt(heightImage));				
+		$("#imageCella"+idArticle).height(parseInt(heightImage));				
 		heightColArray [divSelect] = parseInt(heightColArray [divSelect]) + parseInt(heightImage);
 		
 		totaleImg++;

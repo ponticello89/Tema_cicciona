@@ -97,9 +97,11 @@
 				<!--Fine Page-->
 				
 				<!--Inizio Categorie-->				
+				<?php	$catId = htmlspecialchars($_GET["cat"]); ?>
+								
 				<div class="headerCategoriesDiv">
 					<ul class="headerCategoriesUl">											
-						<li <?php 	if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home')))){
+						<li <?php 	if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home'))) || $catId==1){
 										echo 'class="current_page_item"';
 									} ?>
 							>
@@ -108,8 +110,7 @@
 							</a>
 						</li>
 						<?php			
-							$catId = htmlspecialchars($_GET["cat"]);	
-						
+													
 							$args=array(
 							  'orderby' => 'name',
 							  'order' => 'ASC'

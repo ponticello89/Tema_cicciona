@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 			//rimpiciolimento
 			if  ($(window).scrollTop() > headerSmall && statusHeader!="small"){
 				statusHeader = "small";
-				$('.headerFake').animate({'top':'-70px'}, 100);						
+				$('.headerFake').animate({'top':'-50px'}, 100);						
 			}
 			//ingrandimento
 			if  ($(window).scrollTop() < headerSmall && statusHeader!="big"){

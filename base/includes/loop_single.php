@@ -51,63 +51,83 @@
 		initializeDimension("<?php echo $width?>","<?php echo $height?>");		
 	</script>
 	
-	<div class="test">
-		<div class="imgDiv">
-			<?php if($prevArticleUrl != null && $prevArticleUrl != ""){ ?>
-				<div class="leftDiv" onclick="location.href='<?php echo $prevArticleUrl; ?>'">								
-					<p class="leftArrowP">
-						<a>
-							<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" style="opacity: 0;" />
-						</a	
-					</p>
+	<div class="titleArticleDiv">
+		<p class="titleArticleP">
+			<?php echo get_the_title($idArticle); ?> 
+		</p>
+	</div>
+	
+	<?php if (has_post_thumbnail()==1){ ?>
+		<div class="test">		
+			<div class="imgDiv">
+				<!-- IMAGE -->			
+				<!-- NAVIGATION -->			
+				<?php if($prevArticleUrl != null && $prevArticleUrl != ""){ ?>
+					<div class="leftDiv" onclick="location.href='<?php echo $prevArticleUrl; ?>'">								
+						<p class="leftArrowP">
+							<a>
+								<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" style="opacity: 0;" />
+							</a	
+						</p>
+					</div>
+				<?php } ?>
+				<?php if($nextArticleUrl != null && $nextArticleUrl != ""){ ?>
+					<div class="rightDiv" onclick="location.href='<?php echo $nextArticleUrl; ?>'"/>				
+						<p class="rightArrowP">
+							<a>
+								<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0;"/>
+							</a>
+						</p>
+					</div>		
+				<?php } ?>		
+				<!-- NAVIGATION -->						
+				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; visibility: hidden; opacity: 0;"/>											
+			
+				<script type="text/javascript">
+					loadImage(".test", ".preload", "1", ".subPreLoad");				
+				</script>
+				<!-- IMAGE -->			
+				
+				<!-- SOCIAL-->			
+				<?php 
+					if(!isPhone()){
+						require_once (TEMPLATEPATH . '/includes/social.php');
+					}else{
+						require_once (TEMPLATEPATH . '/includes/social_mobile.php');
+					}
+				?>
+				<!-- SOCIAL-->			
+				
+				<!-- HOME BUTTON-->
+				<?php 
+					$homeUrl 	   = get_option('home');				
+					$pageArticle   = getPageOfArticle($idArticle, $catId);
+					$returnHomeUrl = $homeUrl . '?page=' . $pageArticle . '&image=' . $idArticle;
+					if($catId != null && $catId != "" ){
+						$returnHomeUrl = $returnHomeUrl . '&cat=' . $catId;
+					}
+				?>			
+				
+				<div class="returnMenuDiv">
+					<ul class="menuUl">
+						<li class="socialLi">
+							<a href="<?php echo $returnHomeUrl?>">
+								<p class="socialP menuBtn"></p>					
+							</a>	
+						</li>
+					</ul>
 				</div>
-			<?php } ?>
-			<?php if($nextArticleUrl != null && $nextArticleUrl != ""){ ?>
-				<div class="rightDiv" onclick="location.href='<?php echo $nextArticleUrl; ?>'"/>				
-					<p class="rightArrowP">
-						<a>
-							<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0;"/>
-						</a>
-					</p>
-				</div>		
-			<?php } ?>
-			<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; visibility: hidden; opacity: 0;"/>									
-		<div>
+				<!-- HOME BUTTON-->
+				
+			</div>
+		</div>
+	<?php } ?>
+	
+	<div class="contentArticleDiv">
+		<p class="contentArticleP">
+			<?php the_content(); ?>
+		</p>
 	</div>
-	
-	<script type="text/javascript">
-		loadImage(".test", ".preload", "1", ".subPreLoad");				
-	</script>
-			
-			
-	<?php 
-		if(!isPhone()){
-			require_once (TEMPLATEPATH . '/includes/social.php');
-		}else{
-			require_once (TEMPLATEPATH . '/includes/social_mobile.php');
-		}
-	?>
-	
-	<?php 
-		$homeUrl 	   = get_option('home');				
-		$pageArticle   = getPageOfArticle($idArticle, $catId);
-		$returnHomeUrl = $homeUrl . '?page=' . $pageArticle . '&image=' . $idArticle;
-		if($catId != null && $catId != "" ){
-			$returnHomeUrl = $returnHomeUrl . '&cat=' . $catId;
-		}
-	?>
-	
-	<div class="returnMenuDiv">
-		<ul class="menuUl">
-			<li class="socialLi">
-				<a href="<?php echo $returnHomeUrl?>">
-					<p class="socialP menuBtn"></p>					
-				</a>	
-			</li>
-		</ul>
-	</div>
-	
-	<?php the_content(); ?>
 	
 </div>						
 

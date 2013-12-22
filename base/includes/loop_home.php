@@ -37,6 +37,8 @@
 			echo 'var urlArticle 	= "' . $urlArticle . '";';			
 			echo 'if(categoryId != null && categoryId != \'\'){';
 			echo '	urlArticle = urlArticle+\'&cat=\'+categoryId;';
+			echo '}else{';
+			echo '	urlArticle = urlArticle+\'&cat=1\';';
 			echo '}';
 			echo 'var widthImage 	= "' . $width . '";';				
 			echo 'var heightImage 	= "' . $height . '";';

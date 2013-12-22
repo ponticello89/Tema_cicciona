@@ -198,7 +198,7 @@
 	function wp_infinitepaginate(){
 		$loopFile        = $_POST['loop_file'];
 		$paged           = $_POST['page_no'];
-		$category_name	 = $_POST['category_name'];
+		//$category_name	 = $_POST['category_name'];
 		$category_id	 = $_POST['category_id'];
 		$where			 = $_POST['where'];
 		$posts_per_page  = get_option('posts_per_page');
@@ -225,8 +225,11 @@
 		//category_name=senza-categoria		
 		$arrayQueryPost = array();						
 		$arrayQueryPost['paged'] = $paged;					
-		if($category_name != null && $category_name != ""){
-			$arrayQueryPost['category_name'] = $category_name;				
+		//if($category_name != null && $category_name != ""){
+		//	$arrayQueryPost['category_name'] = $category_name;				
+		//}		
+		if($category_id != null && $category_id != ""){
+			$arrayQueryPost['cat'] = $category_id;				
 		}		
 		query_posts($arrayQueryPost);			
 				
@@ -333,7 +336,7 @@
 		
 			$arrayQueryPost = array();						
 			$arrayQueryPost['paged'] = $cont;					
-			if($idCategory != null && $idCategory != ""){
+			if($idCategory != null && $idCategory != "" && $idCategory != 1){
 				$arrayQueryPost['cat'] = $idCategory;				
 			}		
 			query_posts($arrayQueryPost);			
@@ -375,7 +378,7 @@
 		
 			$arrayQueryPost = array();						
 			$arrayQueryPost['paged'] = $cont;					
-			if($idCategory != null && $idCategory != ""){
+			if($idCategory != null && $idCategory != "" && $idCategory != 1){
 				$arrayQueryPost['cat'] = $idCategory;				
 			}		
 			query_posts($arrayQueryPost);			
