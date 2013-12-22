@@ -224,7 +224,9 @@
 		//query_posts( array( 'category__and' => array(1,3), 'posts_per_page' => 2, 'orderby' => 'title', 'order' => 'DESC' ) );
 		//category_name=senza-categoria		
 		$arrayQueryPost = array();						
-		$arrayQueryPost['paged'] = $paged;					
+		$arrayQueryPost['paged'] = $paged;		
+		$arrayQueryPost['post_status'] = 'publish';		
+
 		//if($category_name != null && $category_name != ""){
 		//	$arrayQueryPost['category_name'] = $category_name;				
 		//}		
