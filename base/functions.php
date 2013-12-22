@@ -228,7 +228,7 @@
 		//if($category_name != null && $category_name != ""){
 		//	$arrayQueryPost['category_name'] = $category_name;				
 		//}		
-		if($category_id != null && $category_id != ""){
+		if($category_id != null && $category_id != "" && $category_id != 1){
 			$arrayQueryPost['cat'] = $category_id;				
 		}		
 		query_posts($arrayQueryPost);			
