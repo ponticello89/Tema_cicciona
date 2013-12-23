@@ -83,7 +83,7 @@ jQuery(document).ready(function($) {
 		}
 		
 		if ($(window).scrollTop()==0){
-			if(pageUp >= 1){
+			if(pageUp >= 1){				
 				startCaricamentoUp = 
 					setTimeout(
 						function(){
@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
 						},1000); 
 			}
 		} 
-		if ($(window).scrollTop()>0){ 
+		if ($(window).scrollTop()>0){ 			
 			clearTimeout(startCaricamentoUp); 
 		}
 		
@@ -141,10 +141,7 @@ function loadArticle(pageNumber, where){
 			},
 			complete: function(){				
 				load = "false";		
-				
-				$('a.inifiniteLoaderDown').hide('1000');	
-				$('a.inifiniteLoaderUp').hide('1000');	
-				
+												
 				//Settaggio dei margini delle immagini
 				setMarginImage(marginImageValue);
 				if(isPhone == "0"){
@@ -290,18 +287,22 @@ function loadPhotoOnDiv(html, widthImage, heightImage, where, idArticle){
 }
 
 
-function apriImg_v2(urlArticle, page, idArticle){	
+function apriImg_v2(urlArticle, page, category, idArticle){	
 	homeUrl = window.location+"";
 	
 	if(homeUrl.indexOf("page=")!=-1){
 		homeUrl = homeUrl.replace(homeUrl.substr((homeUrl.indexOf('page=')-1)), "");
 	}
+	if(category == null || category == ""){
+		category = 1;
+	}
 	
 	if(homeUrl.indexOf("?")!=-1){
-		window.history.pushState(homeUrl,'',homeUrl+'&page='+page+'&image='+idArticle);		
+		window.history.pushState(homeUrl,'',homeUrl+'&page='+page+'&image='+idArticle+'&cat='+category);		
 	}else{
-		window.history.pushState(homeUrl,'',homeUrl+'?page='+page+'&image='+idArticle);		
+		window.history.pushState(homeUrl,'',homeUrl+'?page='+page+'&image='+idArticle+'&cat='+category);		
 	}
+	
 	window.location.href = urlArticle;		
 }
 	

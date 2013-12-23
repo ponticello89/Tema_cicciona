@@ -210,12 +210,12 @@
 			var wherePage 	= "<?php echo $where;?>";
 			
 			if(wherePage=="down"){
-				if(!$('a.inifiniteLoaderDown').is(":visible")){
-					$('a.inifiniteLoaderDown').show('fast');
+				if(!$('a.inifiniteLoaderDown').is(":visible")){					
+					$('a.inifiniteLoaderDown').fadeIn('fast');					
 				}
 			}else if(wherePage=="up"){
-				if(!$('a.inifiniteLoaderUp').is(":visible")){
-					$('a.inifiniteLoaderUp').show('fast');
+				if(!$('a.inifiniteLoaderUp').is(":visible")){					
+					$('a.inifiniteLoaderUp').fadeIn('fast');
 				}
 			}
 		</script>			
@@ -243,8 +243,14 @@
 	<?php					
 		}else{		
 			get_template_part( $loopFile );				
-		}	 	
-			
+		}	 				
+	?>
+		<script type="text/javascript">		
+			$('a.inifiniteLoaderDown').fadeOut('1000');	
+			$('a.inifiniteLoaderUp').fadeOut('1000');		
+		</script>			
+	<?php		
+				
 		//wp_reset_query();
 		
 		exit;

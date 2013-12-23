@@ -52,7 +52,7 @@
 			if(!isPhone()){
 				//Apertura Img v1
 				//echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
-				echo '					<a onclick=\'apriImg_v2(\""+urlArticle+"\", \""+(currentPage)+"\", \""+idArticle+"\")\' >';
+				echo '					<a onclick=\'apriImg_v2(\""+urlArticle+"\", \""+(currentPage)+"\", \""+categoryId+"\", \""+idArticle+"\")\' >';
 				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
 				echo '						</img>';						
 				echo '					</a>';
