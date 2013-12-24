@@ -126,7 +126,7 @@
 													
 							$args=array(
 							  'orderby' => 'name',
-							  'order' => 'ASC'
+							  'order' 	=> 'ASC'
 							);								
 							 
 							$categories=get_categories($args);
@@ -144,6 +144,9 @@
 								}
 							} 
 						?>		
+						<li>
+							<a>foto</a>
+						</li>
 					</ul>				
 				</div>
 				<!--Fine Categorie-->

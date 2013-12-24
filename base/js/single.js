@@ -39,7 +39,8 @@ jQuery(document).ready(function($) {
 function reSizeImageArticle(){
 	var widthWindow	 = $("#pagewrap").width();
 	//var heightWindow = $("#pagewrap").height();	
-	var heightWindow = $(window).height();	
+	//var heightWindow = $(window).height();	
+	var heightWindow = screen.height;	
 	
 	var x;
 			
@@ -54,11 +55,11 @@ function reSizeImageArticle(){
 		heightImageArticle = heightImageArticle/x;
 	}
 
-	widthImageArticle 	= parseInt((widthImageArticle/10)*8);
-	heightImageArticle = parseInt((heightImageArticle/10)*8);	
+	widthImageArticle  = (widthImageArticle/10)*8;
+	heightImageArticle = (heightImageArticle/10)*8;	
 	
-	var marginTop =  parseInt((heightWindow-heightImageArticle)/2);
-	var marginLeft = parseInt((widthWindow-widthImageArticle)/2);
+	var marginTop =  (heightWindow-heightImageArticle)/2;
+	var marginLeft = (widthWindow-widthImageArticle)/2;
 	
 	$('.imgDiv').css({			width:  widthImageArticle,
 								height: heightImageArticle,
