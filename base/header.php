@@ -143,10 +143,7 @@
 									echo '</li>';
 								}
 							} 
-						?>		
-						<li>
-							<a>foto</a>
-						</li>
+						?>								
 					</ul>				
 				</div>
 				<!--Fine Categorie-->
