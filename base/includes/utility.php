@@ -29,7 +29,12 @@
 			'qwap','sage','sams','sany','sch-','sec-','send','seri','sgh-','shar',
 			'sie-','siem','smal','smar','sony','sph-','symb','t-mo','teli','tim-',
 			'tosh','tsm-','upg1','upsi','vk-v','voda','wap-','wapa','wapi','wapp',
-			'wapr','webc','winw','winw','xda ','xda-');
+			'wapr','webc','winw','winw','xda ','xda-', 'iphone', 'ipod', 'ipad',   
+			'android', 'blackberry', 'opera mobi',  'windows ce', 'windows phone os',  
+			'symbian'  );
+			
+			
+			
 
 		// se corrisponde a mobile aumentiamo la nostra variabile di 1 
 		 
