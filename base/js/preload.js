@@ -18,63 +18,85 @@ function loadImageTime(contenitore, classeImage){
 function loadImage(contenitore, classeImage, opacity, subClassPreload){
 	//Debug
 	//alert('loadImage ');
-		var subPreLoad;
-	
-		if(subClassPreload != null && subClassPreload != ""){
-			var subPreLoad = $(contenitore).find(subClassPreload);			
-			subPreLoad.filter(subClassPreload).each(function () {
-				$(this).css({"opacity": "0"});
-			});
-		}
-		
-		var imagesToLoad = $(contenitore).find(classeImage);
-		var imagesToLoadCount = imagesToLoad.size();
-		
-		var checkIfLoadedTimer = 
-			setInterval(
-				function () {
-					//alert('a');
-					if (!imagesToLoadCount) {
-						clearInterval(checkIfLoadedTimer);
-						
-					} else {
-						imagesToLoad.filter(classeImage).each(function () {
-							if (this.complete) {
-								//fadeImageIn(this);								
-								if (!$(this).is(':animated')) {									
-									//$(this).removeClass(classeImage);
-									$(this).removeClass("preload");
-									//$(".loadit").remove();
-									
-									$(this)	.css({visibility: "visible"})
-											.animate({	"opacity": opacity}, 
-														300, 
-														function () {																														
-															$(this).css("opacity", "");
-															if(subClassPreload != null && subClassPreload != ""){
-																subPreLoad = $(contenitore).find(subClassPreload);
-																subPreLoad.filter(subClassPreload).each(function () {
-																	$(this).css({"opacity": ""});
-																});
-															}
-														});
-									
-									//setTimeout(function(){$(this).removeAttr('style');}, 450);
-									
-									//$(this).fadeIn(300);
-									imagesToLoadCount--;
-								}								
-							}
-						});
-					}
-				}, 
-				300);
+	var subPreLoad;
 
-		var fadeImageIn = 
-			function (imageToLoad) {
-				$(imageToLoad).css({visibility: "visible"}).animate({opacity: 1}, 300, function () {
-					$(imageToLoad).removeClass(classeImage);
-				});
-			};
+	//Fa sparire tutti gli elementi collegati all'immagine tramite la classe subClassPreload
+	if(subClassPreload != null && subClassPreload != ""){
+		var subPreLoad = $(contenitore).find(subClassPreload);			
+		subPreLoad.filter(subClassPreload).each(function () {
+			$(this).css({"opacity": "0"});
+		});
+	}
 	
+	//Prende tutte le immagini dentro il contenitore tramite la classe classeImage
+	var imagesToLoad = $(contenitore).find(classeImage);
+	var imagesToLoadCount = imagesToLoad.size();
+	
+	var checkIfLoadedTimer = 
+		setInterval(
+			function () {
+				if (!imagesToLoadCount) {
+					clearInterval(checkIfLoadedTimer);
+					
+				} else {
+					//
+					imagesToLoad.filter(classeImage).each(function () {
+						if (this.complete) {							
+							if (!$(this).is(':animated')) {									
+								//$(this).removeClass(classeImage);
+								$(this).removeClass("preload");
+								//$(".loadit").remove();
+								
+								$(this)	.css({visibility: "visible"})
+										.animate({	"opacity": opacity}, 
+													300, 
+													function () {																														
+														$(this).css("opacity", "");
+														if(subClassPreload != null && subClassPreload != ""){
+															subPreLoad = $(contenitore).find(subClassPreload);
+															subPreLoad.filter(subClassPreload).each(function () {
+																$(this).css({"opacity": ""});
+															});
+														}
+													});
+								
+								//setTimeout(function(){$(this).removeAttr('style');}, 450);
+								
+								//$(this).fadeIn(300);
+								imagesToLoadCount--;
+							}								
+						}
+					});
+				}
+			}, 
+			300);
+
+	var fadeImageIn = 
+		function (imageToLoad) {
+			$(imageToLoad).css({visibility: "visible"}).animate({opacity: 1}, 300, function () {
+				$(imageToLoad).removeClass(classeImage);
+			});
+		};	
+}
+
+function isImageLoad(contenitore, classeImage){
+	var imagesToLoad = $(contenitore).find(classeImage);
+	var imagesToLoadCount = imagesToLoad.size();
+			
+	if (!imagesToLoadCount) {					
+		return true;
+	} else {
+		//
+		imagesToLoad.filter(classeImage).each(function () {
+			if (this.complete) {							
+				if (!$(this).is(':animated')) {																	
+					$(this).removeClass("preload");
+																					
+					imagesToLoadCount--;
+				}								
+			}
+		});
+	}
+	
+	return false;
 }

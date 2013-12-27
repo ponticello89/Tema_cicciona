@@ -14,6 +14,8 @@
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>	
+<script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
+
 <?php 
 	//Include funzioni di utilità
 	require_once (TEMPLATEPATH . '/includes/utility.php'); 		
@@ -40,8 +42,15 @@
 <!-- end infinite scroll pagination -->
 
 <?php // enqueue comment-reply.js (require for threaded comments)
-	if ( is_singular() && get_option( 'thread_comments' ) )	wp_enqueue_script( 'comment-reply' ); 
+	if ( is_singular() && get_option( 'thread_comments' ) )	wp_enqueue_script( 'comment-reply' ); 	
 ?>
+	<script type="text/javascript">
+		var isLoadImage = setInterval(isImageLoad('.headerDivTop', '.preLoad'),300);
+		if(isLoadImage){				
+			reSizeHeader();
+			clearInterval(isLoadImage);
+		}
+	</script>
 
 </head>
 
@@ -65,7 +74,7 @@
 						<?php 
 							}else if(get_option('header-type-title') == image){
 						?>	
-							<img src="<?php echo get_template_directory_uri(); ?>/images/header.png" class="logoSite"
+							<img src="<?php echo get_template_directory_uri(); ?>/images/header.png" class="logoSite preLoad"
 								<?php 
 									if(get_option('header-logo-max-width') != ""){
 										echo "style=\"max-width : " . get_option('header-logo-max-width') . "px\"";
