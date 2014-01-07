@@ -1,6 +1,13 @@
 .logoSite{
 	max-width: 200px;
 }
+.listBtn{
+	background: url(../images/list.png) no-repeat center center;
+	margin-right: 0px;
+	width: 40px;
+	height: 40px;
+}
+
 /*Contenitori Master*/
 .headerDivTop{
 	width: 		95%;	
@@ -99,4 +106,22 @@
 	list-style: none;
 	float: left;
 	margin: 1em 0 0 0px;
+}
+
+.navPhone{	
+	-webkit-transition	: all 0.2s ease-in;
+	-webkit-transform	: translate3d(-356px, 0, 0);
+		
+	width: 340px;
+	background-color: black;
+	top: 0;
+	bottom: 0;
+	
+	position:fixed;
+    /*overflow-y:scroll;*/
+    overflow-x:hidden;
+	/*
+	http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/
+	http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/
+	*/
 }
