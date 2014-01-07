@@ -12,6 +12,12 @@ Curare pagina 404<br/>
 Modifica elenco articoli backend<br/>
 
 =============
+Bug
+=============
+
+Header logo resize onload<br/>
+
+=============
 Fatte
 =============
 Visualizzazione article da mobile 90%<br/>
