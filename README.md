@@ -16,6 +16,7 @@ Bug
 =============
 
 Header logo resize onload<br/>
+return to grid da ALL<br/>
 
 =============
 Fatte
