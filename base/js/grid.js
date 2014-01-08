@@ -292,15 +292,19 @@ function apriImg_v2(urlArticle, page, category, idArticle){
 	
 	if(homeUrl.indexOf("page=")!=-1){
 		homeUrl = homeUrl.replace(homeUrl.substr((homeUrl.indexOf('page=')-1)), "");
-	}
-	if(category == null || category == ""){
-		category = 1;
-	}
-	
+	}	
 	if(homeUrl.indexOf("?")!=-1){
-		window.history.pushState(homeUrl,'',homeUrl+'&page='+page+'&image='+idArticle+'&cat='+category);		
+		if(category == null || category == ""){
+			window.history.pushState(homeUrl,'',homeUrl+'&page='+page+'&image='+idArticle);
+		}else{
+			window.history.pushState(homeUrl,'',homeUrl+'&page='+page+'&image='+idArticle+'&cat='+category);
+		}	
 	}else{
-		window.history.pushState(homeUrl,'',homeUrl+'?page='+page+'&image='+idArticle+'&cat='+category);		
+		if(category == null || category == ""){
+			window.history.pushState(homeUrl,'',homeUrl+'?page='+page+'&image='+idArticle);		
+		}else{
+			window.history.pushState(homeUrl,'',homeUrl+'?page='+page+'&image='+idArticle+'&cat='+category);		
+		}
 	}
 	
 	window.location.href = urlArticle;		

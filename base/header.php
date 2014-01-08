@@ -33,16 +33,7 @@
 	}
 ?>
 
-<!-- wp_header -->
-<?php //wp_head(); ?>
-<?php // include theme.script.js  ?>
-<!--<script src="<?php echo get_template_directory_uri(); ?>/js/theme.script.js"></script>-->
-<!-- start infinite scroll function  -->
-<?php //if (!is_single() || !is_page()): ?>
-<?php //endif; ?>	
-<!-- end infinite scroll pagination -->
-
-<?php // enqueue comment-reply.js (require for threaded comments)
+<?php 
 	if ( is_singular() && get_option( 'thread_comments' ) )	wp_enqueue_script( 'comment-reply' ); 	
 ?>
 	<script type="text/javascript">
@@ -63,76 +54,84 @@
 	var isPhone = "<?php echo isPhone(); ?>";	
 </script>
 
-<div class="navPhone">
+<?php		
+	if(!isPhone()) {
+?>
+	<div class="navPhone">
 
-	<!--Inizio Categorie-->				
-	<?php	$catId = htmlspecialchars($_GET["cat"]); ?>
-					
-	<div>
-		<ul class="headerCategoriesUl">											
-			<li <?php 	if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home'))) || $catId==1){
-							echo 'class="current_page_item"';
-						} ?>
+		<!--Inizio Categorie-->				
+		<?php	$catId = htmlspecialchars($_GET["cat"]); ?>	
+		<div>		
+			<ul class="headerCategoriesUl">											
+				<li 
+					<?php 	
+						//if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home'))) || $catId==1){
+						//if((is_home() || is_single()) && $catId==""){					
+						//	echo 'class="current_page_item"';
+						//} 
+					?>
 				>
-				<a href="<?php echo get_option('home');?>">
-					ALL
-				</a>
-			</li>
-			<?php			
-										
-				$args=array(
-				  'orderby' => 'name',
-				  'order' 	=> 'ASC'
-				);								
-				 
-				$categories=get_categories($args);
-				foreach($categories as $category) { 		
-					if($category->term_id != 1){
-						if($catId == $category->term_id){
+					<a href="<?php echo get_option('home');?>">
+						ALL
+					</a>
+				</li>
+				<?php			
+											
+					$args=array(
+					  'orderby' => 'name',
+					  'order' 	=> 'ASC'
+					);								
+					 
+					$categories=get_categories($args);
+					foreach($categories as $category) { 		
+						if($category->term_id != 1){
+							if($catId == $category->term_id){
+								echo '<li class="current_page_item">';
+							}else{
+								echo '<li>';
+							}										
+							echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+							echo '		'. $category->name.'';
+							echo '	</a>';
+							echo '</li>';
+						}
+					} 
+				?>								
+			</ul>				
+		</div>
+		<!--Fine Categorie-->
+			
+		<!--Inizio Page-->
+		<div >
+			<ul class="headerPagesUl">															
+				<?php			
+					$pageId = htmlspecialchars($_GET["page_id"]);	
+				
+					$args=array(
+					  'orderby' => 'name',
+					  'order' => 'ASC'
+					);								
+					 
+					$pages=get_pages($args);
+					foreach($pages as $page) { 										
+						if($pageId == $page->ID){
 							echo '<li class="current_page_item">';
 						}else{
 							echo '<li>';
 						}										
-						echo '	<a href="' . get_category_link( $category->term_id ) . '">';
-						echo '		'. $category->name.'';
+						echo '	<a href="' . get_page_link( $page->ID ) . '">';
+						echo '		'. $page->post_title.'';
 						echo '	</a>';
-						echo '</li>';
-					}
-				} 
-			?>								
-		</ul>				
+						echo '</li>';								
+					} 
+				?>		
+			</ul>										
+		</div>
+		<!--Fine Page-->
 	</div>
-	<!--Fine Categorie-->
-		
-	<!--Inizio Page-->
-	<div >
-		<ul class="headerPagesUl">															
-			<?php			
-				$pageId = htmlspecialchars($_GET["page_id"]);	
-			
-				$args=array(
-				  'orderby' => 'name',
-				  'order' => 'ASC'
-				);								
-				 
-				$pages=get_pages($args);
-				foreach($pages as $page) { 										
-					if($pageId == $page->ID){
-						echo '<li class="current_page_item">';
-					}else{
-						echo '<li>';
-					}										
-					echo '	<a href="' . get_page_link( $page->ID ) . '">';
-					echo '		'. $page->post_title.'';
-					echo '	</a>';
-					echo '</li>';								
-				} 
-			?>		
-		</ul>										
-	</div>
-	<!--Fine Page-->
-		
-</div>
+<?php		
+	}
+?>
 
 <div id="pagewrap">
 	
@@ -202,10 +201,13 @@
 									
 					<div class="headerCategoriesDiv">
 						<ul class="headerCategoriesUl">											
-							<li <?php 	if((curPageURL() == (get_option('home').'/')) || (curPageURL() == (get_option('home'))) || $catId==1){
-											echo 'class="current_page_item"';
-										} ?>
-								>
+							<li 
+								<?php 										
+									if((is_home() || is_single()) && $catId==""){										
+										echo 'class="current_page_item"';
+									} 
+								?>
+							>
 								<a href="<?php echo get_option('home');?>">
 									ALL
 								</a>
