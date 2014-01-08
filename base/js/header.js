@@ -24,9 +24,10 @@ jQuery(document).ready(function($) {
 	*/
 	var aperto = false;
 	$('.menuRightBtn').click(function (){
-		var widthMobileNav = 356;		
-		if(((screen.width/100)*80)<widthMobileNav){
+		var widthMobileNav = 3560;		
+		if(((screen.width/100)*80) < widthMobileNav){
 			widthMobileNav = (screen.width/100)*80;
+			alert(widthMobileNav);
 			$('.navPhone').width(widthMobileNav);
 		}
 
