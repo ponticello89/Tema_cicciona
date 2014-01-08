@@ -94,9 +94,14 @@
 .headerPagesDiv li{
 	list-style: none;
 }
-.headerPagesUl{
+.headerPagesUl{	
 	list-style: none;
 	float: right;
+	margin: 1em 0 0 0;
+}
+.headerPagesUlMobileNav{
+	width: 100%;
+	list-style: none;
 	margin: 1em 0 0 0;
 }
 .headerCategoriesDiv li{
@@ -107,12 +112,18 @@
 	float: left;
 	margin: 1em 0 0 0px;
 }
+.headerCategoriesUlMobieNav{
+	list-style: none;
+	width: 100%;
+	float: left;
+	margin: 1em 0 0 0px;
+}
 
 .navPhone{	
 	-webkit-transition	: all 0.2s ease-in;
 	-webkit-transform	: translate3d(-356px, 0, 0);
 		
-	width: 340px;
+	width: 356px;
 	background-color: black;
 	top: 0;
 	bottom: 0;

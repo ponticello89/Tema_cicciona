@@ -24,11 +24,17 @@ jQuery(document).ready(function($) {
 	*/
 	var aperto = false;
 	$('.menuRightBtn').click(function (){
-	
+		var widthMobileNav = 356;		
+		if(((screen.width/100)*80)<widthMobileNav){
+			widthMobileNav = (screen.width/100)*80;
+			$('.navPhone').width(widthMobileNav);
+		}
+
 		if(!aperto){
 			aperto = true;
 			$('#pagewrap').css({"-webkit-transition": "all 0.2s ease-in",
-								"-webkit-transform"	: "translate3d(356px, 0, 0)"
+								//"-webkit-transform"	: "translate3d(356px, 0, 0)"
+								"-webkit-transform"	: "translate3d("+widthMobileNav+"px, 0, 0)"
 							});
 			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",
 								"-webkit-transform"	: "translate3d(0px, 0, 0)"
@@ -39,7 +45,8 @@ jQuery(document).ready(function($) {
 							"-webkit-transform"	: "translate3d(0px, 0, 0)"
 						  });
 			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",
-								"-webkit-transform"	: "translate3d(-365px, 0, 0)"
+								//"-webkit-transform"	: "translate3d(-356px, 0, 0)"
+								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
 							});
 		}
 	});	
