@@ -55,7 +55,7 @@
 </script>
 
 <?php		
-	if(!isPhone()) {
+	if(isPhone()) {
 ?>
 	<div class="navPhone">
 
