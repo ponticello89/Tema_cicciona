@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 	var statusHeader;
 	var headerHeight = 200;
 	var headerHeightLevel1 = parseInt($('.headerLevel1').height());
-	var headerSmall  = headerHeight*8;
+	var headerSmall  = headerHeight*4;
 	$(window).scroll(function(){			
 		
 		if($(window).width() >= $("body").css("min-width").replace("px", "")){		
