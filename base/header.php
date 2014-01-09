@@ -42,7 +42,7 @@
 		var stopIsImageLoad = setInterval(function(){
 			
 			var isLoadImage = isImageLoad('.headerDivTop', '.preLoad');			
-			if(isLoadImage){
+			if(isLoadImage){				
 				clearInterval(stopIsImageLoad);					
 				reSizeHeader();
 			}
