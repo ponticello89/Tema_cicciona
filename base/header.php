@@ -52,7 +52,7 @@
 	</script>
 
 </head>
-
+<?php echo $_SERVER['HTTP_USER_AGENT'] ?>
 <body <?php body_class($class); ?>>
 
 <script type="text/javascript">
