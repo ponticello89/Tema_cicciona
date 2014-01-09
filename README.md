@@ -6,8 +6,13 @@ Tema wordpress creato per un sito puramente illustrativo work in progress 80%
 Da Fare
 =============
 
+Navigation menu mobile 60%<br/>
+Favicon on option teme<br/>
 Share con i social networ 60%<br/>
 Share in home<br/>
+List of pages on option teme<br/>
+List of categorys on option teme<br/>
+Top space for loading pre image<br/>
 Curare pagina 404<br/>
 Modifica elenco articoli backend<br/>
 
@@ -15,8 +20,10 @@ Modifica elenco articoli backend<br/>
 Bug
 =============
 
-Header logo resize onload<br/>
-return to grid da ALL<br/>
+Bug pasta category<br/>
+Footer top down<br/>
+OK Header logo resize onload<br/>
+OK Return to grid da ALL<br/>
 
 =============
 Fatte
