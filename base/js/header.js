@@ -9,9 +9,7 @@ jQuery(document).ready(function($) {
 		reSizeHeader();
 	});
 	
-	function reSizeHeader(){		
-		//alert($('.headerCategoriesUl').padding());
-		
+	function reSizeHeader(){						
 		$('.headerLevel1').height(parseInt($('.headerTitleDiv').outerHeight(true)));
 		$('.headerLevel2').height(parseInt($('.headerCategoriesUl').outerHeight(true)));
 		$('#header').height(parseInt($('.headerLevel2').outerHeight(true))+parseInt($('.headerLevel1').outerHeight(true)));

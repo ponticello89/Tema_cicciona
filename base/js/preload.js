@@ -82,21 +82,21 @@ function loadImage(contenitore, classeImage, opacity, subClassPreload){
 function isImageLoad(contenitore, classeImage){
 	var imagesToLoad = $(contenitore).find(classeImage);
 	var imagesToLoadCount = imagesToLoad.size();
-			
-	if (!imagesToLoadCount) {					
+		
+	if (!imagesToLoadCount) {				
 		return true;
 	} else {
-		//
-		imagesToLoad.filter(classeImage).each(function () {
-			if (this.complete) {							
-				if (!$(this).is(':animated')) {																	
-					$(this).removeClass("preload");
-																					
-					imagesToLoadCount--;
-				}								
+		
+		imagesToLoad.filter(classeImage).each(function () {			
+			if (this.complete) {																										
+				$(this).removeClass("preload");																				
+				imagesToLoadCount--;
 			}
 		});
 	}
-	
-	return false;
+	if (!imagesToLoadCount) {				
+		return true;
+	} else {
+		return false;
+	}		
 }

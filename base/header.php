@@ -39,11 +39,16 @@
 	<script type="text/javascript">
 		//Controlla se l'immagine è carica 
 		//quando sarà carica eseguira l'azione
-		var isLoadImage = setInterval(isImageLoad('.headerDivTop', '.preLoad'),300);
-		if(isLoadImage){				
-			clearInterval(isLoadImage);
-			reSizeHeader();			
+		var stopIsImageLoad = setInterval(function(){
+			
+			var isLoadImage = isImageLoad('.headerDivTop', '.preLoad');			
+			if(isLoadImage){
+				clearInterval(stopIsImageLoad);					
+				reSizeHeader();
+			}
 		}
+		, 300);
+		
 	</script>
 
 </head>
@@ -55,97 +60,101 @@
 </script>
 
 <?php		
+	//NAVIGATION PER MOBILE
 	if(isPhone()) {
 ?>
-	<div class="navPhone">
+		<div class="navPhone">
 
-		<!--Inizio Categorie-->				
-		<?php	$catId = htmlspecialchars($_GET["cat"]); ?>	
-		<div>		
-			<ul class="headerCategoriesUlMobileNav">											
-				<li 
-					<?php 							
-						if((is_home() || is_single()) && $catId==""){					
-							echo 'class="current_page_item"';
+			<!--Inizio Categorie-->				
+			<?php	$catId = htmlspecialchars($_GET["cat"]); ?>	
+			<div>		
+				<ul class="headerCategoriesUlMobileNav">											
+					<li 
+						<?php 							
+							if((is_home() || is_single()) && $catId==""){					
+								echo 'class="current_page_item"';
+							} 
+						?>
+					>
+						<a href="<?php echo get_option('home');?>">
+							ALL
+						</a>
+					</li>
+					<?php			
+												
+						$args=array(
+						  'orderby' => 'name',
+						  'order' 	=> 'ASC'
+						);								
+						 
+						$categories=get_categories($args);
+						foreach($categories as $category) { 		
+							if($category->term_id != 1){
+								if($catId == $category->term_id){
+									echo '<li class="current_page_item">';
+								}else{
+									echo '<li>';
+								}										
+								echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+								echo '		'. $category->name.'';
+								echo '	</a>';
+								echo '</li>';
+							}
 						} 
-					?>
-				>
-					<a href="<?php echo get_option('home');?>">
-						ALL
-					</a>
-				</li>
-				<?php			
-											
-					$args=array(
-					  'orderby' => 'name',
-					  'order' 	=> 'ASC'
-					);								
-					 
-					$categories=get_categories($args);
-					foreach($categories as $category) { 		
-						if($category->term_id != 1){
-							if($catId == $category->term_id){
+					?>								
+				</ul>				
+			</div>
+			<!--Fine Categorie-->
+				
+			<!--Inizio Page-->
+			<div >
+				<ul class="headerPagesUlMobileNav">															
+					<?php			
+						$pageId = htmlspecialchars($_GET["page_id"]);	
+					
+						$args=array(
+						  'orderby' => 'name',
+						  'order' => 'ASC'
+						);								
+						 
+						$pages=get_pages($args);
+						foreach($pages as $page) { 										
+							if($pageId == $page->ID){
 								echo '<li class="current_page_item">';
 							}else{
 								echo '<li>';
 							}										
-							echo '	<a href="' . get_category_link( $category->term_id ) . '">';
-							echo '		'. $category->name.'';
+							echo '	<a href="' . get_page_link( $page->ID ) . '">';
+							echo '		'. $page->post_title.'';
 							echo '	</a>';
-							echo '</li>';
-						}
-					} 
-				?>								
-			</ul>				
+							echo '</li>';								
+						} 
+					?>		
+				</ul>										
+			</div>
+			<!--Fine Page-->
 		</div>
-		<!--Fine Categorie-->
-			
-		<!--Inizio Page-->
-		<div >
-			<ul class="headerPagesUlMobileNav">															
-				<?php			
-					$pageId = htmlspecialchars($_GET["page_id"]);	
-				
-					$args=array(
-					  'orderby' => 'name',
-					  'order' => 'ASC'
-					);								
-					 
-					$pages=get_pages($args);
-					foreach($pages as $page) { 										
-						if($pageId == $page->ID){
-							echo '<li class="current_page_item">';
-						}else{
-							echo '<li>';
-						}										
-						echo '	<a href="' . get_page_link( $page->ID ) . '">';
-						echo '		'. $page->post_title.'';
-						echo '	</a>';
-						echo '</li>';								
-					} 
-				?>		
-			</ul>										
-		</div>
-		<!--Fine Page-->
-	</div>
 <?php		
 	}
 ?>
 
 <div id="pagewrap">
 	
+	<!-- /#header -->
+	
 	<header id="header" class="pagewidth">
 		<div class="headerDivTop">
 			<div class="headerLevel1">
 				<div class="headerTitleDiv">
-					
-						<?php 
-							if(get_option('header-type-title') == text){
-						?>
+				
+					<?php //LOGO O TITOLO DEL SITO ?>
+					<?php 
+						if(get_option('header-type-title') == text){
+					?>
 							<h1 id="site-logo"><a href="<?php echo get_option('home'); ?>"><?php bloginfo('name'); ?></a></h1>
-						<?php 
-							}else if(get_option('header-type-title') == image){
-						?>	
+					<?php 
+						}else if(get_option('header-type-title') == image){
+					?>	
 							<a href="<?php echo get_option('home'); ?>">
 								<img src="<?php echo get_template_directory_uri(); ?>/images/header.png" class="logoSite preLoad"
 									<?php 
@@ -155,10 +164,10 @@
 									?>							
 								/>
 							</a>
-						<?php 
-							}
-						?>	
-						<h2 id="site-description"><?php bloginfo('description'); ?></h2>
+					<?php 
+						}
+					?>	
+					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
 					
 				</div>
 			</div>
@@ -167,34 +176,6 @@
 				<?php		
 					if(!isPhone()) {
 				?>
-						<!--Inizio Page-->
-						<div class="headerPagesDiv">
-							<ul class="headerPagesUl">															
-								<?php			
-									$pageId = htmlspecialchars($_GET["page_id"]);	
-								
-									$args=array(
-									  'orderby' => 'name',
-									  'order' => 'ASC'
-									);								
-									 
-									$pages=get_pages($args);
-									foreach($pages as $page) { 										
-										if($pageId == $page->ID){
-											echo '<li class="current_page_item">';
-										}else{
-											echo '<li>';
-										}										
-										echo '	<a href="' . get_page_link( $page->ID ) . '">';
-										echo '		'. $page->post_title.'';
-										echo '	</a>';
-										echo '</li>';								
-									} 
-								?>		
-							</ul>										
-						</div>
-						<!--Fine Page-->
-						
 						<!--Inizio Categorie-->				
 						<?php	$catId = htmlspecialchars($_GET["cat"]); ?>
 										
@@ -236,8 +217,37 @@
 							</ul>				
 						</div>
 						<!--Fine Categorie-->
+						
+						<!--Inizio Page-->
+						<div class="headerPagesDiv">
+							<ul class="headerPagesUl">															
+								<?php			
+									$pageId = htmlspecialchars($_GET["page_id"]);	
+								
+									$args=array(
+									  'orderby' => 'name',
+									  'order' => 'ASC'
+									);								
+									 
+									$pages=get_pages($args);
+									foreach($pages as $page) { 										
+										if($pageId == $page->ID){
+											echo '<li class="current_page_item">';
+										}else{
+											echo '<li>';
+										}										
+										echo '	<a href="' . get_page_link( $page->ID ) . '">';
+										echo '		'. $page->post_title.'';
+										echo '	</a>';
+										echo '</li>';								
+									} 
+								?>		
+							</ul>										
+						</div>
+						<!--Fine Page-->
 				<?php		
 					}else{
+						//BOTTONE MENU MOBILE
 				?>
 						<div class="headerCategoriesDiv">
 							<ul class="headerCategoriesUl">
@@ -251,24 +261,11 @@
 				<?php		
 					}
 				?>
-			</div>
-			
-			<!--
-			<?php // get searchform.php ?>
-			<div id="searchform-wrap">
-				<?php get_search_form(); ?>
-			</div>
-
-			<div class="social-widget">
-				<div class="rss"><a href="<?php echo bloginfo('rss2_url'); ?>">RSS</a></div>
-			</div>
-			-->
-			<!-- /.social-widget -->
+			</div>						
 		</div>				
 		
 	</header>
-	
-	
+		
 	<!-- /#header -->
 		
 	<div class="headerFake headerScroll">
