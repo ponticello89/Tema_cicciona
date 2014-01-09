@@ -13,12 +13,12 @@ jQuery(document).ready(function($) {
 	var widthMobileNav = 356;		
 	if(((screen.width/100)*50) < widthMobileNav){
 		widthMobileNav = (screen.width/100)*50;						
-	}
-	$('.navPhone').width(widthMobileNav);
+	}	
+	$('.navPhone').width(widthMobileNav);	
 	$('.navPhone').height(screen.height);
 	$('.menuRightBtn').click(function (){		
 		if(!aperto){
-			aperto = true;
+			aperto = true;			
 			$('#pagewrap').css({"-webkit-transition": "all 0.2s ease-in",								
 								"-webkit-transform"	: "translate3d("+widthMobileNav+"px, 0, 0)"
 							});
@@ -32,13 +32,13 @@ jQuery(document).ready(function($) {
 						  });
 			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",								
 								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
-							});
+							});			
 		}
 	});	
 	
 	$('#pagewrap').mouseover(function (){
 		if(aperto){
-			aperto = false;
+			aperto = false;			
 			$('#pagewrap').css({"-webkit-transition": "all 0.4s ease-in",
 							"-webkit-transform"	: "translate3d(0px, 0, 0)"
 						  });
