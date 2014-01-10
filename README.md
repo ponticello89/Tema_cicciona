@@ -1,6 +1,7 @@
 Tema_cicciona
 =============
-Tema wordpress creato per un sito puramente illustrativo work in progress 80%
+Tema wordpress creato per un sito puramente illustrativo
+Version 1.0 complete!!!
 
 =============
 Da Fare
