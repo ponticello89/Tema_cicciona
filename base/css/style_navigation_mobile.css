@@ -1,0 +1,39 @@
+.navPhone{	
+	-webkit-transition	: all 0.2s ease-in;
+	-webkit-transform	: translate3d(-356px, 0, 0);
+		
+	width: 356px;
+	background-color: #404247;
+	top: 0;
+	bottom: 0;
+	border-top: 3px solid #9397A3;
+	
+	position:fixed;
+    /*overflow-y:scroll;*/
+    overflow-x:hidden;
+	/*
+	http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/
+	http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/
+	*/
+}
+.ulMobileNav{
+	list-style: none;
+	width: 100%;
+	float: left;
+	padding: 1em;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #111;
+}
+
+.ulMobileNav a{
+	color: 	#9397A3;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight:bold;	
+	text-shadow: 2px 2px 3px #000;
+}
+
+.ulMobileNav .current_page_item a{
+	color: 	white;
+}

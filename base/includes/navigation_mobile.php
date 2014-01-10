@@ -1,8 +1,10 @@
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_navigation_mobile.css">
+
 <div class="navPhone">
 	<!--Inizio Categorie-->				
 	<?php	$catId = htmlspecialchars($_GET["cat"]); ?>	
 	<div>		
-		<ul class="headerCategoriesUlMobileNav">											
+		<ul class="ulMobileNav">											
 			<li 
 				<?php 							
 					if((is_home() || is_single()) && $catId==""){					
@@ -35,14 +37,154 @@
 						echo '</li>';
 					}
 				} 
-			?>								
+			?>			
+
+			<?php			
+										
+				$args=array(
+				  'orderby' => 'name',
+				  'order' 	=> 'ASC'
+				);								
+				 
+				$categories=get_categories($args);
+				foreach($categories as $category) { 		
+					if($category->term_id != 1){
+						if($catId == $category->term_id){
+							echo '<li class="current_page_item">';
+						}else{
+							echo '<li>';
+						}										
+						echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+						echo '		'. $category->name.'';
+						echo '	</a>';
+						echo '</li>';
+					}
+				} 
+			?>		
+			
+			<?php			
+										
+				$args=array(
+				  'orderby' => 'name',
+				  'order' 	=> 'ASC'
+				);								
+				 
+				$categories=get_categories($args);
+				foreach($categories as $category) { 		
+					if($category->term_id != 1){
+						if($catId == $category->term_id){
+							echo '<li class="current_page_item">';
+						}else{
+							echo '<li>';
+						}										
+						echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+						echo '		'. $category->name.'';
+						echo '	</a>';
+						echo '</li>';
+					}
+				} 
+			?>		
+			
+			<?php			
+										
+				$args=array(
+				  'orderby' => 'name',
+				  'order' 	=> 'ASC'
+				);								
+				 
+				$categories=get_categories($args);
+				foreach($categories as $category) { 		
+					if($category->term_id != 1){
+						if($catId == $category->term_id){
+							echo '<li class="current_page_item">';
+						}else{
+							echo '<li>';
+						}										
+						echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+						echo '		'. $category->name.'';
+						echo '	</a>';
+						echo '</li>';
+					}
+				} 
+			?>		
+			
+			<?php			
+										
+				$args=array(
+				  'orderby' => 'name',
+				  'order' 	=> 'ASC'
+				);								
+				 
+				$categories=get_categories($args);
+				foreach($categories as $category) { 		
+					if($category->term_id != 1){
+						if($catId == $category->term_id){
+							echo '<li class="current_page_item">';
+						}else{
+							echo '<li>';
+						}										
+						echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+						echo '		'. $category->name.'';
+						echo '	</a>';
+						echo '</li>';
+					}
+				} 
+			?>		
+			
+			<?php			
+										
+				$args=array(
+				  'orderby' => 'name',
+				  'order' 	=> 'ASC'
+				);								
+				 
+				$categories=get_categories($args);
+				foreach($categories as $category) { 		
+					if($category->term_id != 1){
+						if($catId == $category->term_id){
+							echo '<li class="current_page_item">';
+						}else{
+							echo '<li>';
+						}										
+						echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+						echo '		'. $category->name.'';
+						echo '	</a>';
+						echo '</li>';
+					}
+				} 
+			?>		
+			
+			<?php			
+										
+				$args=array(
+				  'orderby' => 'name',
+				  'order' 	=> 'ASC'
+				);								
+				 
+				$categories=get_categories($args);
+				foreach($categories as $category) { 		
+					if($category->term_id != 1){
+						if($catId == $category->term_id){
+							echo '<li class="current_page_item">';
+						}else{
+							echo '<li>';
+						}										
+						echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+						echo '		'. $category->name.'';
+						echo '	</a>';
+						echo '</li>';
+					}
+				} 
+			?>		
+			
+			
 		</ul>				
 	</div>
 	<!--Fine Categorie-->
 		
 	<!--Inizio Page-->
 	<div >
-		<ul class="headerPagesUlMobileNav">															
+		<ul class="ulMobileNav">															
 			<?php			
 				$pageId = htmlspecialchars($_GET["page_id"]);	
 			
