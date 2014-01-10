@@ -104,7 +104,7 @@
 	font-family: 	Impact, Charcoal, sans-serif;
 	font-weight: 	normal;
 	color:			#9397A3;
-	text-shadow: 	1px 1px 0px #000;
+	/*text-shadow: 	1px 1px 0px #000;*/
 }
 .headerLevel2 a:hover{
 	background: none !important;
