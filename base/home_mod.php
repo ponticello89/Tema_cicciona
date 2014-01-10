@@ -111,9 +111,7 @@
 			</a>
 		</p>
 <?php 
-	}else{
-?>
+	}else{?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid_mobile.css">
 <?php 
-	}
-?>
+	}?>

@@ -208,16 +208,7 @@
 			var categoryId 	= "<?php echo $category_id;?>";				
 			var currentPage = <?php echo $paged;?>;
 			var wherePage 	= "<?php echo $where;?>";
-			
-			if(wherePage=="down"){
-				if(!$('a.inifiniteLoaderDown').is(":visible")){					
-					$('a.inifiniteLoaderDown').fadeIn('fast');					
-				}
-			}else if(wherePage=="up"){
-				if(!$('a.inifiniteLoaderUp').is(":visible")){					
-					$('a.inifiniteLoaderUp').fadeIn('fast');
-				}
-			}
+						
 		</script>			
 	<?php					
 		

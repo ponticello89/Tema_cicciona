@@ -130,7 +130,17 @@ function loadArticle(pageNumber, where){
 		
 	if(load == "false"){		
 		load = "true";	
-				
+		
+		if(where=="down"){		
+			if(!$('a.inifiniteLoaderDown').is(":visible")){					
+				$('a.inifiniteLoaderDown').fadeIn('fast');					
+			}
+		}else if(where=="up"){
+			if(!$('a.inifiniteLoaderUp').is(":visible")){					
+				$('a.inifiniteLoaderUp').fadeIn('fast');
+			}
+		}
+		
 		$.ajax({		
 			url: urlSite+"/wp-admin/admin-ajax.php",		
 			type:'POST',			
