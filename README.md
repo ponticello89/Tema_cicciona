@@ -23,6 +23,7 @@ Bug
 
 Bug pasta category<br/>
 Footer top down<br/>
+Scritte a capo con resize<br/>
 Resize Navigation Menu Mobile<br/>
 OK Header logo resize onload<br/>
 OK Return to grid da ALL<br/>
