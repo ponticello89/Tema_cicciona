@@ -4,27 +4,33 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<?php //Titolo e icona del TAB ?>
 <title><?php if (is_home() || is_front_page()) { echo bloginfo('name'); } else { echo wp_title(''); } ?></title>
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.ico" />
 
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php echo bloginfo('rss2_url'); ?>">
 
+<?php //CSS ?>
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_total.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
-<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.ico" />
 
+<?php //JS ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>	
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
 
 <?php 
-	//Include funzioni di utilità
+	//Includo funzioni di utilità
 	require_once (TEMPLATEPATH . '/includes/utility.php'); 		
+?>	
+
+<?php 
+	//Carico jar diversi a seconda della macchina dell'utente PC/PHONE
 	if(isPhone() == 1) {
 ?>	
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header_mobile.css">
-		<script src="<?php echo get_template_directory_uri(); ?>/js/mobile.js"></script>	
-		
+		<script src="<?php echo get_template_directory_uri(); ?>/js/mobile.js"></script>			
 <?php	
 	} else {
 ?>		
@@ -36,19 +42,19 @@
 <?php 
 	if ( is_singular() && get_option( 'thread_comments' ) )	wp_enqueue_script( 'comment-reply' ); 	
 ?>
+
 	<script type="text/javascript">
 		//Controlla se l'immagine è carica 
-		//quando sarà carica eseguira l'azione
+		//quando sarà carica eseguira l'azione e smettera di controllare
 		var stopIsImageLoad = setInterval(function(){
 			
-			var isLoadImage = isImageLoad('.headerDivTop', '.preLoad');			
-			if(isLoadImage){				
-				clearInterval(stopIsImageLoad);					
-				reSizeHeader();
+				var isLoadImage = isImageLoad('.headerDivTop', '.preLoad');			
+				if(isLoadImage){				
+					clearInterval(stopIsImageLoad);					
+					reSizeHeader();
+				}
 			}
-		}
-		, 300);
-		
+			, 300);		
 	</script>
 
 </head>
@@ -56,13 +62,17 @@
 <body <?php body_class($class); ?>>
 
 <script type="text/javascript">
+	//Forse si puo cancellare
 	var isPhone = "<?php echo isPhone(); ?>";	
 </script>
 
 <?php		
 	//NAVIGATION PER MOBILE
 	if(isPhone()) {
+		require_once (TEMPLATEPATH . '/includes/navigation_mobile.php');
+		/*
 ?>
+		
 		<div class="navPhone">
 
 			<!--Inizio Categorie-->				
@@ -134,7 +144,8 @@
 			</div>
 			<!--Fine Page-->
 		</div>
-<?php		
+<?php
+	*/
 	}
 ?>
 
