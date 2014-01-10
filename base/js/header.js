@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 		widthMobileNav = (screen.width/100)*50;						
 	}	
 	$('.navPhone').width(widthMobileNav);	
-	$('.navPhone').height(window.height);
+	//$('.navPhone').height(window.height);
 	$('.menuRightBtn').click(function (){		
 		if(!aperto){
 			aperto = true;			

@@ -3,11 +3,12 @@
 	-webkit-transform	: translate3d(-356px, 0, 0);
 		
 	width: 356px;
+	height: auto;
 	background-color: #404247;
 	top: 0;
 	bottom: 0;
 	border-top: 3px solid #9397A3;
-	
+	z-index : 10;
 	position:fixed;
     /*overflow-y:scroll;*/
     overflow-x:hidden;
