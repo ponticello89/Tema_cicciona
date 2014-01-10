@@ -1,6 +1,6 @@
 Tema_cicciona
 =============
-Tema wordpress creato per un sito puramente illustrativo
+Wordpress theme created for a website of images<br/>
 Version 1.0 complete!!!
 
 =============
