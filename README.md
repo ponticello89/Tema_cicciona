@@ -7,7 +7,6 @@ Version 1.0 complete!!!
 Da Fare
 =============
 
-Navigation menu mobile 60%<br/>
 Favicon on option teme<br/>
 Share con i social networ 60%<br/>
 Share in home<br/>
@@ -31,16 +30,17 @@ OK Return to grid da ALL<br/>
 =============
 Fatte
 =============
-Visualizzazione article da mobile 90%<br/>
-  con ruotamento 90° in verticale 70%<br/>
+Navigation menu mobile<br/>
+Visualizzazione article da mobile<br/>
+  con ruotamento 90° in verticale<br/>
   e con header minimo<br/>
 Visualizzazione page da mobile<br/>
-Visualizzazione home da mobile 60%<br/>
+Visualizzazione home da mobile<br/>
 Resize da mobile<br/>
 Layout Pagine<br/>
-Resize e centramento dinamico 50%<br/>
+Resize e centramento dinamico<br/>
 Contatore visite<br/>
-Aggiustare l'header 50%<br/>
+Aggiustare l'header<br/>
 Migliorare footer giocando con il content<br/>
 Migliorare effetto scroll header riducendolo sotto un certo scroll<br/>
 Migliorare preload<br/>
