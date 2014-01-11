@@ -24,6 +24,7 @@
 }
 .navPhoneContent{
 	position: absolute;
+	width: 100%;
 }
 .cancelBtn{
 	background: url(../images/cancel.png) no-repeat center center;

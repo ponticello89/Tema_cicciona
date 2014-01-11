@@ -20,17 +20,21 @@ jQuery(document).ready(function($) {
 	$('.menuRightBtn').click(function (){		
 		if(!aperto){
 			aperto = true;			
+			/*
 			$('#pagewrap').css({"-webkit-transition": "all 0.2s ease-in",								
 								"-webkit-transform"	: "translate3d("+widthMobileNav+"px, 0, 0)"
 							});
+			*/
 			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",
 								"-webkit-transform"	: "translate3d(0px, 0, 0)"
 							});
 		}else{
 			aperto = false;
+			/*
 			$('#pagewrap').css({"-webkit-transition": "all 0.2s ease-in",
 							"-webkit-transform"	: "translate3d(0px, 0, 0)"
 						  });
+			*/
 			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",								
 								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
 							});			
@@ -40,9 +44,11 @@ jQuery(document).ready(function($) {
 	$('.menuRightCloseBtn').click(function (){		
 		if(aperto){
 			aperto = false;
+			/*
 			$('#pagewrap').css({"-webkit-transition": "all 0.2s ease-in",
 							"-webkit-transform"	: "translate3d(0px, 0, 0)"
 						  });
+			*/
 			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",								
 								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
 							});			
@@ -51,10 +57,12 @@ jQuery(document).ready(function($) {
 	
 	$('#pagewrap').mouseover(function (){
 		if(aperto){
-			aperto = false;			
+			aperto = false;		
+			/*			
 			$('#pagewrap').css({"-webkit-transition": "all 0.4s ease-in",
 							"-webkit-transform"	: "translate3d(0px, 0, 0)"
 						  });
+			*/
 			$('.navPhone').css({"-webkit-transition": "all 0.4s ease-in",								
 								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
 							});
