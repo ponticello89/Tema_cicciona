@@ -1,9 +1,12 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_navigation_mobile.css">
 
 <div class="navPhone">
+	<div class="navPhoneTop">
+		<p class="cancelBtn menuRightCloseBtn"></p>			
+	</div>
 	<!--Inizio Categorie-->				
 	<?php	$catId = htmlspecialchars($_GET["cat"]); ?>	
-	<div>		
+	<div class="navPhoneContent">		
 		<ul class="ulMobileNav">											
 			<li 
 				<?php 							
@@ -38,12 +41,10 @@
 					}
 				} 
 			?>			
-		</ul>				
-	</div>
-	<!--Fine Categorie-->
+		</ul>					
+		<!--Fine Categorie-->
 		
-	<!--Inizio Page-->
-	<div >
+		<!--Inizio Page-->	
 		<ul class="ulMobileNav">															
 			<?php			
 				$pageId = htmlspecialchars($_GET["page_id"]);	
@@ -66,7 +67,7 @@
 					echo '</li>';								
 				} 
 			?>		
-		</ul>										
+		</ul>											
+		<!--Fine Page-->		
 	</div>
-	<!--Fine Page-->
 </div>

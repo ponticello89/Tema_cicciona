@@ -10,12 +10,13 @@ jQuery(document).ready(function($) {
 	});
 			
 	var aperto = false;
-	var widthMobileNav = 356;		
-	if(((screen.width/100)*50) < widthMobileNav){
-		widthMobileNav = (screen.width/100)*50;						
+	var widthMobileNav = 356;	
+	if((($(window).width()/100)*50) < widthMobileNav){
+		widthMobileNav = ($(window).width()/100)*50;						
 	}	
 	$('.navPhone').width(widthMobileNav);	
 	//$('.navPhone').height(window.height);
+	
 	$('.menuRightBtn').click(function (){		
 		if(!aperto){
 			aperto = true;			
@@ -26,6 +27,18 @@ jQuery(document).ready(function($) {
 								"-webkit-transform"	: "translate3d(0px, 0, 0)"
 							});
 		}else{
+			aperto = false;
+			$('#pagewrap').css({"-webkit-transition": "all 0.2s ease-in",
+							"-webkit-transform"	: "translate3d(0px, 0, 0)"
+						  });
+			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",								
+								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
+							});			
+		}
+	});	
+	
+	$('.menuRightCloseBtn').click(function (){		
+		if(aperto){
 			aperto = false;
 			$('#pagewrap').css({"-webkit-transition": "all 0.2s ease-in",
 							"-webkit-transform"	: "translate3d(0px, 0, 0)"

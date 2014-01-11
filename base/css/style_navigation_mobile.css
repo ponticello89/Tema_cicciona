@@ -17,6 +17,23 @@
 	http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/
 	*/
 }
+.navPhoneTop{
+	height: 40px;
+	padding: 8px;
+	border-bottom: 1px solid #111;
+}
+.navPhoneContent{
+	position: absolute;
+}
+.cancelBtn{
+	background: url(../images/cancel.png) no-repeat center center;
+	margin-right: 0px;
+	width: 40px;
+	height: 40px;
+}
+.menuRightCloseBtn{
+	/*float: right;*/
+}
 .ulMobileNav{
 	list-style: none;
 	width: 100%;
