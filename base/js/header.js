@@ -80,5 +80,6 @@ function reSizeHeader(){
 	
 	$('.headerLevel1').height(parseInt($('.headerTitleDiv').outerHeight(true)));
 	$('.headerLevel2').height(parseInt($('.headerCategoriesUl').outerHeight(true)));
-	$('#header').height(parseInt($('.headerLevel2').outerHeight(true))+parseInt($('.headerLevel1').outerHeight(true)));
+	$('.headerSocialDiv').height(parseInt($('.headerSocialDiv').find('.socialDiv').outerHeight(true)));	
+	$('#header').height(parseInt($('.headerLevel2').outerHeight(true))+parseInt($('.headerSocialDiv').outerHeight(true))+parseInt($('.headerLevel1').outerHeight(true)));
 }	

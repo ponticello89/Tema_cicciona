@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_total.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_social.css">
 
 <?php //JS ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
@@ -120,8 +121,29 @@
 					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
 					
 				</div>
+												
 			</div>
 			
+			<div class="headerSocialDiv" style="width: 100%;">
+				<div style="float: right;">
+					<!-- SOCIAL-->			
+					<?php 
+						if(is_home() || is_category() ){
+					?>					
+								<?php 
+								if(!isPhone()){
+									require_once (TEMPLATEPATH . '/includes/social.php');
+								}else{
+									require_once (TEMPLATEPATH . '/includes/social_mobile.php');
+								}
+								?>					
+					<?php 	
+						}
+					?>
+					<!-- SOCIAL-->	
+				</div>				
+			</div>				
+				
 			<div class="headerLevel2">
 				<?php		
 					if(!isPhone()) {
