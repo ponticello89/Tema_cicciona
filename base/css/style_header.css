@@ -62,14 +62,12 @@
 	float:	left;
 	/*background-color: white;*/
 }
-.headerPagesDiv{
-	width:	50%;
+.headerPagesDiv{	
 	height: 100%;
 	float: 	right;
 	/*background-color: blue;*/
 }
-.headerCategoriesDiv{
-	width:	50%;
+.headerCategoriesDiv{	
 	height: 100%;
 	float: 	left;
 	/*background-color: black;*/

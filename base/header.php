@@ -57,6 +57,14 @@
 			, 300);		
 	</script>
 
+	<?php
+		if (is_single()){
+			$idArticle = htmlspecialchars($_GET["p"]);
+			$thumb 		  = wp_get_attachment_image_src( get_post_thumbnail_id($idArticle), 'large');			
+			$urlImage 	  = $thumb['0']; 
+			echo "<meta property=\"og:image\" content=\"" . $urlImage . "\" />";
+		}		
+	?>
 </head>
 
 <body <?php body_class($class); ?>>
@@ -74,9 +82,8 @@
 ?>
 
 <div id="pagewrap">
-	
-	<!-- /#header -->
-	
+		
+	<!-- /#header -->	
 	<header id="header" class="pagewidth">
 		<div class="headerDivTop">
 			<div class="headerLevel1">
