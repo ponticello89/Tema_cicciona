@@ -63,7 +63,7 @@
 			$curUrl = curPageURL();			
 			$idArticle = htmlspecialchars($_GET["p"]);
 			$titleArticle = get_the_title($idArticle); 
-			$thumb 		  = wp_get_attachment_image_src( get_post_thumbnail_id($idArticle), 'large');			
+			$thumb 		  = wp_get_attachment_image_src( get_post_thumbnail_id($idArticle), 'medium');			
 			$urlImage 	  = $thumb['0']; 
 			echo "<meta property=\"og:url\" content=\"" . $curUrl . "\" >";
 			echo "<meta property=\"og:title\" content=\"" . $titleArticle . "\" >";
