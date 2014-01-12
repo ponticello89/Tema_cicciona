@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 	$('.headerFake').height(parseInt($('#header').height()));
 	
 	var statusHeader;
-	var headerHeight = 200;
+	var headerHeight = 100;
 	var headerHeightLevel1 = parseInt($('.headerLevel1').height());
 	var headerSmall  = headerHeight*1;
 	$(window).scroll(function(){			
