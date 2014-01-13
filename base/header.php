@@ -3,11 +3,24 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+	if(get_option('meta-description') != ""){	
+?>
+		<meta name="description" content="<?php echo $get_option('meta-description') ?>">
+<?php
+	}
+	if(get_option('meta-keywords') != ""){
+?>
+		<meta name="keywords" content="<?php echo $get_option('meta-keywords') ?>">
+<?php	
+	}	
+?>
 
 <?php //Titolo e icona del TAB ?>
 <title><?php if (is_home() || is_front_page()) { echo bloginfo('name'); } else { echo wp_title(''); } ?></title>
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.ico" />
 
+<?php //RSS2 ?>
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php echo bloginfo('rss2_url'); ?>">
 
 <?php //CSS ?>
@@ -15,7 +28,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_total.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_social.css">
-
 <?php //JS ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>	
@@ -69,8 +81,7 @@
 			echo "<meta property=\"og:title\" content=\"" . $titleArticle . "\" >";
 			echo "<meta property=\"og:image\" content=\"" . $urlImage . "\" >";
 		}		
-	?>
-</head>
+	?></head>
 
 <body <?php body_class($class); ?>>
 
@@ -87,8 +98,9 @@
 ?>
 
 <div id="pagewrap">
-		
-	<!-- /#header -->	
+	
+	<!-- /#header -->
+	
 	<header id="header" class="pagewidth">
 		<div class="headerDivTop">
 			<div class="headerLevel1">
@@ -121,7 +133,6 @@
 					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
 					
 				</div>
-												
 			</div>
 			
 			<div class="headerSocialDiv" style="width: 100%;">
@@ -143,8 +154,7 @@
 					<!-- SOCIAL-->	
 				</div>				
 			</div>				
-				
-			<div class="headerLevel2">
+							<div class="headerLevel2">
 				<?php		
 					if(!isPhone()) {
 				?>
