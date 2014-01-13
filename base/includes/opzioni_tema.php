@@ -14,6 +14,9 @@
 <?php
 	//Inizializzazioni opzioni
 	function registra_opzioni() {
+		//Seo
+		register_setting('gruppo-opzioni', 'meta-description' );
+		register_setting('gruppo-opzioni', 'meta-keywords' );
 		//Grid
 		register_setting('gruppo-opzioni', 'width-grid' );
 		register_setting('gruppo-opzioni', 'numero-colonne' );
@@ -30,9 +33,10 @@
 	function opzioni_tema() {
 ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_options.css">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">		
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">				
 		<link rel="stylesheet" href="/resources/demos/style.css">
+		
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		
 		<script type="text/javascript">
 			
@@ -125,9 +129,42 @@
 				
 				<div id="tabs">
 					<ul>
+						<li><a href="#tabs-seo">Seo</a></li>
 						<li><a href="#tabs-grid">Grid</a></li>
 						<li><a href="#tabs-header">Header</a></li>
 					</ul>
+					
+					<!--****************************************************-->
+					<!--						SEO 						-->
+					<!--****************************************************-->
+					
+					<div id="tabs-seo">
+						<h2>Opzioni SEO</h2>																			
+						<table>
+							<tr>
+								<th scope="row">Meta Description</th>
+								<td style="width: 70%;">							
+									<?php								
+										if(get_option('meta-description')!= null){
+											$metaDescription = get_option('meta-description');
+										}
+									?>
+									<input type="text" value="<?php echo $metaDescription?>" style="width: 100%" name="meta-description"/>
+								</td>
+							</tr>			
+							<tr>
+								<th scope="row">Meta Keywords</th>
+								<td style="width: 70%;">							
+									<?php								
+										if(get_option('meta-keywords')!= null){
+											$metaKeywords = get_option('meta-keywords');
+										}
+									?>
+									<input type="text" value="<?php echo $metaDescription?>" style="width: 100%" name="meta-keywords"/>
+								</td>
+							</tr>											
+						</table>		
+					</div>
 					
 					<!--****************************************************-->
 					<!--						GRID						-->
