@@ -6,12 +6,12 @@
 <?php
 	if(get_option('meta-description') != ""){	
 ?>
-		<meta name="description" content="<?php echo $get_option('meta-description') ?>">
+		<meta name="description" content="<?php echo get_option('meta-description'); ?>">
 <?php
 	}
 	if(get_option('meta-keywords') != ""){
 ?>
-		<meta name="keywords" content="<?php echo $get_option('meta-keywords') ?>">
+		<meta name="keywords" content="<?php echo get_option('meta-keywords'); ?>">
 <?php	
 	}	
 ?>
