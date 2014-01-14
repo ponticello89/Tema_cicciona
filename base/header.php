@@ -80,7 +80,9 @@
 			echo "<meta property=\"og:url\" content=\"" . $curUrl . "\" >";
 			echo "<meta property=\"og:title\" content=\"" . $titleArticle . "\" >";
 			echo "<meta property=\"og:image\" content=\"" . $urlImage . "\" >";
-		}		
+		}else if(is_home() || is_category() || is_page()){			
+			echo "<meta property=\"og:image\" content=\"" . get_template_directory_uri() . "/images/header.png\" >";
+		}
 	?></head>
 
 <body <?php body_class($class); ?>>
