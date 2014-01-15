@@ -7,6 +7,7 @@ Version 1.0 complete!!!
 Da Fare
 =============
 
+Alt su immagini<br/>
 Favicon on option teme<br/>
 Share con i social networ 60%<br/>
 Share in home<br/>
