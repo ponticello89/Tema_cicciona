@@ -411,4 +411,10 @@
 		
 		return $returnPrev;
 	}
+	
+	
+	///////////////////////////////////////
+	// META-BOX
+	///////////////////////////////////////
+	require_once (TEMPLATEPATH . '/includes/meta-box.php');	
 ?>
