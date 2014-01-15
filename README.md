@@ -22,9 +22,9 @@ Bug
 =============
 
 Bug pasta category<br/>
-OK Footer top down<br/>
 Scritte a capo con resize<br/>
 Resize Navigation Menu Mobile<br/>
+OK Footer top down<br/>
 OK Header logo resize onload<br/>
 OK Return to grid da ALL<br/>
 
