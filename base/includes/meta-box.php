@@ -51,7 +51,7 @@ add_action('admin_menu', 'mytheme_add_box');
 function mytheme_add_box() {
 	global $meta_box;
 	
-	add_meta_box($meta_box['id'], $meta_box['title'], 'mytheme_show_box', $meta_box['page'], $meta_box['context'], $meta_box['priority']);
+	add_meta_box($meta_box['id'], $meta_box['title'], 'mytheme_show_box_2', $meta_box['page'], $meta_box['context'], $meta_box['priority']);
 }
 
 // Callback function to show fields in meta box
@@ -60,8 +60,70 @@ function mytheme_show_box_2() {
 	
 	// Use nonce for verification
 	echo '<input type="hidden" name="mytheme_meta_box_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
-	?>
-		ciccio chicco
+	?>			
+		
+		<script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+		  var gridster;
+
+		  $(function(){
+
+			gridster = $(".gridster > ul").gridster({
+				widget_margins: [10, 10],
+				widget_base_dimensions: [10, 10],        
+				min_cols: 3,
+				min_row: 3,
+				max_cols: 30,
+				resize: {
+					enabled: true
+				}
+			}).data('gridster');
+			
+			$('#add-image').click(function() {					
+				
+				gridster.add_widget(
+					'<li style="background-color: white;" data-row="4" data-col="1" data-sizex="10" data-sizey="10">'+				
+					'</li>', 10, 10);				
+
+			});
+			
+			$('.gridster').mouseenter(function() {					
+				$('.contenitore-gridster').css({ "overflow":"visible"});
+			});
+			$('.gridster').mouseleave(function() {
+				$('.contenitore-gridster').css({ "overflow":"scroll"});
+			});			
+		  });			
+		</script>
+	
+		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.gridster.css">
+			<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style_ll.css">-->
+						
+		<div class="wp-media-buttons">
+			<a id="add-image" class="button" title="Aggiungi immagine">Aggiungi media</a>
+		</div>
+		
+		<div class="contenitore-gridster" style="width:100%;overflow: scroll;">		
+			<div class="gridster" style="background-color: maroon; width:800px">
+			  <ul>
+				<!--
+				<li style="background-color: white;" data-row="1" data-col="1" data-sizex="10" data-sizey="10">				
+				</li>
+				<li style="background-color: white;" data-row="1" data-col="2" data-sizex="10" data-sizey="10">				
+				</li>
+				<li style="background-color: white;" data-row="1" data-col="3" data-sizex="10" data-sizey="10">				
+				</li>
+				<li style="background-color: white;" data-row="2" data-col="1" data-sizex="10" data-sizey="10">				
+				</li>
+				<li style="background-color: white;" data-row="2" data-col="2" data-sizex="10" data-sizey="10">				
+				</li>            					
+				-->
+			  </ul>
+			</div>
+		</div>
+				
 	<?php
 }
 
