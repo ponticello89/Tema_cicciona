@@ -417,4 +417,9 @@
 	// META-BOX
 	///////////////////////////////////////
 	require_once (TEMPLATEPATH . '/includes/meta-box.php');	
+	
+	///////////////////////////////////////
+	// tutorial img
+	///////////////////////////////////////
+	require_once ( TEMPLATEPATH .  '/includes/wptuts-options.php'  );  
 ?>
