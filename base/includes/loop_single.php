@@ -88,46 +88,74 @@
 				</script>
 				<!-- IMAGE -->			
 				
-				<!-- SOCIAL-->			
-				<?php 
-					if(!isPhone()){
-						require_once (TEMPLATEPATH . '/includes/social.php');
-					}else{
-						require_once (TEMPLATEPATH . '/includes/social_mobile.php');
-					}
-				?>
-				<!-- SOCIAL-->			
-				
-				<!-- HOME BUTTON-->
-				<?php 
-					$homeUrl 	   = get_option('home');				
-					$pageArticle   = getPageOfArticle($idArticle, $catId);
-					$returnHomeUrl = $homeUrl . '?page=' . $pageArticle . '&image=' . $idArticle;
-					if($catId != null && $catId != "" ){
-						$returnHomeUrl = $returnHomeUrl . '&cat=' . $catId;
-					}
-				?>			
-				
-				<div class="returnMenuDiv">
-					<ul class="menuUl">
-						<li class="socialLi">
-							<a href="<?php echo $returnHomeUrl?>">
-								<p class="socialP menuBtn"></p>					
-							</a>	
-						</li>
-					</ul>
-				</div>
-				<!-- HOME BUTTON-->
-				
 			</div>
 		</div>
 	<?php } ?>
+	
+	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.gridster.css">
+	
+	<script type="text/javascript">
+		var gridster;
+
+		$(function(){
+
+			gridster = $(".gridster > ul").gridster({
+				widget_margins: [10, 10],
+				widget_base_dimensions: [10, 10],        
+				min_cols: 3,
+				min_row: 3,
+				max_cols: 50,				
+				draggable: {
+					handle: 'no'
+				}
+			}).data('gridster');				
+		});			
+	</script>
+	
+	
+	<div class="gridster" style="width:1000px;margin: auto;">
+		<ul style="list-style: none;">
+			<?php echo get_post_meta($post->ID, 'pagination_image', true);?>
+		 </ul>
+	</div>
 	
 	<div class="contentArticleDiv">
 		<p class="contentArticleP">
 			<?php the_content(); ?>
 		</p>
 	</div>
+	
+	<!-- SOCIAL-->			
+	<?php 
+		if(!isPhone()){
+			require_once (TEMPLATEPATH . '/includes/social.php');
+		}else{
+			require_once (TEMPLATEPATH . '/includes/social_mobile.php');
+		}
+	?>
+	<!-- SOCIAL-->			
+	
+	<!-- HOME BUTTON-->
+	<?php 
+		$homeUrl 	   = get_option('home');				
+		$pageArticle   = getPageOfArticle($idArticle, $catId);
+		$returnHomeUrl = $homeUrl . '?page=' . $pageArticle . '&image=' . $idArticle;
+		if($catId != null && $catId != "" ){
+			$returnHomeUrl = $returnHomeUrl . '&cat=' . $catId;
+		}
+	?>			
+	
+	<div class="returnMenuDiv">
+		<ul class="menuUl">
+			<li class="socialLi">
+				<a href="<?php echo $returnHomeUrl?>">
+					<p class="socialP menuBtn"></p>					
+				</a>	
+			</li>
+		</ul>
+	</div>
+	<!-- HOME BUTTON-->
 	
 </div>						
 

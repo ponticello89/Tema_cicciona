@@ -25,10 +25,7 @@ jQuery(document).ready(function($){
 		$('#upload_logo_preview img').attr('src',image_url);
 		
 		$('#submit_options_form').trigger('click');
-		// $('#uploaded_logo').val('uploaded');
-		
+		// $('#uploaded_logo').val('uploaded');	
 	}
-	
-	
 	
 });

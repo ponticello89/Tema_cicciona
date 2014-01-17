@@ -7,7 +7,7 @@ function wptuts_get_default_options() {
 	return $options;
 }
 
-//FUNZIONE CHE CONTROLLA IL VALERIO DELL'OPTIO
+//FUNZIONE CHE CONTROLLA IL VALORE DELL'OPTION
 //IN CASO NON ANCORA SETTATO/INIZIALIZZATO RICHIAMA
 //IL METODO "wptuts_get_default_options" CHE SETTA IL DEFAULT
 function wptuts_options_init() {
@@ -91,6 +91,7 @@ function wptuts_admin_options_page() {
 	<?php
 }
 
+//FUNZIONE CHE CONTROLLA LE AZIONI SUBMIT DELETE RESET
 function wptuts_options_validate( $input ) {
 	$default_options = wptuts_get_default_options();
 	$valid_input = $default_options;
@@ -119,6 +120,7 @@ function wptuts_options_validate( $input ) {
 	return $valid_input;
 }
 
+//FUNZIONE CHE CANCELLA L'IMMAGINE
 function delete_image( $image_url ) {
 	global $wpdb;
 	
@@ -144,9 +146,7 @@ function wptuts_options_enqueue_scripts() {
 		
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('wptuts-upload');
-		
-	}
-	
+	}	
 }
 add_action('admin_enqueue_scripts', 'wptuts_options_enqueue_scripts');
 
@@ -193,7 +193,5 @@ function wptuts_setting_logo() {
 		<span class="description"><?php _e('Upload an image for the banner.', 'wptuts' ); ?></span>
 	<?php
 }
-
-
 
 ?>
