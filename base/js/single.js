@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 	}else{				
 		reSizeImageArticle_Mobile();
 		
-		var scrollHeight = parseInt($('.imgDiv').offset().top);
+		var scrollHeight = parseInt($('.titleArticleDiv').offset().top);
 		$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
 		
 		var windowMobileHeight = screen.height;
@@ -54,12 +54,12 @@ jQuery(document).ready(function($) {
 		$(window).resize(function () {		
 			reSizeImageArticle_Mobile();			
 			//Se il telefono viene capovolto			
-			if(	windowMobileHeight == screen.width 
-				&& windowMobileWidth == screen.height){
-					windowMobileHeight = screen.height;
-					windowMobileWidth  = screen.width;
-					scrollHeight = parseInt($('.imgDiv').offset().top);
-					$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
+			if(windowMobileHeight == screen.width && windowMobileWidth == screen.height){
+				windowMobileHeight = screen.height;
+				windowMobileWidth  = screen.width;
+					
+				scrollHeight = parseInt($('.titleArticleDiv').offset().top);
+				$("html, body").animate({ scrollTop: scrollHeight }, 'slow');		
 			}
 		});
 	}

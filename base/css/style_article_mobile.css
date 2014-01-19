@@ -88,6 +88,7 @@
     transition: 		all 0.2s ease-in-out;
 }
 .rightArrowP img{
+	z-index: 100;
 	/*tempo*/
 	-webkit-transition: all 0.2s ease-in-out;
     -moz-transition:	all 0.2s ease-in-out;
@@ -95,6 +96,7 @@
     transition: 		all 0.2s ease-in-out;	
 }
 .leftArrowP img{		
+	z-index: 100;
 	/*tempo*/
 	-webkit-transition: all 0.2s ease-in-out;
     -moz-transition:	all 0.2s ease-in-out;
