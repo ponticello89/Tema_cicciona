@@ -10,6 +10,7 @@ function wptuts_get_default_options() {
 //FUNZIONE CHE CONTROLLA IL VALORE DELL'OPTION
 //IN CASO NON ANCORA SETTATO/INIZIALIZZATO RICHIAMA
 //IL METODO "wptuts_get_default_options" CHE SETTA IL DEFAULT
+add_action( 'after_setup_theme', 'wptuts_options_init' );
 function wptuts_options_init() {
      $wptuts_options = get_option( 'theme_wptuts_options' );
 	 
@@ -22,11 +23,10 @@ function wptuts_options_init() {
 	 
      // In other case we don't need to update the DB
 }
-// Initialize Theme options
-add_action( 'after_setup_theme', 'wptuts_options_init' );
 
 //FUNZIONE CHE RICHIAMA IL METODO CHE SOVRASCRIVE LA LABLE
 //DEL BOTTONE IN CASO IN CUI SI APRE IL MEDIA UPLOAD
+add_action( 'admin_init', 'wptuts_options_setup' );
 function wptuts_options_setup() {
 	global $pagenow;
 	if ('media-upload.php' == $pagenow || 'async-upload.php' == $pagenow) {
@@ -34,7 +34,6 @@ function wptuts_options_setup() {
 		add_filter( 'gettext', 'replace_thickbox_text' , 1, 2 );
 	}
 }
-add_action( 'admin_init', 'wptuts_options_setup' );
 
 //FUNZIONE CHE RINOMINA IL PULSANTE
 function replace_thickbox_text($translated_text, $text ) {	
@@ -50,13 +49,11 @@ function replace_thickbox_text($translated_text, $text ) {
 //FUNZIONE CHE CREA IL PULSANTE NEL MENU PER ACCADERE
 //ALLE OPZIONI
 // Add "WPTuts Options" link to the "Appearance" menu
+add_action('admin_menu', 'wptuts_menu_options');
 function wptuts_menu_options() {
 	//add_theme_page( $page_title, $menu_title, $capability, $menu_slug, $function);
      add_theme_page('WPTuts Options', 'WPTuts Options', 'edit_theme_options', 'wptuts-settings', 'wptuts_admin_options_page');
 }
-// Load the Admin Options page
-add_action('admin_menu', 'wptuts_menu_options');
-
 
 //FUNZIONE CHE CREA LA PAGINE DI CONTROLLO DELLE OPZIONI
 function wptuts_admin_options_page() {

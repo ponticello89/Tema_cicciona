@@ -1,110 +1,140 @@
+/****************************
+	TITOLO SINGLE
+*****************************/
 .titleArticleDiv{
-	text-align: center;
+	text-align: 	center;
 }
 .titleArticleP{
 	padding: 		15px !important;
 	border-radius: 	50px !important;
 	font-size: 		30px;
-	line-height: 30px;
+	line-height: 	30px;
 	text-transform: uppercase;
 	font-family: 	Impact, Charcoal, sans-serif;	
 	color: 			#000000;
 	text-shadow: 	1px 1px 0px #FFFFFF;
 }
+/****************************
+	CONTENT SINGLE
+*****************************/
 .contentArticleDiv{
-	width: 90%;
-	margin: auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	word-wrap: break-word;
+	width: 			950px;
+	margin: 		auto;
+	margin-top: 	50px;
+	margin-bottom: 	50px;
+	word-wrap: 		break-word;
 }
-
+/****************************
+	COPERTINA SINGLE
+*****************************/
 .imageArticle {
 	/*ombra nera*/
 	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
-	-moz-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
-	box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
+	-moz-box-shadow: 	0px 0px 33px 1px rgba(0,0,0,1);
+	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
 }
 .imgDiv{
 	margin-top: 	15px;	
 	margin-bottom: 	15px;	
+	margin: auto;
 }
-.imgDiv .leftDiv:hover .leftArrowP{
-	opacity: 0.8;	
-	/*tempo*/
-	-webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: 	all 0.4s ease-in-out;
-    -o-transition: 		all 0.4s ease-in-out;
-    transition: 		all 0.4s ease-in-out;
-	/*movimento*/
+/****************************
+	PAGINATION SINGLE
+*****************************/
+.gridster img{
+	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
+	-moz-box-shadow: 	0px 0px 33px 1px rgba(0,0,0,1);
+	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
+}
+/****************************
+	NAVIGATION SINGLE
+*****************************/
+.leftDiv{
+	position:	fixed; 
+	left: 		0px; 
+	z-index: 	10; 
+	top: 		50%;
+}
+.rightDiv{
+	position:	fixed; 
+	right: 		0px; 
+	z-index: 	10; 
+	top: 		50%;
+}
+.leftArrowP{
+	float: left;	
+	
 	transform: 			translate(-50px,0px);
 	-ms-transform: 		translate(-50px,0px); 
 	-webkit-transform: 	translate(-50px,0px); 
 	-o-transform: 		translate(-50px,0px); 
 	-moz-transform: 	translate(-50px,0px); 
+	
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;
+	
 }
-.imgDiv .rightDiv:hover .rightArrowP{
-	opacity: 0.8;
-	/*tempo*/
-	-webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: 	all 0.4s ease-in-out;
-    -o-transition: 		all 0.4s ease-in-out;
-    transition: 		all 0.4s ease-in-out;
-	/*movimento*/
+.rightArrowP{
+	float: right;
+	
 	transform: 			translate(+50px,0px);
 	-ms-transform: 		translate(+50px,0px); 
 	-webkit-transform: 	translate(+50px,0px); 
 	-o-transform: 		translate(+50px,0px); 
 	-moz-transform: 	translate(+50px,0px); 
+	
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;
 }
-.imgDiv:hover .rightArrowP{
+.rightArrowP img{
+	/*tempo*/
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;	
+}
+
+.leftArrowP img{		
+	/*tempo*/
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;	
+}
+
+.rightArrowP:hover img{
 	opacity: 0.3;
+	/*movimento*/
+	transform: 			translate(30px,0px);
+	-ms-transform: 		translate(30px,0px); 
+	-webkit-transform: 	translate(30px,0px); 
+	-o-transform: 		translate(30px,0px); 
+	-moz-transform: 	translate(30px,0px); 
 	/*tempo*/
 	-webkit-transition: all 0.2s ease-in-out;
     -moz-transition:	all 0.2s ease-in-out;
     -o-transition: 		all 0.2s ease-in-out;
-    transition: 		all 0.2s ease-in-out;
-	/*movimento*/
-	transform: 			translate(0px,0px);
-	-ms-transform: 		translate(0px,0px); 
-	-webkit-transform: 	translate(0px,0px); 
-	-o-transform: 		translate(0px,0px); 
-	-moz-transform: 	translate(0px,0px); 
+    transition: 		all 0.2s ease-in-out;	
 }
-.imgDiv:hover .leftArrowP{
+.leftArrowP:hover img{
 	opacity: 0.3;
-	/*tempo*/
-	-webkit-transition: all 0.2s ease-in-out;
-    -moz-transition:	all 0.2s ease-in-out;
-    -o-transition: 		all 0.2s ease-in-out;
-    transition: 		all 0.2s ease-in-out;
 	/*movimento*/
-	transform: 			translate(0px,0px);
-	-ms-transform: 		translate(0px,0px); 
-	-webkit-transform: 	translate(0px,0px); 
-	-o-transform: 		translate(0px,0px); 
-	-moz-transform: 	translate(0px,0px); 
-}
-.leftArrowP{
-	float: left;
-	/*margin-top: 50%;*/
-	opacity: 0;
+	transform: 			translate(-30px,0px);
+	-ms-transform: 		translate(-30px,0px); 
+	-webkit-transform: 	translate(-30px,0px); 
+	-o-transform: 		translate(-30px,0px); 
+	-moz-transform: 	translate(-30px,0px); 
 	/*tempo*/
 	-webkit-transition: all 0.2s ease-in-out;
     -moz-transition:	all 0.2s ease-in-out;
     -o-transition: 		all 0.2s ease-in-out;
-    transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;	
 }
-.rightArrowP{
-	float: right;
-	/*margin-top: 50%;*/
-	opacity: 0;
-	/*tempo*/
-	-webkit-transition: all 0.2s ease-in-out;
-    -moz-transition:	all 0.2s ease-in-out;
-    -o-transition: 		all 0.2s ease-in-out;
-    transition: 		all 0.2s ease-in-out;
-}
+
 .leftArrowImg{
 	float: left;
 	width: 50%;
@@ -113,8 +143,16 @@
 	float: right;
 	width: 50%;
 }
-
-/*Menu*/
+/****************************
+	BOTTOM BUTTON
+*****************************/
+.conteinerButtonBottom{
+	width:950px; 
+	margin: auto;
+}
+/****************************
+	RETURN MENU SINGLE
+*****************************/
 .returnMenuDiv{
 	width: 50%;
 	float: right;

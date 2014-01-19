@@ -22,8 +22,7 @@
 							
 	<?php 
 		$idArticle = $post->ID;
-		$titleArticle = get_the_title($post->ID); 
-		//$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );
+		$titleArticle = get_the_title($post->ID); 		
 		$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' );
 		$urlImage = $thumb['0']; 
 		$width = $thumb['1'];
@@ -56,42 +55,43 @@
 			<?php echo get_the_title($idArticle); ?> 
 		</p>
 	</div>
+
+	<!-- NAVIGATION -->			
+	<?php if($prevArticleUrl != null && $prevArticleUrl != ""){ ?>
+		<div class="leftDiv" onclick="location.href='<?php echo $prevArticleUrl; ?>'">								
+			<p class="leftArrowP">
+				<a>
+					<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" style="opacity: 0.4;" />
+				</a>	
+			</p>
+		</div>
+	<?php } ?>
+	<?php if($nextArticleUrl != null && $nextArticleUrl != ""){ ?>
+		<div class="rightDiv" onclick="location.href='<?php echo $nextArticleUrl; ?>'"/>				
+			<p class="rightArrowP">
+				<a>
+					<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0.4;"/>
+				</a>
+			</p>
+		</div>		
+	<?php } ?>		
+	<!-- NAVIGATION -->	
 	
+	<!-- COPERTINA -->		
 	<?php if (has_post_thumbnail()==1){ ?>
 		<div class="test">		
-			<div class="imgDiv">
-				<!-- IMAGE -->			
-				<!-- NAVIGATION -->			
-				<?php if($prevArticleUrl != null && $prevArticleUrl != ""){ ?>
-					<div class="leftDiv" onclick="location.href='<?php echo $prevArticleUrl; ?>'">								
-						<p class="leftArrowP">
-							<a>
-								<img src="<?php bloginfo('template_directory'); ?>/images/arrow-left.png" class="leftArrowImg subPreLoad" style="opacity: 0;" />
-							</a	
-						</p>
-					</div>
-				<?php } ?>
-				<?php if($nextArticleUrl != null && $nextArticleUrl != ""){ ?>
-					<div class="rightDiv" onclick="location.href='<?php echo $nextArticleUrl; ?>'"/>				
-						<p class="rightArrowP">
-							<a>
-								<img src="<?php bloginfo('template_directory'); ?>/images/arrow-right.png" class="rightArrowImg subPreLoad" style="opacity: 0;"/>
-							</a>
-						</p>
-					</div>		
-				<?php } ?>		
-				<!-- NAVIGATION -->						
-				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="width: 0px; visibility: hidden; opacity: 0;"/>											
-			
+			<div class="imgDiv">													
+				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="visibility: hidden; opacity: 0;"/>														
+
 				<script type="text/javascript">
 					loadImage(".test", ".preload", "1", ".subPreLoad");				
-				</script>
-				<!-- IMAGE -->			
-				
+				</script>					
 			</div>
 		</div>
 	<?php } ?>
+	<!-- COPERTINA -->		
 	
+	<!-- IMPAGINAZIONE -->		
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.gridster.css">
 	
@@ -99,63 +99,65 @@
 		var gridster;
 
 		$(function(){
-
+		
 			gridster = $(".gridster > ul").gridster({
-				widget_margins: [10, 10],
-				widget_base_dimensions: [10, 10],        
-				min_cols: 3,
-				min_row: 3,
-				max_cols: 50,				
+				widget_margins: [5, 5],
+				widget_base_dimensions: [20, 20],     					        								
 				draggable: {
 					handle: 'no'
 				}
-			}).data('gridster');				
+			}).data('gridster');			
 		});			
 	</script>
 	
 	
-	<div class="gridster" style="width:1000px;margin: auto;">
+	<div class="gridster" style="width:960px;margin: auto;margin-top: 20px;">
 		<ul style="list-style: none;">
 			<?php echo get_post_meta($post->ID, 'pagination_image', true);?>
 		 </ul>
 	</div>
+	<!-- IMPAGINAZIONE -->		
 	
+	<!-- CONTENT -->		
 	<div class="contentArticleDiv">
 		<p class="contentArticleP">
 			<?php the_content(); ?>
 		</p>
 	</div>
+	<!-- CONTENT -->		
 	
-	<!-- SOCIAL-->			
-	<?php 
-		if(!isPhone()){
-			require_once (TEMPLATEPATH . '/includes/social.php');
-		}else{
-			require_once (TEMPLATEPATH . '/includes/social_mobile.php');
-		}
-	?>
-	<!-- SOCIAL-->			
-	
-	<!-- HOME BUTTON-->
-	<?php 
-		$homeUrl 	   = get_option('home');				
-		$pageArticle   = getPageOfArticle($idArticle, $catId);
-		$returnHomeUrl = $homeUrl . '?page=' . $pageArticle . '&image=' . $idArticle;
-		if($catId != null && $catId != "" ){
-			$returnHomeUrl = $returnHomeUrl . '&cat=' . $catId;
-		}
-	?>			
-	
-	<div class="returnMenuDiv">
-		<ul class="menuUl">
-			<li class="socialLi">
-				<a href="<?php echo $returnHomeUrl?>">
-					<p class="socialP menuBtn"></p>					
-				</a>	
-			</li>
-		</ul>
+	<div class="conteinerButtonBottom">
+		<!-- SOCIAL-->	
+		<?php 
+			if(!isPhone()){
+				require_once (TEMPLATEPATH . '/includes/social.php');
+			}else{
+				require_once (TEMPLATEPATH . '/includes/social_mobile.php');
+			}
+		?>
+		<!-- SOCIAL-->			
+		
+		<!-- HOME BUTTON-->
+		<?php 
+			$homeUrl 	   = get_option('home');				
+			$pageArticle   = getPageOfArticle($idArticle, $catId);
+			$returnHomeUrl = $homeUrl . '?page=' . $pageArticle . '&image=' . $idArticle;
+			if($catId != null && $catId != "" ){
+				$returnHomeUrl = $returnHomeUrl . '&cat=' . $catId;
+			}
+		?>			
+		
+		<div class="returnMenuDiv">
+			<ul class="menuUl">
+				<li class="socialLi">
+					<a href="<?php echo $returnHomeUrl?>">
+						<p class="socialP menuBtn"></p>					
+					</a>	
+				</li>
+			</ul>
+		</div>
+		<!-- HOME BUTTON-->
 	</div>
-	<!-- HOME BUTTON-->
 	
 </div>						
 

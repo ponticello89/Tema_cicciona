@@ -1,59 +1,129 @@
+/****************************
+	TITOLO SINGLE
+*****************************/
 .titleArticleDiv{
 	text-align: center;
 }
 .titleArticleP{
-	padding: 15px !important;
-	border-radius: 50px !important;
-	font-size: 30px;
-	line-height: 30px;
+	padding: 		15px !important;
+	border-radius: 	50px !important;
+	font-size: 		30px;
+	line-height: 	30px;
 	text-transform: uppercase;
-	font-family: Impact, Charcoal, sans-serif;	
-	color: #000000;
+	font-family: 	Impact, Charcoal, sans-serif;	
+	color: 			#000000;
 	text-shadow: 	1px 1px 0px #FFFFFF;
 }
+/****************************
+	CONTENT SINGLE
+*****************************/
 .contentArticleDiv{
-	width: 90%;
-	margin: auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	word-wrap: break-word;
+	width: 			950px;
+	margin: 		auto;
+	margin-top: 	50px;
+	margin-bottom: 	50px;
+	word-wrap: 		break-word;
 }
-
+/****************************
+	COPERTINA SINGLE
+*****************************/
 .imageArticle {
-	/*ombra nera*/
-	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
-	-moz-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
-	box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
-}
-.imageArticle {
+	width: 				100%;
 	/*ombra nera*/
 	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
 	-moz-box-shadow: 	0px 0px 33px 1px rgba(0,0,0,1);
 	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
 }
 .imgDiv{
-	margin-top: 	15px;	
-	margin-bottom: 	15px;	
+	width: 	95%;
+	/*height: 90%;*/
+	margin: auto;
+}
+/****************************
+	NAVIGATION SINGLE
+*****************************/
+.leftDiv{
+	position:	fixed; 
+	left: 		0px; 
+	z-index: 	10; 
+	top: 		50%;
+}
+.rightDiv{
+	position:	fixed; 
+	right: 		0px; 
+	z-index: 	10; 
+	top: 		50%;
 }
 .leftArrowP{
-	float: 				left;
-	/*margin-top: 50%;*/
-	opacity: 			0.7;
-	/*tempo*/
+	float: left;	
+	
+	transform: 			translate(-50px,0px);
+	-ms-transform: 		translate(-50px,0px); 
+	-webkit-transform: 	translate(-50px,0px); 
+	-o-transform: 		translate(-50px,0px); 
+	-moz-transform: 	translate(-50px,0px); 
+	
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;
+	
+}
+.rightArrowP{
+	float: right;
+	
+	transform: 			translate(+50px,0px);
+	-ms-transform: 		translate(+50px,0px); 
+	-webkit-transform: 	translate(+50px,0px); 
+	-o-transform: 		translate(+50px,0px); 
+	-moz-transform: 	translate(+50px,0px); 
+	
 	-webkit-transition: all 0.2s ease-in-out;
     -moz-transition:	all 0.2s ease-in-out;
     -o-transition: 		all 0.2s ease-in-out;
     transition: 		all 0.2s ease-in-out;
 }
-.rightArrowP{
-	float: 				right;
-	/*margin-top: 50%;*/
-	opacity: 			0.7;
+.rightArrowP img{
 	/*tempo*/
 	-webkit-transition: all 0.2s ease-in-out;
     -moz-transition:	all 0.2s ease-in-out;
     -o-transition: 		all 0.2s ease-in-out;
-    transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;	
+}
+.leftArrowP img{		
+	/*tempo*/
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;	
+}
+.rightArrowP:hover img{
+	opacity: 0.3;
+	/*movimento*/
+	transform: 			translate(30px,0px);
+	-ms-transform: 		translate(30px,0px); 
+	-webkit-transform: 	translate(30px,0px); 
+	-o-transform: 		translate(30px,0px); 
+	-moz-transform: 	translate(30px,0px); 
+	/*tempo*/
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;	
+}
+.leftArrowP:hover img{
+	opacity: 0.3;
+	/*movimento*/
+	transform: 			translate(-30px,0px);
+	-ms-transform: 		translate(-30px,0px); 
+	-webkit-transform: 	translate(-30px,0px); 
+	-o-transform: 		translate(-30px,0px); 
+	-moz-transform: 	translate(-30px,0px); 
+	/*tempo*/
+	-webkit-transition: all 0.2s ease-in-out;
+    -moz-transition:	all 0.2s ease-in-out;
+    -o-transition: 		all 0.2s ease-in-out;
+    transition: 		all 0.2s ease-in-out;	
 }
 .leftArrowImg{
 	float: left;
@@ -63,8 +133,9 @@
 	float: right;
 	width: 50%;
 }
-
-/*Menu*/
+/****************************
+	MENU BUTTON
+*****************************/
 .returnMenuDiv{
 	width: 50%;
 	float: right;
@@ -81,8 +152,9 @@
 	width: 40px;
 	height: 40px;
 }
-
-/*Social*/
+/****************************
+	SOCIAL BUTTON
+*****************************/
 .socialDiv{
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -112,4 +184,3 @@
 	background: url(../images/social/twitter-circle.png) no-repeat center center;
 	margin-right: 0px;
 }
-

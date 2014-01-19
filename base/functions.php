@@ -411,10 +411,9 @@
 		
 		return $returnPrev;
 	}
-	
-	
+		
 	///////////////////////////////////////
-	// META-BOX
+	// META-BOX PAGINATION IMAGE
 	///////////////////////////////////////
 	require_once (TEMPLATEPATH . '/includes/meta-box.php');	
 	

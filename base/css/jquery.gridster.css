@@ -113,7 +113,16 @@
 [data-max-sizey="1"][data-max-sizex="1"] .gs-resize-handle {
     display: none !important;
 }
-
+.delete-img{
+	top: 15px;
+	right: 10px;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	z-index: 1;
+	font-size: 45px;
+	color: white;
+}
 /* Uncomment this if you set helper : "clone" in draggable options */
 /*.gridster .player {
   opacity:0;
