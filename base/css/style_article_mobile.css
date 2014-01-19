@@ -28,16 +28,20 @@
 	COPERTINA SINGLE
 *****************************/
 .imageArticle {
-	width: 				100%;
+	/*width: 				100%;*/
 	/*ombra nera*/
 	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
 	-moz-box-shadow: 	0px 0px 33px 1px rgba(0,0,0,1);
 	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
 }
 .imgDiv{
-	width: 	95%;
+	width: 		90%;
 	/*height: 90%;*/
-	margin: auto;
+	margin: 	auto;
+	text-align: center;
+}
+.imgDiv img{
+	width: 100%;
 }
 /****************************
 	NAVIGATION SINGLE

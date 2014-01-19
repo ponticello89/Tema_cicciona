@@ -82,7 +82,49 @@
 		<div class="test">		
 			<div class="imgDiv">													
 				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="visibility: hidden; opacity: 0;"/>														
+				
+				<!-- IMPAGINAZIONE -->		
+				<?php 
+				if(!isPhone()){
+				?>
+					<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+					<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.gridster.css">
+					
+					<script type="text/javascript">
+						var gridster;
 
+						$(function(){
+						
+							gridster = $(".gridster > ul").gridster({
+								widget_margins: [5, 5],
+								widget_base_dimensions: [20, 20],     					        								
+								draggable: {
+									handle: 'no'
+								}
+							}).data('gridster');			
+						});			
+					</script>
+					
+					<div class="gridster" style="width:960px;margin: auto;margin-top: 20px;">
+						<ul style="list-style: none;">
+							<?php echo get_post_meta($post->ID, 'pagination_image', true);?>
+						 </ul>
+					</div>
+				<?php 
+				}else{					
+				?>											
+					<script type="text/javascript">					 												
+						var htmlString = '<?php echo trim (get_post_meta($post->ID, 'pagination_image', true)) ?>';																			
+						var $elem = $('<div>').html(htmlString);
+						var $img = $elem.find('img');						
+						$('.imgDiv').append($img);					
+					</script>					
+				<?php 
+				}
+				?>
+				
+				<!-- IMPAGINAZIONE -->		
+				
 				<script type="text/javascript">
 					loadImage(".test", ".preload", "1", ".subPreLoad");				
 				</script>					
@@ -90,33 +132,6 @@
 		</div>
 	<?php } ?>
 	<!-- COPERTINA -->		
-	
-	<!-- IMPAGINAZIONE -->		
-	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.gridster.css">
-	
-	<script type="text/javascript">
-		var gridster;
-
-		$(function(){
-		
-			gridster = $(".gridster > ul").gridster({
-				widget_margins: [5, 5],
-				widget_base_dimensions: [20, 20],     					        								
-				draggable: {
-					handle: 'no'
-				}
-			}).data('gridster');			
-		});			
-	</script>
-	
-	
-	<div class="gridster" style="width:960px;margin: auto;margin-top: 20px;">
-		<ul style="list-style: none;">
-			<?php echo get_post_meta($post->ID, 'pagination_image', true);?>
-		 </ul>
-	</div>
-	<!-- IMPAGINAZIONE -->		
 	
 	<!-- CONTENT -->		
 	<div class="contentArticleDiv">

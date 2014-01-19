@@ -84,66 +84,17 @@ function reSizeImageArticle(){
 								});
 };
 
-function reSizeImageArticle_Mobile(){
-	//while(heightImageArticle < ($(window).height() * 1.5)){
-	//	var x = heightImageArticle / ($(window).height() * 1.5);				
-	//}
-	
-	var widthWindow	 = $("#pagewrap").width();
-	//var heightWindow = $("#pagewrap").height();	
-	var heightWindow = $(window).height();	
-	
-	var x;
-			
-	//alert(heightWindow+"-"+widthWindow);
-	x = (heightImageArticle/heightWindow);		
-	if((widthImageArticle/widthWindow) > x){
-		x = (widthImageArticle/widthWindow);		
+function reSizeImageArticle_Mobile(){	
+	if(heightImageArticle > $(window).height()){		
+		$('.imgDiv').find('img').css({
+			"max-height": $(window).height()+"px",
+			"max-width": "95%",			
+			"height": "auto",
+			"width": "auto"
+			});		
+	}else{
+		$('.imgDiv').find('img').removeAttr('style');
 	}
-
-	if(x != 0){
-		widthImageArticle = widthImageArticle/x;
-		heightImageArticle = heightImageArticle/x;
-	}
-
-	widthImageArticle 	= parseInt((widthImageArticle));
-	heightImageArticle = parseInt((heightImageArticle));	
-	
-	var marginTop =  parseInt((heightWindow-heightImageArticle)/2);
-	var marginLeft = parseInt((widthWindow-widthImageArticle)/2);
-	
-	$('.imgDiv').css({			width:  widthImageArticle,
-								height: heightImageArticle,
-								//top: marginTop+"px",
-								left: marginLeft+"px",
-								"position": "relative"
-								});
-										
-	$('.imageArticle').css({	width:  widthImageArticle,
-								height: heightImageArticle,
-								//top: marginTop+"px",
-								//left: marginLeft+"px"
-								});
-	
-	$('.leftArrowP').css({		"margin-top": (heightImageArticle/2)-(($('.leftArrowP').height())/2)+"px"
-								});
-								
-	$('.rightArrowP').css({		"margin-top": (heightImageArticle/2)-(($('.rightArrowP').height())/2)+"px"
-								});
-								
-	$('.leftDiv').css({			width:  (widthImageArticle/2),
-								height: heightImageArticle,
-								//top: marginTop+"px",
-								//left: marginLeft+"px",
-								"position": "absolute"
-								});
-								
-	$('.rightDiv').css({		width:  (widthImageArticle/2),
-								height: heightImageArticle,
-								//top: marginTop+"px",
-								left: (widthImageArticle/2)+"px",
-								"position": "absolute"
-								});	
 }
 
 //****************************
