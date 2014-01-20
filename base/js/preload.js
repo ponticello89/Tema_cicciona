@@ -31,6 +31,7 @@ function loadImage(contenitore, classeImage, opacity, subClassPreload){
 	//Prende tutte le immagini dentro il contenitore tramite la classe classeImage
 	var imagesToLoad = $(contenitore).find(classeImage);
 	var imagesToLoadCount = imagesToLoad.size();
+	alert(imagesToLoadCount);
 	
 	var checkIfLoadedTimer = 
 		setInterval(
@@ -41,6 +42,7 @@ function loadImage(contenitore, classeImage, opacity, subClassPreload){
 				} else {
 					//
 					imagesToLoad.filter(classeImage).each(function () {
+						
 						if (this.complete) {							
 							if (!$(this).is(':animated')) {									
 								//$(this).removeClass(classeImage);

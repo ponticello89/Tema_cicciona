@@ -47,10 +47,6 @@
 	?>
 	
 	<script type="text/javascript">
-		loadImage(".test", ".preload", "1", ".subPreLoad");				
-	</script>
-	
-	<script type="text/javascript">
 		initializeDimension("<?php echo $width?>","<?php echo $height?>");		
 	</script>
 	
@@ -130,6 +126,10 @@
 				<!-- IMPAGINAZIONE -->											
 			</div>
 		</div>
+		
+		<script type="text/javascript">
+			loadImage(".test", ".preload", "1", ".subPreLoad");				
+		</script>
 	<?php } ?>
 	<!-- COPERTINA -->		
 	
