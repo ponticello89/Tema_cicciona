@@ -65,7 +65,9 @@ jQuery(document).ready(function($) {
 	}
 	
 	$(window).scroll(function(){		
-		if(($(window).scrollTop() + ($(window).height()/2)) <= $('.titleArticleDiv').offset().top){
+//		if(($(window).scrollTop() + ($(window).height()/2)) <= $('.titleArticleDiv').offset().top){
+		if(parseInt(($('.leftDiv').offset().top) < parseInt($('.titleArticleDiv').offset().top)) ||
+			(parseInt($('.rightDiv').offset().top) < parseInt($('.titleArticleDiv').offset().top))){
 			$('.leftDiv').css({
 				"top" : $('.titleArticleDiv').offset().top+"px",
 				"position" : "absolute"
@@ -74,7 +76,8 @@ jQuery(document).ready(function($) {
 				"top" : $('.titleArticleDiv').offset().top+"px",
 				"position" : "absolute"
 				});
-		}else {
+				
+		}else if((parseInt($(window).scrollTop()) + (parseInt($(window).height())/2)) > $('.titleArticleDiv').offset().top){
 			$('.leftDiv').removeAttr('style');
 			$('.rightDiv').removeAttr('style');
 		}		

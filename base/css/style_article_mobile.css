@@ -50,23 +50,25 @@
 *****************************/
 .leftArrowImg{
 	float: left;
-	width: 50%;
+	/*width: 50%;*/
 }
 .rightArrowImg{
 	float: right;
-	width: 50%;
+	/*width: 50%;*/
 }
-.leftDiv{
+.leftDiv{	
 	position:	fixed; 
 	left: 		0px; 
 	z-index: 	10; 
 	top: 		50%;
+	width: 10%;
 }
-.rightDiv{
+.rightDiv{	
 	position:	fixed; 
 	right: 		0px; 
 	z-index: 	10; 
 	top: 		50%;
+	width: 10%;
 }
 .leftArrowP{
 	float: left;	
