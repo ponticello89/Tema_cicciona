@@ -47,6 +47,10 @@
 	?>
 	
 	<script type="text/javascript">
+		loadImage(".test", ".preload", "1", ".subPreLoad");				
+	</script>
+	
+	<script type="text/javascript">
 		initializeDimension("<?php echo $width?>","<?php echo $height?>");		
 	</script>
 	
@@ -56,6 +60,7 @@
 		</p>
 	</div>
 
+	<div class="test">		
 	<!-- NAVIGATION -->			
 	<?php if($prevArticleUrl != null && $prevArticleUrl != ""){ ?>
 		<div class="leftDiv" onclick="location.href='<?php echo $prevArticleUrl; ?>'">								
@@ -78,8 +83,7 @@
 	<!-- NAVIGATION -->	
 	
 	<!-- COPERTINA -->		
-	<?php if (has_post_thumbnail()==1){ ?>
-		<div class="test">		
+	<?php if (has_post_thumbnail()==1){ ?>		
 			<div class="imgDiv">													
 				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="visibility: hidden; opacity: 0;"/>														
 				
@@ -123,11 +127,7 @@
 				}
 				?>
 				
-				<!-- IMPAGINAZIONE -->		
-				
-				<script type="text/javascript">
-					loadImage(".test", ".preload", "1", ".subPreLoad");				
-				</script>					
+				<!-- IMPAGINAZIONE -->											
 			</div>
 		</div>
 	<?php } ?>

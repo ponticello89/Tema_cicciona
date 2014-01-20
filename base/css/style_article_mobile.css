@@ -35,8 +35,7 @@
 	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
 }
 .imgDiv{
-	width: 		90%;
-	/*height: 90%;*/
+	width: 		98%;	
 	margin: 	auto;
 	text-align: center;
 }
@@ -86,6 +85,14 @@
     -moz-transition:	all 0.2s ease-in-out;
     -o-transition: 		all 0.2s ease-in-out;
     transition: 		all 0.2s ease-in-out;
+}
+.leftArrowImg{
+	float: left;
+	width: 50%;
+}
+.rightArrowImg{
+	float: right;
+	width: 50%;
 }
 .rightArrowP img{
 	z-index: 100;
