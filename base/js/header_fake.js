@@ -5,8 +5,15 @@ jQuery(document).ready(function($) {
 	
 	//$('#pagewrap').css({"min-height":  	$(window).height()+"px"});
 		
-	$('.headerFake').append($('#header').html());	
+	//$('.headerFake').append($('.headerSocialDiv').html());	
+	//$('.headerFake').append($('.headerLevel2').html());	
+	
+	var $elem = $('<div>').html($('#header').html());
+	var $img = $elem.remove('.headerLevel1');						
+	$('.headerFake').append($img);				
+	
 	//$('.headerFake').width(parseInt($('.headerFake').width()));
+	
 	$('.headerFake').height(parseInt($('#header').height()));
 	
 	var statusHeader;
