@@ -56,7 +56,6 @@
 		</p>
 	</div>
 
-	<div class="test">		
 	<!-- NAVIGATION -->			
 	<?php if($prevArticleUrl != null && $prevArticleUrl != ""){ ?>
 		<div class="leftDiv" onclick="location.href='<?php echo $prevArticleUrl; ?>'">								
@@ -79,7 +78,8 @@
 	<!-- NAVIGATION -->	
 	
 	<!-- COPERTINA -->		
-	<?php if (has_post_thumbnail()==1){ ?>		
+	<?php if (has_post_thumbnail()==1){ ?>
+		<div class="test">		
 			<div class="imgDiv">													
 				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="visibility: hidden; opacity: 0;"/>														
 				
@@ -123,13 +123,13 @@
 				}
 				?>
 				
-				<!-- IMPAGINAZIONE -->											
+				<!-- IMPAGINAZIONE -->		
+				
+				<script type="text/javascript">
+					loadImage(".test", ".preload", "1", ".subPreLoad");				
+				</script>					
 			</div>
 		</div>
-		
-		<script type="text/javascript">
-			loadImage(".test", ".preload", "1", ".subPreLoad");				
-		</script>
 	<?php } ?>
 	<!-- COPERTINA -->		
 	
