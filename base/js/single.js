@@ -85,6 +85,19 @@ jQuery(document).ready(function($) {
 });
 
 function reSizeImageArticle(){
+	if(heightImageArticle > $(window).height()){		
+		$('.imgDiv').find('img').css({
+			"max-height": $(window).height()+"px",
+			"max-width": "950px",			
+			"height": "auto",
+			"width": "auto"
+			});		
+	}else{
+		$('.imgDiv').find('img').removeAttr('style');
+	}
+};
+
+function reSizeImageArticle__(){
 	var windowDefault = 950;
 	var x = (widthImageArticle/windowDefault);			
 
@@ -92,6 +105,8 @@ function reSizeImageArticle(){
 		widthImageArticle = widthImageArticle/x;
 		heightImageArticle = heightImageArticle/x;
 	}	
+	
+	
 	/*
 	$('.imgDiv').css({			width:  widthImageArticle,
 								height: heightImageArticle,								
