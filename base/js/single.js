@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
 	if(isPhone == "0"){		
 		reSizeImageArticle();
 				
-		var scrollHeight = parseInt($('.titleArticleDiv').offset().top);
+		var scrollHeight = parseInt($('.imgDiv').offset().top);
 		$("html, body").animate({ scrollTop: scrollHeight }, 'slow');	
 		
 		$(window).resize(function () {		
