@@ -11,7 +11,8 @@
 .colonnaPhoto{
 	width: 24%;
 	height: auto;
-	float: left;
+	margin-left: auto;
+	margin-right: auto;
 }
 /****************************
 	CONTENITORE IMMAGINE
@@ -22,8 +23,7 @@
 	width: 				100%;
 	height: 			auto;
 	border-radius: 		7px;
-	margin-bottom: 		12px;
-	margin-left: 		7px;
+	/*margin-bottom: 		12px;*/
 }
 .imageCella img {
 	opacity: 				1;

@@ -33,6 +33,8 @@ jQuery(document).ready(function($) {
 		"transition": 			"all 0.9s ease-in-out"
 	});
 	
+	gestoreFrecce();
+	
 	if(isPhone == "0"){		
 		reSizeImageArticle();
 				
@@ -40,7 +42,8 @@ jQuery(document).ready(function($) {
 		$("html, body").animate({ scrollTop: scrollHeight }, 'slow');	
 		
 		$(window).resize(function () {		
-			reSizeImageArticle();		
+			reSizeImageArticle();
+			gestoreFrecce();
 		});
 	}else{				
 		reSizeImageArticle_Mobile();
@@ -51,7 +54,9 @@ jQuery(document).ready(function($) {
 		var windowMobileHeight = screen.height;
 		var windowMobileWidth = screen.width;
 		
-		$(window).resize(function () {		
+		$(window).resize(function () {
+			gestoreFrecce();
+			
 			reSizeImageArticle_Mobile();			
 			//Se il telefono viene capovolto			
 			if(windowMobileHeight == screen.width && windowMobileWidth == screen.height){
@@ -64,23 +69,8 @@ jQuery(document).ready(function($) {
 		});
 	}
 	
-	$(window).scroll(function(){		
-//		if(($(window).scrollTop() + ($(window).height()/2)) <= $('.titleArticleDiv').offset().top){
-		if(parseInt(($('.leftDiv').offset().top) < parseInt($('.titleArticleDiv').offset().top)) ||
-			(parseInt($('.rightDiv').offset().top) < parseInt($('.titleArticleDiv').offset().top))){
-			$('.leftDiv').css({
-				"top" : $('.titleArticleDiv').offset().top+"px",
-				"position" : "absolute"
-				});
-			$('.rightDiv').css({
-				"top" : $('.titleArticleDiv').offset().top+"px",
-				"position" : "absolute"
-				});
-				
-		}else if((parseInt($(window).scrollTop()) + (parseInt($(window).height())/2)) > $('.titleArticleDiv').offset().top){
-			$('.leftDiv').removeAttr('style');
-			$('.rightDiv').removeAttr('style');
-		}		
+	$(window).scroll(function(){
+		gestoreFrecce();
 	});
 });
 
@@ -106,13 +96,6 @@ function reSizeImageArticle__(){
 		heightImageArticle = heightImageArticle/x;
 	}	
 	
-	
-	/*
-	$('.imgDiv').css({			width:  widthImageArticle,
-								height: heightImageArticle,								
-								"position": "relative"
-								});
-	*/								
 	$('.imageArticle').css({	
 		width:  widthImageArticle,
 		height: heightImageArticle,								
@@ -131,3 +114,21 @@ function reSizeImageArticle_Mobile(){
 		$('.imgDiv').find('img').removeAttr('style');
 	}
 };
+
+function gestoreFrecce(){
+	if((parseInt($(window).scrollTop()) + (parseInt($(window).height())/2)) < parseInt($('.titleArticleDiv').offset().top)){		
+		if($('.leftDiv').length > 0){
+			$('.leftDiv').fadeOut(1);
+		}
+		if($('.rightDiv').length > 0){
+			$('.rightDiv').fadeOut(1);
+		}
+	}else{
+		if($('.leftDiv').length > 0){
+			$('.leftDiv').fadeIn();
+		}
+		if($('.rightDiv').length > 0){
+			$('.rightDiv').fadeIn();		
+		}
+	}
+}

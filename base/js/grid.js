@@ -186,7 +186,9 @@ function setWidthGrid(widthGrid){
 
 //Settaggio larghezza griglia
 function setMarginImage(marginImageValue){	
-	$(".colonna").css({		"margin-left":  	marginImageValue+"px"});
+	if(isPhone == "0"){
+		$(".colonna").css({		"margin-left":  	marginImageValue+"px"});
+	}
 	$(".imageCella").css({	"margin-bottom":  	marginImageValue+"px"});
 }
 

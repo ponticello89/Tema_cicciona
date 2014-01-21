@@ -24,7 +24,7 @@
 		var numDiv 			 = 	"1";		
 		var widthCols 		 = 	"100";		
 		var widthGridValue 	 = 	"95";
-		var marginImageValue = 	"0";		
+		var marginImageValue =  "<?php echo get_option('margin-image'); ?>";
 	}
 	
 	var category_id   = "<?php echo $catId?>";

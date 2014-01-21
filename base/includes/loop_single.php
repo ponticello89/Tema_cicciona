@@ -126,7 +126,7 @@
 				<!-- IMPAGINAZIONE -->		
 				
 				<script type="text/javascript">
-					loadImage(".test", ".preload", "1", ".subPreLoad");				
+					loadImage(".test", ".preload", "1", ".subPreLoad", "");				
 				</script>					
 			</div>
 		</div>
