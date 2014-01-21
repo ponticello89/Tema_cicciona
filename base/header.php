@@ -138,12 +138,13 @@
 				</div>
 			</div>
 			
+			<?php 
+				if(is_home() || is_category() ){
+			?>
 			<div class="headerSocialDiv" style="width: 100%;">
 				<div style="float: right;">
 					<!-- SOCIAL-->			
-					<?php 
-						if(is_home() || is_category() ){
-					?>					
+										
 								<?php 
 								if(!isPhone()){
 									require_once (TEMPLATEPATH . '/includes/social.php');
@@ -151,12 +152,13 @@
 									require_once (TEMPLATEPATH . '/includes/social_mobile.php');
 								}
 								?>					
-					<?php 	
-						}
-					?>
+					
 					<!-- SOCIAL-->	
 				</div>				
-			</div>				
+			</div>	
+			<?php 	
+						}
+					?>			
 							<div class="headerLevel2">
 				<?php		
 					if(!isPhone()) {
