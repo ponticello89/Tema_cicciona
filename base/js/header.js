@@ -82,8 +82,7 @@ function reSizeHeader(){
 	//$('.headerSocialDiv').height(parseInt($('.headerSocialDiv').find('.socialDiv').outerHeight(true)));
 	var heightHeader = 0;
 	heightHeader = parseInt($('.headerLevel2').outerHeight(true)) + parseInt($('.headerLevel1').outerHeight(true));
-	if($('.headerSocialDiv').length > 0){
-		alert("ciccio")
+	if($('.headerSocialDiv').length > 0){		
 		heightHeader = heightHeader + parseInt($('.headerSocialDiv').outerHeight(true));
 	}
 	$('#header').height(heightHeader);
