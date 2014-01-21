@@ -154,6 +154,7 @@
 .returnMenuDiv{	
 	float: right;
 	margin-top: 20px;
+	margin-right: 20px;
 	margin-bottom: 10px;	
 }
 .menuUl{
@@ -168,7 +169,7 @@
 }
 /****************************
 	SOCIAL BUTTON
-*****************************/
+****************************
 .socialDiv{
 	margin-top: 20px;
 	margin-bottom: 10px;	
@@ -197,3 +198,4 @@
 	background: url(../images/social/twitter-circle.png) no-repeat center center;
 	margin-right: 0px;
 }
+*/

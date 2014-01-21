@@ -1,0 +1,45 @@
+/*Social*/
+.socialDiv{
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 10px;	
+	float: left;
+	z-index: 1;
+}
+.socialUl{
+	margin: 0px 0px 0px 0px !important;
+}
+.socialLi{
+	float: left;
+	list-style: none;
+	margin-right: 3px;
+}
+.socialP{
+	width: 40px;
+	height: 40px;	
+	text-align: center;
+	overflow: hidden;	
+	display: block;
+	outline: none;
+	cursor: pointer;	
+}
+.social_facebook{
+	background: url(../images/social/facebook-circle-mobile.png) no-repeat center center;
+	margin-right: 0px;	
+}
+.social_google_plus{
+	background: url(../images/social/google-plus-circle-mobile.png) no-repeat center center;
+	margin-right: 0px;
+}
+.social_tumblr{
+	background: url(../images/social/tumblr-circle-mobile.png) no-repeat center center;
+	margin-right: 0px;
+}
+.social_twitter{
+	background: url(../images/social/twitter-circle-mobile.png) no-repeat center center;
+	margin-right: 0px;
+}
+.social_pinterest{
+	background: url(../images/social/pinterest-circle-mobile.png) no-repeat center center;
+	margin-right: 0px;
+}
