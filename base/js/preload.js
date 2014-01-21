@@ -15,7 +15,7 @@ function loadImageTime(contenitore, classeImage){
 		, 300);
 }
 
-function loadImage(contenitore, classeImage, opacity, subClassPreload){
+function loadImage(contenitore, classeImage, opacity, subClassPreload, classeDivImage){
 	//Debug
 	//alert('loadImage ');
 	var subPreLoad;
@@ -40,31 +40,31 @@ function loadImage(contenitore, classeImage, opacity, subClassPreload){
 					clearInterval(checkIfLoadedTimer);
 					
 				} else {
-					//
 					imagesToLoad.filter(classeImage).each(function () {
 						
 						if (this.complete) {							
-							if (!$(this).is(':animated')) {									
-								//$(this).removeClass(classeImage);
+							if (!$(this).is(':animated')) {																	
 								$(this).removeClass("preload");
-								//$(".loadit").remove();
 								
-								$(this)	.css({visibility: "visible"})
-										.animate({	"opacity": opacity}, 
-													300, 
-													function () {																														
-														$(this).css("opacity", "");
-														if(subClassPreload != null && subClassPreload != ""){
-															subPreLoad = $(contenitore).find(subClassPreload);
-															subPreLoad.filter(subClassPreload).each(function () {
-																$(this).css({"opacity": ""});
-															});
-														}
-													});
+								if(classeDivImage != null && classeDivImage != ""){
+									//$(this).parent(classeDivImage).removeClass("loadit");
+									$(this).closest( "div" ).toggleClass( "loadit" ).removeClass("loadit");
+								}
 								
-								//setTimeout(function(){$(this).removeAttr('style');}, 450);
-								
-								//$(this).fadeIn(300);
+								$(this).css({visibility: "visible"})
+									.animate({	
+										"opacity": opacity}, 
+										300, 
+										function () {																														
+											$(this).css("opacity", "");
+											if(subClassPreload != null && subClassPreload != ""){
+												subPreLoad = $(contenitore).find(subClassPreload);
+												subPreLoad.filter(subClassPreload).each(function () {
+													$(this).css({"opacity": ""});
+												});
+											}
+										});	
+										
 								imagesToLoadCount--;
 							}								
 						}

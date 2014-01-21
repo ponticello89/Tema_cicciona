@@ -47,18 +47,18 @@
 			
 			
 			//echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+totaleImg+"\'>';			
-			echo 'var html = "	<div class=\'imageCella\' id=\'imageCella"+idArticle+"\'>';			
+			echo 'var html = "	<div class=\'imageCella loadit\' id=\'imageCella"+idArticle+"\'>';			
 			
 			if(!isPhone()){
 				//Apertura Img v1
 				//echo '					<a onclick=\'apriImg(\""+urlImage+"\", \""+urlArticle+"\", \""+titleArticle+"\",\""+widthImage+"\", \""+heightImage+"\")\' >';
 				echo '					<a onclick=\'apriImg_v2(\""+urlArticle+"\", \""+(currentPage)+"\", \""+categoryId+"\", \""+idArticle+"\")\' >';
-				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
+				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\' alt=\'Ofatalee "+titleArticle+"\'>';						
 				echo '						</img>';						
 				echo '					</a>';
 			}else{
 				echo '					<a href=\'"+urlArticle+"\'>';		
-				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\'>';						
+				echo '						<img src=\'"+urlImage+"\' class=\'preload image image1\' id=\'img"+totaleImg+"\' style=\'visibility: hidden; opacity: 0;\' alt=\'Ofatalee "+titleArticle+"\'>';						
 				echo '						</img>';						
 				echo '					</a>';
 			}								

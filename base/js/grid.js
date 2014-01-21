@@ -155,9 +155,9 @@ function loadArticle(pageNumber, where){
 				//Settaggio dei margini delle immagini
 				setMarginImage(marginImageValue);
 				if(isPhone == "0"){
-					loadImage("#photosx", ".preload", "0.7");		
+					loadImage("#photosx", ".preload", "0.7", "", ".imageCella");		
 				}else{
-					loadImage("#photosx", ".preload", "1");		
+					loadImage("#photosx", ".preload", "1", "", ".imageCella");		
 				}
 				
 				//Gestione del Load Multi Page

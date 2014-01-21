@@ -5,16 +5,16 @@
 */
 
 #photosx{
-	width: 89%;
-	margin-left:2%;
-	margin-right:0%;
+	width: 			89%;
+	margin-left:	2%;
+	margin-right:	0%;
+	margin-top: 	10px;
 }
 
 .colonnaPhoto{
 	width: 24%;
 	height: auto;
-	float: left;
-	/*margin:0.2%;*/
+	float: left;	
 }
 .colonnaPhotoFinal{
 	width: 48%;
@@ -22,15 +22,12 @@
 	float: left;
 	margin:0.2%;
 }
-.imageCella{	
-	/*background:		url("../images/ajaxload.gif") no-repeat scroll center center transparent;*/
-	opacity: 1;
-	/*overflow: hidden;*/
-	/*position: relative;*/
-	/*margin: 4px;*/
-	background-color: black;
-	width: 100%;
-	height: auto;
+.imageCella{		
+	opacity: 1;	
+	background-color: 	black;
+	width: 				100%;
+	height: 			auto;
+	border-radius: 		7px;
 }
 .imageCella img {
 	opacity: 			0.7;
@@ -67,9 +64,14 @@
 	margin-top: -1px;
 	/*position: absolute;*/
 	/*overflow: hidden;*/
+	-webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 	0px 0px 3px 2px rgba(0,0,0,1);
+	box-shadow: 		0px 0px 3px 2px rgba(0,0,0,1);
+	border-radius: 		7px;
 }
+
 .loadit{
-	background:		url("../images/ajaxload.gif") no-repeat scroll center center transparent;
+	background:		url("../images/ajaxload.gif") no-repeat scroll center center black;
 	margin-left: 	auto;
 	margin-right: 	auto;
 }
