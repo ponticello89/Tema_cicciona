@@ -28,25 +28,33 @@
 	COPERTINA SINGLE
 *****************************/
 .imageArticle {
+	max-width: 			950px;
+	width: 				100%;
 	/*ombra nera*/
-	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
-	-moz-box-shadow: 	0px 0px 33px 1px rgba(0,0,0,1);
-	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
+	-webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 	0px 0px 3px 2px rgba(0,0,0,1);
+	box-shadow: 		0px 0px 3px 2px rgba(0,0,0,1);
+	border-radius: 		7px;	
 }
-.imgDiv{
-	width: 		95%;	
+.imgDiv{		
 	margin: 	auto;
 	text-align: center;
 }
 /****************************
 	PAGINATION SINGLE
 *****************************/
-.gridster img{
+.gridster{	
+	width:960px;
+	margin: auto;
+}
+.gridster img{	
 	width: 100%;
 	height: 100%;
-	-webkit-box-shadow: 0px 0px 33px 1px rgba(0,0,0,1);
-	-moz-box-shadow: 	0px 0px 33px 1px rgba(0,0,0,1);
-	box-shadow: 		0px 0px 33px 1px rgba(0,0,0,1);
+	/*ombra nera*/
+	-webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 	0px 0px 3px 2px rgba(0,0,0,1);
+	box-shadow: 		0px 0px 3px 2px rgba(0,0,0,1);
+	border-radius: 		7px;	
 }
 /****************************
 	NAVIGATION SINGLE

@@ -105,7 +105,7 @@
 						});			
 					</script>
 					
-					<div class="gridster" style="width:960px;margin: auto;margin-top: 20px;">
+					<div class="gridster">
 						<ul style="list-style: none;">
 							<?php echo get_post_meta($post->ID, 'pagination_image', true);?>
 						 </ul>
