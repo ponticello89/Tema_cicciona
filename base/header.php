@@ -237,7 +237,7 @@
 							<ul class="headerCategoriesUl">
 								<li class="socialLi">
 									<a>
-										<p class="socialP listBtn menuRightBtn"></p>					
+										<p class="listBtn menuRightBtn"></p>					
 									</a>	
 								</li>
 							</ul>

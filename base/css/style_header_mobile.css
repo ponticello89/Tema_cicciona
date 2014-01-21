@@ -1,73 +1,63 @@
+/****************************
+	LOGO
+*****************************/
 .logoSite{
 	max-width: 200px;
 }
+/****************************
+	LISTA BUTTON (MENU)
+*****************************/
 .listBtn{
 	background: url(../images/list.png) no-repeat center center;
 	margin-right: 0px;
 	width: 40px;
 	height: 40px;
 }
-
-/*Contenitori Master*/
+/****************************
+	CONTENITORE HEADER MASTER
+*****************************/
 .headerDivTop{
 	width: 		95%;	
 	position: 	relative;
-	left:		2%;
-	/*background-color: yellow;*/
+	left:		2%;	
 }
-/*Contenitori Master*/
-
-/*Contenitori Header*/
+/****************************
+	SUB CONTENITORE HEADER 
+*****************************/
 .headerLevel1{
 	width: 100%;
 	height: 25%;
+}
+.headerSocialDiv{
+	height: 62px;
 }
 .headerLevel2{
 	width: 100%;
 	height: 75%;
 }
-/*Contenitori Header*/
-
-/*Sotto Contenitori Header*/
+/****************************
+	CONTENITORE TITOLO/LOGO 
+*****************************/
 .headerTitleDiv{
 	height: 100%;
 	float:	left;
-	/*background-color: white;*/
 }
+/****************************
+	CONTENITORE PAGINE 
+*****************************/
 .headerPagesDiv{
 	width:		50%;
 	height: 	100%;
 	float: 		right;
-	text-align: right;
-	/*background-color: blue;*/
+	text-align: right;	
 }
+/****************************
+	CONTENITORE CATEGORIE 
+*****************************/
 .headerCategoriesDiv{
 	width:	50%;
 	height: 100%;
-	float: 	left;
-	/*background-color: black;*/
-}
-/*Sotto Contenitori Header*/
-
-/*Header effetto scroll*/
-.headerScroll{	
-	position: 			fixed !important;	
-	background: 		rgba(0, 0, 0, 0.7);
-	z-index: 			10;
-	width:				100%;
-	min-width: 			1020px;
-	display:			none;
-	top:				0;
-	/*ombra nera*/
-	-webkit-box-shadow: 0px 4px 9px 3px rgba(0,0,0,0.81);
-	-moz-box-shadow: 	0px 4px 9px 3px rgba(0,0,0,0.81);
-	box-shadow: 		0px 4px 9px 3px rgba(0,0,0,0.81);
-}
-/*Header effetto scroll*/
-
-/*Reali*/
-.headerPages{	
-	float: 	right;
+	float: 	left;	
 }
 .headerLevel2 a{	
 	font-size: 		20px;
@@ -76,18 +66,16 @@
 	color:			#9397A3;
 }
 .headerLevel2 a:hover{
-	background: 	 none !important;
-	text-decoration: none;
-	color:			 #7B88CC;
-	/*color:			#AE94CE;*/	
+	background: 	 	none !important;
+	text-decoration: 	none;
+	color:			 	#7B88CC;	
 	/*tempo*/
 	-webkit-transition: all 0.4s ease-in-out;
     -moz-transition:	all 0.4s ease-in-out;
     -o-transition: 		all 0.4s ease-in-out;
     transition: 		all 0.4s ease-in-out;
 }
-.current_page_item a{
-	/*background: none repeat scroll 0% 0% rgb(51, 51, 51);*/
+.current_page_item a{	
 	color: white;
 }
 .headerPagesDiv li{

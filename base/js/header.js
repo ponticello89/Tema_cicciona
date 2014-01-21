@@ -14,8 +14,7 @@ jQuery(document).ready(function($) {
 	if((($(window).width()/100)*50) < widthMobileNav){
 		widthMobileNav = ($(window).width()/100)*50;						
 	}	
-	$('.navPhone').width(widthMobileNav);	
-	//$('.navPhone').height(window.height);
+	$('.navPhone').width(widthMobileNav);		
 	
 	$('.menuRightBtn').click(function (){		
 		if(!aperto){

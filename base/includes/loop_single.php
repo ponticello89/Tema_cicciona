@@ -166,7 +166,17 @@
 			<ul class="menuUl">
 				<li class="socialLi">
 					<a href="<?php echo $returnHomeUrl?>">
-						<p class="socialP menuBtn"></p>					
+						<?php 
+						if(!isPhone()){
+						?>
+							<p class="socialP menuBtn"></p>					
+						<?php 
+						}else{
+						?>
+							<p class="menuBtn"></p>
+						<?php 
+						{
+						?>
 					</a>	
 				</li>
 			</ul>
