@@ -175,7 +175,7 @@
 						?>
 							<p class="menuBtn"></p>
 						<?php 
-						{
+						}
 						?>
 					</a>	
 				</li>
