@@ -87,41 +87,64 @@ jQuery(document).ready(function($) {
 		    }			   
 		}
 		
-		if ($(window).scrollTop()==0){			
-			if(pageUp >= 1 && paginaCarica){						
-				$('.loadingTop').stop();
-				$('.loadingTop').animate({	
-					"height": "44px"}, 
-					700, 
-					function () {								
-						var caricato = loadArticle(pageUp, "up");				
-						if(caricato){
-							pageUp--;																				
-						}	
-						stopCaricamentoUp = 
-							setTimeout(
-								function(){
-									clearTimeout(startCaricamentoUp); 
-									$('.loadingTop').stop();
-									$('.loadingTop').animate({	
-										"height": "0px"}, 
-										500
-									);						
-								},2000); 	
-					});	
-			}									
-		} 
-		if ($(window).scrollTop()>0){
-			
-			if ($(".loadingTop").is(':animated')){
-				$('.loadingTop').stop();
-				$('.loadingTop').animate({	
-						"height": "0px"}, 
-						500
-				);	
+		if ($(window).scrollTop()==0){	
+			if(pageUp >= 1){				
+				startCaricamentoUp = 
+					setTimeout(
+						function(){
+							var caricato = loadArticle(pageUp, "up");				
+							if(caricato){
+								pageUp--;								
+								$("html, body").animate({ scrollTop: 1 }, 'slow');
+							}							
+						},1000); 
 			}
-			//clearTimeout(startCaricamentoUp); 
+		} 
+		if ($(window).scrollTop()>0){ 			
+			clearTimeout(startCaricamentoUp); 
 		}
+		
+		
+			/*		
+			if ($(window).scrollTop()==0){	
+				$("html, body").animate({ scrollTop: 100 }, 'slow');
+				
+				if(pageUp >= 1 && paginaCarica){						
+					$('.loadingTop').stop();
+					$('.loadingTop').animate({	
+						"height": "44px"}, 
+						700, 
+						function () {								
+							var caricato = loadArticle(pageUp, "up");				
+							if(caricato){
+								pageUp--;																				
+							}	
+							stopCaricamentoUp = 
+								setTimeout(
+									function(){
+										clearTimeout(startCaricamentoUp); 
+										$('.loadingTop').stop();
+										$('.loadingTop').animate({	
+											"height": "0px"}, 
+											500
+										);						
+									},2000); 	
+						});	
+				}									
+			} 
+			if ($(window).scrollTop()>0){
+				
+				if ($(".loadingTop").is(':animated')){
+					$('.loadingTop').stop();
+					$('.loadingTop').animate({	
+							"height": "0px"}, 
+							500
+					);	
+				}
+				//clearTimeout(startCaricamentoUp); 
+			}
+				*/
+		
 		
 	});		
 	

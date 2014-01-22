@@ -46,7 +46,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
 
-<div class="loading loadingTop" style="background-color: darkslategrey; overflow: hidden;">
+<div class="loading">
 	<a class="inifiniteLoaderUp">
 		<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
 	</a>	
@@ -66,7 +66,7 @@
 	if(!isPhone()){ ?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
-		<script src="<?php echo get_template_directory_uri(); ?>/js/header_fake.js"></script>
+		<!--<script src="<?php echo get_template_directory_uri(); ?>/js/header_fake.js"></script>-->
 			
 		<div 	class="sfondoBigImage" 
 				style="	width: 100%; 
