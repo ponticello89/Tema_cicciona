@@ -46,11 +46,12 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
 
-<div class="loading">
+<div class="loading loadingTop" style="background-color: darkslategrey; overflow: hidden;">
 	<a class="inifiniteLoaderUp">
 		<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
 	</a>	
 </div>
+
 <!--Contenitore Grid-->
 <div id="photosx"></div>			
 

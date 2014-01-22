@@ -76,7 +76,8 @@ jQuery(document).ready(function($) {
 
 function reSizeImageArticle(){
 	if(heightImageArticle > $(window).height()){		
-		$('.imgDiv').find('img').css({
+		//$('.imgDiv').find('img').css({
+		$('.imageArticle').css({
 			"max-height": $(window).height()+"px",
 			"max-width": "950px",			
 			"height": "auto",

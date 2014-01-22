@@ -22,11 +22,16 @@ imgArray=new Array();
 heightColArray = new Array();
 
 //Funzioni che partono al caricamento della pagina
-jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {	
+	
+	var paginaCarica = false;
+	$(window).load(function () {
+		paginaCarica = true;		
+	});
 	
 	//Funzioni che partono al caricamento della pagina
 	$(document).ready(					
-		function () {
+		function () {			
 			//Settaggio larghezza griglia
 			setWidthGrid(widthGridValue);			
 			//Creazione colonne
@@ -64,8 +69,8 @@ jQuery(document).ready(function($) {
 					pageDown++;					
 				}								
 			}
-			//Caricamento della prima pagina di immagini									
-		}							
+			//Caricamento della prima pagina di immagini															
+		}			
 	)
 	
 	var startCaricamentoUp;
@@ -82,21 +87,40 @@ jQuery(document).ready(function($) {
 		    }			   
 		}
 		
-		if ($(window).scrollTop()==0){
-			if(pageUp >= 1){				
-				startCaricamentoUp = 
-					setTimeout(
-						function(){
-							var caricato = loadArticle(pageUp, "up");				
-							if(caricato){
-								pageUp--;								
-								$("html, body").animate({ scrollTop: 1 }, 'slow');
-							}							
-						},1000); 
-			}
+		if ($(window).scrollTop()==0){			
+			if(pageUp >= 1 && paginaCarica){						
+				$('.loadingTop').stop();
+				$('.loadingTop').animate({	
+					"height": "44px"}, 
+					700, 
+					function () {								
+						var caricato = loadArticle(pageUp, "up");				
+						if(caricato){
+							pageUp--;																				
+						}	
+						stopCaricamentoUp = 
+							setTimeout(
+								function(){
+									clearTimeout(startCaricamentoUp); 
+									$('.loadingTop').stop();
+									$('.loadingTop').animate({	
+										"height": "0px"}, 
+										500
+									);						
+								},2000); 	
+					});	
+			}									
 		} 
-		if ($(window).scrollTop()>0){ 			
-			clearTimeout(startCaricamentoUp); 
+		if ($(window).scrollTop()>0){
+			
+			if ($(".loadingTop").is(':animated')){
+				$('.loadingTop').stop();
+				$('.loadingTop').animate({	
+						"height": "0px"}, 
+						500
+				);	
+			}
+			//clearTimeout(startCaricamentoUp); 
 		}
 		
 	});		
