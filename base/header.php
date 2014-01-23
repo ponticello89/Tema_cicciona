@@ -102,8 +102,9 @@
 
 <div id="pagewrap">
 	
-	<!-- /#header -->
+	<div class="overTheTop" style="background-color: black"></div>
 	
+	<!-- /#header -->	
 	<header id="header" class="pagewidth">
 		<div class="headerDivTop">
 			<div class="headerLevel1">

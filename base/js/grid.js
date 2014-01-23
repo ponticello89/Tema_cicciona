@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
 	
 	var paginaCarica = false;
 	$(window).load(function () {
-		paginaCarica = true;		
+		paginaCarica = true;				
 	});
 	
 	//Funzioni che partono al caricamento della pagina
@@ -87,7 +87,8 @@ jQuery(document).ready(function($) {
 		    }			   
 		}
 		
-		if ($(window).scrollTop()==0){	
+		/* BASE
+		if ($(window).scrollTop()==0){				
 			if(pageUp >= 1){				
 				startCaricamentoUp = 
 					setTimeout(
@@ -103,15 +104,15 @@ jQuery(document).ready(function($) {
 		if ($(window).scrollTop()>0){ 			
 			clearTimeout(startCaricamentoUp); 
 		}
+		*/
 		
-		
-			/*		
+					
 			if ($(window).scrollTop()==0){	
-				$("html, body").animate({ scrollTop: 100 }, 'slow');
+				//$("html, body").animate({ scrollTop: 1 }, 1);
 				
 				if(pageUp >= 1 && paginaCarica){						
-					$('.loadingTop').stop();
-					$('.loadingTop').animate({	
+					$('.overTheTop').stop();
+					$('.overTheTop').animate({	
 						"height": "44px"}, 
 						700, 
 						function () {								
@@ -123,8 +124,8 @@ jQuery(document).ready(function($) {
 								setTimeout(
 									function(){
 										clearTimeout(startCaricamentoUp); 
-										$('.loadingTop').stop();
-										$('.loadingTop').animate({	
+										$('.overTheTop').stop();
+										$('.overTheTop').animate({	
 											"height": "0px"}, 
 											500
 										);						
@@ -134,16 +135,16 @@ jQuery(document).ready(function($) {
 			} 
 			if ($(window).scrollTop()>0){
 				
-				if ($(".loadingTop").is(':animated')){
-					$('.loadingTop').stop();
-					$('.loadingTop').animate({	
+				if ($(".overTheTop").is(':animated')){
+					$('.overTheTop').stop();
+					$('.overTheTop').animate({	
 							"height": "0px"}, 
 							500
 					);	
 				}
 				//clearTimeout(startCaricamentoUp); 
 			}
-				*/
+				
 		
 		
 	});		
