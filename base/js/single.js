@@ -75,10 +75,19 @@ jQuery(document).ready(function($) {
 });
 
 function reSizeImageArticle(){
+	var windowDefault = 950;
+	var x = (widthImageArticle/windowDefault);			
+
+	if(x != 0){
+		widthImageArticle = widthImageArticle/x;
+		heightImageArticle = heightImageArticle/x;
+	}
+
 	if(heightImageArticle > $(window).height()){		
 		//$('.imgDiv').find('img').css({
 		$('.imageArticle').css({
 			"max-height": $(window).height()+"px",
+			"min-height": $(window).height()+"px",
 			"max-width": "950px",			
 			"height": "auto",
 			"width": "auto"
