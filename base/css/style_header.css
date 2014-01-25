@@ -4,48 +4,25 @@
 .logoSite{
 	max-width: 200px;
 }
+/*
 .listBtn{
 	background: url(../images/list.png) no-repeat center center;
 	margin-right: 0px;
 	width: 40px;
 	height: 40px;
 }
-.socialP{
-	width: 40px;
-	height: 40px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	border-radius: 50%;
-	text-align: center;
-	overflow: hidden;
-	-webkit-box-shadow: inset 0 0 1px 20px rgba(0,0,0,0.6), inset 0 0 0 0px #000000;
-	-moz-box-shadow: inset 0 0 1px 20px rgba(0,0,0,0.6), inset 0 0 0 0px #000000;
-	box-shadow: inset 0 0 1px 20px rgba(0,0,0,0.6), inset 0 0 0 0px #000000;
-	-webkit-transition: box-shadow 400ms ease-in-out;
-	-moz-transition: box-shadow 400ms ease-in-out;
-	-o-transition: box-shadow 400ms ease-in-out;
-	-ms-transition: box-shadow 400ms ease-in-out;
-	transition: box-shadow 400ms ease-in-out;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-	display: block;
-	outline: none;
-	cursor: pointer;
-	/*margin-right: 50px;*/
-}
-.socialP:hover{
-	   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6) inset, 0px 0px 0px 2px rgb(0, 0, 0) inset, 0px 0px 2px rgba(0, 0, 0, 0.3);
-}
-
-/*Contenitori Master*/
+*/
+/****************************
+	CONTENITORE HEADER MASTER
+*****************************/
 .headerDivTop{
 	width: 		95%;	
 	position: 	relative;
-	left:		2%;
-	/*background-color: yellow;*/
+	left:		2%;	
 }
-/*Contenitori Master*/
-
-/*Contenitori Header*/
+/****************************
+	SUB CONTENITORE HEADER 
+*****************************/
 .headerLevel1{
 	width: 100%;
 	height: 50%;
@@ -58,46 +35,6 @@
 	width: 100%;
 	height: 50%;
 	margin-bottom: 10px;
-}
-/*Contenitori Header*/
-
-/*Sotto Contenitori Header*/
-.headerTitleDiv{	
-	height: 100%;
-	float:	left;
-	/*background-color: white;*/
-}
-.headerPagesDiv{	
-	height: 100%;
-	float: 	right;
-	/*background-color: blue;*/
-}
-.headerCategoriesDiv{	
-	height: 100%;
-	float: 	left;
-	/*background-color: black;*/
-}
-/*Sotto Contenitori Header*/
-
-/*Header effetto scroll*/
-.headerScroll{	
-	position: 			fixed !important;	
-	background: 		rgba(0, 0, 0, 0.7);
-	z-index: 			10;
-	width:				100%;
-	min-width: 			1020px;
-	display:			none;
-	top:				0;
-	/*ombra nera*/
-	-webkit-box-shadow: 0px 4px 9px 3px rgba(0,0,0,0.81);
-	-moz-box-shadow: 	0px 4px 9px 3px rgba(0,0,0,0.81);
-	box-shadow: 		0px 4px 9px 3px rgba(0,0,0,0.81);
-}
-/*Header effetto scroll*/
-
-/*Reali*/
-.headerPages{	
-	float: 	right;
 }
 .headerLevel2 a{
 	padding: 		15px !important;
@@ -119,9 +56,22 @@
     -o-transition: 		all 0.2s ease-in-out;
     transition: 		all 0.2s ease-in-out;
 }
-.current_page_item a{
-	/*background: none repeat scroll 0% 0% rgb(51, 51, 51);*/
-	color: white;
+/****************************
+	CONTENITORE TITOLO/LOGO 
+*****************************/
+.headerTitleDiv{	
+	height: 100%;
+	float:	left;	
+}
+/****************************
+	CONTENITORE PAGINE 
+*****************************/
+.headerPages{	
+	float: 	right;
+}
+.headerPagesDiv{	
+	height: 100%;
+	float: 	right;	
 }
 .headerPagesDiv li{
 	list-style: none;
@@ -129,8 +79,17 @@
 }
 .headerPagesUl{
 	list-style: none;
-	float: right;
-	/*margin-top: 25px;*/
+	float: right;	
+}
+/****************************
+	CONTENITORE CATEGORIE 
+*****************************/
+.headerCategoriesDiv{	
+	height: 100%;
+	float: 	left;
+}
+.current_page_item a{	
+	color: white;
 }
 .headerCategoriesDiv li{
 	list-style: none;
@@ -138,6 +97,66 @@
 }
 .headerCategoriesUl{
 	list-style: none;
-	float: left;
-	/*margin-top: 25px;*/
+	float: left;	
+}
+/****************************
+	EFFETTI BOTTONI SOCIAL 
+*****************************/
+.socialP{
+	width: 40px;
+	height: 40px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 50%;
+	text-align: center;
+	overflow: hidden;
+	-webkit-box-shadow: inset 0 0 1px 20px rgba(0,0,0,0.6), inset 0 0 0 0px #000000;
+	-moz-box-shadow: inset 0 0 1px 20px rgba(0,0,0,0.6), inset 0 0 0 0px #000000;
+	box-shadow: inset 0 0 1px 20px rgba(0,0,0,0.6), inset 0 0 0 0px #000000;
+	-webkit-transition: box-shadow 400ms ease-in-out;
+	-moz-transition: box-shadow 400ms ease-in-out;
+	-o-transition: box-shadow 400ms ease-in-out;
+	-ms-transition: box-shadow 400ms ease-in-out;
+	transition: box-shadow 400ms ease-in-out;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	display: block;
+	outline: none;
+	cursor: pointer;	
+}
+.socialP:hover{
+	   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6) inset, 0px 0px 0px 2px rgb(0, 0, 0) inset, 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+/****************************
+	HEADER SCROLL 
+*****************************/
+.headerScroll{	
+	position: 			fixed !important;	
+	background: 		rgba(0, 0, 0, 0.7);
+	z-index: 			10;
+	width:				100%;
+	min-width: 			1020px;
+	display:			none;
+	top:				0;
+	/*ombra nera*/
+	-webkit-box-shadow: 0px 4px 9px 3px rgba(0,0,0,0.81);
+	-moz-box-shadow: 	0px 4px 9px 3px rgba(0,0,0,0.81);
+	box-shadow: 		0px 4px 9px 3px rgba(0,0,0,0.81);
+}
+/****************************
+	OVER THE TOP LOADING 
+*****************************/
+.overTheTop{
+	background-color: 	currentcolor; 
+	overflow: 			hidden;
+	height: 			0px;
+	text-align:			center;
+	-webkit-box-shadow: inset 0px -4px 10px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 	inset 0px -4px 10px 0px rgba(0,0,0,0.75);
+	box-shadow: 		inset 0px -4px 10px 0px rgba(0,0,0,0.75);
+}
+.overTheTopSpan{
+	font-size: 		24px;
+	vertical-align: -webkit-baseline-middle; 
+	color: 			white;
+	text-shadow: 	1px 1px 0px #000000;
 }

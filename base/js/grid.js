@@ -106,8 +106,10 @@ jQuery(document).ready(function($) {
 		}
 		*/
 		
-					
+				//alert($(window).scrollTop());	
+			
 			if ($(window).scrollTop()==0){	
+				
 				//$("html, body").animate({ scrollTop: 1 }, 1);
 				
 				if(pageUp >= 1 && paginaCarica){						
@@ -128,8 +130,9 @@ jQuery(document).ready(function($) {
 										$('.overTheTop').animate({	
 											"height": "0px"}, 
 											500
-										);						
-									},2000); 	
+										);	
+										$("html, body").animate({ scrollTop: 1 }, 1);										
+									},600); 	
 						});	
 				}									
 			} 
@@ -144,7 +147,7 @@ jQuery(document).ready(function($) {
 				}
 				//clearTimeout(startCaricamentoUp); 
 			}
-				
+			
 		
 		
 	});		

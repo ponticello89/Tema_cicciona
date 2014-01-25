@@ -102,7 +102,9 @@
 
 <div id="pagewrap">
 	
-	<div class="overTheTop" style="background-color: black"></div>
+	<div class="overTheTop">
+		<span class="overTheTopSpan">Loading...</span>
+	</div>
 	
 	<!-- /#header -->	
 	<header id="header" class="pagewidth">
