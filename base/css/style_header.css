@@ -56,6 +56,9 @@
     -o-transition: 		all 0.2s ease-in-out;
     transition: 		all 0.2s ease-in-out;
 }
+.current_page_item a{	
+	color: white;
+}
 /****************************
 	CONTENITORE TITOLO/LOGO 
 *****************************/
@@ -87,9 +90,6 @@
 .headerCategoriesDiv{	
 	height: 100%;
 	float: 	left;
-}
-.current_page_item a{	
-	color: white;
 }
 .headerCategoriesDiv li{
 	list-style: none;

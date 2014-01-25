@@ -35,30 +35,6 @@
 	width: 100%;
 	height: 75%;
 }
-/****************************
-	CONTENITORE TITOLO/LOGO 
-*****************************/
-.headerTitleDiv{
-	height: 100%;
-	float:	left;
-}
-/****************************
-	CONTENITORE PAGINE 
-*****************************/
-.headerPagesDiv{
-	width:		50%;
-	height: 	100%;
-	float: 		right;
-	text-align: right;	
-}
-/****************************
-	CONTENITORE CATEGORIE 
-*****************************/
-.headerCategoriesDiv{
-	width:	50%;
-	height: 100%;
-	float: 	left;	
-}
 .headerLevel2 a{	
 	font-size: 		20px;
 	text-transform: uppercase;		
@@ -78,19 +54,61 @@
 .current_page_item a{	
 	color: white;
 }
+/****************************
+	CONTENITORE TITOLO/LOGO 
+*****************************/
+.headerTitleDiv{
+	height: 100%;
+	float:	left;
+}
+/****************************
+	CONTENITORE PAGINE 
+*****************************/
+.headerPagesDiv{
+	width:		50%;
+	height: 	100%;
+	float: 		right;
+	text-align: right;	
+}
 .headerPagesDiv li{
 	list-style: none;
 }
 .headerPagesUl{	
 	list-style: none;
-	float: right;
-	margin: 1em 0 0 0;
+	float: 		right;
+	margin: 	1em 0 0 0;
+}
+/****************************
+	CONTENITORE CATEGORIE 
+*****************************/
+.headerCategoriesDiv{
+	width:	50%;
+	height: 100%;
+	float: 	left;	
 }
 .headerCategoriesDiv li{
 	list-style: none;	
 }
 .headerCategoriesUl{
 	list-style: none;
-	float: left;
-	margin: 1em 0 0 0px;
+	float: 		left;
+	margin: 	1em 0 0 0px;
+}
+/****************************
+	OVER THE TOP LOADING 
+*****************************/
+.overTheTop{
+	background-color: 	currentcolor; 
+	overflow: 			hidden;
+	height: 			0px;
+	text-align:			center;
+	-webkit-box-shadow: inset 0px -4px 10px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 	inset 0px -4px 10px 0px rgba(0,0,0,0.75);
+	box-shadow: 		inset 0px -4px 10px 0px rgba(0,0,0,0.75);
+}
+.overTheTopSpan{
+	font-size: 		24px;
+	vertical-align: -webkit-baseline-middle; 
+	color: 			white;
+	text-shadow: 	1px 1px 0px #000000;
 }
