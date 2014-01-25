@@ -47,9 +47,9 @@
 	text-shadow: 	1px 1px 0px #646464;	
 }
 .headerLevel2 a:hover{
-	background: none !important;
-	text-decoration: none;
-	color:			#7B88CC;	
+	background: 		none !important;
+	text-decoration: 	none;
+	color:				#7B88CC;	
 	/*tempo*/
 	-webkit-transition: all 0.2s ease-in-out;
     -moz-transition:	all 0.2s ease-in-out;

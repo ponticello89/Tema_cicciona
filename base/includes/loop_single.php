@@ -81,7 +81,7 @@
 	<?php if (has_post_thumbnail()==1){ ?>
 		<div class="test">		
 			<div class="imgDiv">													
-				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="visibility: hidden; opacity: 0;" alt='<?php echo $titleArticle ?>'/>														
+				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="visibility: hidden; opacity: 0;" alt='OFatalee <?php echo $titleArticle ?>'/>														
 				
 				<!-- IMPAGINAZIONE -->		
 				<?php 
