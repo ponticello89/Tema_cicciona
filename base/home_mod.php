@@ -41,7 +41,6 @@
 	var imageRequest = "<?php echo $imageUrl?>";	
 </script>
 
-<script src="<?php echo get_template_directory_uri(); ?>/js/grid.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/torna-su.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lightBox-image.js"></script>
@@ -52,65 +51,43 @@
 	</a>	
 </div>
 
-<!--Contenitore Grid-->
+<!--Contenitore Grid
 <div id="photosx"></div>			
+-->
+
+ <!-- CSS Reset -->  
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/reset_grid.css">
+
+  <!-- Specific CSS for the tiles -->  
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid2.css">
+  
+  <!-- Global CSS for the page and tiles -->  
+  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/main_grid.css">
+
+<div id="main" role="main">
+	<ul id="tiles">              
+    </ul>
+</div>
+
+<!-- include jQuery -->
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
+
+  <!-- Include the imagesLoaded plug-in -->
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.imagesloaded.js"></script>
+  
+  <!-- Include the plug-in -->
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.wookmark.js"></script>
+
+<script type="text/javascript">
+	
+  </script>
 
 
 <?php 
-	//Gestione della home in base al metodo di visualizzazione PC/PHONE
-	//Se PHONE tolgo:
-	//	headerFake
-	//	lightbox
-	//	effetti su immagini
-	
 	if(!isPhone()){ ?>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/grid.js"></script>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
-		<!--<script src="<?php echo get_template_directory_uri(); ?>/js/header_fake.js"></script>-->
-			
-		<div 	class="sfondoBigImage" 
-				style="	width: 100%; 
-						height: 100%; 
-						display: none;
-						position: fixed;
-						top: 0px;
-						left: 0px;
-						z-index: 9999;
-						background-color: black;				
-						opacity: 0.8;">							
-		</div>
-
-
-		<img 	class="bigImage" 
-				style="	position: absolute;
-						display: none;
-						z-index: 10000;
-						position: fixed;
-						width: auto;
-						top: 0;
-						left: 0;
-						height: 80%;">
-		</img>
-		<div 	class="titleBigImageDiv"
-				style="	position: absolute;
-						display: none;
-						z-index: 10000;
-						position: fixed;
-						width: auto;
-						top: 0;
-						left: 0;
-						height: 80%;
-						background-color: black;				
-						opacity: 0.8;">
-						
-			<h1 class="titleBigImage"/>
-		</div>
-
-		<p class="tornaSu">
-			<a>
-				<img src="<?php bloginfo('template_directory'); ?>/images/up-arrow-icon.png" />
-			</a>
-		</p>
 <?php 
 	}else{?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid_mobile.css">

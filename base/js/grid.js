@@ -21,6 +21,18 @@ imgArray=new Array();
 
 heightColArray = new Array();
 
+var   $tiles = $('#tiles');
+var   $handler = $('li', $tiles);
+var   $main = $('#main');
+var   $window = $(window);
+var   $document = $(document);
+var   options = {
+	autoResize: true, // This will auto-update the layout when the browser window is resized.
+	container: $main, // Optional, used for some extra CSS styling
+	offset: 1, 	  // Optional, the distance between grid items
+	itemWidth: 400    // Optional, the width of a grid item
+  };
+
 //Funzioni che partono al caricamento della pagina
 jQuery(document).ready(function($) {	
 	
@@ -31,13 +43,7 @@ jQuery(document).ready(function($) {
 	
 	//Funzioni che partono al caricamento della pagina
 	$(document).ready(					
-		function () {			
-			//Settaggio larghezza griglia
-			setWidthGrid(widthGridValue);			
-			//Creazione colonne
-			createDiv(numDiv);		
-			reSize(numDiv, widthCols);		
-							
+		function () {		
 			if(pageRequest==1){				
 				pageDown = pageRequest;				
 				var caricato = loadArticle(pageDown, "down");	
@@ -86,75 +92,47 @@ jQuery(document).ready(function($) {
 				}
 		    }			   
 		}
-		
-		/* BASE
-		if ($(window).scrollTop()==0){				
-			if(pageUp >= 1){				
-				startCaricamentoUp = 
-					setTimeout(
-						function(){
-							var caricato = loadArticle(pageUp, "up");				
-							if(caricato){
-								pageUp--;								
-								$("html, body").animate({ scrollTop: 1 }, 'slow');
-							}							
-						},1000); 
-			}
+			
+		if ($(window).scrollTop()==0){	
+			
+			//$("html, body").animate({ scrollTop: 1 }, 1);
+			
+			if(pageUp >= 1 && paginaCarica){						
+				$('.overTheTop').stop();
+				$('.overTheTop').animate({	
+					"height": "44px"}, 
+					700, 
+					function () {								
+						var caricato = loadArticle(pageUp, "up");				
+						if(caricato){
+							pageUp--;																				
+						}	
+						stopCaricamentoUp = 
+							setTimeout(
+								function(){
+									clearTimeout(startCaricamentoUp); 
+									$('.overTheTop').stop();
+									$('.overTheTop').animate({	
+										"height": "0px"}, 
+										500
+									);	
+									$("html, body").animate({ scrollTop: 1 }, 1);										
+								},600); 	
+					});	
+			}									
 		} 
-		if ($(window).scrollTop()>0){ 			
-			clearTimeout(startCaricamentoUp); 
-		}
-		*/
-		
-				//alert($(window).scrollTop());	
+		if ($(window).scrollTop()>0){
 			
-			if ($(window).scrollTop()==0){	
-				
-				//$("html, body").animate({ scrollTop: 1 }, 1);
-				
-				if(pageUp >= 1 && paginaCarica){						
-					$('.overTheTop').stop();
-					$('.overTheTop').animate({	
-						"height": "44px"}, 
-						700, 
-						function () {								
-							var caricato = loadArticle(pageUp, "up");				
-							if(caricato){
-								pageUp--;																				
-							}	
-							stopCaricamentoUp = 
-								setTimeout(
-									function(){
-										clearTimeout(startCaricamentoUp); 
-										$('.overTheTop').stop();
-										$('.overTheTop').animate({	
-											"height": "0px"}, 
-											500
-										);	
-										$("html, body").animate({ scrollTop: 1 }, 1);										
-									},600); 	
-						});	
-				}									
-			} 
-			if ($(window).scrollTop()>0){
-				
-				if ($(".overTheTop").is(':animated')){
-					$('.overTheTop').stop();
-					$('.overTheTop').animate({	
-							"height": "0px"}, 
-							500
-					);	
-				}
-				//clearTimeout(startCaricamentoUp); 
+			if ($(".overTheTop").is(':animated')){
+				$('.overTheTop').stop();
+				$('.overTheTop').animate({	
+						"height": "0px"}, 
+						500
+				);	
 			}
-			
-		
-		
+		}
 	});		
 	
-	$(window).resize(function () {		
-		reSize(numDiv, widthCols);		
-	});
 });
 
 //Funzione che restituisce la pagina contenente le immagini indicata come parametro e la appende nel div
@@ -195,21 +173,13 @@ function loadArticle(pageNumber, where){
 		$.ajax({		
 			url: urlSite+"/wp-admin/admin-ajax.php",		
 			type:'POST',			
-			//data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category_name='+category_name+'&category_id='+category_id+'&loop_file=includes/loop_home', 
 			data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category_id='+category_id+'&loop_file=includes/loop_home', 
 			success: function(html){           											
-				$("#photosx").append(html);    // This will be the div where our content will be loaded																					
+				$("#tiles").append(html);    // This will be the div where our content will be loaded	
+				applyLayout();
 			},
 			complete: function(){				
 				load = "false";		
-												
-				//Settaggio dei margini delle immagini
-				setMarginImage(marginImageValue);
-				if(isPhone == "0"){
-					loadImage("#photosx", ".preload", "0.7", "", ".imageCella");		
-				}else{
-					loadImage("#photosx", ".preload", "1", "", ".imageCella");		
-				}
 				
 				//Gestione del Load Multi Page
 				if(pageMulti!= null && pageMulti!= ""){
@@ -220,74 +190,15 @@ function loadArticle(pageNumber, where){
 				
 				//rompe il js ma de logica ci siamo
 				if(pageNumber==pageRequest){					
-					var scrollHeight = parseInt($('#imageCella'+imageRequest).offset().top);
-					$("html, body").animate({ scrollTop: scrollHeight }, 'slow');
+					//TODO inserire un if 
+					//var scrollHeight = parseInt($('#imageCella'+imageRequest).offset().top);
+					//$("html, body").animate({ scrollTop: scrollHeight }, 'slow');
 				}
 			}
 		});				
 		return true;	
 	}	
 	return false;
-}
-
-//Settaggio larghezza griglia
-function setWidthGrid(widthGrid){
-	$("#photosx").width(widthGrid+"%");
-}
-
-//Settaggio larghezza griglia
-function setMarginImage(marginImageValue){	
-	if(isPhone == "0"){
-		$(".colonna").css({		"margin-left":  	marginImageValue+"px"});
-	}
-	$(".imageCella").css({	"margin-bottom":  	marginImageValue+"px"});
-}
-
-//Funzione che crea i div-colonna che conterranno verticalmente le immagini
-function createDiv(numDiv){
-
-	for (i=1; i<=numDiv; i++) {
-		//Creo il div colonna
-		var divHtml = "<div id=\"colonna"+i+"\" class=\"colonna colonnaPhoto\">";		
-		
-		//Lo appendo
-		$("#photosx").append(divHtml);
-				
-		//Inizializzo l'array height con valore 0
-		heightColArray [i] = 0;		
-	}		
-}
-function reSize(numDiv, widthCols){
-	var widthColsArray = widthCols.split(",");
-					
-	$(".imageCella").css({height : ""});					
-	
-	for (i=1; i<=numDiv; i++) {
-		//Creo il div colonna		
-		$("#colonna"+[i]).css({width : ((widthColsArray[(i-1)])-1)+"%"});
-		$("#colonna"+i).width(parseInt($("#colonna"+i).width()));
-							
-		//Inizializzo l'array height con valore 0
-		heightColArray [i] = 0;		
-	}		
-}
-function createDiv_(numDiv, widthCols){
-	
-	var widthColsArray = widthCols.split(",");
-					
-	for (i=1; i<=numDiv; i++) {
-		//Creo il div colonna
-		var divHtml = "<div id=\"colonna"+i+"\" style=\"width: "+((widthColsArray[(i-1)])-1)+"%;\" class=\"colonna colonnaPhoto\">";		
-		
-		//Lo appendo
-		$("#photosx").append(divHtml);
-		
-		//Ri calcolo il width togliendo le cifre dopo la virgola per evitare sfarfallii
-		$("#colonna"+i).width(parseInt($("#colonna"+i).width()));
-		
-		//Inizializzo l'array height con valore 0
-		heightColArray [i] = 0;		
-	}		
 }
 
 //Funzione che controlla se l'insieme delle immagini stampate attivino lo scroll
@@ -349,7 +260,6 @@ function loadPhotoOnDiv(html, widthImage, heightImage, where, idArticle){
 	}
 }
 
-
 function apriImg_v2(urlArticle, page, category, idArticle){	
 	homeUrl = window.location+"";
 	
@@ -372,4 +282,16 @@ function apriImg_v2(urlArticle, page, category, idArticle){
 	
 	window.location.href = urlArticle;		
 }
-	
+
+function applyLayout() {
+			$tiles.imagesLoaded(function() {
+			  // Destroy the old handler
+			  if ($handler.wookmarkInstance) {
+				$handler.wookmarkInstance.clear();
+			  }
+
+			  // Create a new layout handler.
+			  $handler = $('li', $tiles);
+			  $handler.wookmark(options);
+			});
+		}

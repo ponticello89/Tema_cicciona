@@ -20,15 +20,5 @@ jQuery(document).ready(function($) {
 		return false;
 	});	
 	
-	//comparsa e sparizione in caso di window troppo piccola
-	$(window).resize(function () {		
-		if($(window).width() >= $("body").css("min-width").replace("px", "")){
-			if  ($(window).scrollTop() > headerHeight){
-				$('.tornaSu').fadeIn();
-			}
-		}else{
-			$('.tornaSu').fadeOut();
-		}
-		
-	});
+	
 });

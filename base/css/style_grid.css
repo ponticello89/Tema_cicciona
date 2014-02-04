@@ -104,6 +104,17 @@
 	display: none;
 }
 
+ #tiles li {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+	
+#tiles li img {
+  width: 100%;
+  height: auto;
+}
+
+
 @media (max-width: 1200px) {
   #photos {
   -moz-column-count:    5;

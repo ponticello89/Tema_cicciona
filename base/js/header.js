@@ -55,6 +55,7 @@ jQuery(document).ready(function($) {
 
 
 function reSizeHeader(){	
+
 	if($('.logoSite') != null){		
 		if($('.logoSite').height() > $('.headerTitleDiv').height()){			
 			$('.headerTitleDiv').height($('.logoSite').height()); 
@@ -70,4 +71,5 @@ function reSizeHeader(){
 		heightHeader = heightHeader + parseInt($('.headerSocialDiv').outerHeight(true));
 	}
 	$('#header').height(heightHeader);
+	
 }	

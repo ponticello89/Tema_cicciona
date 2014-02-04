@@ -21,17 +21,21 @@
 			
 			$titleArticle = get_the_title($post->ID);			
 			$thumb 		  = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
-			//$thumb      = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_size' );			
-			//$thumb      = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID, 'medium'), 'thumbnail_size' );
 			$urlImage 	  = $thumb['0']; 
 			$width 		  = $thumb['1'];
 			$height 	  = $thumb['2'];													
 		?>
 			
 			
-		<?php if($width != null || $width!=0) :?>
 		
-			<?php // Ho scritto il javascript in php perche l'url dava problemi una volta spedita
+		<?php if($width != null || $width!=0) :?>
+			
+			<li><img src="<?php echo $urlImage ?>" ></li>
+		
+		
+			<?php
+			/*
+			// Ho scritto il javascript in php perche l'url dava problemi una volta spedita
 			echo '<script type="text/javascript">';		
 			echo 'var urlImage 		= "' . $urlImage . '";';				
 			echo 'var urlArticle 	= "' . $urlArticle . '";';			
@@ -70,6 +74,7 @@
 			echo 'loadPhotoOnDiv(html, widthImage, heightImage, wherePage, idArticle);';		
 			echo '';
 			echo '</script>';
+			*/
 			?>
 			
 		<?php endif; ?>		
