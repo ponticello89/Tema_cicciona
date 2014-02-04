@@ -29,6 +29,16 @@
 	<ul>
 </div>
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52af59c078a11b97"></script>
+<?php 
+if(strpos(curPageURL(),'localhost') === false){
+?>	
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52af59c078a11b97"></script>
+<?php 
+}else{
+?>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+<?php 
+}
+?>
 <!-- AddThis Button END -->
 	

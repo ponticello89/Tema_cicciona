@@ -73,14 +73,14 @@
 
 	<?php
 		if (is_single()){
-			$curUrl = curPageURL();			
-			$idArticle = htmlspecialchars($_GET["p"]);
+			$curUrl 	  = curPageURL();			
+			$idArticle    = htmlspecialchars($_GET["p"]);
 			$titleArticle = get_the_title($idArticle); 
 			$thumb 		  = wp_get_attachment_image_src( get_post_thumbnail_id($idArticle), 'small');			
 			$urlImage 	  = $thumb['0']; 
-			echo "<meta property=\"og:url\" content=\"" . $curUrl . "\" >";
+			echo "<meta property=\"og:url\"   content=\"" . $curUrl       . "\" >";
 			echo "<meta property=\"og:title\" content=\"" . $titleArticle . "\" >";
-			echo "<meta property=\"og:image\" content=\"" . $urlImage . "\" >";
+			echo "<meta property=\"og:image\" content=\"" . $urlImage     . "\" >";
 		}else if(is_home() || is_category() || is_page()){			
 			echo "<meta property=\"og:image\" content=\"" . get_template_directory_uri() . "/images/header.png\" >";
 		}
@@ -148,13 +148,13 @@
 				<div style="float: right;">
 					<!-- SOCIAL-->			
 										
-								<?php 
-								if(!isPhone()){
-									require_once (TEMPLATEPATH . '/includes/social.php');
-								}else{
-									require_once (TEMPLATEPATH . '/includes/social_mobile.php');
-								}
-								?>					
+					<?php 
+					if(!isPhone()){
+						require_once (TEMPLATEPATH . '/includes/social.php');
+					}else{
+						require_once (TEMPLATEPATH . '/includes/social_mobile.php');
+					}
+					?>					
 					
 					<!-- SOCIAL-->	
 				</div>				

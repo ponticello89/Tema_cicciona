@@ -293,7 +293,8 @@
 			$cont++;
 		
 			$arrayQueryPost = array();						
-			$arrayQueryPost['paged'] = $cont;					
+			$arrayQueryPost['paged'] = $cont;		
+			$arrayQueryPost['post_status'] = 'publish';					
 			if($idCategory != null && $idCategory != "" && $idCategory != 1){
 				$arrayQueryPost['category_id'] = $idCategory;				
 			}		
@@ -336,7 +337,8 @@
 			$cont++;
 		
 			$arrayQueryPost = array();						
-			$arrayQueryPost['paged'] = $cont;					
+			$arrayQueryPost['paged'] = $cont;		
+			$arrayQueryPost['post_status'] = 'publish';					
 			if($idCategory != null && $idCategory != "" && $idCategory != 1){
 				$arrayQueryPost['cat'] = $idCategory;				
 			}		
@@ -380,7 +382,8 @@
 			$cont++;
 		
 			$arrayQueryPost = array();						
-			$arrayQueryPost['paged'] = $cont;					
+			$arrayQueryPost['paged'] = $cont;			
+			$arrayQueryPost['post_status'] = 'publish';		
 			if($idCategory != null && $idCategory != "" && $idCategory != 1){
 				$arrayQueryPost['cat'] = $idCategory;				
 			}		
