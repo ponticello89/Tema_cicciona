@@ -295,9 +295,10 @@
 			$arrayQueryPost = array();						
 			$arrayQueryPost['paged'] = $cont;		
 			$arrayQueryPost['post_status'] = 'publish';					
+			
 			if($idCategory != null && $idCategory != "" && $idCategory != 1){
-				$arrayQueryPost['category_id'] = $idCategory;				
-			}		
+				$arrayQueryPost['cat'] = $idCategory;				
+			}					
 			query_posts($arrayQueryPost);			
 			
 			$contArticle = 0;
