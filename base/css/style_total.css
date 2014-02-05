@@ -2,6 +2,8 @@
 html, body {
   height: 100%;
   background-color:	#B5B5B5;
+  background-attachment: fixed;
+  /*background: url(../images/noise_bg2.png) 0 0 repeat, radial-gradient(ellipse farthest-corner at center, #E2E1D1 10%, #696969 100%);*/
 }
 body{	
 	border-top: 3px solid #9397A3;
@@ -25,12 +27,11 @@ body{
 	/*height: 70%;*/
 	/*display: table;*/	
 }
-footer {
-	background-color:	#B5B5B5;	
+footer {	
 	padding-top: 4px;	
 	clear: both;
 	border-top: solid 1px #ccc;	
-	bottom: 0;
-	height: 4%;
+	bottom: 0;	
+	height: auto;
 	width: 100%;
 }

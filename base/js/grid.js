@@ -21,16 +21,17 @@ imgArray=new Array();
 
 heightColArray = new Array();
 
-var   $tiles = $('#tiles');
-var   $handler = $('li', $tiles);
-var   $main = $('#main');
-var   $window = $(window);
+//Inizializzazione Griglia
+var   $tiles    = $('#tiles');
+var   $handler  = $('li', $tiles);
+var   $main     = $('#main');
+var   $window   = $(window);
 var   $document = $(document);
-var   options = {
-	autoResize: true, // This will auto-update the layout when the browser window is resized.
-	container: $main, // Optional, used for some extra CSS styling
-	offset: 1, 	  // Optional, the distance between grid items
-	itemWidth: 400    // Optional, the width of a grid item
+var   options   = {
+	autoResize: true,  // This will auto-update the layout when the browser window is resized.
+	container: 	$main, // Optional, used for some extra CSS styling
+	offset: 	10,    // Optional, the distance between grid items
+	itemWidth:  350    // Optional, the width of a grid item
   };
 
 //Funzioni che partono al caricamento della pagina
@@ -174,8 +175,12 @@ function loadArticle(pageNumber, where){
 			url: urlSite+"/wp-admin/admin-ajax.php",		
 			type:'POST',			
 			data: 'action=infinite_scroll&page_no='+ pageNumber + '&where='+ where + '&category_id='+category_id+'&loop_file=includes/loop_home', 
-			success: function(html){           											
-				$("#tiles").append(html);    // This will be the div where our content will be loaded	
+			success: function(html){  
+				if(where=="down"){			
+					$("#tiles").append(html);
+				}else if(where=="up"){
+					$("#tiles").prepend(html);
+				}
 				applyLayout();
 			},
 			complete: function(){				
@@ -190,9 +195,10 @@ function loadArticle(pageNumber, where){
 				
 				//rompe il js ma de logica ci siamo
 				if(pageNumber==pageRequest){					
-					//TODO inserire un if 
-					//var scrollHeight = parseInt($('#imageCella'+imageRequest).offset().top);
-					//$("html, body").animate({ scrollTop: scrollHeight }, 'slow');
+					if ($('#img'+imageRequest).length){
+						var scrollHeight = parseInt($('#img'+imageRequest).offset().top);
+						$("html, body").animate({ scrollTop: scrollHeight }, 'slow');
+					}					
 				}
 			}
 		});				
@@ -214,50 +220,6 @@ function loadArticleForScroll(){
 		}			   			
 	}
 	
-}
-
-var firstLoad = true;
-//Funzione che si occupa di collocare l'articolo nel div giusto
-function loadPhotoOnDiv(html, widthImage, heightImage, where, idArticle){
-	//Debug
-	//alert('loadPhotoOnDiv(html) totaleImg = '+totaleImg+' size = '+width+'x'+height);
-	
-	//Calcolo il collocamento
-	var divSelect = 0;
-	var heightMoreLittle = -1;
-	for (i=numDiv; i>0; i--) {		
-		if(heightMoreLittle == -1){
-			heightMoreLittle = heightColArray [i] ;
-			divSelect = i;
-		} else {
-			if (heightMoreLittle > heightColArray[i]){
-				heightMoreLittle = heightColArray [i] ;
-				divSelect = i;
-			}
-		}
-	}
-	
-	//Se wordpress impazzisce e non setta il width dell'immagine non stampo
-	if(widthImage!=0){				
-
-		if(where=="down"){
-			//Appende HTML immagine nelle colonne 
-			$("#colonna"+divSelect).append(html);
-		}else if(where=="up"){
-			//Appende HTML immagine nelle colonne 
-			$("#colonna"+divSelect).prepend(html);
-		}
-		
-		//Setto nell'array le grandezze delle colonne per calcolare il collocamento
-		var widthColonna = $("#colonna"+divSelect).width();
-		
-		var x = (widthImage/widthColonna);		
-		heightImage = heightImage/x;
-		$("#imageCella"+idArticle).height(parseInt(heightImage));				
-		heightColArray [divSelect] = parseInt(heightColArray [divSelect]) + parseInt(heightImage);
-		
-		totaleImg++;
-	}
 }
 
 function apriImg_v2(urlArticle, page, category, idArticle){	
@@ -284,14 +246,17 @@ function apriImg_v2(urlArticle, page, category, idArticle){
 }
 
 function applyLayout() {
-			$tiles.imagesLoaded(function() {
-			  // Destroy the old handler
-			  if ($handler.wookmarkInstance) {
-				$handler.wookmarkInstance.clear();
-			  }
-
-			  // Create a new layout handler.
-			  $handler = $('li', $tiles);
-			  $handler.wookmark(options);
-			});
+	$tiles.imagesLoaded(function() {
+		// Destroy the old handler
+		if ($handler.wookmarkInstance) {
+			$handler.wookmarkInstance.clear();
 		}
+		
+		// Create a new layout handler.
+		$handler = $('li', $tiles);
+			//$handler.css({
+			//"top" : ($(document).height()+1000)+"px"});
+			//"top" : $tiles.outerHeight(true)+"px"});			
+		$handler.wookmark(options);
+	});
+}

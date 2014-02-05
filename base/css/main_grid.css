@@ -1,28 +1,7 @@
-
-/** General page styling **/
-html {
-  background-color: #e5e5e5;
-  font-family: "Helvetica Neue Light", "Helvetica Neue", Arial, sans-serif;
-}
-
 #main {
   margin: 30px 0;
+  padding-top: 10px
   position: relative;
-}
-
-header h1 {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 200;
-  margin: 30px 0 10px 0;
-}
-
-header p {
-  text-align: center;
-  font-size: 14px;
-  color: #666666;
-  margin: 0;
-  font-weight: 200;
 }
 
 /**
@@ -39,24 +18,51 @@ header p {
  * Grid items
  */
 #tiles li {
-  width: 400px;
-  background-color: #ffffff;
-  border: 1px solid #dedede;
-          border-radius: 2px;
-     -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  display: none; /** Hide items initially to avoid a flicker effect **/
-  cursor: pointer;
-  padding: 4px;
+	width: 350px;
+	background-color: black;  
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	display: none; /** Hide items initially to avoid a flicker effect **/
+	cursor: pointer;
+	overflow: hidden;
+	-webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 	0px 0px 3px 2px rgba(0,0,0,1);
+	box-shadow: 		0px 0px 3px 2px rgba(0,0,0,1);
+	margin-top: 4px;					
+	
+	-webkit-transition: 	all 0.3s ease-in;
+	-moz-transition: 		all 0.3s ease-in;
+	-o-transition: 			all 0.3s ease-in;
+	-ms-transition: 		all 0.3s ease-in;
+	transition: 			all 0.3s ease-in;
 }
 
 #tiles li.inactive {
-  visibility: hidden;
-  opacity: 0;
+	visibility: hidden;
+	opacity: 0;
 }
 
-#tiles li img {
-  display: block;
+#tiles li img {	
+	display: block;
+	opacity: 			0.7;	
+	border-radius: 7px;
+    -moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-webkit-transition: 	all 0.1s ease-in;
+	-moz-transition: 		all 0.1s ease-in;
+	-o-transition: 			all 0.1s ease-in;
+	-ms-transition: 		all 0.1s ease-in;
+	transition: 			all 0.1s ease-in;
+}
+
+#tiles li img:hover {
+	opacity:					1;
+	-webkit-transition-delay: 	0.1s;
+	-moz-transition-delay: 		0.1s;
+	-o-transition-delay: 		0.1s;
+	-ms-transition-delay: 		0.1s;
+	transition-delay: 			0.1s;
 }
 
 /**
@@ -69,16 +75,6 @@ line-height: 20px;
 text-align: center;
 font-weight: 200;
   margin: 7px 0 2px 7px;
-}
-
-footer {
-  text-align: center;
-
-}
-
-footer a {
-  color: #435DC5;
-  text-decoration: none;
 }
 
 /**

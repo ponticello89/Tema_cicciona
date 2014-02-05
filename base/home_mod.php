@@ -51,13 +51,6 @@
 	</a>	
 </div>
 
-<!--Contenitore Grid
-<div id="photosx"></div>			
--->
-
- <!-- CSS Reset -->  
-  <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/reset_grid.css">
-
   <!-- Specific CSS for the tiles -->  
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid2.css">
   
@@ -69,25 +62,17 @@
     </ul>
 </div>
 
-<!-- include jQuery -->
-  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
-
   <!-- Include the imagesLoaded plug-in -->
   <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.imagesloaded.js"></script>
   
   <!-- Include the plug-in -->
   <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.wookmark.js"></script>
 
-<script type="text/javascript">
-	
-  </script>
-
+  <script src="<?php echo get_template_directory_uri(); ?>/js/grid.js"></script>
 
 <?php 
-	if(!isPhone()){ ?>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/grid.js"></script>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">
-		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_lightBox.css">
+	if(!isPhone()){ ?>		
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid.css">		
 <?php 
 	}else{?>
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_grid_mobile.css">

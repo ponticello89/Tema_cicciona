@@ -202,16 +202,7 @@
 		$category_id	 = $_POST['category_id'];
 		$where			 = $_POST['where'];
 		$posts_per_page  = get_option('posts_per_page');
-
-	?>
-		<script type="text/javascript">		
-			var categoryId 	= "<?php echo $category_id;?>";				
-			var currentPage = <?php echo $paged;?>;
-			var wherePage 	= "<?php echo $where;?>";
-						
-		</script>			
-	<?php					
-		
+				
 		//query_posts( array( 'category__and' => array(1,3), 'posts_per_page' => 2, 'orderby' => 'title', 'order' => 'DESC' ) );
 		//category_name=senza-categoria		
 		$arrayQueryPost = array();						

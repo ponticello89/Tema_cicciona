@@ -36,13 +36,25 @@ jQuery(document).ready(function($) {
 	gestoreFrecce();
 	
 	if(isPhone == "0"){		
-		reSizeImageArticle();
-				
+		alert(screen.width);
+		//$(window).height()
+		if(screen.width >= 950){
+			reSizeImageArticle();
+		}else{
+			reSizeImageArticle_Mobile();
+		}
+		
 		var scrollHeight = parseInt($('.imgDiv').offset().top);
 		$("html, body").animate({ scrollTop: scrollHeight }, 'slow');	
 		
 		$(window).resize(function () {		
-			reSizeImageArticle();
+			
+			if(screen.width >= 950){
+				reSizeImageArticle();
+			}else{
+				reSizeImageArticle_Mobile();
+			}
+			
 			gestoreFrecce();
 		});
 	}else{				
@@ -75,6 +87,19 @@ jQuery(document).ready(function($) {
 });
 
 function reSizeImageArticle(){
+	if(heightImageArticle > $(window).height()){		
+		$('.imageArticle').css({
+			"max-height": $(window).height()+"px",
+			"max-width": "95%",			
+			"height": "auto",
+			"width": "auto"
+			});		
+	}else{
+		$('.imageArticle').removeAttr('style');
+	}
+};
+
+function reSizeImageArticle__(){
 	var windowDefault = 950;
 	var x = (widthImageArticle/windowDefault);			
 
@@ -95,21 +120,6 @@ function reSizeImageArticle(){
 	}else{
 		$('.imgDiv').find('img').removeAttr('style');
 	}
-};
-
-function reSizeImageArticle__(){
-	var windowDefault = 950;
-	var x = (widthImageArticle/windowDefault);			
-
-	if(x != 0){
-		widthImageArticle = widthImageArticle/x;
-		heightImageArticle = heightImageArticle/x;
-	}	
-	
-	$('.imageArticle').css({	
-		width:  widthImageArticle,
-		height: heightImageArticle,								
-		});
 };
 
 function reSizeImageArticle_Mobile(){	
