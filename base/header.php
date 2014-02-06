@@ -95,9 +95,9 @@
 
 <?php		
 	//NAVIGATION PER MOBILE
-	if(isPhone()) {
+	//if(isPhone()) {
 		require_once (TEMPLATEPATH . '/includes/navigation_mobile.php');	
-	}
+	//}
 ?>
 
 <div id="pagewrap">
@@ -163,13 +163,11 @@
 						}
 					?>			
 							<div class="headerLevel2">
-				<?php		
-					if(!isPhone()) {
-				?>
+				
 						<!--Inizio Categorie-->				
 						<?php	$catId = htmlspecialchars($_GET["cat"]); ?>
 										
-						<div class="headerCategoriesDiv">
+					
 							<ul class="headerCategoriesUl">											
 								<li 
 									<?php 										
@@ -205,11 +203,16 @@
 									} 
 								?>								
 							</ul>				
-						</div>
+				<ul class="headerCategoriesUlBotton">
+					<li class="socialLi">						
+						<p class="listBtn menuRightBtn"></p>																	
+					</li>
+				</ul>	
+					
 						<!--Fine Categorie-->
 						
 						<!--Inizio Page-->
-						<div class="headerPagesDiv">
+			
 							<ul class="headerPagesUl">															
 								<?php			
 									$pageId = htmlspecialchars($_GET["page_id"]);	
@@ -233,24 +236,9 @@
 									} 
 								?>		
 							</ul>										
-						</div>
+			
 						<!--Fine Page-->
-				<?php		
-					}else{
-						//BOTTONE MENU MOBILE
-				?>
-						<div class="headerCategoriesDiv">
-							<ul class="headerCategoriesUl">
-								<li class="socialLi">
-									<a>
-										<p class="listBtn menuRightBtn"></p>					
-									</a>	
-								</li>
-							</ul>
-						</div>					
-				<?php		
-					}
-				?>
+			
 			</div>						
 		</div>				
 		

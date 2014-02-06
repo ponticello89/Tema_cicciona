@@ -28,8 +28,11 @@
 	COPERTINA SINGLE
 *****************************/
 .imageArticle {
-	max-width: 			950px;
-	width: 				100%;
+	max-width: 950px;
+	max-height: 600px;
+	width: auto;
+	height: auto;
+	
 	/*ombra nera*/
 	-webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,1);
 	-moz-box-shadow: 	0px 0px 3px 2px rgba(0,0,0,1);
@@ -50,11 +53,34 @@
 .gridster img{	
 	width: 100%;
 	height: 100%;
+
 	/*ombra nera*/
 	-webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,1);
 	-moz-box-shadow: 	0px 0px 3px 2px rgba(0,0,0,1);
 	box-shadow: 		0px 0px 3px 2px rgba(0,0,0,1);
 	border-radius: 		7px;	
+}
+.limitedView{
+	display: none;
+}
+@media screen and (max-width: 960px) {
+	.gridster{	
+		display:none;		
+	}
+	.limitedView{
+		display: block;
+	}
+	.imgDiv img{
+		max-width: 95%;		
+		max-height: 600px;
+		height: auto;
+		margin-bottom: 		10px;
+		/*ombra nera*/
+		-webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,1);
+		-moz-box-shadow: 	0px 0px 3px 2px rgba(0,0,0,1);
+		box-shadow: 		0px 0px 3px 2px rgba(0,0,0,1);
+		border-radius: 		7px;
+	}
 }
 /****************************
 	NAVIGATION SINGLE

@@ -83,10 +83,7 @@
 			<div class="imgDiv">													
 				<img src='<?php echo $urlImage ?>' class='preload imageArticle' id='img' style="visibility: hidden; opacity: 0;" alt='OFatalee <?php echo $titleArticle ?>'/>														
 				
-				<!-- IMPAGINAZIONE -->		
-				<?php 
-				if(!isPhone()){
-				?>
+				<!-- IMPAGINAZIONE -->						
 					<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
 					<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.gridster.css">
 					
@@ -110,19 +107,18 @@
 							<?php echo get_post_meta($post->ID, 'pagination_image', true);?>
 						 </ul>
 					</div>
-				<?php 
-				}else{					
-				?>											
+						
+					<div class="limitedView">						
+					</div>
+					
 					<script type="text/javascript">					 												
 						var htmlString = '<?php echo trim (get_post_meta($post->ID, 'pagination_image', true)) ?>';																			
 						var $elem = $('<div>').html(htmlString);
-						var $img = $elem.find('img');						
-						$('.imgDiv').append($img);					
+						var $img = $elem.find('img');
+						$img.removeAttr( 'style' );
+						$('.limitedView').append($img);					
 					</script>					
-				<?php 
-				}
-				?>
-				
+								
 				<!-- IMPAGINAZIONE -->		
 				
 				<script type="text/javascript">

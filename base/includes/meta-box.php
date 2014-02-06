@@ -80,7 +80,8 @@ function pagination_image_show_box() {
 					$('#upload_logo_preview img').attr('src',image_url);
 					gridster.add_widget(
 						'<li style="background-color: white;" data-row="4" data-col="1" data-sizex="10" data-sizey="10">'+				
-							'<img src="'+image_url+'" style="width: 100%;height: 100%;"/>'+
+							//'<img src="'+image_url+'" style="width: 100%;height: 100%;"/>'+
+							'<img src="'+image_url+'"/>'+
 							'<span id="delete-img" class="delete-img" ></span>'+
 						'</li>', 10, 10);	
 					

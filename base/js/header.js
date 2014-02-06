@@ -10,49 +10,66 @@ jQuery(document).ready(function($) {
 	});
 			
 	var aperto = false;
+	/*
 	var widthMobileNav = 356;	
 	if((($(window).width()/100)*50) < widthMobileNav){
 		widthMobileNav = ($(window).width()/100)*50;						
 	}	
-	$('.navPhone').width(widthMobileNav);		
+	$('.navPhone').width(widthMobileNav);	
+	*/
+	
+	widthMobileNav = $('.navPhone').width();
 	
 	$('.menuRightBtn').click(function (){		
 		if(!aperto){
 			aperto = true;			
-			
-			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",
-								"-webkit-transform"	: "translate3d(0px, 0, 0)"
-							});
+			aperturaMenu();
 		}else{
 			aperto = false;
-			
-			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",								
-								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
-							});			
+			chiusuraMenu();	
 		}
 	});	
 	
 	$('.menuRightCloseBtn').click(function (){		
 		if(aperto){
 			aperto = false;
-			
-			$('.navPhone').css({"-webkit-transition": "all 0.2s ease-in",								
-								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
-							});			
+			chiusuraMenu();				
 		}
 	});	
 	
+	/*
 	$('#pagewrap').mouseover(function (){
 		if(aperto){
 			aperto = false;		
 			
 			$('.navPhone').css({"-webkit-transition": "all 0.4s ease-in",								
-								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)"
+								"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)",
+								"box-shadow": "rgb(0, 0, 0) 0px 0px 0px 0px"
 							});
 		}
 	});
+	*/
 });
 
+function aperturaMenu(){	
+	widthMobileNav = $('.navPhone').width();
+
+	$('.navPhone').css({
+		"-webkit-transition": "all 0.2s ease-in",
+		"-webkit-transform"	: "translate3d(0px, 0, 0)",		
+		"box-shadow": "rgb(0, 0, 0) 0px 0px 10px 4px"								
+	});
+}
+
+function chiusuraMenu(){	
+	widthMobileNav = $('.navPhone').width();
+
+	$('.navPhone').css({	
+		"-webkit-transition": "all 0.2s ease-in",								
+		"-webkit-transform"	: "translate3d(-"+widthMobileNav+"px, 0, 0)",
+		"box-shadow": "rgb(0, 0, 0) 0px 0px 0px 0px"
+	});	
+}
 
 function reSizeHeader(){	
 

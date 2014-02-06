@@ -56,8 +56,28 @@
     -o-transition: 		all 0.2s ease-in-out;
     transition: 		all 0.2s ease-in-out;
 }
+.headerLevel2 ul li{
+	display: inline-block;
+}
+@media screen and (max-width: 800px) {
+	.listBtn{
+		background:   url(../images/list.png) no-repeat center center;
+		margin-right: 0px;
+		width: 		  40px;
+		height: 	  40px;
+	}
+	.headerCategoriesUl{
+		display: 	none;
+	}
+	.headerPagesUl{
+		display: 	none;
+	}
+	.headerLevel2 a{
+		padding: 	0px!important;
+	}
+}
 .current_page_item a{	
-	color: white;
+	color: 		white;
 }
 /****************************
 	CONTENITORE TITOLO/LOGO 

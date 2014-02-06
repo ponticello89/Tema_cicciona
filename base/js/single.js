@@ -35,6 +35,7 @@ jQuery(document).ready(function($) {
 	
 	gestoreFrecce();
 	
+	/*
 	if(isPhone == "0"){		
 		alert(screen.width);
 		//$(window).height()
@@ -80,7 +81,7 @@ jQuery(document).ready(function($) {
 			}
 		});
 	}
-	
+	*/
 	$(window).scroll(function(){
 		gestoreFrecce();
 	});
