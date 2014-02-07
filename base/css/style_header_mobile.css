@@ -1,114 +1,17 @@
 /****************************
-	LOGO
+	SCRITTE HEADER
 *****************************/
-.logoSite{
-	max-width: 200px;
-}
-/****************************
-	LISTA BUTTON (MENU)
-*****************************/
-.listBtn{
-	background: url(../images/list.png) no-repeat center center;
-	margin-right: 0px;
-	width: 40px;
-	height: 40px;
-}
-/****************************
-	CONTENITORE HEADER MASTER
-*****************************/
-.headerDivTop{
-	width: 		95%;	
-	position: 	relative;
-	left:		2%;	
-}
-/****************************
-	SUB CONTENITORE HEADER 
-*****************************/
-.headerLevel1{
-	width: 100%;
-	height: 25%;
-}
-.headerSocialDiv{	
-	height: 76px;
-}
-.headerLevel2{
-	width: 100%;
-	height: 75%;
-}
-.headerLevel2 a{	
-	font-size: 		20px;
-	text-transform: uppercase;		
-	font-weight: 	normal;
-	color:			#9397A3;
-}
-.headerLevel2 a:hover{
-	background: 	 	none !important;
-	text-decoration: 	none;
-	color:			 	#7B88CC;	
-	/*tempo*/
-	-webkit-transition: all 0.4s ease-in-out;
-    -moz-transition:	all 0.4s ease-in-out;
-    -o-transition: 		all 0.4s ease-in-out;
-    transition: 		all 0.4s ease-in-out;
+.headerLevel2 a{
+	color: 			 #9397A3;
+	text-decoration: none;
+	text-transform:  uppercase;
+	font-size: 		 22px;
+	font-weight:	 bold;	
+	line-height: 	 2em;
+	text-shadow: 	 2px 2px 3px #000;	
+	margin-left: 	 18px;
+	margin-right: 	 18px;
 }
 .current_page_item a{	
-	color: white;
-}
-/****************************
-	CONTENITORE TITOLO/LOGO 
-*****************************/
-.headerTitleDiv{
-	height: 100%;
-	float:	left;
-}
-/****************************
-	CONTENITORE PAGINE 
-*****************************/
-.headerPagesDiv{
-	width:		50%;
-	height: 	100%;
-	float: 		right;
-	text-align: right;	
-}
-.headerPagesDiv li{
-	list-style: none;
-}
-.headerPagesUl{	
-	list-style: none;
-	float: 		right;
-	margin: 	1em 0 0 0;
-}
-/****************************
-	CONTENITORE CATEGORIE 
-*****************************/
-.headerCategoriesDiv{
-	width:	50%;
-	height: 100%;
-	float: 	left;	
-}
-.headerCategoriesDiv li{
-	list-style: none;	
-}
-.headerCategoriesUl{
-	list-style: none;
-	float: 		left;
-	margin: 	1em 0 0 0px;
-}
-/****************************
-	OVER THE TOP LOADING 
-*****************************/
-.overTheTop{
-	background-color: 	currentcolor; 
-	overflow: 			hidden;
-	height: 			0px;
-	text-align:			center;
-	-webkit-box-shadow: inset 0px -4px 10px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 	inset 0px -4px 10px 0px rgba(0,0,0,0.75);
-	box-shadow: 		inset 0px -4px 10px 0px rgba(0,0,0,0.75);
-}
-.overTheTopSpan{
-	font-size: 		24px;
-	vertical-align: -webkit-baseline-middle; 
-	color: 			white;
-	text-shadow: 	1px 1px 0px #000000;
+	color: 	white;
 }

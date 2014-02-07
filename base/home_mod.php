@@ -57,6 +57,14 @@
   <!-- Global CSS for the page and tiles -->  
   <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/main_grid.css">
 
+	<?php 
+	if(isPhone()){ 
+	?>		
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/main_grid_mobile.css">		
+	<?php 
+	}
+	?>
+  
 <div id="main" role="main">
 	<ul id="tiles">              
     </ul>

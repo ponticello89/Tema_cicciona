@@ -3,17 +3,7 @@
 
 <?php $catId = htmlspecialchars($_GET["cat"]); ?>
 
-<?php 
-	if(!isPhone()){
-?>
-		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article.css">
-<?php 
-	}else{
-?>	
-		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article_mobile.css">
-<?php 
-	}
-?>	
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_article.css">
 
 <?php if(!is_single()) : global $more; $more = 0; endif; //enable more link ?>
 	

@@ -27,6 +27,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_total.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">						
 <?php //JS ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>	
@@ -47,8 +48,8 @@
 <?php	
 	} else {
 ?>		
-		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_social.css">
-		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">						
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header_pc.css">						
+		<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_social.css">		
 <?php
 	}
 ?>
@@ -94,10 +95,8 @@
 </script>
 
 <?php		
-	//NAVIGATION PER MOBILE
-	//if(isPhone()) {
-		require_once (TEMPLATEPATH . '/includes/navigation_mobile.php');	
-	//}
+	//NAVIGATION PER MOBILE	
+	require_once (TEMPLATEPATH . '/includes/navigation_mobile.php');		
 ?>
 
 <div id="pagewrap">
@@ -142,26 +141,26 @@
 			</div>
 			
 			<?php 
-				if(is_home() || is_category() ){
+			if(is_home() || is_category() ){
 			?>
-			<div class="headerSocialDiv" style="width: 100%;">
-				<div style="float: right;">
-					<!-- SOCIAL-->			
-										
-					<?php 
-					if(!isPhone()){
-						require_once (TEMPLATEPATH . '/includes/social.php');
-					}else{
-						require_once (TEMPLATEPATH . '/includes/social_mobile.php');
-					}
-					?>					
-					
-					<!-- SOCIAL-->	
-				</div>				
-			</div>	
-			<?php 	
+				<div class="headerSocialDiv" style="width: 100%;">
+					<div style="float: right;">
+						<!-- SOCIAL-->			
+											
+						<?php 
+						if(!isPhone()){
+							require_once (TEMPLATEPATH . '/includes/social.php');
+						}else{
+							require_once (TEMPLATEPATH . '/includes/social_mobile.php');
 						}
-					?>			
+						?>					
+						
+						<!-- SOCIAL-->	
+					</div>				
+				</div>	
+			<?php 	
+			}
+			?>			
 							<div class="headerLevel2">
 				
 						<!--Inizio Categorie-->				

@@ -69,5 +69,7 @@
 			?>		
 		</ul>											
 		<!--Fine Page-->		
-	</div>
+	</div>	
+</div>
+<div class="navPhoneCover">
 </div>
