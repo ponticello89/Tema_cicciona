@@ -27,12 +27,13 @@ var   $handler  = $('li', $tiles);
 var   $main     = $('#main');
 var   $window   = $(window);
 var   $document = $(document);
+var	  itemWidth = 330;
 var   options   = {
-	autoResize: true,  // This will auto-update the layout when the browser window is resized.
-	container: 	$main, // Optional, used for some extra CSS styling
-	offset: 	10,    // Optional, the distance between grid items
-	itemWidth:  350    // Optional, the width of a grid item
-  };
+	autoResize: true,  		 // This will auto-update the layout when the browser window is resized.
+	container: 	$main, 		 // Optional, used for some extra CSS styling
+	offset: 	10,    		 // Optional, the distance between grid items
+	itemWidth:  itemWidth    // Optional, the width of a grid item
+};
 
 //Funzioni che partono al caricamento della pagina
 jQuery(document).ready(function($) {	
@@ -45,6 +46,7 @@ jQuery(document).ready(function($) {
 	//Funzioni che partono al caricamento della pagina
 	$(document).ready(					
 		function () {		
+		
 			if(pageRequest==1){				
 				pageDown = pageRequest;				
 				var caricato = loadArticle(pageDown, "down");	
