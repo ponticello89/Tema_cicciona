@@ -1,9 +1,13 @@
 * { margin: 0; padding: 0; }
 html, body {
-  height: 100%;
-  background-color:	#B5B5B5;
+  height: 				 100%;
+  background-color:		 #B5B5B5;
+  background-image:		 url(../images/bg-velluto.png);
   background-attachment: fixed;
-  /*background: url(../images/noise_bg2.png) 0 0 repeat, radial-gradient(ellipse farthest-corner at center, #E2E1D1 10%, #696969 100%);*/
+  /*
+  background: url(../images/bg-velluto.png) 0 0 repeat, fixed;
+  background: url(../images/noise_bg2.png) 0 0 repeat, radial-gradient(ellipse farthest-corner at center, #E2E1D1 10%, #696969 100%);*/
+  
 }
 body{	
 	border-top: 3px solid #9397A3;
