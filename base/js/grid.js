@@ -42,10 +42,17 @@ jQuery(document).ready(function($) {
 	$(window).load(function () {
 		paginaCarica = true;				
 	});
-	
+		
 	//Funzioni che partono al caricamento della pagina
 	$(document).ready(					
 		function () {		
+		
+			var checkIfLoadedTimer = 
+				setInterval(
+					function () {
+						applyLayout()
+					}, 
+				300);
 		
 			if(pageRequest==1){				
 				pageDown = pageRequest;				
@@ -184,6 +191,7 @@ function loadArticle(pageNumber, where){
 					$("#tiles").prepend(html);
 				}
 				applyLayout();
+				$tiles.imagesLoaded().progress(onProgress);
 			},
 			complete: function(){				
 				load = "false";		
@@ -248,31 +256,21 @@ function apriImg_v2(urlArticle, page, category, idArticle){
 }
 
 function applyLayout() {
-	// Destroy the old handler
-	if ($handler.wookmarkInstance) {
-		$handler.wookmarkInstance.clear();
-	}
 	
-	// Create a new layout handler.
-	$handler = $('li', $tiles);
-		//$handler.css({
-		//"top" : ($(document).height()+1000)+"px"});
-		//"top" : $tiles.outerHeight(true)+"px"});			
-	$handler.wookmark(options);
-
-	/*
-	$tiles.imagesLoaded(function() {
+	//$tiles.imagesLoaded(function() {
 		// Destroy the old handler
 		if ($handler.wookmarkInstance) {
 			$handler.wookmarkInstance.clear();
 		}
 		
 		// Create a new layout handler.
-		$handler = $('li', $tiles);
-			//$handler.css({
-			//"top" : ($(document).height()+1000)+"px"});
-			//"top" : $tiles.outerHeight(true)+"px"});			
+		$handler = $('li', $tiles);			
 		$handler.wookmark(options);
-	});
-	*/
+	//});
+}
+
+function onProgress( imgLoad, image ) {	
+	// change class if the image is loaded or broken
+	var $item = $( image.img ).parents("li");
+	$item.removeClass('is-loading');  
 }

@@ -25,7 +25,7 @@
 
 		<?php if($width != null || $width!=0) :?>
 			
-			<li>		
+			<li class="is-loading">		
 				<?php 
 				if(!isPhone()){
 				?>
