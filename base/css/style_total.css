@@ -2,7 +2,7 @@
 html, body {
   height: 				 100%;
   background-color:		 #B5B5B5;
-  background-image:		 url(../images/bg-velluto.png);
+  /*background-image:		 url(../images/bg-velluto.png);*/
   background-attachment: fixed;
   /*
   background: url(../images/bg-velluto.png) 0 0 repeat, fixed;
