@@ -31,7 +31,7 @@ var	  itemWidth = 330;
 var   options   = {
 	autoResize: true,  		 // This will auto-update the layout when the browser window is resized.
 	container: 	$main, 		 // Optional, used for some extra CSS styling
-	offset: 	10,    		 // Optional, the distance between grid items
+	offset: 	12,    		 // Optional, the distance between grid items
 	itemWidth:  itemWidth    // Optional, the width of a grid item
 };
 
@@ -248,6 +248,19 @@ function apriImg_v2(urlArticle, page, category, idArticle){
 }
 
 function applyLayout() {
+	// Destroy the old handler
+	if ($handler.wookmarkInstance) {
+		$handler.wookmarkInstance.clear();
+	}
+	
+	// Create a new layout handler.
+	$handler = $('li', $tiles);
+		//$handler.css({
+		//"top" : ($(document).height()+1000)+"px"});
+		//"top" : $tiles.outerHeight(true)+"px"});			
+	$handler.wookmark(options);
+
+	/*
 	$tiles.imagesLoaded(function() {
 		// Destroy the old handler
 		if ($handler.wookmarkInstance) {
@@ -261,4 +274,5 @@ function applyLayout() {
 			//"top" : $tiles.outerHeight(true)+"px"});			
 		$handler.wookmark(options);
 	});
+	*/
 }
