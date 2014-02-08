@@ -64,8 +64,8 @@
 	transition: 			all 0.1s ease-in;
 }
 
-li.is-loading img {
-  opacity: 0;
+.is-loading img { 
+  opacity: 0!important;
 }
 
 #tiles li img:hover {
