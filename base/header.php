@@ -27,11 +27,13 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_total.css"/>
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">						
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/jquery.sidr.dark.css">
 <?php //JS ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>	
 <script src="<?php echo get_template_directory_uri(); ?>/js/preload.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.sidr.min.js"></script>
 
 <?php 
 	//Includo funzioni di utilità
@@ -93,11 +95,6 @@
 	//Forse si puo cancellare
 	var isPhone = "<?php echo isPhone(); ?>";	
 </script>
-
-<?php		
-	//NAVIGATION PER MOBILE	
-	require_once (TEMPLATEPATH . '/includes/navigation_mobile.php');		
-?>
 
 <div id="pagewrap">
 	
@@ -161,86 +158,90 @@
 			<?php 	
 			}
 			?>			
-							<div class="headerLevel2">
-				
-						<!--Inizio Categorie-->				
-						<?php	$catId = htmlspecialchars($_GET["cat"]); ?>
-										
-					
-							<ul class="headerCategoriesUl">											
-								<li 
-									<?php 										
-										if((is_home() || is_single()) && $catId==""){										
-											echo 'class="current_page_item"';
-										} 
-									?>
-								>
-									<a href="<?php echo get_option('home');?>">
-										ALL
-									</a>
-								</li>
-								<?php			
-															
-									$args=array(
-									  'orderby' => 'name',
-									  'order' 	=> 'ASC'
-									);								
-									 
-									$categories=get_categories($args);
-									foreach($categories as $category) { 		
-										if($category->term_id != 1){
-											if($catId == $category->term_id){
-												echo '<li class="current_page_item">';
-											}else{
-												echo '<li>';
-											}										
-											echo '	<a href="' . get_category_link( $category->term_id ) . '">';
-											echo '		'. $category->name.'';
-											echo '	</a>';
-											echo '</li>';
-										}
-									} 
-								?>								
-							</ul>				
-				<ul class="headerCategoriesUlBotton">
-					<li class="socialLi">						
-						<p class="listBtn menuRightBtn"></p>																	
+			<div class="headerLevel2">				
+				<!--Inizio Categorie-->				
+				<?php	$catId = htmlspecialchars($_GET["cat"]); ?>			
+				<ul class="headerCategoriesUl">											
+					<li 
+						<?php 										
+						if((is_home() || is_single()) && $catId==""){										
+							echo 'class="current_page_item"';
+						} 
+						?>
+					>
+						<a href="<?php echo get_option('home');?>">
+							ALL
+						</a>
 					</li>
-				</ul>	
-					
-						<!--Fine Categorie-->
-						
-						<!--Inizio Page-->
-			
-							<ul class="headerPagesUl">															
-								<?php			
-									$pageId = htmlspecialchars($_GET["page_id"]);	
-								
-									$args=array(
-									  'orderby' => 'name',
-									  'order' => 'ASC'
-									);								
-									 
-									$pages=get_pages($args);
-									foreach($pages as $page) { 										
-										if($pageId == $page->ID){
-											echo '<li class="current_page_item">';
-										}else{
-											echo '<li>';
-										}										
-										echo '	<a href="' . get_page_link( $page->ID ) . '">';
-										echo '		'. $page->post_title.'';
-										echo '	</a>';
-										echo '</li>';								
-									} 
-								?>		
-							</ul>										
-			
-						<!--Fine Page-->
-			
+					<?php														
+					$args=array(
+					  'orderby' => 'name',
+					  'order' 	=> 'ASC'
+					);								
+					 
+					$categories=get_categories($args);
+					foreach($categories as $category) { 		
+						if($category->term_id != 1){
+							if($catId == $category->term_id){
+								echo '<li class="current_page_item">';
+							}else{
+								echo '<li>';
+							}										
+							echo '	<a href="' . get_category_link( $category->term_id ) . '">';
+							echo '		'. $category->name.'';
+							echo '	</a>';
+							echo '</li>';
+						}
+					} 
+					?>								
+				</ul>			
+				
+				<ul class="headerCategoriesUlBotton">					
+					<li class="socialLi">						
+						<p class="listBtn left-menu"></p>																	
+					</li>	
+					<li>						
+						<a class="left-menu">Menu</a>																	
+					</li>					
+				</ul>				
+				<script>
+					$(document).ready(function() {
+						$('#menu-left').css({'visibility' : 'visible'});
+						$('.left-menu').sidr({
+							name: 'menu-left',
+							side: 'left'
+						});												
+					});
+				</script>						
+				<!--Fine Categorie-->
+				
+				<!--Inizio Page-->		
+				<ul class="headerPagesUl">															
+					<?php			
+					$pageId = htmlspecialchars($_GET["page_id"]);	
+				
+					$args=array(
+					  'orderby' => 'name',
+					  'order' => 'ASC'
+					);								
+					 
+					$pages=get_pages($args);
+					foreach($pages as $page) { 										
+						if($pageId == $page->ID){
+							echo '<li class="current_page_item">';
+						}else{
+							echo '<li>';
+						}										
+						echo '	<a href="' . get_page_link( $page->ID ) . '">';
+						echo '		'. $page->post_title.'';
+						echo '	</a>';
+						echo '</li>';								
+					} 
+					?>		
+				</ul>												
+				<!--Fine Page-->			
 			</div>						
-		</div>				
-		
+		</div>						
 	</header>
 		
 	<!-- /#header -->

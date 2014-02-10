@@ -47,7 +47,8 @@
 
 <div class="loading">
 	<a class="inifiniteLoaderUp">
-		<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
+		<!--<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">-->
+		<img src="<?php bloginfo('template_directory'); ?>/images/ajaxload.gif">
 	</a>	
 </div>
 

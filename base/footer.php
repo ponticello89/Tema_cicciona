@@ -3,7 +3,8 @@
 	<?php if(is_home() || is_category()) : ?>					
 		<div class="loading">
 			<a class="inifiniteLoaderDown">
-				<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">
+				<!--<img src="<?php bloginfo('template_directory'); ?>/images/loading.gif">-->
+				<img src="<?php bloginfo('template_directory'); ?>/images/ajaxload.gif">
 			</a>	
 		</div>
 	<?php endif; ?>					
@@ -25,7 +26,10 @@
 </footer>
 <!-- /#footer --> 
 
-
+<?php		
+	//NAVIGATION PER MOBILE	
+	require_once (TEMPLATEPATH . '/includes/navigation_mobile.php');		
+?>
 
 
 <!-- wp_footer -->

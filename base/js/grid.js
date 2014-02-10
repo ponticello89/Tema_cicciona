@@ -27,7 +27,7 @@ var   $handler  = $('li', $tiles);
 var   $main     = $('#main');
 var   $window   = $(window);
 var   $document = $(document);
-var	  itemWidth = 330;
+var	  itemWidth = 320;
 var   options   = {
 	autoResize: true,  		 // This will auto-update the layout when the browser window is resized.
 	container: 	$main, 		 // Optional, used for some extra CSS styling
