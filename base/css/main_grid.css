@@ -43,7 +43,7 @@
 }
 #tiles li.is-loading {
   background-color: black;
-  background-image: url('http://desandro.github.io/imagesloaded/assets/loading.gif');
+  background-image: url('../images/loading-image.gif');
 }
 
 #tiles li.inactive {

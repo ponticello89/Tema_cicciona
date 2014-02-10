@@ -7,11 +7,10 @@
 				<img src="<?php bloginfo('template_directory'); ?>/images/ajaxload.gif">
 			</a>	
 		</div>
-	<?php endif; ?>					
-	
+	<?php endif; ?>			
 </div>
-<!-- /#pagewrap -->
-
+<!-- /#pagewrap -->	
+	
 <footer id="footer" class="pagewidth clearfix">
 					
 	<?php // footer navigation ?>

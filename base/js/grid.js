@@ -256,17 +256,16 @@ function apriImg_v2(urlArticle, page, category, idArticle){
 }
 
 function applyLayout() {
-	
-	//$tiles.imagesLoaded(function() {
-		// Destroy the old handler
-		if ($handler.wookmarkInstance) {
-			$handler.wookmarkInstance.clear();
-		}
 		
-		// Create a new layout handler.
-		$handler = $('li', $tiles);			
-		$handler.wookmark(options);
-	//});
+	// Destroy the old handler
+	if ($handler.wookmarkInstance) {
+		$handler.wookmarkInstance.clear();
+	}
+		
+	// Create a new layout handler.
+	$handler = $('li', $tiles);			
+	$handler.wookmark(options);
+	
 }
 
 function onProgress( imgLoad, image ) {	

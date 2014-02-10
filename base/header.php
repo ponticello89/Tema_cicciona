@@ -205,8 +205,7 @@
 					</li>					
 				</ul>				
 				<script>
-					$(document).ready(function() {
-						$('#menu-left').css({'visibility' : 'visible'});
+					$(document).ready(function() {						
 						$('.left-menu').sidr({
 							name: 'menu-left',
 							side: 'left'
