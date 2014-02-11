@@ -4,6 +4,13 @@
 	margin-bottom: 10px;	
 	float: left;
 	z-index: 1;
+	/*
+	-webkit-animation: inRight 2s;
+       -moz-animation: inRight 2s;
+        -ms-animation: inRight 2s;
+         -o-animation: inRight 2s;
+            animation: inRight 2s;
+	*/
 }
 .socialUl{
 	margin: 0px 0px 0px 0px !important;

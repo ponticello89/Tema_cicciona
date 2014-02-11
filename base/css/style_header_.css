@@ -3,8 +3,6 @@
 *****************************/
 .logoSite{
 	max-width: 200px;
-	margin-top: 20px;
-	margin-left: 20px;
 }
 /*
 .listBtn{
@@ -26,39 +24,29 @@
 	SUB CONTENITORE HEADER 
 *****************************/
 .headerLevel1{
-	width: 100%;	
-	height: 120px;
+	width: 100%;
+	height: 50%;
 	margin-bottom: 10px;
 }
 .headerSocialDiv{	
 	height: 76px;
-	margin-right: 15px;
 }
-
 .headerLevel2{
-	width: 100%;	
-	height: 42px;		
-	
-	/*
-	-webkit-animation: bounceInLeft 1.3s;
-       -moz-animation: bounceInLeft 1.3s;
-        -ms-animation: bounceInLeft 1.3s;
-         -o-animation: bounceInLeft 1.3s;
-            animation: bounceInLeft 1.3s;
-	*/
+	width: 100%;
+	height: 50%;
+	margin-bottom: 10px;
+	height: 42px;
+	text-align: center;
 }
-
 .headerLevel2 ul li{
 	display: inline-block;
 }
-
 .headerCategoriesUlBotton{
 	display: 	none;
 }
 @media screen and (max-width: 800px) {
 	.headerCategoriesUlBotton{
 		display: 	block;
-		margin-left: 15px;
 	}
 	.headerCategoriesUl{
 		display: 	none;
@@ -75,6 +63,68 @@
 	.headerLevel2 a{
 		padding: 	0px!important;
 	}
+}
+
+.ribbon{
+	display: inline-block;
+}
+.ribbon:after, .ribbon:before {
+    margin-top:0.5em;
+    content: "";
+    float:left;
+    border:1.5em solid #fff;
+}
+
+.ribbon:after {
+    border-right-color:transparent;
+}
+
+.ribbon:before {
+    border-left-color:transparent;
+}
+.ribbon a:link, .ribbon a:visited { 
+    color:#000;
+    text-decoration:none;
+    float:left;
+    height:44px;
+    overflow:hidden;
+}
+.ribbon span {
+    background:#fff;
+    display:inline-block;
+    line-height:38px;
+    padding:0 20px;
+    margin-top:6px;
+    position:relative;
+
+    -webkit-transition: background-color 0.2s, margin-top 0.2s;  /* Saf3.2+, Chrome */
+    -moz-transition: background-color 0.2s, margin-top 0.2s;  /* FF4+ */
+    -ms-transition: background-color 0.2s, margin-top 0.2s;  /* IE10 */
+    -o-transition: background-color 0.2s, margin-top 0.2s;  /* Opera 10.5+ */
+    transition: background-color 0.2s, margin-top 0.2s;
+}
+
+.ribbon a:hover span {
+    background:#FFD204;
+    margin-top:0;
+}
+
+.ribbon span:before {
+    content: "";
+    position:absolute;
+    top:38px;
+    left:0;
+    border-right:0.5em solid #9B8651;
+    border-bottom:0.5em solid #fff;
+}
+
+.ribbon span:after {
+    content: "";
+    position:absolute;
+    top:38px;
+    right:0;
+    border-left:0.5em solid #9B8651;
+    border-bottom:0.5em solid #fff;
 }
 /****************************
 	CONTENITORE TITOLO/LOGO 
@@ -100,7 +150,6 @@
 .headerPagesUl{
 	list-style: none;
 	float: right;	
-	margin-right: 15px;
 }
 /****************************
 	CONTENITORE CATEGORIE 
@@ -116,7 +165,6 @@
 .headerCategoriesUl{
 	list-style: none;
 	float: left;	
-	margin-left: 15px;
 }
 /****************************
 	HEADER SCROLL 

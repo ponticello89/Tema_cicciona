@@ -104,7 +104,8 @@
 	</div>
 	
 	<!-- /#header -->	
-	<header id="header" class="pagewidth">		
+	<header id="header" class="pagewidth">
+		<div class="headerDivTop">
 			<div class="headerLevel1">
 				<div class="headerTitleDiv">
 									
@@ -140,7 +141,7 @@
 			<?php 
 			if(is_home() || is_category() ){
 			?>
-				<div class="headerSocialDiv">
+				<div class="headerSocialDiv" style="width: 100%;">
 					<div style="float: right;">
 						<!-- SOCIAL-->			
 											
@@ -195,9 +196,7 @@
 					} 
 					?>								
 				</ul>			
-				<!--Fine Categorie-->
 				
-				<!--Menu Little window-->
 				<ul class="headerCategoriesUlBotton">					
 					<li class="socialLi">						
 						<p class="listBtn left-menu"></p>																	
@@ -214,7 +213,7 @@
 						});												
 					});
 				</script>						
-				<!--Menu Little window-->
+				<!--Fine Categorie-->
 				
 				<!--Inizio Page-->		
 				<ul class="headerPagesUl">															
@@ -242,7 +241,7 @@
 				</ul>												
 				<!--Fine Page-->			
 			</div>						
-								
+		</div>						
 	</header>
 		
 	<!-- /#header -->

@@ -29,7 +29,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_footer.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/style_header.css">
 <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/jquery.sidr.dark.css">
-<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/css/animation.css">
 <?php //JS ?>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/header.js"></script>	
@@ -104,7 +103,8 @@
 	</div>
 	
 	<!-- /#header -->	
-	<header id="header" class="pagewidth">		
+	<header id="header" class="pagewidth">
+		<div class="headerDivTop">
 			<div class="headerLevel1">
 				<div class="headerTitleDiv">
 									
@@ -140,7 +140,7 @@
 			<?php 
 			if(is_home() || is_category() ){
 			?>
-				<div class="headerSocialDiv">
+				<div class="headerSocialDiv" style="width: 100%;">
 					<div style="float: right;">
 						<!-- SOCIAL-->			
 											
@@ -161,18 +161,18 @@
 			<div class="headerLevel2">				
 				<!--Inizio Categorie-->				
 				<?php	$catId = htmlspecialchars($_GET["cat"]); ?>			
-				<ul class="headerCategoriesUl">											
-					<li 
+				<div class="ribbon">											
+					<a href="<?php echo get_option('home');?>"
 						<?php 										
 						if((is_home() || is_single()) && $catId==""){										
 							echo 'class="current_page_item"';
 						} 
-						?>
+						?>											
 					>
-						<a href="<?php echo get_option('home');?>">
+						<span>
 							ALL
-						</a>
-					</li>
+						</span>
+					</a>					
 					<?php														
 					$args=array(
 					  'orderby' => 'name',
@@ -183,21 +183,37 @@
 					foreach($categories as $category) { 		
 						if($category->term_id != 1){
 							if($catId == $category->term_id){
-								echo '<li class="current_page_item">';
+								echo '<a class="current_page_item" ';
 							}else{
-								echo '<li>';
+								echo '<a ';
 							}										
-							echo '	<a href="' . get_category_link( $category->term_id ) . '">';
-							echo '		'. $category->name.'';
-							echo '	</a>';
-							echo '</li>';
+							echo '	href="' . get_category_link( $category->term_id ) . '">';
+							echo '		<span>'. $category->name.'</span>';
+							echo '	</a>';							
 						}
 					} 
-					?>								
-				</ul>			
-				<!--Fine Categorie-->
+
+					$pageId = htmlspecialchars($_GET["page_id"]);	
 				
-				<!--Menu Little window-->
+					$args=array(
+					  'orderby' => 'name',
+					  'order' => 'ASC'
+					);								
+					 
+					$pages=get_pages($args);
+					foreach($pages as $page) { 										
+						if($pageId == $page->ID){
+							echo '<a class="current_page_item" ';
+						}else{
+							echo '<a ';
+						}										
+						echo '	href="' . get_page_link( $page->ID ) . '">';
+						echo '		<span>'. $page->post_title.'</span>';
+						echo '	</a>';													
+					} 
+					?>		
+				</div>			
+				
 				<ul class="headerCategoriesUlBotton">					
 					<li class="socialLi">						
 						<p class="listBtn left-menu"></p>																	
@@ -214,35 +230,9 @@
 						});												
 					});
 				</script>						
-				<!--Menu Little window-->
-				
-				<!--Inizio Page-->		
-				<ul class="headerPagesUl">															
-					<?php			
-					$pageId = htmlspecialchars($_GET["page_id"]);	
-				
-					$args=array(
-					  'orderby' => 'name',
-					  'order' => 'ASC'
-					);								
-					 
-					$pages=get_pages($args);
-					foreach($pages as $page) { 										
-						if($pageId == $page->ID){
-							echo '<li class="current_page_item">';
-						}else{
-							echo '<li>';
-						}										
-						echo '	<a href="' . get_page_link( $page->ID ) . '">';
-						echo '		'. $page->post_title.'';
-						echo '	</a>';
-						echo '</li>';								
-					} 
-					?>		
-				</ul>												
-				<!--Fine Page-->			
+				<!--Fine Categorie-->							
 			</div>						
-								
+		</div>						
 	</header>
 		
 	<!-- /#header -->
