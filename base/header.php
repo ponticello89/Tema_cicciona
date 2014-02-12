@@ -137,10 +137,10 @@
 				</div>
 			</div>
 			
-			<?php 
-			if(is_home() || is_category() ){
-			?>
-				<div class="headerSocialDiv">
+			<div class="headerSocialDiv">
+				<?php 
+				if(is_home() || is_category() ){
+				?>			
 					<div style="float: right;">
 						<!-- SOCIAL-->			
 											
@@ -153,11 +153,12 @@
 						?>					
 						
 						<!-- SOCIAL-->	
-					</div>				
-				</div>	
-			<?php 	
-			}
-			?>			
+					</div>								
+				<?php 	
+				}
+				?>	
+			</div>	
+			
 			<div class="headerLevel2">				
 				<!--Inizio Categorie-->				
 				<?php	$catId = htmlspecialchars($_GET["cat"]); ?>			
