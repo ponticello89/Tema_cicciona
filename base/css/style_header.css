@@ -3,7 +3,6 @@
 *****************************/
 .logoSite{
 	max-width: 200px;
-	margin-top: 20px;
 	margin-left: 20px;
 }
 /*
@@ -27,7 +26,7 @@
 *****************************/
 .headerLevel1{
 	width: 100%;	
-	height: 190px;	
+	height: 170px;	
 }
 .headerSocialDiv{	
 	height: 76px;

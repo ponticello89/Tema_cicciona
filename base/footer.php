@@ -17,8 +17,8 @@
 	<?php wp_nav_menu(array('theme_location' => 'footer-nav' , 'fallback_cb' => '' , 'container'  => '' , 'menu_id' => 'footer-nav' , 'menu_class' => 'footer-nav')); ?>
 
 	<div class="footer-text clearfix">
-		<?php bloginfo(); ?> &copy; <?php echo date( 'Y' ); ?><br>
-		Powered by ponte.valerio@gmail.com 
+		<p><?php bloginfo(); ?> &copy; <?php echo date( 'Y' ); ?></p><br>
+		<p>Powered by ponte.valerio@gmail.com</p>
 	</div>
 	<!-- /footer-text --> 
 
